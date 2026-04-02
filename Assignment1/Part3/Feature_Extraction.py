@@ -17,7 +17,7 @@ import time
 # ─────────────────────────────────────────────
 # CONFIGURATION — change this path to your folder
 # ─────────────────────────────────────────────
-IMAGE_FOLDER = "Indian_Digits_Train"   # <-- put your folder path here
+IMAGE_FOLDER = r"C:\Neural\Indian_Digits_Train"   # <-- put your folder path here
 NUM_IMAGES   = 10000
 
 def load_images(folder):
