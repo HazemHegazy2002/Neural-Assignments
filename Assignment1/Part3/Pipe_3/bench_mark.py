@@ -32,7 +32,7 @@ from PIL import Image, ImageFilter, ImageEnhance
 
 API_KEY    = os.getenv(
     "OPENROUTER_API_KEY",
-    "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",
+    "api",
 )
 DATA_DIR   = Path(r"C:\Neural\Indian_Digits_Train")
 OUTPUT_DIR = Path(r"C:\Neural\Pipeline3_Results")
