@@ -164,3 +164,9 @@ if __name__ == "__main__":
     print_summary(predicted_labels, margins, accuracy, n_correct, n_total)
 
     print("\nStep 3 done. Run step4_active_refinement.py next.")
+    
+    gbt-4o-mini
+    gemini-flash 2.5
+    accurary_bad 
+    
+    
