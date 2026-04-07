@@ -2,10 +2,10 @@ import numpy as np
 import matplotlib.pyplot as plt
 
 # ========================
-# Regressing Problems 1 & 2
+# Regressing Problem 1 
 # ========================
 
-# Problem 1: Insured Persons in a Country
+
 
 # ========================
 # Data (ACTUAL YEARS)
@@ -141,4 +141,3 @@ y_pred = np.polyval(best_model, year_pred)
 
 print(f"\nPredicted insured persons in 1997 with best Model : {y_pred:.2f}")
 
-#problem 2: House Prices in a City

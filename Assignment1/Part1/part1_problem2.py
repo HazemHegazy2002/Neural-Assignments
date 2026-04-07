@@ -1,6 +1,11 @@
 import numpy as np
 import matplotlib.pyplot as plt
 from typing import Any
+
+# ========================
+# Regressing Problems 2
+# ========================
+
 def print_linear_equation(beta: Any):
     print(f"Linear Model: y = {beta[0]:.4f}*T + {beta[1]:.4f}*I + {beta[2]:.4f}")
 
