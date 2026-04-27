@@ -1,0 +1,51 @@
+{
+  "machine_setup": {
+    "platform": "Windows-11-10.0.26200-SP0",
+    "python": "3.13.1",
+    "torch": "2.7.1+cu118",
+    "device": "cuda",
+    "cuda_available": true,
+    "gpu_name": "NVIDIA GeForce RTX 3060 Laptop GPU"
+  },
+  "part3_candidates": [
+    {
+      "experiment": "Part 3 candidate",
+      "real_per_digit": 350,
+      "augmented_per_digit": 500,
+      "synthetic_per_digit": 1000,
+      "accuracy": 98.85,
+      "train_time_ms": 91476.02391242981,
+      "test_time_ms": 104.39133644104004
+    }
+  ],
+  "comparison": [
+    {
+      "experiment": "Best Part 2 (all table runs)",
+      "real_per_digit": 1000,
+      "augmented_per_digit": 0,
+      "synthetic_per_digit": 2000,
+      "accuracy": 99.2,
+      "train_time_ms": 162738.23618888855,
+      "test_time_ms": 84.2740535736084
+    },
+    {
+      "experiment": "Best Part 3 combo (350 real + augmented + synthetic)",
+      "real_per_digit": 350,
+      "augmented_per_digit": 500,
+      "synthetic_per_digit": 1000,
+      "accuracy": 98.85,
+      "train_time_ms": 91476.02391242981,
+      "test_time_ms": 104.39133644104004
+    },
+    {
+      "experiment": "1000 real only",
+      "real_per_digit": 1000,
+      "augmented_per_digit": 0,
+      "synthetic_per_digit": 0,
+      "accuracy": 99.0,
+      "train_time_ms": 49463.58275413513,
+      "test_time_ms": 98.61063957214355
+    }
+  ],
+  "note": "Part 3 compares best Part 2 run from the full table vs best selected 350-real augmented+synthetic combo vs 1000-real reference."
+}

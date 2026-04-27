@@ -1,0 +1,4 @@
+experiment,real_per_digit,augmented_per_digit,synthetic_per_digit,accuracy,train_time_ms,test_time_ms
+Best Part 2 (all table runs),1000,0,2000,99.2,162738.23618888855,84.2740535736084
+Best Part 3 combo (350 real + augmented + synthetic),350,500,1000,98.85,91476.02391242981,104.39133644104004
+1000 real only,1000,0,0,99.0,49463.58275413513,98.61063957214355
