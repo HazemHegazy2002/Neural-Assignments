@@ -1,0 +1,220 @@
+
+=== PAGE 1 ===
+Assignment 2 
+Part I 
+Use ReducedMNIST which is a reduced version of the MNIST data set. 
+• ReducedMNIST training: 1000 examples for each digit to be selected randomly 
+from the original MNIST Data. 
+• ReducedMNIST test: 200 examples for each digit. 
+ 
+Prob. 1:  
+Use multilayer perceptron (MLP) with 1, 3, or 4 hidden layers to solve this problem. You 
+can use the DCT features used in assignment 1. You are free to use any hyper-
+parameters of your own choice. 
+ 
+Prob. 2:  
+a. Use the ReducedMNIST data to train CNN from the images without using a feature 
+extraction step. Use the following structure to start with.  
+(Hint: you must adjust your parameters to fit 28x28 images instead of 32x32, and use ReLU function as 
+an activation function). 
+ 
+a. Make some (at least two) variations in the hyper-parameters of your choice and check 
+the network performance, then give your comments. These changes may be in the 
+number of filters in any convolutional layer, the activation function, adding or removing 
+any layer…etc. 
+b. Compare the results that you have obtained in this assignment with those you have 
+obtained in Assignment 1; regarding the accuracy, the training time, and the testing 
+time (fill the following table). 
+ 
+ 
+ 
+
+
+=== PAGE 2 ===
+ 
+ 
+ 
+ 
+  Features   
+  DCT PCA AutoEncoder  
+  Accuracy* Processing 
+Time** Accuracy Processing 
+Time Accuracy Processing 
+Time 
+DCT and PCA 
+features from 
+assignment 1 
+Classifier            
+K-means 
+Clustering 
+1             
+4             
+16             
+32             
+SVM*** Linear             
+Nonlinear:              
+Multi-layer Perceptron (MLP) 
+Assignment 2 
+  DCT PCA AutoEncoder 
+ Variations Accuracy* Processing 
+Time** Accuracy Processing 
+Time Accuracy Processing 
+Time 
+MLP 
+1-Hidden             
+3-Hidden             
+4-Hidden             
+In the CNN Model no Features are needed 
+  Variations Accuracy Training time Testing time   
+CNN**** 
+Variation1:             
+Variation2:             
+Variation3:             
+Variation4:             
+* Accuracy to be as % with one friction digit like 89.5% not as 89.51111111%  
+** Processing time in milli-seconds like 10.3 msec. not as 10.3333333 msec. 
+*** mention the kernel name and its specs 
+**** Describe each variation in short in the corresponding cells 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+
+=== PAGE 3 ===
+ 
+ 
+Prob.3:  
+Speech Recognition from Speech Spectrum with Augmentation Experience: 
+a. Given the speech data (train and test) for the 10 digits uttered by many speakers, 
+develop and train a network to recognize any given new digit using the spectrogram 
+of each digit as the training and testing data. You may convert the speech data to 
+images and deal with the speech problem as if it is an object recognition problem in 
+images. (Hint: you may start from the network in problem 1 and enhance by making some alternations 
+in the hyper-parameters or start from any of the networks that have been used in the ImageNet problem). 
+b. Repeat “a” above after making data augmentation for the speech data; for example: 
+speed up 3% and down speed 3%, and you may add some speech noise. 
+c. Repeat “a” above after making data augmentation for the spectrum images; for 
+example: squeeze (horizontally) the image by 3%, expand (horizontally) the image by 
+3%, and you may add some noise to the images. 
+d. Repeat “a” above after making speech and image augmentation as done in “b” and 
+“c” above. 
+ 
+Examples of spectrum images for some digits 
+
+
+=== PAGE 4 ===
+Part II 
+Problem 4: Data Augmentation and Data Synthesis 
+Autoencoder to represent and solve the utterances of the 10 digits given in prob 3: 
+Given the speech data (train and test) for the 10 digits uttered by many speakers, develop an autoencoder 
+(AE) to generate a single vector that represents each utterance (you may divide the utterance into frames of 
+15 m. Sec. each, then concatenate these frames and use the AE to generate a single vector of a length of your 
+choice to represent the complete utterance). Once you represent each utterance in a single vector, develop a 
+classifier to classify each utterance in the test set. 
+1. You may start by just calculating the average frame for each utterance to get a vector that represents each 
+utterance. Make it the baseline for your results. 
+2. You should try to use the AE in this way: 
+a. Concatenate all the frames in one shot and generate a single vector for each utterance. However, you 
+will have different lengths for each utterance, then use the maximum length and append zero frames in 
+shorter utterances. 
+ 
+ 
+ 
+ 
+                          
+An example of a spectrum image for an utterance 
+ 
+
+
+=== PAGE 5 ===
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+An Auto Encoder is used to concatenate 2 or more frames to ultimately reduce the utterance to a single vector. 
+ 
+ 
+Problem 5: Data Augmentation 
+For the ReducedMNIST database: 
+1. Generate using augmentation methods different number of examples as indicated in the table below. 
+Augmentation: include rotating right, left with different angles, moving the digit random movements by 
+delta x and delta y, rotate each digit like 5O right or left adding % of white noise…etc.  
+2. Design a pipeline to test the recognition model generated with the mixture shown in the table below. 
+(Hint: let LeNET-5 be your basic model for recognition.) 
+3. Fill out this table of the results for the same test data (200 examples) and add your comments on the 
+results. (Hint: we increase the data generated as no labeling is needed gust computer time to 
+generate.)  
+ 
+ Real Data for each digit 
+ 
+ 350 750 1,000 
+No. of 
+Generated 
+examples 
+per digit 
+0  350 real 750 real 1000 real 
+1,000  
+350 real +  
+1000 generated 
+of 350 real 
+750 real + 
+1000 generated 
+of 750 real 
+1000 real +  
+1000 generated 
+of 1000 real 
+1,500  
+350 real +  
+1500 generated 
+of 350 real 
+750 real + 
+1500 generated 
+of 700 real 
+1000 real +  
+1500 generated 
+of 1000 real 
+2,000  
+350 real +  
+2000 generated 
+of 350 real 
+750 real + 
+2000 generated 
+of 750 real 
+1000 real +  
+2000 generated 
+of 1000 real 
+ 
+
+=== PAGE 6 ===
+Problem 6: use GAN to generate Synthetic Data  
+1. Use GAN network, trained using 350 training examples only and generate 3 different examples from 
+each digit. Comment on the generated examples regarding how close they are from the real, and the 
+computer time exhausted in training and generation of the examples. 
+(Hints: 
+• use this paper to help you get a stable and reasonable starting point in your GAN 
+implementation: https://arxiv.org/abs/1511.06434 
+• It worth to visit this website too: https://towardsdatascience.com/cgan-conditional-generative-
+adversarial-network-how-to-gain-control-over-gan-outputs-b30620bd0cc8/ 
+• Add a time stamp in your code to be able to catch time information. Do not forget to mention 
+the computer setup used.) 
+2. Repeat the above work but the generated data in this case will be through using the GAN network to 
+generate each digit the number of times shown in the above table. Use a table like the one shown 
+above and generate a model in each case. Compare the results and comment.  
+3. Select any reasonable combination of the augmented and synthetic data in the case of 350 examples 
+available from real data and show to what extent we can reduce the need for real data by comparing 
+the best case results you obtained in all the above work with the case of using all the available 1000 
+examples for each digit of real data. 
+ 
+ 
