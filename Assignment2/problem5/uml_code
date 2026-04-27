@@ -1,0 +1,65 @@
+@startuml
+skinparam backgroundColor #FAFAFA
+skinparam defaultFontName Arial
+skinparam ArrowColor #555555
+skinparam ArrowThickness 1.5
+skinparam ActivityBorderColor #6366F1
+skinparam ActivityBackgroundColor #EEF2FF
+skinparam ActivityFontColor #1E1B4B
+skinparam NoteBackgroundColor #FEF9C3
+skinparam NoteBorderColor #CA8A04
+skinparam ActivityDiamondBackgroundColor #FEF9C3
+skinparam ActivityDiamondBorderColor #CA8A04
+
+title Problem 5 — ReducedMNIST Data Augmentation Pipeline
+
+start
+
+partition "Step 1 — Data Preparation" {
+  :Load ReducedMNIST images\n(train & test folders);
+  :Create 3 fixed training splits\n(350 / 750 / 1000 per digit);
+  :Save splits to disk\n(reproducibility via seed=42);
+}
+
+partition "Step 2 — Data Augmentation" {
+  fork
+    :No augmentation\n(real data only);
+    note right: **Baseline path**
+  fork again
+    :Apply random transforms\n(rotation, translation, noise);
+    note right: **Augmentation path**
+  end fork
+  :Combine real + generated samples;
+}
+
+partition "Step 3 — Model" {
+  :Initialize LeNet-5\n(adapted for 28×28);
+  note right
+    Conv → Pool → Conv → Pool
+    → FC → FC → FC (10 classes)
+  end note
+}
+
+partition "Step 4 — Training" {
+  :Train on combined dataset\n(real + augmented);
+  :Adam optimizer + StepLR scheduler\n(30 epochs, batch=32);
+  :Record final train accuracy\nand training time;
+}
+
+partition "Step 5 — Evaluation" {
+  :Run inference on fixed test set\n(200 samples per digit);
+  :Record test accuracy\nand testing time;
+}
+
+partition "Step 6 — Experiment Grid (12 runs)" {
+  :Repeat Steps 2–5 for all\ncombinations of real × generated;
+  note right
+    Real:      350 | 750 | 1000
+    Generated:   0 | 1000 | 1500 | 2000
+  end note
+  :Save all results to JSON;
+  :Print results table\n(accuracy, train time, test time);
+}
+
+stop
+@enduml

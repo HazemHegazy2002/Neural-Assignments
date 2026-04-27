@@ -1,0 +1,79 @@
+@startuml
+skinparam backgroundColor #FAFAFA
+skinparam defaultFontName Arial
+skinparam ArrowColor #555555
+skinparam ArrowThickness 1.5
+skinparam ActivityBorderColor #6366F1
+skinparam ActivityBackgroundColor #EEF2FF
+skinparam ActivityFontColor #1E1B4B
+skinparam NoteBackgroundColor #FEF9C3
+skinparam NoteBorderColor #CA8A04
+skinparam ActivityDiamondBackgroundColor #FEF9C3
+skinparam ActivityDiamondBorderColor #CA8A04
+
+title Problem 4 — Autoencoder Speech Digit Pipeline
+
+start
+
+partition "Step 1 — Data Loading" {
+  :Load WAV files\n(train & test folders);
+  :Extract label from filename\n(digit 0–9);
+}
+
+partition "Step 2 — Feature Extraction" {
+  :Split each utterance into 15ms frames;
+  :Extract 13 MFCCs per frame;
+
+  fork
+    :Average all frames\n→ vector [13];
+    note right: **Baseline path**
+  fork again
+    :Zero-pad to MAX_FRAMES\nflatten → vector [MAX_FRAMES × 13];
+    note right: **AE path**
+  end fork
+}
+
+partition "Step 3 — Baseline Classifier" {
+  :Normalize with StandardScaler\n(fit on train only);
+  :Train SVM\n(RBF kernel, C=10, gamma=scale);
+  :Predict on test set;
+  :Record accuracy, train time, test time;
+  :Save confusion matrix\nbaseline_confusion_matrix.png;
+}
+
+partition "Step 4 — Autoencoder" {
+  :Normalize with feature mean/std\n(fit on train split only);
+  :Train LinearAutoencoder\n(input → bottleneck=256 → input);
+  note right
+    MSE loss
+    Adam optimizer
+    ReduceLROnPlateau
+    80 epochs, batch=128
+    15% validation split
+  end note
+  :Load best model weights\n(lowest val loss);
+  :Encode train & test vectors\n→ bottleneck vectors [256];
+  :Save ae_loss_curve.png;
+}
+
+partition "Step 5 — AE + SVM Classifier" {
+  :Load bottleneck vectors;
+  :Train SVM with GridSearchCV\n(5-fold CV, RBF kernel);
+  note right
+    C: [3, 10, 30, 100, 300]
+    gamma: [0.0005 – scale]
+    class_weight: [None, balanced]
+  end note
+  :Predict on test set;
+  :Record accuracy, train time, test time;
+  :Save confusion matrix\nae_svm_confusion_matrix.png;
+}
+
+partition "Comparison" {
+  :Compare baseline vs AE+SVM\n(gain = AE accuracy − baseline accuracy);
+  :Save comparison_baseline_vs_ae_svm.npy;
+  :Report per-digit accuracy\nfor both methods;
+}
+
+stop
+@enduml

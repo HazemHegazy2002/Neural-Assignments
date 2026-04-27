@@ -1,0 +1,73 @@
+@startuml
+skinparam backgroundColor #FAFAFA
+skinparam defaultFontName Arial
+skinparam ArrowColor #555555
+skinparam ArrowThickness 1.5
+skinparam ActivityBorderColor #6366F1
+skinparam ActivityBackgroundColor #EEF2FF
+skinparam ActivityFontColor #1E1B4B
+skinparam NoteBackgroundColor #FEF9C3
+skinparam NoteBorderColor #CA8A04
+skinparam ActivityDiamondBackgroundColor #FEF9C3
+skinparam ActivityDiamondBorderColor #CA8A04
+
+title Problem 3 — Arabic Digit Speech Recognition Pipeline
+
+start
+
+partition "Step 1 — Data Loading" {
+  :Load WAV files\n(Train & Test folders);
+  :Extract label from filename\n(last digit before extension);
+}
+
+partition "Step 2 — Feature Extraction" {
+  :Load waveform\n(resample to 16kHz);
+  :Compute log-mel spectrogram\n(128 mel bins, 128×128 image);
+  :Normalise to [0, 1];
+}
+
+partition "Step 3 — Augmentation (optional)" {
+  fork
+    :No augmentation;
+    note right: **Part (a) — Baseline**
+  fork again
+    :Audio augmentation\n(speed ±3%, add noise);
+    note right: **Part (b)**
+  fork again
+    :Image augmentation\n(squeeze/expand ±3%, add noise);
+    note right: **Part (c)**
+  fork again
+    :Audio + Image augmentation;
+    note right: **Part (d)**
+  end fork
+}
+
+partition "Step 4 — Model" {
+  :Initialize DigitCNN\n(VGG-style, 3 conv blocks);
+  note right
+    Block1: Conv→BN→ReLU×2 → MaxPool
+    Block2: Conv→BN→ReLU×2 → MaxPool
+    Block3: Conv→BN→ReLU×2 → MaxPool
+    FC: 512 → 10 logits
+  end note
+}
+
+partition "Step 5 — Training" {
+  :Train on augmented set\n(85% train / 15% val split);
+  :Adam + ReduceLROnPlateau\n(50 epochs, early stopping);
+  :Save best model weights\n(lowest val loss);
+}
+
+partition "Step 6 — Evaluation" {
+  :Run inference on test set\n(no augmentation);
+  :Record test accuracy\nand testing time;
+  :Save confusion matrix PNG;
+}
+
+partition "Step 7 — Comparison" {
+  :Compare Parts (a), (b), (c), (d)\n(accuracy, train time, test time);
+  :Save results to JSON\nand print summary table;
+}
+
+stop
+@enduml
