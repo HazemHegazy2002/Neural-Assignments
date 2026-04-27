@@ -25,14 +25,16 @@ os.makedirs(RESULTS_DIR, exist_ok=True)
 BATCH_SIZE = 64
 EPOCHS = 50
 LR = 0.001
+WEIGHT_DECAY = 1e-4
+LABEL_SMOOTHING = 0.05
 NUM_CLASSES = 10
 NOISE_DIM = 100
 EMBED_DIM = 50
 CHANNELS = 1
 
-# Problem 6, Part 2 (strict reading):
-# GAN is trained with 350 real samples per digit, then we vary generated counts.
-REAL_COUNTS = [350]
+# Problem 6, Part 2 (from PDF table):
+# Evaluate 350/750/1000 real samples per digit, with generated counts 0/1000/1500/2000.
+REAL_COUNTS = [350, 750, 1000]
 GENERATED_COUNTS = [0, 1000, 1500, 2000]
 
 SEED = 42
@@ -117,7 +119,7 @@ class Generator(nn.Module):
 
 
 def build_real_pools(full_data, full_targets, max_per_digit, seed):
-    """Create per-digit real pools once; here we only use 350 real per digit."""
+    """Create per-digit real pools once; supports up to 1000 real per digit."""
     pools = {}
     generator = torch.Generator().manual_seed(seed)
 
@@ -163,12 +165,17 @@ def train_lenet(train_images, train_labels, test_images, test_labels, epochs, de
 
     train_dataset = TensorDataset(train_images, train_labels)
     test_dataset = TensorDataset(test_images, test_labels)
-    train_loader = DataLoader(train_dataset, batch_size=BATCH_SIZE, shuffle=True)
-    test_loader = DataLoader(test_dataset, batch_size=BATCH_SIZE, shuffle=False)
+    loader_kwargs = {
+        "num_workers": 0,
+        "pin_memory": torch.cuda.is_available(),
+    }
+    train_loader = DataLoader(train_dataset, batch_size=BATCH_SIZE, shuffle=True, **loader_kwargs)
+    test_loader = DataLoader(test_dataset, batch_size=BATCH_SIZE, shuffle=False, **loader_kwargs)
 
     model = LeNet5(NUM_CLASSES).to(device)
-    criterion = nn.CrossEntropyLoss()
-    optimizer = optim.Adam(model.parameters(), lr=LR)
+    criterion = nn.CrossEntropyLoss(label_smoothing=LABEL_SMOOTHING)
+    optimizer = optim.AdamW(model.parameters(), lr=LR, weight_decay=WEIGHT_DECAY)
+    scheduler = optim.lr_scheduler.CosineAnnealingLR(optimizer, T_max=epochs)
 
     train_start = time.time()
     for epoch in range(epochs):
@@ -186,7 +193,9 @@ def train_lenet(train_images, train_labels, test_images, test_labels, epochs, de
 
         if (epoch + 1) % 10 == 0:
             avg_loss = epoch_loss / len(train_loader)
-            print(f"  Epoch [{epoch + 1:>2}/{epochs}] Loss: {avg_loss:.4f}")
+            lr_now = scheduler.get_last_lr()[0]
+            print(f"  Epoch [{epoch + 1:>2}/{epochs}] Loss: {avg_loss:.4f} | LR: {lr_now:.6f}")
+        scheduler.step()
 
     train_time_ms = (time.time() - train_start) * 1000.0
 
@@ -270,7 +279,7 @@ print(f"Test shape: {tuple(test_images.shape)}")
 # -----------------------------------------
 # LOAD FULL MNIST TRAIN AND BUILD REAL POOLS
 # -----------------------------------------
-print("\nLoading full MNIST train set and selecting 350 real samples per digit...")
+print("\nLoading full MNIST train set and selecting up to 1000 real samples per digit...")
 full_train = torchvision.datasets.MNIST(root="./data", train=True, download=True)
 full_data = full_train.data.float() / 127.5 - 1.0
 full_targets = full_train.targets
@@ -347,7 +356,7 @@ save_results(results)
 plot_heatmap(results)
 
 print("\n" + "=" * 92)
-print("PROBLEM 6 PART 2 RESULTS (350 REAL ONLY)")
+print("PROBLEM 6 PART 2 RESULTS (350/750/1000 REAL)")
 print("=" * 92)
 print(f"{'Real/digit':>10} {'Gen/digit':>10} {'Train size':>12} {'Accuracy':>10} {'Train ms':>12} {'Test ms':>10}")
 print("-" * 92)
