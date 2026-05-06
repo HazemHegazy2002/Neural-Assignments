@@ -1,0 +1,84 @@
+======================================================================
+   STEP 2 — INTER-ANNOTATOR AGREEMENT (IAA) REPORT
+   Task 10: Keyphrase Extraction  (استخراج الكلمات المفتاحية)
+   Problem 5 — Arabic NLP Benchmarking
+======================================================================
+
+── DATASET OVERVIEW ─────────────────────────────────────────────
+  Total paragraphs           : 80
+  MSA paragraphs             : 27
+  Classical Arabic           : 27
+  Dialect Arabic             : 26
+  Annotators per sample      : 3
+  Min annotators for gold    : 2  (strict majority)
+  Disagreement resolution    : Majority voting (≥ 2/3 annotators)
+  Arabic normalization       : Yes  (diacritics, alef, teh, ya)
+
+── PAIRWISE F1 (per-paragraph annotator agreement) ──────────────
+  Global Average F1          : 0.6811
+  Global Minimum F1          : 0.2063
+  Global Maximum F1          : 1.0
+  Global Std Dev F1          : 0.1616
+  [Computed as avg of 3 annotator pairs × 80 paragraphs]
+  [Std Dev > 0 confirms genuine per-paragraph variation]
+
+── FLEISS' KAPPA (binary keyphrase-choice variant) ──────────────
+  κ (Fleiss' Kappa)          : 0.0332
+  P̄  (observed agreement)    : 0.5901
+  P̄ₑ (expected by chance)    : 0.576
+  Proportion YES (chose kp)  : 0.6949
+  Proportion NO  (skipped kp): 0.3051
+  Total binary units         : 496
+  Interpretation             : Slight agreement
+  [Method: binary choice over (paragraph × keyphrase) units]
+  [Scale (Landis & Koch 1977):]
+   <0 Poor | 0–0.20 Slight | 0.21–0.40 Fair
+   0.41–0.60 Moderate | 0.61–0.80 Substantial | 0.81+ Almost perfect
+
+── DISAGREEMENT STATISTICS ──────────────────────────────────────
+  Paragraphs with disagreement : 79 / 80 (98.8%)
+  Fully unanimous paragraphs   : 1
+  All disputes resolved by majority voting
+  Full cases listed in iaa_disagreements.json
+
+── VARIETY-LEVEL BREAKDOWN ──────────────────────────────────────
+  MSA:
+    Count                    : 27
+    Avg Pairwise F1          : 0.7575
+    Min / Max F1             : 0.5444 / 1.0
+    Std Dev F1               : 0.1128
+    Disagreement Rate        : 96.3%
+    Avg Gold Keyphrases      : 4.89
+
+  Classical:
+    Count                    : 27
+    Avg Pairwise F1          : 0.7116
+    Min / Max F1             : 0.5386 / 0.9259
+    Std Dev F1               : 0.1036
+    Disagreement Rate        : 100.0%
+    Avg Gold Keyphrases      : 4.44
+
+  Dialect:
+    Count                    : 26
+    Avg Pairwise F1          : 0.5702
+    Min / Max F1             : 0.2063 / 0.9394
+    Std Dev F1               : 0.1915
+    Disagreement Rate        : 100.0%
+    Avg Gold Keyphrases      : 3.65
+
+── GOLD QUALITY CHECK ───────────────────────────────────────────
+  Stored gold = Majority-vote gold : 75 / 80
+  ⚠  5 mismatch(es) — see iaa_report.json
+
+── ACCEPTANCE CRITERIA ──────────────────────────────────────────
+  Target Avg Pairwise F1 ≥ 0.70  →  ❌ FAIL  (0.6811)
+  Target Fleiss' κ  ≥ 0.41       →  ❌ FAIL  (0.0332)
+
+  ❌  IAA below threshold — review annotation quality.
+
+── OUTPUT FILES ─────────────────────────────────────────────────
+  iaa_report.json                full per-paragraph data & metrics
+  iaa_disagreements.json         disagreement cases with resolution
+  gold_final.json                final gold keyphrases for all 80 items
+  iaa_summary.txt                this human-readable report
+======================================================================
