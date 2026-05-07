@@ -1,0 +1,21 @@
+========================================================================
+STEP 3 — KEYPHRASE BASELINE EVALUATION
+Task 10: Keyphrase Extraction
+Problem 5 — Arabic NLP Benchmarking
+========================================================================
+Dataset size        : 80
+Evaluation cutoff   : Precision@5
+Macro Precision@5  : 0.8475
+Macro Recall@5     : 0.8637
+Macro F1@5         : 0.8547
+Hit rate            : 1.0
+
+By variety:
+  MSA        count=27 P@5=0.7037 R@5=0.7074 F1@5=0.7053
+  Classical  count=27 P@5=0.9333 R@5=0.9481 F1@5=0.9399
+  Dialect    count=26 P@5=0.9077 R@5=0.9385 F1@5=0.9214
+
+Notes:
+  • This is a lightweight unsupervised baseline, not the final model.
+  • Use the report as the starting point for model comparison in later steps.
+  • Real-data provenance is preserved in the dataset.json file.

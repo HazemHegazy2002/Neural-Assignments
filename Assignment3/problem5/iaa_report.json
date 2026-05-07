@@ -22,111 +22,92 @@
   "global_iaa": {
     "pairwise_f1": {
       "description": "Average F1 over all C(3,2)=3 annotator pairs per paragraph, then averaged over all 80 paragraphs",
-      "global_average": 0.6811,
-      "global_min": 0.2063,
+      "global_average": 0.8938,
+      "global_min": 0.6945,
       "global_max": 1.0,
-      "global_std": 0.1616
+      "global_std": 0.0734
     },
     "fleiss_kappa": {
-      "kappa": 0.0332,
+      "kappa": 0.1261,
       "interpretation": "Slight agreement",
-      "p_bar_observed": 0.5901,
-      "p_e_expected": 0.576,
-      "p_yes_overall": 0.6949,
-      "p_no_overall": 0.3051,
-      "total_units": 496,
+      "p_bar_observed": 0.8196,
+      "p_e_expected": 0.7936,
+      "p_yes_overall": 0.8831,
+      "p_no_overall": 0.1169,
+      "total_units": 425,
       "n_annotators": 3
     },
     "disagreements": {
-      "total_with_disagreement": 79,
-      "disagreement_rate": 0.9875,
+      "total_with_disagreement": 1,
+      "disagreement_rate": 0.0125,
       "resolution": "Majority voting (≥ 2/3)"
     }
   },
   "variety_breakdown": {
     "MSA": {
       "count": 27,
-      "avg_pairwise_f1": 0.7575,
-      "min_pairwise_f1": 0.5444,
+      "avg_pairwise_f1": 0.9204,
+      "min_pairwise_f1": 0.75,
       "max_pairwise_f1": 1.0,
-      "std_pairwise_f1": 0.1128,
-      "paragraphs_with_disagree": 26,
-      "disagreement_rate": 0.963,
-      "avg_gold_keyphrases": 4.89
+      "std_pairwise_f1": 0.0671,
+      "paragraphs_with_disagree": 0,
+      "disagreement_rate": 0.0,
+      "avg_gold_keyphrases": 4.96
     },
     "Classical": {
       "count": 27,
-      "avg_pairwise_f1": 0.7116,
-      "min_pairwise_f1": 0.5386,
-      "max_pairwise_f1": 0.9259,
-      "std_pairwise_f1": 0.1036,
-      "paragraphs_with_disagree": 27,
-      "disagreement_rate": 1.0,
-      "avg_gold_keyphrases": 4.44
+      "avg_pairwise_f1": 0.9012,
+      "min_pairwise_f1": 0.7852,
+      "max_pairwise_f1": 1.0,
+      "std_pairwise_f1": 0.0603,
+      "paragraphs_with_disagree": 0,
+      "disagreement_rate": 0.0,
+      "avg_gold_keyphrases": 4.93
     },
     "Dialect": {
       "count": 26,
-      "avg_pairwise_f1": 0.5702,
-      "min_pairwise_f1": 0.2063,
-      "max_pairwise_f1": 0.9394,
-      "std_pairwise_f1": 0.1915,
-      "paragraphs_with_disagree": 26,
-      "disagreement_rate": 1.0,
-      "avg_gold_keyphrases": 3.65
+      "avg_pairwise_f1": 0.8584,
+      "min_pairwise_f1": 0.6945,
+      "max_pairwise_f1": 1.0,
+      "std_pairwise_f1": 0.0778,
+      "paragraphs_with_disagree": 1,
+      "disagreement_rate": 0.0385,
+      "avg_gold_keyphrases": 4.77
     }
   },
   "gold_quality_check": {
-    "matches_stored_gold": 75,
-    "mismatches_found": 5,
-    "mismatch_ids": [
-      56,
-      57,
-      59,
-      60,
-      76
-    ]
+    "matches_stored_gold": 80,
+    "mismatches_found": 0,
+    "mismatch_ids": []
   },
   "acceptance_criteria": {
     "target_avg_pairwise_f1": 0.7,
     "target_fleiss_kappa": 0.41,
-    "avg_f1_pass": false,
+    "avg_f1_pass": true,
     "kappa_pass": false
   },
   "per_paragraph": [
     {
       "id": 1,
       "variety": "MSA",
-      "topic": "Technology",
+      "topic": "culture",
       "pair_f1_scores": {
-        "ann1_ann2": 0.5,
-        "ann1_ann3": 0.8889,
-        "ann2_ann3": 0.6667
+        "ann1_ann2": 0.8889,
+        "ann1_ann3": 1.0,
+        "ann2_ann3": 0.8889
       },
-      "avg_pairwise_f1": 0.6852,
-      "has_disagreement": true,
+      "avg_pairwise_f1": 0.9259,
+      "has_disagreement": false,
       "disagreement_info": {
         "unanimous": [
-          "التطبيقات الذكية",
-          "ترجمة اللغات"
+          "يذاع",
+          "ويوم",
+          "الساعه",
+          "البرامج"
         ],
         "disputed": [
           {
-            "keyphrase": "الذكاء الاصطناعي",
-            "votes": 2,
-            "out_of": 3
-          },
-          {
-            "keyphrase": "التعرف على الكلام",
-            "votes": 2,
-            "out_of": 3
-          },
-          {
-            "keyphrase": "البحث العلمي",
-            "votes": 1,
-            "out_of": 3
-          },
-          {
-            "keyphrase": "تحليل الصور الطبية",
+            "keyphrase": "برنامج",
             "votes": 2,
             "out_of": 3
           }
@@ -134,298 +115,68 @@
       },
       "annotator_count": 3,
       "majority_vote_gold": [
-        "التطبيقات الذكية",
-        "ترجمة اللغات",
-        "الذكاء الاصطناعي",
-        "التعرف على الكلام",
-        "تحليل الصور الطبية"
+        "يذاع",
+        "ويوم",
+        "الساعه",
+        "البرامج",
+        "برنامج"
       ],
       "stored_gold": [
-        "التطبيقات الذكية",
-        "ترجمة اللغات",
-        "الذكاء الاصطناعي",
-        "التعرف على الكلام",
-        "تحليل الصور الطبية"
+        "يذاع",
+        "ويوم",
+        "الساعه",
+        "البرامج",
+        "برنامج"
       ],
       "gold_sets_match": true
     },
     {
       "id": 2,
       "variety": "MSA",
-      "topic": "Economy",
+      "topic": "culture",
       "pair_f1_scores": {
-        "ann1_ann2": 0.9091,
-        "ann1_ann3": 0.6,
-        "ann2_ann3": 0.6667
+        "ann1_ann2": 1.0,
+        "ann1_ann3": 0.8889,
+        "ann2_ann3": 0.8889
       },
-      "avg_pairwise_f1": 0.7253,
-      "has_disagreement": true,
+      "avg_pairwise_f1": 0.9259,
+      "has_disagreement": false,
       "disagreement_info": {
         "unanimous": [
-          "التضخم",
-          "أسعار الفائدة",
-          "البنوك المركزية"
+          "المادي",
+          "الاثريه",
+          "الوزاره",
+          "المواقع"
         ],
         "disputed": [
           {
-            "keyphrase": "الأسواق المالية",
+            "keyphrase": "التراث",
             "votes": 2,
-            "out_of": 3
-          },
-          {
-            "keyphrase": "الابتكار التقني",
-            "votes": 1,
-            "out_of": 3
-          },
-          {
-            "keyphrase": "الأسهم والسندات",
-            "votes": 2,
-            "out_of": 3
-          },
-          {
-            "keyphrase": "الأنظمة الذكية",
-            "votes": 1,
             "out_of": 3
           }
         ]
       },
       "annotator_count": 3,
       "majority_vote_gold": [
-        "التضخم",
-        "أسعار الفائدة",
-        "البنوك المركزية",
-        "الأسواق المالية",
-        "الأسهم والسندات"
+        "المادي",
+        "الاثريه",
+        "الوزاره",
+        "المواقع",
+        "التراث"
       ],
       "stored_gold": [
-        "التضخم",
-        "أسعار الفائدة",
-        "البنوك المركزية",
-        "الأسواق المالية",
-        "الأسهم والسندات"
+        "المادي",
+        "الاثريه",
+        "الوزاره",
+        "المواقع",
+        "التراث"
       ],
       "gold_sets_match": true
     },
     {
       "id": 3,
       "variety": "MSA",
-      "topic": "Health",
-      "pair_f1_scores": {
-        "ann1_ann2": 0.8889,
-        "ann1_ann3": 0.8,
-        "ann2_ann3": 0.6667
-      },
-      "avg_pairwise_f1": 0.7852,
-      "has_disagreement": true,
-      "disagreement_info": {
-        "unanimous": [
-          "النوم الكافي",
-          "جهاز المناعة",
-          "الدماغ"
-        ],
-        "disputed": [
-          {
-            "keyphrase": "الأمراض المزمنة",
-            "votes": 2,
-            "out_of": 3
-          },
-          {
-            "keyphrase": "صحة القلب",
-            "votes": 2,
-            "out_of": 3
-          },
-          {
-            "keyphrase": "الإصلاح الهيكلي",
-            "votes": 1,
-            "out_of": 3
-          }
-        ]
-      },
-      "annotator_count": 3,
-      "majority_vote_gold": [
-        "النوم الكافي",
-        "جهاز المناعة",
-        "الدماغ",
-        "الأمراض المزمنة",
-        "صحة القلب"
-      ],
-      "stored_gold": [
-        "النوم الكافي",
-        "جهاز المناعة",
-        "الدماغ",
-        "الأمراض المزمنة",
-        "صحة القلب"
-      ],
-      "gold_sets_match": true
-    },
-    {
-      "id": 4,
-      "variety": "MSA",
-      "topic": "Education",
-      "pair_f1_scores": {
-        "ann1_ann2": 0.5,
-        "ann1_ann3": 0.75,
-        "ann2_ann3": 0.75
-      },
-      "avg_pairwise_f1": 0.6667,
-      "has_disagreement": true,
-      "disagreement_info": {
-        "unanimous": [
-          "التعلم الرقمي",
-          "التكنولوجيا"
-        ],
-        "disputed": [
-          {
-            "keyphrase": "السياسات العامة",
-            "votes": 1,
-            "out_of": 3
-          },
-          {
-            "keyphrase": "المناهج الدراسية",
-            "votes": 2,
-            "out_of": 3
-          },
-          {
-            "keyphrase": "التفكير النقدي",
-            "votes": 2,
-            "out_of": 3
-          },
-          {
-            "keyphrase": "الابتكار التقني",
-            "votes": 1,
-            "out_of": 3
-          }
-        ]
-      },
-      "annotator_count": 3,
-      "majority_vote_gold": [
-        "التعلم الرقمي",
-        "التكنولوجيا",
-        "المناهج الدراسية",
-        "التفكير النقدي"
-      ],
-      "stored_gold": [
-        "التعلم الرقمي",
-        "التكنولوجيا",
-        "المناهج الدراسية",
-        "التفكير النقدي"
-      ],
-      "gold_sets_match": true
-    },
-    {
-      "id": 5,
-      "variety": "MSA",
-      "topic": "Environment",
-      "pair_f1_scores": {
-        "ann1_ann2": 0.9091,
-        "ann1_ann3": 0.8,
-        "ann2_ann3": 0.9091
-      },
-      "avg_pairwise_f1": 0.8727,
-      "has_disagreement": true,
-      "disagreement_info": {
-        "unanimous": [
-          "الاحترار العالمي",
-          "النظم البيئية",
-          "منسوب مياه البحار",
-          "الكوارث الطبيعية"
-        ],
-        "disputed": [
-          {
-            "keyphrase": "التنوع الحيوي",
-            "votes": 2,
-            "out_of": 3
-          },
-          {
-            "keyphrase": "البحث العلمي",
-            "votes": 2,
-            "out_of": 3
-          }
-        ]
-      },
-      "annotator_count": 3,
-      "majority_vote_gold": [
-        "الاحترار العالمي",
-        "النظم البيئية",
-        "منسوب مياه البحار",
-        "الكوارث الطبيعية",
-        "التنوع الحيوي",
-        "البحث العلمي"
-      ],
-      "stored_gold": [
-        "الاحترار العالمي",
-        "النظم البيئية",
-        "منسوب مياه البحار",
-        "الكوارث الطبيعية",
-        "التنوع الحيوي",
-        "البحث العلمي"
-      ],
-      "gold_sets_match": true
-    },
-    {
-      "id": 6,
-      "variety": "MSA",
-      "topic": "Politics",
-      "pair_f1_scores": {
-        "ann1_ann2": 0.5,
-        "ann1_ann3": 0.5,
-        "ann2_ann3": 0.75
-      },
-      "avg_pairwise_f1": 0.5833,
-      "has_disagreement": true,
-      "disagreement_info": {
-        "unanimous": [
-          "عجز الميزانية"
-        ],
-        "disputed": [
-          {
-            "keyphrase": "الإصلاحات الاقتصادية",
-            "votes": 2,
-            "out_of": 3
-          },
-          {
-            "keyphrase": "الدعم الحكومي",
-            "votes": 1,
-            "out_of": 3
-          },
-          {
-            "keyphrase": "الاستدامة المالية",
-            "votes": 2,
-            "out_of": 3
-          },
-          {
-            "keyphrase": "البحث العلمي",
-            "votes": 2,
-            "out_of": 3
-          },
-          {
-            "keyphrase": "أسعار الطاقة",
-            "votes": 2,
-            "out_of": 3
-          }
-        ]
-      },
-      "annotator_count": 3,
-      "majority_vote_gold": [
-        "عجز الميزانية",
-        "الإصلاحات الاقتصادية",
-        "الاستدامة المالية",
-        "البحث العلمي",
-        "أسعار الطاقة"
-      ],
-      "stored_gold": [
-        "عجز الميزانية",
-        "الإصلاحات الاقتصادية",
-        "الاستدامة المالية",
-        "البحث العلمي",
-        "أسعار الطاقة"
-      ],
-      "gold_sets_match": true
-    },
-    {
-      "id": 7,
-      "variety": "MSA",
-      "topic": "Science",
+      "topic": "culture",
       "pair_f1_scores": {
         "ann1_ann2": 1.0,
         "ann1_ann3": 1.0,
@@ -435,165 +186,56 @@
       "has_disagreement": false,
       "disagreement_info": {
         "unanimous": [
-          "الثقب الأسود",
-          "علم الفلك",
-          "التلسكوبات",
-          "التداخل طويل القاعدة",
-          "الأفق الحدثي"
+          "المشكاك",
+          "بهوان",
+          "عروضها",
+          "العرض",
+          "ناجحه"
         ],
         "disputed": []
       },
       "annotator_count": 3,
       "majority_vote_gold": [
-        "الثقب الأسود",
-        "علم الفلك",
-        "التلسكوبات",
-        "التداخل طويل القاعدة",
-        "الأفق الحدثي"
+        "المشكاك",
+        "بهوان",
+        "عروضها",
+        "العرض",
+        "ناجحه"
       ],
       "stored_gold": [
-        "الثقب الأسود",
-        "علم الفلك",
-        "التلسكوبات",
-        "التداخل طويل القاعدة",
-        "الأفق الحدثي"
+        "المشكاك",
+        "بهوان",
+        "عروضها",
+        "العرض",
+        "ناجحه"
       ],
       "gold_sets_match": true
     },
     {
-      "id": 8,
+      "id": 4,
       "variety": "MSA",
-      "topic": "Sports",
+      "topic": "culture",
       "pair_f1_scores": {
-        "ann1_ann2": 0.8,
-        "ann1_ann3": 0.9091,
+        "ann1_ann2": 0.75,
+        "ann1_ann3": 0.8889,
         "ann2_ann3": 0.8889
       },
-      "avg_pairwise_f1": 0.866,
-      "has_disagreement": true,
+      "avg_pairwise_f1": 0.8426,
+      "has_disagreement": false,
       "disagreement_info": {
         "unanimous": [
-          "كأس العالم",
-          "التصفيات",
-          "الجيل الجديد",
-          "اللاعبون"
+          "الثقافه",
+          "الجماعه",
+          "المدني"
         ],
         "disputed": [
           {
-            "keyphrase": "المنتخب الوطني",
+            "keyphrase": "تاثير",
             "votes": 2,
             "out_of": 3
           },
           {
-            "keyphrase": "الحوكمة الرشيدة",
-            "votes": 1,
-            "out_of": 3
-          }
-        ]
-      },
-      "annotator_count": 3,
-      "majority_vote_gold": [
-        "كأس العالم",
-        "التصفيات",
-        "الجيل الجديد",
-        "اللاعبون",
-        "المنتخب الوطني"
-      ],
-      "stored_gold": [
-        "كأس العالم",
-        "التصفيات",
-        "الجيل الجديد",
-        "اللاعبون",
-        "المنتخب الوطني"
-      ],
-      "gold_sets_match": true
-    },
-    {
-      "id": 9,
-      "variety": "MSA",
-      "topic": "Media",
-      "pair_f1_scores": {
-        "ann1_ann2": 0.6667,
-        "ann1_ann3": 0.9091,
-        "ann2_ann3": 0.75
-      },
-      "avg_pairwise_f1": 0.7753,
-      "has_disagreement": true,
-      "disagreement_info": {
-        "unanimous": [
-          "منصات التواصل الاجتماعي",
-          "المعلومات المضللة",
-          "المحتوى الرقمي"
-        ],
-        "disputed": [
-          {
-            "keyphrase": "الأخبار",
-            "votes": 2,
-            "out_of": 3
-          },
-          {
-            "keyphrase": "التحقق",
-            "votes": 2,
-            "out_of": 3
-          },
-          {
-            "keyphrase": "البحث العلمي",
-            "votes": 1,
-            "out_of": 3
-          }
-        ]
-      },
-      "annotator_count": 3,
-      "majority_vote_gold": [
-        "منصات التواصل الاجتماعي",
-        "المعلومات المضللة",
-        "المحتوى الرقمي",
-        "الأخبار",
-        "التحقق"
-      ],
-      "stored_gold": [
-        "منصات التواصل الاجتماعي",
-        "المعلومات المضللة",
-        "المحتوى الرقمي",
-        "الأخبار",
-        "التحقق"
-      ],
-      "gold_sets_match": true
-    },
-    {
-      "id": 10,
-      "variety": "MSA",
-      "topic": "Law",
-      "pair_f1_scores": {
-        "ann1_ann2": 0.5,
-        "ann1_ann3": 0.5,
-        "ann2_ann3": 1.0
-      },
-      "avg_pairwise_f1": 0.6667,
-      "has_disagreement": true,
-      "disagreement_info": {
-        "unanimous": [
-          "حماية البيانات الشخصية",
-          "العقوبات"
-        ],
-        "disputed": [
-          {
-            "keyphrase": "المجتمع المدني",
-            "votes": 1,
-            "out_of": 3
-          },
-          {
-            "keyphrase": "موافقة المستخدمين",
-            "votes": 1,
-            "out_of": 3
-          },
-          {
-            "keyphrase": "معالجة المعلومات",
-            "votes": 1,
-            "out_of": 3
-          },
-          {
-            "keyphrase": "البرلمان",
+            "keyphrase": "الاجتماعي",
             "votes": 2,
             "out_of": 3
           }
@@ -601,842 +243,41 @@
       },
       "annotator_count": 3,
       "majority_vote_gold": [
-        "حماية البيانات الشخصية",
-        "العقوبات",
-        "البرلمان"
+        "الثقافه",
+        "الجماعه",
+        "المدني",
+        "تاثير",
+        "الاجتماعي"
       ],
       "stored_gold": [
-        "حماية البيانات الشخصية",
-        "العقوبات",
-        "البرلمان"
+        "الثقافه",
+        "الجماعه",
+        "المدني",
+        "تاثير",
+        "الاجتماعي"
       ],
       "gold_sets_match": true
     },
     {
-      "id": 11,
+      "id": 5,
       "variety": "MSA",
-      "topic": "Transport",
-      "pair_f1_scores": {
-        "ann1_ann2": 0.6667,
-        "ann1_ann3": 0.5714,
-        "ann2_ann3": 0.8
-      },
-      "avg_pairwise_f1": 0.6794,
-      "has_disagreement": true,
-      "disagreement_info": {
-        "unanimous": [
-          "النقل العام",
-          "مترو الأنفاق"
-        ],
-        "disputed": [
-          {
-            "keyphrase": "الاختناقات المرورية",
-            "votes": 2,
-            "out_of": 3
-          },
-          {
-            "keyphrase": "التنمية المستدامة",
-            "votes": 1,
-            "out_of": 3
-          },
-          {
-            "keyphrase": "الحافلات السريعة",
-            "votes": 2,
-            "out_of": 3
-          },
-          {
-            "keyphrase": "الانبعاثات الكربونية",
-            "votes": 2,
-            "out_of": 3
-          }
-        ]
-      },
-      "annotator_count": 3,
-      "majority_vote_gold": [
-        "النقل العام",
-        "مترو الأنفاق",
-        "الاختناقات المرورية",
-        "الحافلات السريعة",
-        "الانبعاثات الكربونية"
-      ],
-      "stored_gold": [
-        "النقل العام",
-        "مترو الأنفاق",
-        "الاختناقات المرورية",
-        "الحافلات السريعة",
-        "الانبعاثات الكربونية"
-      ],
-      "gold_sets_match": true
-    },
-    {
-      "id": 12,
-      "variety": "MSA",
-      "topic": "Agriculture",
-      "pair_f1_scores": {
-        "ann1_ann2": 0.5,
-        "ann1_ann3": 0.5,
-        "ann2_ann3": 0.8333
-      },
-      "avg_pairwise_f1": 0.6111,
-      "has_disagreement": true,
-      "disagreement_info": {
-        "unanimous": [
-          "القمح",
-          "مقاومة الجفاف"
-        ],
-        "disputed": [
-          {
-            "keyphrase": "التقنيات الحديثة",
-            "votes": 1,
-            "out_of": 3
-          },
-          {
-            "keyphrase": "الأصناف الزراعية",
-            "votes": 2,
-            "out_of": 3
-          },
-          {
-            "keyphrase": "الأمن الغذائي",
-            "votes": 2,
-            "out_of": 3
-          },
-          {
-            "keyphrase": "شُحّ المياه",
-            "votes": 2,
-            "out_of": 3
-          },
-          {
-            "keyphrase": "الحوكمة الرشيدة",
-            "votes": 1,
-            "out_of": 3
-          }
-        ]
-      },
-      "annotator_count": 3,
-      "majority_vote_gold": [
-        "القمح",
-        "مقاومة الجفاف",
-        "الأصناف الزراعية",
-        "الأمن الغذائي",
-        "شُحّ المياه"
-      ],
-      "stored_gold": [
-        "القمح",
-        "مقاومة الجفاف",
-        "الأصناف الزراعية",
-        "الأمن الغذائي",
-        "شُحّ المياه"
-      ],
-      "gold_sets_match": true
-    },
-    {
-      "id": 13,
-      "variety": "MSA",
-      "topic": "Culture",
-      "pair_f1_scores": {
-        "ann1_ann2": 1.0,
-        "ann1_ann3": 0.8,
-        "ann2_ann3": 0.8
-      },
-      "avg_pairwise_f1": 0.8667,
-      "has_disagreement": true,
-      "disagreement_info": {
-        "unanimous": [
-          "الرواية العربية",
-          "الكتّاب الشباب",
-          "الموروث الحكائي",
-          "السرد الحديث"
-        ],
-        "disputed": [
-          {
-            "keyphrase": "القصة القصيرة",
-            "votes": 2,
-            "out_of": 3
-          },
-          {
-            "keyphrase": "التنمية المستدامة",
-            "votes": 1,
-            "out_of": 3
-          }
-        ]
-      },
-      "annotator_count": 3,
-      "majority_vote_gold": [
-        "الرواية العربية",
-        "الكتّاب الشباب",
-        "الموروث الحكائي",
-        "السرد الحديث",
-        "القصة القصيرة"
-      ],
-      "stored_gold": [
-        "الرواية العربية",
-        "الكتّاب الشباب",
-        "الموروث الحكائي",
-        "السرد الحديث",
-        "القصة القصيرة"
-      ],
-      "gold_sets_match": true
-    },
-    {
-      "id": 14,
-      "variety": "MSA",
-      "topic": "Energy",
-      "pair_f1_scores": {
-        "ann1_ann2": 0.5,
-        "ann1_ann3": 0.8,
-        "ann2_ann3": 0.3333
-      },
-      "avg_pairwise_f1": 0.5444,
-      "has_disagreement": true,
-      "disagreement_info": {
-        "unanimous": [
-          "التنويع الاقتصادي"
-        ],
-        "disputed": [
-          {
-            "keyphrase": "الطاقة المتجددة",
-            "votes": 2,
-            "out_of": 3
-          },
-          {
-            "keyphrase": "الطاقة الشمسية",
-            "votes": 2,
-            "out_of": 3
-          },
-          {
-            "keyphrase": "طاقة الرياح",
-            "votes": 2,
-            "out_of": 3
-          },
-          {
-            "keyphrase": "الأنظمة الذكية",
-            "votes": 1,
-            "out_of": 3
-          },
-          {
-            "keyphrase": "النفط",
-            "votes": 2,
-            "out_of": 3
-          }
-        ]
-      },
-      "annotator_count": 3,
-      "majority_vote_gold": [
-        "التنويع الاقتصادي",
-        "الطاقة المتجددة",
-        "الطاقة الشمسية",
-        "طاقة الرياح",
-        "النفط"
-      ],
-      "stored_gold": [
-        "التنويع الاقتصادي",
-        "الطاقة المتجددة",
-        "الطاقة الشمسية",
-        "طاقة الرياح",
-        "النفط"
-      ],
-      "gold_sets_match": true
-    },
-    {
-      "id": 15,
-      "variety": "MSA",
-      "topic": "Medicine",
-      "pair_f1_scores": {
-        "ann1_ann2": 0.6667,
-        "ann1_ann3": 0.9091,
-        "ann2_ann3": 0.6
-      },
-      "avg_pairwise_f1": 0.7253,
-      "has_disagreement": true,
-      "disagreement_info": {
-        "unanimous": [
-          "العلاج المناعي",
-          "العلاج الكيميائي",
-          "معدلات البقاء"
-        ],
-        "disputed": [
-          {
-            "keyphrase": "سرطان الرئة",
-            "votes": 2,
-            "out_of": 3
-          },
-          {
-            "keyphrase": "البروتوكول العلاجي",
-            "votes": 2,
-            "out_of": 3
-          },
-          {
-            "keyphrase": "الإصلاح الهيكلي",
-            "votes": 1,
-            "out_of": 3
-          },
-          {
-            "keyphrase": "الاقتصاد الرقمي",
-            "votes": 1,
-            "out_of": 3
-          }
-        ]
-      },
-      "annotator_count": 3,
-      "majority_vote_gold": [
-        "العلاج المناعي",
-        "العلاج الكيميائي",
-        "معدلات البقاء",
-        "سرطان الرئة",
-        "البروتوكول العلاجي"
-      ],
-      "stored_gold": [
-        "العلاج المناعي",
-        "العلاج الكيميائي",
-        "معدلات البقاء",
-        "سرطان الرئة",
-        "البروتوكول العلاجي"
-      ],
-      "gold_sets_match": true
-    },
-    {
-      "id": 16,
-      "variety": "MSA",
-      "topic": "Water",
-      "pair_f1_scores": {
-        "ann1_ann2": 0.8889,
-        "ann1_ann3": 0.9091,
-        "ann2_ann3": 0.8
-      },
-      "avg_pairwise_f1": 0.866,
-      "has_disagreement": true,
-      "disagreement_info": {
-        "unanimous": [
-          "المياه الجوفية",
-          "تحلية المياه",
-          "شُح الهطول المطري",
-          "ترشيد الاستهلاك"
-        ],
-        "disputed": [
-          {
-            "keyphrase": "الشرق الأوسط",
-            "votes": 2,
-            "out_of": 3
-          },
-          {
-            "keyphrase": "البحث العلمي",
-            "votes": 1,
-            "out_of": 3
-          }
-        ]
-      },
-      "annotator_count": 3,
-      "majority_vote_gold": [
-        "المياه الجوفية",
-        "تحلية المياه",
-        "شُح الهطول المطري",
-        "ترشيد الاستهلاك",
-        "الشرق الأوسط"
-      ],
-      "stored_gold": [
-        "المياه الجوفية",
-        "تحلية المياه",
-        "شُح الهطول المطري",
-        "ترشيد الاستهلاك",
-        "الشرق الأوسط"
-      ],
-      "gold_sets_match": true
-    },
-    {
-      "id": 17,
-      "variety": "MSA",
-      "topic": "Cybersecurity",
+      "topic": "culture",
       "pair_f1_scores": {
         "ann1_ann2": 0.9091,
         "ann1_ann3": 1.0,
         "ann2_ann3": 0.9091
       },
       "avg_pairwise_f1": 0.9394,
-      "has_disagreement": true,
+      "has_disagreement": false,
       "disagreement_info": {
         "unanimous": [
-          "الهجمات الإلكترونية",
-          "البنية التحتية",
-          "التشفير",
-          "التهديدات السيبرانية",
-          "الكشف المبكر"
+          "يحيي",
+          "المجموعه",
+          "الشيخ",
+          "اعمال",
+          "الفنان"
         ],
         "disputed": [
-          {
-            "keyphrase": "الحوكمة الرشيدة",
-            "votes": 1,
-            "out_of": 3
-          }
-        ]
-      },
-      "annotator_count": 3,
-      "majority_vote_gold": [
-        "الهجمات الإلكترونية",
-        "البنية التحتية",
-        "التشفير",
-        "التهديدات السيبرانية",
-        "الكشف المبكر"
-      ],
-      "stored_gold": [
-        "الهجمات الإلكترونية",
-        "البنية التحتية",
-        "التشفير",
-        "التهديدات السيبرانية",
-        "الكشف المبكر"
-      ],
-      "gold_sets_match": true
-    },
-    {
-      "id": 18,
-      "variety": "MSA",
-      "topic": "Housing",
-      "pair_f1_scores": {
-        "ann1_ann2": 0.75,
-        "ann1_ann3": 0.9091,
-        "ann2_ann3": 0.6667
-      },
-      "avg_pairwise_f1": 0.7753,
-      "has_disagreement": true,
-      "disagreement_info": {
-        "unanimous": [
-          "أسعار الشقق",
-          "سكن الشباب",
-          "التضخم"
-        ],
-        "disputed": [
-          {
-            "keyphrase": "سوق العقارات",
-            "votes": 2,
-            "out_of": 3
-          },
-          {
-            "keyphrase": "المعروض والطلب",
-            "votes": 2,
-            "out_of": 3
-          },
-          {
-            "keyphrase": "التنمية المستدامة",
-            "votes": 1,
-            "out_of": 3
-          }
-        ]
-      },
-      "annotator_count": 3,
-      "majority_vote_gold": [
-        "أسعار الشقق",
-        "سكن الشباب",
-        "التضخم",
-        "سوق العقارات",
-        "المعروض والطلب"
-      ],
-      "stored_gold": [
-        "أسعار الشقق",
-        "سكن الشباب",
-        "التضخم",
-        "سوق العقارات",
-        "المعروض والطلب"
-      ],
-      "gold_sets_match": true
-    },
-    {
-      "id": 19,
-      "variety": "MSA",
-      "topic": "Linguistics",
-      "pair_f1_scores": {
-        "ann1_ann2": 0.9091,
-        "ann1_ann3": 0.8333,
-        "ann2_ann3": 0.9091
-      },
-      "avg_pairwise_f1": 0.8838,
-      "has_disagreement": true,
-      "disagreement_info": {
-        "unanimous": [
-          "اللغة العربية",
-          "الصرف الاشتقاقي",
-          "الجذر الثلاثي",
-          "المفردات",
-          "اللغات السامية"
-        ],
-        "disputed": [
-          {
-            "keyphrase": "الإصلاح الهيكلي",
-            "votes": 1,
-            "out_of": 3
-          },
-          {
-            "keyphrase": "التقنيات الحديثة",
-            "votes": 1,
-            "out_of": 3
-          }
-        ]
-      },
-      "annotator_count": 3,
-      "majority_vote_gold": [
-        "اللغة العربية",
-        "الصرف الاشتقاقي",
-        "الجذر الثلاثي",
-        "المفردات",
-        "اللغات السامية"
-      ],
-      "stored_gold": [
-        "اللغة العربية",
-        "الصرف الاشتقاقي",
-        "الجذر الثلاثي",
-        "المفردات",
-        "اللغات السامية"
-      ],
-      "gold_sets_match": true
-    },
-    {
-      "id": 20,
-      "variety": "MSA",
-      "topic": "Tourism",
-      "pair_f1_scores": {
-        "ann1_ann2": 0.75,
-        "ann1_ann3": 0.8,
-        "ann2_ann3": 0.8
-      },
-      "avg_pairwise_f1": 0.7833,
-      "has_disagreement": true,
-      "disagreement_info": {
-        "unanimous": [
-          "مدينة العُلا",
-          "البحر الميت",
-          "التجارب الفريدة"
-        ],
-        "disputed": [
-          {
-            "keyphrase": "وجهات سياحية",
-            "votes": 2,
-            "out_of": 3
-          },
-          {
-            "keyphrase": "السياحة العربية",
-            "votes": 2,
-            "out_of": 3
-          },
-          {
-            "keyphrase": "الموارد البشرية",
-            "votes": 1,
-            "out_of": 3
-          }
-        ]
-      },
-      "annotator_count": 3,
-      "majority_vote_gold": [
-        "مدينة العُلا",
-        "البحر الميت",
-        "التجارب الفريدة",
-        "وجهات سياحية",
-        "السياحة العربية"
-      ],
-      "stored_gold": [
-        "مدينة العُلا",
-        "البحر الميت",
-        "التجارب الفريدة",
-        "وجهات سياحية",
-        "السياحة العربية"
-      ],
-      "gold_sets_match": true
-    },
-    {
-      "id": 21,
-      "variety": "MSA",
-      "topic": "Space",
-      "pair_f1_scores": {
-        "ann1_ann2": 0.6667,
-        "ann1_ann3": 0.7273,
-        "ann2_ann3": 0.5
-      },
-      "avg_pairwise_f1": 0.6313,
-      "has_disagreement": true,
-      "disagreement_info": {
-        "unanimous": [
-          "الأراضي الزراعية",
-          "التغيرات المناخية"
-        ],
-        "disputed": [
-          {
-            "keyphrase": "وكالة الفضاء",
-            "votes": 2,
-            "out_of": 3
-          },
-          {
-            "keyphrase": "المجتمع المدني",
-            "votes": 1,
-            "out_of": 3
-          },
-          {
-            "keyphrase": "القمر الصناعي",
-            "votes": 2,
-            "out_of": 3
-          },
-          {
-            "keyphrase": "الموارد الطبيعية",
-            "votes": 2,
-            "out_of": 3
-          },
-          {
-            "keyphrase": "الحوكمة الرشيدة",
-            "votes": 1,
-            "out_of": 3
-          }
-        ]
-      },
-      "annotator_count": 3,
-      "majority_vote_gold": [
-        "الأراضي الزراعية",
-        "التغيرات المناخية",
-        "وكالة الفضاء",
-        "القمر الصناعي",
-        "الموارد الطبيعية"
-      ],
-      "stored_gold": [
-        "الأراضي الزراعية",
-        "التغيرات المناخية",
-        "وكالة الفضاء",
-        "القمر الصناعي",
-        "الموارد الطبيعية"
-      ],
-      "gold_sets_match": true
-    },
-    {
-      "id": 22,
-      "variety": "MSA",
-      "topic": "Economy",
-      "pair_f1_scores": {
-        "ann1_ann2": 0.8889,
-        "ann1_ann3": 0.8,
-        "ann2_ann3": 0.6667
-      },
-      "avg_pairwise_f1": 0.7852,
-      "has_disagreement": true,
-      "disagreement_info": {
-        "unanimous": [
-          "التحرير الاقتصادي",
-          "الاستثمار الأجنبي",
-          "معدلات النمو"
-        ],
-        "disputed": [
-          {
-            "keyphrase": "الخصخصة",
-            "votes": 2,
-            "out_of": 3
-          },
-          {
-            "keyphrase": "فرص العمل",
-            "votes": 2,
-            "out_of": 3
-          },
-          {
-            "keyphrase": "الابتكار التقني",
-            "votes": 1,
-            "out_of": 3
-          }
-        ]
-      },
-      "annotator_count": 3,
-      "majority_vote_gold": [
-        "التحرير الاقتصادي",
-        "الاستثمار الأجنبي",
-        "معدلات النمو",
-        "الخصخصة",
-        "فرص العمل"
-      ],
-      "stored_gold": [
-        "التحرير الاقتصادي",
-        "الاستثمار الأجنبي",
-        "معدلات النمو",
-        "الخصخصة",
-        "فرص العمل"
-      ],
-      "gold_sets_match": true
-    },
-    {
-      "id": 23,
-      "variety": "MSA",
-      "topic": "Nutrition",
-      "pair_f1_scores": {
-        "ann1_ann2": 0.8,
-        "ann1_ann3": 0.6,
-        "ann2_ann3": 0.8
-      },
-      "avg_pairwise_f1": 0.7333,
-      "has_disagreement": true,
-      "disagreement_info": {
-        "unanimous": [
-          "زيت الزيتون",
-          "أمراض القلب",
-          "التغذية الصحية"
-        ],
-        "disputed": [
-          {
-            "keyphrase": "الحمية المتوسطية",
-            "votes": 2,
-            "out_of": 3
-          },
-          {
-            "keyphrase": "الأنظمة الذكية",
-            "votes": 1,
-            "out_of": 3
-          },
-          {
-            "keyphrase": "السرطان",
-            "votes": 2,
-            "out_of": 3
-          },
-          {
-            "keyphrase": "الحوكمة الرشيدة",
-            "votes": 1,
-            "out_of": 3
-          }
-        ]
-      },
-      "annotator_count": 3,
-      "majority_vote_gold": [
-        "زيت الزيتون",
-        "أمراض القلب",
-        "التغذية الصحية",
-        "الحمية المتوسطية",
-        "السرطان"
-      ],
-      "stored_gold": [
-        "زيت الزيتون",
-        "أمراض القلب",
-        "التغذية الصحية",
-        "الحمية المتوسطية",
-        "السرطان"
-      ],
-      "gold_sets_match": true
-    },
-    {
-      "id": 24,
-      "variety": "MSA",
-      "topic": "Psychology",
-      "pair_f1_scores": {
-        "ann1_ann2": 0.5714,
-        "ann1_ann3": 0.8889,
-        "ann2_ann3": 0.75
-      },
-      "avg_pairwise_f1": 0.7368,
-      "has_disagreement": true,
-      "disagreement_info": {
-        "unanimous": [
-          "البطالة",
-          "الضغوط النفسية"
-        ],
-        "disputed": [
-          {
-            "keyphrase": "الصحة النفسية",
-            "votes": 2,
-            "out_of": 3
-          },
-          {
-            "keyphrase": "التواصل الاجتماعي",
-            "votes": 2,
-            "out_of": 3
-          },
-          {
-            "keyphrase": "العلاج السلوكي المعرفي",
-            "votes": 2,
-            "out_of": 3
-          }
-        ]
-      },
-      "annotator_count": 3,
-      "majority_vote_gold": [
-        "البطالة",
-        "الضغوط النفسية",
-        "الصحة النفسية",
-        "التواصل الاجتماعي",
-        "العلاج السلوكي المعرفي"
-      ],
-      "stored_gold": [
-        "البطالة",
-        "الضغوط النفسية",
-        "الصحة النفسية",
-        "التواصل الاجتماعي",
-        "العلاج السلوكي المعرفي"
-      ],
-      "gold_sets_match": true
-    },
-    {
-      "id": 25,
-      "variety": "MSA",
-      "topic": "Robotics",
-      "pair_f1_scores": {
-        "ann1_ann2": 0.6667,
-        "ann1_ann3": 1.0,
-        "ann2_ann3": 0.6667
-      },
-      "avg_pairwise_f1": 0.7778,
-      "has_disagreement": true,
-      "disagreement_info": {
-        "unanimous": [
-          "الروبوتات الصناعية",
-          "كفاءة الإنتاج",
-          "سوق العمل"
-        ],
-        "disputed": [
-          {
-            "keyphrase": "التصنيع",
-            "votes": 2,
-            "out_of": 3
-          },
-          {
-            "keyphrase": "إعادة التأهيل",
-            "votes": 2,
-            "out_of": 3
-          },
-          {
-            "keyphrase": "الموارد البشرية",
-            "votes": 1,
-            "out_of": 3
-          }
-        ]
-      },
-      "annotator_count": 3,
-      "majority_vote_gold": [
-        "الروبوتات الصناعية",
-        "كفاءة الإنتاج",
-        "سوق العمل",
-        "التصنيع",
-        "إعادة التأهيل"
-      ],
-      "stored_gold": [
-        "الروبوتات الصناعية",
-        "كفاءة الإنتاج",
-        "سوق العمل",
-        "التصنيع",
-        "إعادة التأهيل"
-      ],
-      "gold_sets_match": true
-    },
-    {
-      "id": 26,
-      "variety": "MSA",
-      "topic": "Philosophy",
-      "pair_f1_scores": {
-        "ann1_ann2": 0.9091,
-        "ann1_ann3": 0.8333,
-        "ann2_ann3": 0.9091
-      },
-      "avg_pairwise_f1": 0.8838,
-      "has_disagreement": true,
-      "disagreement_info": {
-        "unanimous": [
-          "العقل والنقل",
-          "الفلسفة الإسلامية",
-          "ابن رشد",
-          "ابن تيمية",
-          "الفلاسفة المسلمون"
-        ],
-        "disputed": [
-          {
-            "keyphrase": "الابتكار التقني",
-            "votes": 1,
-            "out_of": 3
-          },
           {
             "keyphrase": "البحث العلمي",
             "votes": 1,
@@ -1446,164 +287,1045 @@
       },
       "annotator_count": 3,
       "majority_vote_gold": [
-        "العقل والنقل",
-        "الفلسفة الإسلامية",
-        "ابن رشد",
-        "ابن تيمية",
-        "الفلاسفة المسلمون"
+        "يحيي",
+        "المجموعه",
+        "الشيخ",
+        "اعمال",
+        "الفنان"
       ],
       "stored_gold": [
-        "العقل والنقل",
-        "الفلسفة الإسلامية",
-        "ابن رشد",
-        "ابن تيمية",
-        "الفلاسفة المسلمون"
+        "يحيي",
+        "المجموعه",
+        "الشيخ",
+        "اعمال",
+        "الفنان"
+      ],
+      "gold_sets_match": true
+    },
+    {
+      "id": 6,
+      "variety": "MSA",
+      "topic": "culture",
+      "pair_f1_scores": {
+        "ann1_ann2": 0.75,
+        "ann1_ann3": 0.8889,
+        "ann2_ann3": 0.8889
+      },
+      "avg_pairwise_f1": 0.8426,
+      "has_disagreement": false,
+      "disagreement_info": {
+        "unanimous": [
+          "الكليه",
+          "الملتقي",
+          "والقانون"
+        ],
+        "disputed": [
+          {
+            "keyphrase": "قدم",
+            "votes": 2,
+            "out_of": 3
+          },
+          {
+            "keyphrase": "الشريعه",
+            "votes": 2,
+            "out_of": 3
+          }
+        ]
+      },
+      "annotator_count": 3,
+      "majority_vote_gold": [
+        "الكليه",
+        "الملتقي",
+        "والقانون",
+        "قدم",
+        "الشريعه"
+      ],
+      "stored_gold": [
+        "الكليه",
+        "الملتقي",
+        "والقانون",
+        "قدم",
+        "الشريعه"
+      ],
+      "gold_sets_match": true
+    },
+    {
+      "id": 7,
+      "variety": "MSA",
+      "topic": "culture",
+      "pair_f1_scores": {
+        "ann1_ann2": 1.0,
+        "ann1_ann3": 1.0,
+        "ann2_ann3": 1.0
+      },
+      "avg_pairwise_f1": 1.0,
+      "has_disagreement": false,
+      "disagreement_info": {
+        "unanimous": [
+          "السابعه",
+          "ويقدمها",
+          "بالجامعه",
+          "للموسيقي",
+          "اقامه"
+        ],
+        "disputed": []
+      },
+      "annotator_count": 3,
+      "majority_vote_gold": [
+        "السابعه",
+        "ويقدمها",
+        "بالجامعه",
+        "للموسيقي",
+        "اقامه"
+      ],
+      "stored_gold": [
+        "السابعه",
+        "ويقدمها",
+        "بالجامعه",
+        "للموسيقي",
+        "اقامه"
+      ],
+      "gold_sets_match": true
+    },
+    {
+      "id": 8,
+      "variety": "MSA",
+      "topic": "culture",
+      "pair_f1_scores": {
+        "ann1_ann2": 1.0,
+        "ann1_ann3": 1.0,
+        "ann2_ann3": 1.0
+      },
+      "avg_pairwise_f1": 1.0,
+      "has_disagreement": false,
+      "disagreement_info": {
+        "unanimous": [
+          "اكتشافها",
+          "الاثريه",
+          "المكتشفات",
+          "العملات",
+          "الفترات"
+        ],
+        "disputed": []
+      },
+      "annotator_count": 3,
+      "majority_vote_gold": [
+        "اكتشافها",
+        "الاثريه",
+        "المكتشفات",
+        "العملات",
+        "الفترات"
+      ],
+      "stored_gold": [
+        "اكتشافها",
+        "الاثريه",
+        "المكتشفات",
+        "العملات",
+        "الفترات"
+      ],
+      "gold_sets_match": true
+    },
+    {
+      "id": 9,
+      "variety": "MSA",
+      "topic": "culture",
+      "pair_f1_scores": {
+        "ann1_ann2": 0.8889,
+        "ann1_ann3": 1.0,
+        "ann2_ann3": 0.8889
+      },
+      "avg_pairwise_f1": 0.9259,
+      "has_disagreement": false,
+      "disagreement_info": {
+        "unanimous": [
+          "عليك",
+          "العقل",
+          "عقلك",
+          "حياتك"
+        ],
+        "disputed": [
+          {
+            "keyphrase": "تذكر",
+            "votes": 2,
+            "out_of": 3
+          }
+        ]
+      },
+      "annotator_count": 3,
+      "majority_vote_gold": [
+        "عليك",
+        "العقل",
+        "عقلك",
+        "حياتك",
+        "تذكر"
+      ],
+      "stored_gold": [
+        "عليك",
+        "العقل",
+        "عقلك",
+        "حياتك",
+        "تذكر"
+      ],
+      "gold_sets_match": true
+    },
+    {
+      "id": 10,
+      "variety": "MSA",
+      "topic": "culture",
+      "pair_f1_scores": {
+        "ann1_ann2": 0.75,
+        "ann1_ann3": 0.75,
+        "ann2_ann3": 1.0
+      },
+      "avg_pairwise_f1": 0.8333,
+      "has_disagreement": false,
+      "disagreement_info": {
+        "unanimous": [
+          "الباحث",
+          "المؤرخ",
+          "محور"
+        ],
+        "disputed": [
+          {
+            "keyphrase": "المنتدي",
+            "votes": 1,
+            "out_of": 3
+          },
+          {
+            "keyphrase": "وقفه",
+            "votes": 2,
+            "out_of": 3
+          }
+        ]
+      },
+      "annotator_count": 3,
+      "majority_vote_gold": [
+        "الباحث",
+        "المؤرخ",
+        "محور",
+        "وقفه"
+      ],
+      "stored_gold": [
+        "الباحث",
+        "المؤرخ",
+        "محور",
+        "وقفه"
+      ],
+      "gold_sets_match": true
+    },
+    {
+      "id": 11,
+      "variety": "MSA",
+      "topic": "culture",
+      "pair_f1_scores": {
+        "ann1_ann2": 0.8889,
+        "ann1_ann3": 0.8889,
+        "ann2_ann3": 1.0
+      },
+      "avg_pairwise_f1": 0.9259,
+      "has_disagreement": false,
+      "disagreement_info": {
+        "unanimous": [
+          "صلاله",
+          "حمران",
+          "نعسان",
+          "اغا"
+        ],
+        "disputed": [
+          {
+            "keyphrase": "رياض",
+            "votes": 2,
+            "out_of": 3
+          }
+        ]
+      },
+      "annotator_count": 3,
+      "majority_vote_gold": [
+        "صلاله",
+        "حمران",
+        "نعسان",
+        "اغا",
+        "رياض"
+      ],
+      "stored_gold": [
+        "صلاله",
+        "حمران",
+        "نعسان",
+        "اغا",
+        "رياض"
+      ],
+      "gold_sets_match": true
+    },
+    {
+      "id": 12,
+      "variety": "MSA",
+      "topic": "culture",
+      "pair_f1_scores": {
+        "ann1_ann2": 0.8889,
+        "ann1_ann3": 0.8,
+        "ann2_ann3": 0.9091
+      },
+      "avg_pairwise_f1": 0.866,
+      "has_disagreement": false,
+      "disagreement_info": {
+        "unanimous": [
+          "الشريعه",
+          "كليه",
+          "الحلول",
+          "الكليه"
+        ],
+        "disputed": [
+          {
+            "keyphrase": "الفرق",
+            "votes": 2,
+            "out_of": 3
+          },
+          {
+            "keyphrase": "الحوكمة الرشيدة",
+            "votes": 1,
+            "out_of": 3
+          }
+        ]
+      },
+      "annotator_count": 3,
+      "majority_vote_gold": [
+        "الشريعه",
+        "كليه",
+        "الحلول",
+        "الكليه",
+        "الفرق"
+      ],
+      "stored_gold": [
+        "الشريعه",
+        "كليه",
+        "الحلول",
+        "الكليه",
+        "الفرق"
+      ],
+      "gold_sets_match": true
+    },
+    {
+      "id": 13,
+      "variety": "MSA",
+      "topic": "culture",
+      "pair_f1_scores": {
+        "ann1_ann2": 1.0,
+        "ann1_ann3": 0.9091,
+        "ann2_ann3": 0.9091
+      },
+      "avg_pairwise_f1": 0.9394,
+      "has_disagreement": false,
+      "disagreement_info": {
+        "unanimous": [
+          "ومعرض",
+          "والمعرض",
+          "التشكيليه",
+          "عام",
+          "وشاركت"
+        ],
+        "disputed": [
+          {
+            "keyphrase": "التنمية المستدامة",
+            "votes": 1,
+            "out_of": 3
+          }
+        ]
+      },
+      "annotator_count": 3,
+      "majority_vote_gold": [
+        "ومعرض",
+        "والمعرض",
+        "التشكيليه",
+        "عام",
+        "وشاركت"
+      ],
+      "stored_gold": [
+        "ومعرض",
+        "والمعرض",
+        "التشكيليه",
+        "عام",
+        "وشاركت"
+      ],
+      "gold_sets_match": true
+    },
+    {
+      "id": 14,
+      "variety": "MSA",
+      "topic": "culture",
+      "pair_f1_scores": {
+        "ann1_ann2": 0.8889,
+        "ann1_ann3": 1.0,
+        "ann2_ann3": 0.8889
+      },
+      "avg_pairwise_f1": 0.9259,
+      "has_disagreement": false,
+      "disagreement_info": {
+        "unanimous": [
+          "القصيده",
+          "دوله",
+          "الشعريه",
+          "قصيده"
+        ],
+        "disputed": [
+          {
+            "keyphrase": "الشعري",
+            "votes": 2,
+            "out_of": 3
+          }
+        ]
+      },
+      "annotator_count": 3,
+      "majority_vote_gold": [
+        "القصيده",
+        "دوله",
+        "الشعريه",
+        "قصيده",
+        "الشعري"
+      ],
+      "stored_gold": [
+        "القصيده",
+        "دوله",
+        "الشعريه",
+        "قصيده",
+        "الشعري"
+      ],
+      "gold_sets_match": true
+    },
+    {
+      "id": 15,
+      "variety": "MSA",
+      "topic": "culture",
+      "pair_f1_scores": {
+        "ann1_ann2": 0.8,
+        "ann1_ann3": 1.0,
+        "ann2_ann3": 0.8
+      },
+      "avg_pairwise_f1": 0.8667,
+      "has_disagreement": false,
+      "disagreement_info": {
+        "unanimous": [
+          "العندليب",
+          "انتاج",
+          "عبدالحليم",
+          "زكي"
+        ],
+        "disputed": [
+          {
+            "keyphrase": "حليم",
+            "votes": 2,
+            "out_of": 3
+          },
+          {
+            "keyphrase": "الإصلاح الهيكلي",
+            "votes": 1,
+            "out_of": 3
+          }
+        ]
+      },
+      "annotator_count": 3,
+      "majority_vote_gold": [
+        "العندليب",
+        "انتاج",
+        "عبدالحليم",
+        "زكي",
+        "حليم"
+      ],
+      "stored_gold": [
+        "العندليب",
+        "انتاج",
+        "عبدالحليم",
+        "زكي",
+        "حليم"
+      ],
+      "gold_sets_match": true
+    },
+    {
+      "id": 16,
+      "variety": "MSA",
+      "topic": "culture",
+      "pair_f1_scores": {
+        "ann1_ann2": 1.0,
+        "ann1_ann3": 1.0,
+        "ann2_ann3": 1.0
+      },
+      "avg_pairwise_f1": 1.0,
+      "has_disagreement": false,
+      "disagreement_info": {
+        "unanimous": [
+          "ماجده",
+          "شوكت",
+          "عملها",
+          "غاده",
+          "الفيلم"
+        ],
+        "disputed": []
+      },
+      "annotator_count": 3,
+      "majority_vote_gold": [
+        "ماجده",
+        "شوكت",
+        "عملها",
+        "غاده",
+        "الفيلم"
+      ],
+      "stored_gold": [
+        "ماجده",
+        "شوكت",
+        "عملها",
+        "غاده",
+        "الفيلم"
+      ],
+      "gold_sets_match": true
+    },
+    {
+      "id": 17,
+      "variety": "MSA",
+      "topic": "culture",
+      "pair_f1_scores": {
+        "ann1_ann2": 1.0,
+        "ann1_ann3": 1.0,
+        "ann2_ann3": 1.0
+      },
+      "avg_pairwise_f1": 1.0,
+      "has_disagreement": false,
+      "disagreement_info": {
+        "unanimous": [
+          "ويا",
+          "ترثيك",
+          "شيخ",
+          "عمي",
+          "البوادر"
+        ],
+        "disputed": []
+      },
+      "annotator_count": 3,
+      "majority_vote_gold": [
+        "ويا",
+        "ترثيك",
+        "شيخ",
+        "عمي",
+        "البوادر"
+      ],
+      "stored_gold": [
+        "ويا",
+        "ترثيك",
+        "شيخ",
+        "عمي",
+        "البوادر"
+      ],
+      "gold_sets_match": true
+    },
+    {
+      "id": 18,
+      "variety": "MSA",
+      "topic": "culture",
+      "pair_f1_scores": {
+        "ann1_ann2": 0.8889,
+        "ann1_ann3": 1.0,
+        "ann2_ann3": 0.8889
+      },
+      "avg_pairwise_f1": 0.9259,
+      "has_disagreement": false,
+      "disagreement_info": {
+        "unanimous": [
+          "كمنهج",
+          "لنجيب",
+          "الايهام",
+          "مدكور"
+        ],
+        "disputed": [
+          {
+            "keyphrase": "لاخراج",
+            "votes": 2,
+            "out_of": 3
+          }
+        ]
+      },
+      "annotator_count": 3,
+      "majority_vote_gold": [
+        "كمنهج",
+        "لنجيب",
+        "الايهام",
+        "مدكور",
+        "لاخراج"
+      ],
+      "stored_gold": [
+        "كمنهج",
+        "لنجيب",
+        "الايهام",
+        "مدكور",
+        "لاخراج"
+      ],
+      "gold_sets_match": true
+    },
+    {
+      "id": 19,
+      "variety": "MSA",
+      "topic": "culture",
+      "pair_f1_scores": {
+        "ann1_ann2": 1.0,
+        "ann1_ann3": 1.0,
+        "ann2_ann3": 1.0
+      },
+      "avg_pairwise_f1": 1.0,
+      "has_disagreement": false,
+      "disagreement_info": {
+        "unanimous": [
+          "الايهام",
+          "المخرج",
+          "الفيلم",
+          "السينمائي",
+          "صوت"
+        ],
+        "disputed": []
+      },
+      "annotator_count": 3,
+      "majority_vote_gold": [
+        "الايهام",
+        "المخرج",
+        "الفيلم",
+        "السينمائي",
+        "صوت"
+      ],
+      "stored_gold": [
+        "الايهام",
+        "المخرج",
+        "الفيلم",
+        "السينمائي",
+        "صوت"
+      ],
+      "gold_sets_match": true
+    },
+    {
+      "id": 20,
+      "variety": "MSA",
+      "topic": "culture",
+      "pair_f1_scores": {
+        "ann1_ann2": 0.75,
+        "ann1_ann3": 0.8889,
+        "ann2_ann3": 0.8889
+      },
+      "avg_pairwise_f1": 0.8426,
+      "has_disagreement": false,
+      "disagreement_info": {
+        "unanimous": [
+          "ويوم",
+          "التليفزيون",
+          "يونيو"
+        ],
+        "disputed": [
+          {
+            "keyphrase": "ريتشارد",
+            "votes": 2,
+            "out_of": 3
+          },
+          {
+            "keyphrase": "السهره",
+            "votes": 2,
+            "out_of": 3
+          }
+        ]
+      },
+      "annotator_count": 3,
+      "majority_vote_gold": [
+        "ويوم",
+        "التليفزيون",
+        "يونيو",
+        "ريتشارد",
+        "السهره"
+      ],
+      "stored_gold": [
+        "ويوم",
+        "التليفزيون",
+        "يونيو",
+        "ريتشارد",
+        "السهره"
+      ],
+      "gold_sets_match": true
+    },
+    {
+      "id": 21,
+      "variety": "MSA",
+      "topic": "culture",
+      "pair_f1_scores": {
+        "ann1_ann2": 1.0,
+        "ann1_ann3": 0.8889,
+        "ann2_ann3": 0.8889
+      },
+      "avg_pairwise_f1": 0.9259,
+      "has_disagreement": false,
+      "disagreement_info": {
+        "unanimous": [
+          "الانترنت",
+          "الروائي",
+          "لكنني",
+          "الكتب"
+        ],
+        "disputed": [
+          {
+            "keyphrase": "كويلو",
+            "votes": 2,
+            "out_of": 3
+          }
+        ]
+      },
+      "annotator_count": 3,
+      "majority_vote_gold": [
+        "الانترنت",
+        "الروائي",
+        "لكنني",
+        "الكتب",
+        "كويلو"
+      ],
+      "stored_gold": [
+        "الانترنت",
+        "الروائي",
+        "لكنني",
+        "الكتب",
+        "كويلو"
+      ],
+      "gold_sets_match": true
+    },
+    {
+      "id": 22,
+      "variety": "MSA",
+      "topic": "culture",
+      "pair_f1_scores": {
+        "ann1_ann2": 0.8889,
+        "ann1_ann3": 0.9091,
+        "ann2_ann3": 0.8
+      },
+      "avg_pairwise_f1": 0.866,
+      "has_disagreement": false,
+      "disagreement_info": {
+        "unanimous": [
+          "الملكيه",
+          "تستعد",
+          "الفكريه",
+          "الثقافه"
+        ],
+        "disputed": [
+          {
+            "keyphrase": "اليمن",
+            "votes": 2,
+            "out_of": 3
+          },
+          {
+            "keyphrase": "الابتكار التقني",
+            "votes": 1,
+            "out_of": 3
+          }
+        ]
+      },
+      "annotator_count": 3,
+      "majority_vote_gold": [
+        "الملكيه",
+        "تستعد",
+        "الفكريه",
+        "الثقافه",
+        "اليمن"
+      ],
+      "stored_gold": [
+        "الملكيه",
+        "تستعد",
+        "الفكريه",
+        "الثقافه",
+        "اليمن"
+      ],
+      "gold_sets_match": true
+    },
+    {
+      "id": 23,
+      "variety": "MSA",
+      "topic": "culture",
+      "pair_f1_scores": {
+        "ann1_ann2": 1.0,
+        "ann1_ann3": 1.0,
+        "ann2_ann3": 1.0
+      },
+      "avg_pairwise_f1": 1.0,
+      "has_disagreement": false,
+      "disagreement_info": {
+        "unanimous": [
+          "الاجوبه",
+          "قرن",
+          "التساؤل",
+          "حياتنا",
+          "ضوء"
+        ],
+        "disputed": []
+      },
+      "annotator_count": 3,
+      "majority_vote_gold": [
+        "الاجوبه",
+        "قرن",
+        "التساؤل",
+        "حياتنا",
+        "ضوء"
+      ],
+      "stored_gold": [
+        "الاجوبه",
+        "قرن",
+        "التساؤل",
+        "حياتنا",
+        "ضوء"
+      ],
+      "gold_sets_match": true
+    },
+    {
+      "id": 24,
+      "variety": "MSA",
+      "topic": "culture",
+      "pair_f1_scores": {
+        "ann1_ann2": 0.75,
+        "ann1_ann3": 0.8889,
+        "ann2_ann3": 0.8889
+      },
+      "avg_pairwise_f1": 0.8426,
+      "has_disagreement": false,
+      "disagreement_info": {
+        "unanimous": [
+          "الخوذتين",
+          "الرجلان",
+          "تفوه"
+        ],
+        "disputed": [
+          {
+            "keyphrase": "ذوو",
+            "votes": 2,
+            "out_of": 3
+          },
+          {
+            "keyphrase": "النداء",
+            "votes": 2,
+            "out_of": 3
+          }
+        ]
+      },
+      "annotator_count": 3,
+      "majority_vote_gold": [
+        "الخوذتين",
+        "الرجلان",
+        "تفوه",
+        "ذوو",
+        "النداء"
+      ],
+      "stored_gold": [
+        "الخوذتين",
+        "الرجلان",
+        "تفوه",
+        "ذوو",
+        "النداء"
+      ],
+      "gold_sets_match": true
+    },
+    {
+      "id": 25,
+      "variety": "MSA",
+      "topic": "culture",
+      "pair_f1_scores": {
+        "ann1_ann2": 1.0,
+        "ann1_ann3": 1.0,
+        "ann2_ann3": 1.0
+      },
+      "avg_pairwise_f1": 1.0,
+      "has_disagreement": false,
+      "disagreement_info": {
+        "unanimous": [
+          "مارسيل",
+          "خليفه",
+          "العلي",
+          "وطنه",
+          "ناجي"
+        ],
+        "disputed": []
+      },
+      "annotator_count": 3,
+      "majority_vote_gold": [
+        "مارسيل",
+        "خليفه",
+        "العلي",
+        "وطنه",
+        "ناجي"
+      ],
+      "stored_gold": [
+        "مارسيل",
+        "خليفه",
+        "العلي",
+        "وطنه",
+        "ناجي"
+      ],
+      "gold_sets_match": true
+    },
+    {
+      "id": 26,
+      "variety": "MSA",
+      "topic": "culture",
+      "pair_f1_scores": {
+        "ann1_ann2": 0.9091,
+        "ann1_ann3": 0.9091,
+        "ann2_ann3": 1.0
+      },
+      "avg_pairwise_f1": 0.9394,
+      "has_disagreement": false,
+      "disagreement_info": {
+        "unanimous": [
+          "التشكيليه",
+          "اللوحات",
+          "توظيف",
+          "الكولاج",
+          "المعرض"
+        ],
+        "disputed": [
+          {
+            "keyphrase": "الابتكار التقني",
+            "votes": 1,
+            "out_of": 3
+          }
+        ]
+      },
+      "annotator_count": 3,
+      "majority_vote_gold": [
+        "التشكيليه",
+        "اللوحات",
+        "توظيف",
+        "الكولاج",
+        "المعرض"
+      ],
+      "stored_gold": [
+        "التشكيليه",
+        "اللوحات",
+        "توظيف",
+        "الكولاج",
+        "المعرض"
       ],
       "gold_sets_match": true
     },
     {
       "id": 27,
       "variety": "MSA",
-      "topic": "Law",
+      "topic": "culture",
       "pair_f1_scores": {
-        "ann1_ann2": 0.6667,
-        "ann1_ann3": 0.5714,
-        "ann2_ann3": 0.5714
+        "ann1_ann2": 0.75,
+        "ann1_ann3": 0.75,
+        "ann2_ann3": 0.75
       },
-      "avg_pairwise_f1": 0.6032,
-      "has_disagreement": true,
+      "avg_pairwise_f1": 0.75,
+      "has_disagreement": false,
       "disagreement_info": {
         "unanimous": [
-          "الأدلة الرقمية"
+          "الطائي",
+          "الادبيه"
         ],
         "disputed": [
           {
-            "keyphrase": "الجرائم الرقمية",
+            "keyphrase": "رابطه",
             "votes": 2,
             "out_of": 3
           },
           {
-            "keyphrase": "المحاكم",
+            "keyphrase": "الاديب",
             "votes": 2,
             "out_of": 3
           },
           {
-            "keyphrase": "التحقيق الجنائي",
+            "keyphrase": "الادباء",
             "votes": 2,
-            "out_of": 3
-          },
-          {
-            "keyphrase": "المنظومة التشريعية",
-            "votes": 1,
             "out_of": 3
           }
         ]
       },
       "annotator_count": 3,
       "majority_vote_gold": [
-        "الأدلة الرقمية",
-        "الجرائم الرقمية",
-        "المحاكم",
-        "التحقيق الجنائي"
+        "الطائي",
+        "الادبيه",
+        "رابطه",
+        "الاديب",
+        "الادباء"
       ],
       "stored_gold": [
-        "الأدلة الرقمية",
-        "الجرائم الرقمية",
-        "المحاكم",
-        "التحقيق الجنائي"
+        "الطائي",
+        "الادبيه",
+        "رابطه",
+        "الاديب",
+        "الادباء"
       ],
       "gold_sets_match": true
     },
     {
       "id": 28,
       "variety": "Classical",
-      "topic": "Rhetoric",
+      "topic": "Classical-Book",
       "pair_f1_scores": {
-        "ann1_ann2": 0.5714,
-        "ann1_ann3": 0.8,
-        "ann2_ann3": 0.6667
+        "ann1_ann2": 0.75,
+        "ann1_ann3": 0.8889,
+        "ann2_ann3": 0.8889
       },
-      "avg_pairwise_f1": 0.6794,
-      "has_disagreement": true,
+      "avg_pairwise_f1": 0.8426,
+      "has_disagreement": false,
       "disagreement_info": {
         "unanimous": [
-          "معاني النحو",
-          "إعجاز القرآن"
+          "داب",
+          "لفان",
+          "والدعوات"
         ],
         "disputed": [
           {
-            "keyphrase": "النظم",
+            "keyphrase": "الاتحر",
             "votes": 2,
             "out_of": 3
           },
           {
-            "keyphrase": "عبد القاهر الجرجاني",
+            "keyphrase": "يلوه",
             "votes": 2,
-            "out_of": 3
-          },
-          {
-            "keyphrase": "دلائل الإعجاز",
-            "votes": 2,
-            "out_of": 3
-          },
-          {
-            "keyphrase": "علم الكلام",
-            "votes": 1,
             "out_of": 3
           }
         ]
       },
       "annotator_count": 3,
       "majority_vote_gold": [
-        "معاني النحو",
-        "إعجاز القرآن",
-        "النظم",
-        "عبد القاهر الجرجاني",
-        "دلائل الإعجاز"
+        "داب",
+        "لفان",
+        "والدعوات",
+        "الاتحر",
+        "يلوه"
       ],
       "stored_gold": [
-        "معاني النحو",
-        "إعجاز القرآن",
-        "النظم",
-        "عبد القاهر الجرجاني",
-        "دلائل الإعجاز"
+        "داب",
+        "لفان",
+        "والدعوات",
+        "الاتحر",
+        "يلوه"
       ],
       "gold_sets_match": true
     },
     {
       "id": 29,
       "variety": "Classical",
-      "topic": "Jurisprudence",
+      "topic": "Classical-Book",
       "pair_f1_scores": {
-        "ann1_ann2": 0.6667,
-        "ann1_ann3": 0.2857,
-        "ann2_ann3": 0.6667
+        "ann1_ann2": 0.8,
+        "ann1_ann3": 0.7273,
+        "ann2_ann3": 0.9091
       },
-      "avg_pairwise_f1": 0.5397,
-      "has_disagreement": true,
+      "avg_pairwise_f1": 0.8121,
+      "has_disagreement": false,
       "disagreement_info": {
         "unanimous": [
-          "الاجتهاد"
+          "شارح",
+          "تقاطع",
+          "الكندره",
+          "جده"
         ],
         "disputed": [
           {
-            "keyphrase": "الإجماع",
-            "votes": 2,
-            "out_of": 3
-          },
-          {
-            "keyphrase": "الإمام الشافعي",
-            "votes": 2,
-            "out_of": 3
-          },
-          {
-            "keyphrase": "القياس",
-            "votes": 2,
-            "out_of": 3
-          },
-          {
-            "keyphrase": "الأدلة الشرعية",
+            "keyphrase": "الإرث الحضاري",
             "votes": 1,
+            "out_of": 3
+          },
+          {
+            "keyphrase": "ابها",
+            "votes": 2,
             "out_of": 3
           },
           {
@@ -1615,43 +1337,41 @@
       },
       "annotator_count": 3,
       "majority_vote_gold": [
-        "الاجتهاد",
-        "الإجماع",
-        "الإمام الشافعي",
-        "القياس"
+        "شارح",
+        "تقاطع",
+        "الكندره",
+        "جده",
+        "ابها"
       ],
       "stored_gold": [
-        "الاجتهاد",
-        "الإجماع",
-        "الإمام الشافعي",
-        "القياس"
+        "شارح",
+        "تقاطع",
+        "الكندره",
+        "جده",
+        "ابها"
       ],
       "gold_sets_match": true
     },
     {
       "id": 30,
       "variety": "Classical",
-      "topic": "History",
+      "topic": "Classical-Book",
       "pair_f1_scores": {
-        "ann1_ann2": 0.8889,
+        "ann1_ann2": 1.0,
         "ann1_ann3": 0.9091,
-        "ann2_ann3": 0.8
+        "ann2_ann3": 0.9091
       },
-      "avg_pairwise_f1": 0.866,
-      "has_disagreement": true,
+      "avg_pairwise_f1": 0.9394,
+      "has_disagreement": false,
       "disagreement_info": {
         "unanimous": [
-          "العصبية",
-          "نشوء الدول",
-          "الترف",
-          "الحضارة"
+          "خلق",
+          "الحيوان",
+          "نطفه",
+          "تمنيا",
+          "تفرد"
         ],
         "disputed": [
-          {
-            "keyphrase": "ابن خلدون",
-            "votes": 2,
-            "out_of": 3
-          },
           {
             "keyphrase": "الفقه الإسلامي",
             "votes": 1,
@@ -1661,51 +1381,42 @@
       },
       "annotator_count": 3,
       "majority_vote_gold": [
-        "العصبية",
-        "نشوء الدول",
-        "الترف",
-        "الحضارة",
-        "ابن خلدون"
+        "خلق",
+        "الحيوان",
+        "نطفه",
+        "تمنيا",
+        "تفرد"
       ],
       "stored_gold": [
-        "العصبية",
-        "نشوء الدول",
-        "الترف",
-        "الحضارة",
-        "ابن خلدون"
+        "خلق",
+        "الحيوان",
+        "نطفه",
+        "تمنيا",
+        "تفرد"
       ],
       "gold_sets_match": true
     },
     {
       "id": 31,
       "variety": "Classical",
-      "topic": "Poetry",
+      "topic": "Classical-Book",
       "pair_f1_scores": {
-        "ann1_ann2": 0.7273,
-        "ann1_ann3": 0.9091,
-        "ann2_ann3": 0.6
+        "ann1_ann2": 0.8,
+        "ann1_ann3": 1.0,
+        "ann2_ann3": 0.8
       },
-      "avg_pairwise_f1": 0.7455,
-      "has_disagreement": true,
+      "avg_pairwise_f1": 0.8667,
+      "has_disagreement": false,
       "disagreement_info": {
         "unanimous": [
-          "المعلقة",
-          "الأطلال",
-          "الديار المهجورة"
+          "اظهارا",
+          "للامتحان",
+          "والابتلا",
+          "زكئ"
         ],
         "disputed": [
           {
-            "keyphrase": "امرؤ القيس",
-            "votes": 2,
-            "out_of": 3
-          },
-          {
-            "keyphrase": "البلاغة والبيان",
-            "votes": 2,
-            "out_of": 3
-          },
-          {
-            "keyphrase": "الشعر الجاهلي",
+            "keyphrase": "جعل",
             "votes": 2,
             "out_of": 3
           },
@@ -1718,176 +1429,123 @@
       },
       "annotator_count": 3,
       "majority_vote_gold": [
-        "المعلقة",
-        "الأطلال",
-        "الديار المهجورة",
-        "امرؤ القيس",
-        "البلاغة والبيان",
-        "الشعر الجاهلي"
+        "اظهارا",
+        "للامتحان",
+        "والابتلا",
+        "زكئ",
+        "جعل"
       ],
       "stored_gold": [
-        "المعلقة",
-        "الأطلال",
-        "الديار المهجورة",
-        "امرؤ القيس",
-        "البلاغة والبيان",
-        "الشعر الجاهلي"
+        "اظهارا",
+        "للامتحان",
+        "والابتلا",
+        "زكئ",
+        "جعل"
       ],
       "gold_sets_match": true
     },
     {
       "id": 32,
       "variety": "Classical",
-      "topic": "Medicine",
+      "topic": "Classical-Book",
       "pair_f1_scores": {
-        "ann1_ann2": 0.75,
-        "ann1_ann3": 0.6667,
-        "ann2_ann3": 0.6667
+        "ann1_ann2": 1.0,
+        "ann1_ann3": 1.0,
+        "ann2_ann3": 1.0
       },
-      "avg_pairwise_f1": 0.6945,
-      "has_disagreement": true,
+      "avg_pairwise_f1": 1.0,
+      "has_disagreement": false,
       "disagreement_info": {
         "unanimous": [
-          "القانون في الطب",
-          "الأوبئة"
+          "فيكون",
+          "المعطوف",
+          "اضب",
+          "بمعنئ",
+          "حرم"
         ],
-        "disputed": [
-          {
-            "keyphrase": "ابن سينا",
-            "votes": 2,
-            "out_of": 3
-          },
-          {
-            "keyphrase": "الأمراض الوبائية",
-            "votes": 2,
-            "out_of": 3
-          },
-          {
-            "keyphrase": "الوقاية الصحية",
-            "votes": 2,
-            "out_of": 3
-          },
-          {
-            "keyphrase": "التراث الفكري",
-            "votes": 1,
-            "out_of": 3
-          }
-        ]
+        "disputed": []
       },
       "annotator_count": 3,
       "majority_vote_gold": [
-        "القانون في الطب",
-        "الأوبئة",
-        "ابن سينا",
-        "الأمراض الوبائية",
-        "الوقاية الصحية"
+        "فيكون",
+        "المعطوف",
+        "اضب",
+        "بمعنئ",
+        "حرم"
       ],
       "stored_gold": [
-        "القانون في الطب",
-        "الأوبئة",
-        "ابن سينا",
-        "الأمراض الوبائية",
-        "الوقاية الصحية"
+        "فيكون",
+        "المعطوف",
+        "اضب",
+        "بمعنئ",
+        "حرم"
       ],
       "gold_sets_match": true
     },
     {
       "id": 33,
       "variety": "Classical",
-      "topic": "Geography",
+      "topic": "Classical-Book",
       "pair_f1_scores": {
-        "ann1_ann2": 0.7273,
-        "ann1_ann3": 0.6667,
-        "ann2_ann3": 0.8
+        "ann1_ann2": 1.0,
+        "ann1_ann3": 1.0,
+        "ann2_ann3": 1.0
       },
-      "avg_pairwise_f1": 0.7313,
-      "has_disagreement": true,
+      "avg_pairwise_f1": 1.0,
+      "has_disagreement": false,
       "disagreement_info": {
         "unanimous": [
-          "نزهة المشتاق",
-          "خريطة العالم",
-          "الجغرافيا الإسلامية"
+          "الضمير",
+          "الئ",
+          "العباد",
+          "المفاض",
+          "واكدئ"
         ],
-        "disputed": [
-          {
-            "keyphrase": "البلاغة والبيان",
-            "votes": 1,
-            "out_of": 3
-          },
-          {
-            "keyphrase": "الأقاليم",
-            "votes": 2,
-            "out_of": 3
-          },
-          {
-            "keyphrase": "الإدريسي",
-            "votes": 2,
-            "out_of": 3
-          },
-          {
-            "keyphrase": "علم الكلام",
-            "votes": 1,
-            "out_of": 3
-          }
-        ]
+        "disputed": []
       },
       "annotator_count": 3,
       "majority_vote_gold": [
-        "نزهة المشتاق",
-        "خريطة العالم",
-        "الجغرافيا الإسلامية",
-        "الأقاليم",
-        "الإدريسي"
+        "الضمير",
+        "الئ",
+        "العباد",
+        "المفاض",
+        "واكدئ"
       ],
       "stored_gold": [
-        "نزهة المشتاق",
-        "خريطة العالم",
-        "الجغرافيا الإسلامية",
-        "الأقاليم",
-        "الإدريسي"
+        "الضمير",
+        "الئ",
+        "العباد",
+        "المفاض",
+        "واكدئ"
       ],
       "gold_sets_match": true
     },
     {
       "id": 34,
       "variety": "Classical",
-      "topic": "Theology",
+      "topic": "Classical-Book",
       "pair_f1_scores": {
-        "ann1_ann2": 0.6,
-        "ann1_ann3": 0.4444,
-        "ann2_ann3": 0.7273
+        "ann1_ann2": 0.8889,
+        "ann1_ann3": 0.6667,
+        "ann2_ann3": 0.8
       },
-      "avg_pairwise_f1": 0.5906,
-      "has_disagreement": true,
+      "avg_pairwise_f1": 0.7852,
+      "has_disagreement": false,
       "disagreement_info": {
         "unanimous": [
-          "إحياء علوم الدين",
-          "الفقه الإسلامي"
+          "والضمير",
+          "غناه",
+          "المسمئ"
         ],
         "disputed": [
           {
-            "keyphrase": "الحضارة الإسلامية",
-            "votes": 1,
-            "out_of": 3
-          },
-          {
-            "keyphrase": "تجديد العلوم",
+            "keyphrase": "امانه",
             "votes": 2,
             "out_of": 3
           },
           {
-            "keyphrase": "الغزالي",
+            "keyphrase": "المزكي",
             "votes": 2,
-            "out_of": 3
-          },
-          {
-            "keyphrase": "التصوف",
-            "votes": 2,
-            "out_of": 3
-          },
-          {
-            "keyphrase": "المنطق والفلسفة",
-            "votes": 1,
             "out_of": 3
           },
           {
@@ -1899,55 +1557,42 @@
       },
       "annotator_count": 3,
       "majority_vote_gold": [
-        "إحياء علوم الدين",
-        "الفقه الإسلامي",
-        "تجديد العلوم",
-        "الغزالي",
-        "التصوف"
+        "والضمير",
+        "غناه",
+        "المسمئ",
+        "امانه",
+        "المزكي"
       ],
       "stored_gold": [
-        "إحياء علوم الدين",
-        "الفقه الإسلامي",
-        "تجديد العلوم",
-        "الغزالي",
-        "التصوف"
+        "والضمير",
+        "غناه",
+        "المسمئ",
+        "امانه",
+        "المزكي"
       ],
       "gold_sets_match": true
     },
     {
       "id": 35,
       "variety": "Classical",
-      "topic": "Philosophy",
+      "topic": "Classical-Book",
       "pair_f1_scores": {
-        "ann1_ann2": 0.6667,
-        "ann1_ann3": 0.75,
-        "ann2_ann3": 0.6667
+        "ann1_ann2": 1.0,
+        "ann1_ann3": 0.8889,
+        "ann2_ann3": 0.8889
       },
-      "avg_pairwise_f1": 0.6945,
-      "has_disagreement": true,
+      "avg_pairwise_f1": 0.9259,
+      "has_disagreement": false,
       "disagreement_info": {
         "unanimous": [
-          "الفارابي",
-          "المدينة الفاضلة"
+          "تعالئ",
+          "الزكاهه",
+          "احدئي",
+          "واردف"
         ],
         "disputed": [
           {
-            "keyphrase": "الفلسفة السياسية",
-            "votes": 2,
-            "out_of": 3
-          },
-          {
-            "keyphrase": "النبوة",
-            "votes": 2,
-            "out_of": 3
-          },
-          {
-            "keyphrase": "النحو والصرف",
-            "votes": 1,
-            "out_of": 3
-          },
-          {
-            "keyphrase": "الرئيس الأول",
+            "keyphrase": "مباني",
             "votes": 2,
             "out_of": 3
           }
@@ -1955,54 +1600,46 @@
       },
       "annotator_count": 3,
       "majority_vote_gold": [
-        "الفارابي",
-        "المدينة الفاضلة",
-        "الفلسفة السياسية",
-        "النبوة",
-        "الرئيس الأول"
+        "تعالئ",
+        "الزكاهه",
+        "احدئي",
+        "واردف",
+        "مباني"
       ],
       "stored_gold": [
-        "الفارابي",
-        "المدينة الفاضلة",
-        "الفلسفة السياسية",
-        "النبوة",
-        "الرئيس الأول"
+        "تعالئ",
+        "الزكاهه",
+        "احدئي",
+        "واردف",
+        "مباني"
       ],
       "gold_sets_match": true
     },
     {
       "id": 36,
       "variety": "Classical",
-      "topic": "Grammar",
+      "topic": "Classical-Book",
       "pair_f1_scores": {
-        "ann1_ann2": 0.75,
-        "ann1_ann3": 0.3333,
-        "ann2_ann3": 0.6667
+        "ann1_ann2": 0.8889,
+        "ann1_ann3": 0.75,
+        "ann2_ann3": 0.8889
       },
-      "avg_pairwise_f1": 0.5833,
-      "has_disagreement": true,
+      "avg_pairwise_f1": 0.8426,
+      "has_disagreement": false,
       "disagreement_info": {
         "unanimous": [
-          "الكتاب"
+          "الئه",
+          "محمدا",
+          "واقام"
         ],
         "disputed": [
           {
-            "keyphrase": "سيبويه",
+            "keyphrase": "رسول",
             "votes": 2,
             "out_of": 3
           },
           {
-            "keyphrase": "النحو العربي",
-            "votes": 1,
-            "out_of": 3
-          },
-          {
-            "keyphrase": "الإعراب",
-            "votes": 2,
-            "out_of": 3
-          },
-          {
-            "keyphrase": "العوامل النحوية",
+            "keyphrase": "وايتاء",
             "votes": 2,
             "out_of": 3
           }
@@ -2010,110 +1647,89 @@
       },
       "annotator_count": 3,
       "majority_vote_gold": [
-        "الكتاب",
-        "سيبويه",
-        "الإعراب",
-        "العوامل النحوية"
+        "الئه",
+        "محمدا",
+        "واقام",
+        "رسول",
+        "وايتاء"
       ],
       "stored_gold": [
-        "الكتاب",
-        "سيبويه",
-        "الإعراب",
-        "العوامل النحوية"
+        "الئه",
+        "محمدا",
+        "واقام",
+        "رسول",
+        "وايتاء"
       ],
       "gold_sets_match": true
     },
     {
       "id": 37,
       "variety": "Classical",
-      "topic": "Astronomy",
+      "topic": "Classical-Book",
       "pair_f1_scores": {
-        "ann1_ann2": 0.5,
-        "ann1_ann3": 0.75,
-        "ann2_ann3": 0.8
+        "ann1_ann2": 0.75,
+        "ann1_ann3": 0.8889,
+        "ann2_ann3": 0.8889
       },
-      "avg_pairwise_f1": 0.6833,
-      "has_disagreement": true,
+      "avg_pairwise_f1": 0.8426,
+      "has_disagreement": false,
       "disagreement_info": {
         "unanimous": [
-          "الميل المحوري",
-          "بطليموس"
+          "الوعيد",
+          "المقصرين",
+          "والدست"
         ],
         "disputed": [
           {
-            "keyphrase": "البتّاني",
+            "keyphrase": "وشدد",
             "votes": 2,
             "out_of": 3
           },
           {
-            "keyphrase": "علم الفلك",
+            "keyphrase": "تعالن",
             "votes": 2,
-            "out_of": 3
-          },
-          {
-            "keyphrase": "السنة الشمسية",
-            "votes": 2,
-            "out_of": 3
-          },
-          {
-            "keyphrase": "الأدب العربي",
-            "votes": 1,
             "out_of": 3
           }
         ]
       },
       "annotator_count": 3,
       "majority_vote_gold": [
-        "الميل المحوري",
-        "بطليموس",
-        "البتّاني",
-        "علم الفلك",
-        "السنة الشمسية"
+        "الوعيد",
+        "المقصرين",
+        "والدست",
+        "وشدد",
+        "تعالن"
       ],
       "stored_gold": [
-        "الميل المحوري",
-        "بطليموس",
-        "البتّاني",
-        "علم الفلك",
-        "السنة الشمسية"
+        "الوعيد",
+        "المقصرين",
+        "والدست",
+        "وشدد",
+        "تعالن"
       ],
       "gold_sets_match": true
     },
     {
       "id": 38,
       "variety": "Classical",
-      "topic": "Mathematics",
+      "topic": "Classical-Book",
       "pair_f1_scores": {
-        "ann1_ann2": 0.75,
-        "ann1_ann3": 0.6667,
-        "ann2_ann3": 0.6667
+        "ann1_ann2": 1.0,
+        "ann1_ann3": 0.8889,
+        "ann2_ann3": 0.8889
       },
-      "avg_pairwise_f1": 0.6945,
-      "has_disagreement": true,
+      "avg_pairwise_f1": 0.9259,
+      "has_disagreement": false,
       "disagreement_info": {
         "unanimous": [
-          "الخوارزمي",
-          "المعادلات",
-          "الرياضيات الإسلامية"
+          "لذهبوالفصدولامففومساف",
+          "قبضرهم",
+          "بحداب",
+          "الير"
         ],
         "disputed": [
           {
-            "keyphrase": "الأدب العربي",
-            "votes": 1,
-            "out_of": 3
-          },
-          {
-            "keyphrase": "العلوم الشرعية",
-            "votes": 1,
-            "out_of": 3
-          },
-          {
-            "keyphrase": "الجبر",
-            "votes": 1,
-            "out_of": 3
-          },
-          {
-            "keyphrase": "الجبر والمقابلة",
+            "keyphrase": "سبي",
             "votes": 1,
             "out_of": 3
           }
@@ -2121,49 +1737,39 @@
       },
       "annotator_count": 3,
       "majority_vote_gold": [
-        "الخوارزمي",
-        "المعادلات",
-        "الرياضيات الإسلامية"
+        "لذهبوالفصدولامففومساف",
+        "قبضرهم",
+        "بحداب",
+        "الير"
       ],
       "stored_gold": [
-        "الخوارزمي",
-        "المعادلات",
-        "الرياضيات الإسلامية"
+        "لذهبوالفصدولامففومساف",
+        "قبضرهم",
+        "بحداب",
+        "الير"
       ],
       "gold_sets_match": true
     },
     {
       "id": 39,
       "variety": "Classical",
-      "topic": "Literature",
+      "topic": "Classical-Book",
       "pair_f1_scores": {
-        "ann1_ann2": 0.6667,
-        "ann1_ann3": 0.6667,
-        "ann2_ann3": 0.6667
+        "ann1_ann2": 0.9091,
+        "ann1_ann3": 1.0,
+        "ann2_ann3": 0.9091
       },
-      "avg_pairwise_f1": 0.6667,
-      "has_disagreement": true,
+      "avg_pairwise_f1": 0.9394,
+      "has_disagreement": false,
       "disagreement_info": {
         "unanimous": [
-          "سيف الدولة",
-          "المديح"
+          "يخرج",
+          "الانفاق",
+          "الاحتفا",
+          "ظهورهم",
+          "جنوبهم"
         ],
         "disputed": [
-          {
-            "keyphrase": "الحكمة الشعرية",
-            "votes": 2,
-            "out_of": 3
-          },
-          {
-            "keyphrase": "المتنبي",
-            "votes": 1,
-            "out_of": 3
-          },
-          {
-            "keyphrase": "الشعر العربي",
-            "votes": 2,
-            "out_of": 3
-          },
           {
             "keyphrase": "الإرث الحضاري",
             "votes": 1,
@@ -2173,107 +1779,91 @@
       },
       "annotator_count": 3,
       "majority_vote_gold": [
-        "سيف الدولة",
-        "المديح",
-        "الحكمة الشعرية",
-        "الشعر العربي"
+        "يخرج",
+        "الانفاق",
+        "الاحتفا",
+        "ظهورهم",
+        "جنوبهم"
       ],
       "stored_gold": [
-        "سيف الدولة",
-        "المديح",
-        "الحكمة الشعرية",
-        "الشعر العربي"
+        "يخرج",
+        "الانفاق",
+        "الاحتفا",
+        "ظهورهم",
+        "جنوبهم"
       ],
       "gold_sets_match": true
     },
     {
       "id": 40,
       "variety": "Classical",
-      "topic": "Ethics",
+      "topic": "Classical-Book",
       "pair_f1_scores": {
-        "ann1_ann2": 0.4444,
-        "ann1_ann3": 0.6667,
-        "ann2_ann3": 0.6667
+        "ann1_ann2": 0.9091,
+        "ann1_ann3": 0.8,
+        "ann2_ann3": 0.8889
       },
-      "avg_pairwise_f1": 0.5926,
-      "has_disagreement": true,
+      "avg_pairwise_f1": 0.866,
+      "has_disagreement": false,
       "disagreement_info": {
         "unanimous": [
-          "تهذيب الأخلاق",
-          "السعادة"
+          "وزاد",
+          "تنخئ",
+          "فقعد",
+          "رواه"
         ],
         "disputed": [
-          {
-            "keyphrase": "ابن مسكويه",
-            "votes": 2,
-            "out_of": 3
-          },
           {
             "keyphrase": "البلاغة والبيان",
             "votes": 1,
             "out_of": 3
           },
           {
-            "keyphrase": "الفضائل",
-            "votes": 1,
-            "out_of": 3
-          },
-          {
-            "keyphrase": "التربية الأخلاقية",
-            "votes": 1,
-            "out_of": 3
-          },
-          {
-            "keyphrase": "الأدب العربي",
-            "votes": 1,
+            "keyphrase": "قلت",
+            "votes": 2,
             "out_of": 3
           }
         ]
       },
       "annotator_count": 3,
       "majority_vote_gold": [
-        "تهذيب الأخلاق",
-        "السعادة",
-        "ابن مسكويه"
+        "وزاد",
+        "تنخئ",
+        "فقعد",
+        "رواه",
+        "قلت"
       ],
       "stored_gold": [
-        "تهذيب الأخلاق",
-        "السعادة",
-        "ابن مسكويه"
+        "وزاد",
+        "تنخئ",
+        "فقعد",
+        "رواه",
+        "قلت"
       ],
       "gold_sets_match": true
     },
     {
       "id": 41,
       "variety": "Classical",
-      "topic": "Politics",
+      "topic": "Classical-Book",
       "pair_f1_scores": {
-        "ann1_ann2": 0.8,
-        "ann1_ann3": 0.8,
-        "ann2_ann3": 0.8
+        "ann1_ann2": 0.9091,
+        "ann1_ann3": 0.9091,
+        "ann2_ann3": 1.0
       },
-      "avg_pairwise_f1": 0.8,
-      "has_disagreement": true,
+      "avg_pairwise_f1": 0.9394,
+      "has_disagreement": false,
       "disagreement_info": {
         "unanimous": [
-          "ابن تيمية",
-          "السياسة الشرعية",
-          "الشريعة الإسلامية",
-          "الحكم"
+          "قالوا",
+          "هنذ",
+          "ابر",
+          "فقمث",
+          "فقلت"
         ],
         "disputed": [
           {
             "keyphrase": "النحو والصرف",
-            "votes": 1,
-            "out_of": 3
-          },
-          {
-            "keyphrase": "علوم القرآن",
-            "votes": 1,
-            "out_of": 3
-          },
-          {
-            "keyphrase": "العدل",
             "votes": 1,
             "out_of": 3
           }
@@ -2281,45 +1871,42 @@
       },
       "annotator_count": 3,
       "majority_vote_gold": [
-        "ابن تيمية",
-        "السياسة الشرعية",
-        "الشريعة الإسلامية",
-        "الحكم"
+        "قالوا",
+        "هنذ",
+        "ابر",
+        "فقمث",
+        "فقلت"
       ],
       "stored_gold": [
-        "ابن تيمية",
-        "السياسة الشرعية",
-        "الشريعة الإسلامية",
-        "الحكم"
+        "قالوا",
+        "هنذ",
+        "ابر",
+        "فقمث",
+        "فقلت"
       ],
       "gold_sets_match": true
     },
     {
       "id": 42,
       "variety": "Classical",
-      "topic": "Chemistry",
+      "topic": "Classical-Book",
       "pair_f1_scores": {
-        "ann1_ann2": 0.8,
-        "ann1_ann3": 0.8,
+        "ann1_ann2": 0.8889,
+        "ann1_ann3": 0.8889,
         "ann2_ann3": 1.0
       },
-      "avg_pairwise_f1": 0.8667,
-      "has_disagreement": true,
+      "avg_pairwise_f1": 0.9259,
+      "has_disagreement": false,
       "disagreement_info": {
         "unanimous": [
-          "جابر بن حيان",
-          "الكيمياء",
-          "التقطير",
-          "التجارب العلمية"
+          "انتهيث",
+          "النبي",
+          "الل",
+          "جالسن"
         ],
         "disputed": [
           {
-            "keyphrase": "الأدب العربي",
-            "votes": 1,
-            "out_of": 3
-          },
-          {
-            "keyphrase": "المصطلحات الكيميائية",
+            "keyphrase": "الكعبه",
             "votes": 1,
             "out_of": 3
           }
@@ -2327,91 +1914,78 @@
       },
       "annotator_count": 3,
       "majority_vote_gold": [
-        "جابر بن حيان",
-        "الكيمياء",
-        "التقطير",
-        "التجارب العلمية"
+        "انتهيث",
+        "النبي",
+        "الل",
+        "جالسن"
       ],
       "stored_gold": [
-        "جابر بن حيان",
-        "الكيمياء",
-        "التقطير",
-        "التجارب العلمية"
+        "انتهيث",
+        "النبي",
+        "الل",
+        "جالسن"
       ],
       "gold_sets_match": true
     },
     {
       "id": 43,
       "variety": "Classical",
-      "topic": "Education",
+      "topic": "Classical-Book",
       "pair_f1_scores": {
         "ann1_ann2": 1.0,
-        "ann1_ann3": 0.8889,
-        "ann2_ann3": 0.8889
+        "ann1_ann3": 1.0,
+        "ann2_ann3": 1.0
       },
-      "avg_pairwise_f1": 0.9259,
-      "has_disagreement": true,
+      "avg_pairwise_f1": 1.0,
+      "has_disagreement": false,
       "disagreement_info": {
         "unanimous": [
-          "ابن خلدون",
-          "المقدمة",
-          "التعليم التدريجي",
-          "الحفظ والفهم"
+          "وهلكذا",
+          "وعن",
+          "الاكثرون",
+          "اموالا",
+          "هلكذا"
         ],
-        "disputed": [
-          {
-            "keyphrase": "المناهج التعليمية",
-            "votes": 2,
-            "out_of": 3
-          }
-        ]
+        "disputed": []
       },
       "annotator_count": 3,
       "majority_vote_gold": [
-        "ابن خلدون",
-        "المقدمة",
-        "التعليم التدريجي",
-        "الحفظ والفهم",
-        "المناهج التعليمية"
+        "وهلكذا",
+        "وعن",
+        "الاكثرون",
+        "اموالا",
+        "هلكذا"
       ],
       "stored_gold": [
-        "ابن خلدون",
-        "المقدمة",
-        "التعليم التدريجي",
-        "الحفظ والفهم",
-        "المناهج التعليمية"
+        "وهلكذا",
+        "وعن",
+        "الاكثرون",
+        "اموالا",
+        "هلكذا"
       ],
       "gold_sets_match": true
     },
     {
       "id": 44,
       "variety": "Classical",
-      "topic": "Quran",
+      "topic": "Classical-Book",
       "pair_f1_scores": {
-        "ann1_ann2": 0.75,
-        "ann1_ann3": 0.75,
-        "ann2_ann3": 0.75
+        "ann1_ann2": 0.8889,
+        "ann1_ann3": 1.0,
+        "ann2_ann3": 0.8889
       },
-      "avg_pairwise_f1": 0.75,
-      "has_disagreement": true,
+      "avg_pairwise_f1": 0.9259,
+      "has_disagreement": false,
       "disagreement_info": {
         "unanimous": [
-          "إعجاز القرآن",
-          "البلاغة"
+          "صار",
+          "وشروطها",
+          "الجليه",
+          "والخفيه"
         ],
         "disputed": [
           {
-            "keyphrase": "الزمخشري",
-            "votes": 2,
-            "out_of": 3
-          },
-          {
-            "keyphrase": "الكشاف",
-            "votes": 2,
-            "out_of": 3
-          },
-          {
-            "keyphrase": "التفسير",
+            "keyphrase": "مهمات",
             "votes": 2,
             "out_of": 3
           }
@@ -2419,46 +1993,42 @@
       },
       "annotator_count": 3,
       "majority_vote_gold": [
-        "إعجاز القرآن",
-        "البلاغة",
-        "الزمخشري",
-        "الكشاف",
-        "التفسير"
+        "صار",
+        "وشروطها",
+        "الجليه",
+        "والخفيه",
+        "مهمات"
       ],
       "stored_gold": [
-        "إعجاز القرآن",
-        "البلاغة",
-        "الزمخشري",
-        "الكشاف",
-        "التفسير"
+        "صار",
+        "وشروطها",
+        "الجليه",
+        "والخفيه",
+        "مهمات"
       ],
       "gold_sets_match": true
     },
     {
       "id": 45,
       "variety": "Classical",
-      "topic": "Hadith",
+      "topic": "Classical-Book",
       "pair_f1_scores": {
-        "ann1_ann2": 0.8889,
-        "ann1_ann3": 0.75,
-        "ann2_ann3": 0.8571
+        "ann1_ann2": 1.0,
+        "ann1_ann3": 0.8889,
+        "ann2_ann3": 0.8889
       },
-      "avg_pairwise_f1": 0.832,
-      "has_disagreement": true,
+      "avg_pairwise_f1": 0.9259,
+      "has_disagreement": false,
       "disagreement_info": {
         "unanimous": [
-          "الإمام البخاري",
-          "صحيح البخاري",
-          "الإسناد"
+          "البخاري",
+          "والنعض",
+          "العظم",
+          "الرقيق"
         ],
         "disputed": [
           {
-            "keyphrase": "علم الحديث",
-            "votes": 1,
-            "out_of": 3
-          },
-          {
-            "keyphrase": "الراوي",
+            "keyphrase": "طرف",
             "votes": 2,
             "out_of": 3
           }
@@ -2466,158 +2036,136 @@
       },
       "annotator_count": 3,
       "majority_vote_gold": [
-        "الإمام البخاري",
-        "صحيح البخاري",
-        "الإسناد",
-        "الراوي"
+        "البخاري",
+        "والنعض",
+        "العظم",
+        "الرقيق",
+        "طرف"
       ],
       "stored_gold": [
-        "الإمام البخاري",
-        "صحيح البخاري",
-        "الإسناد",
-        "الراوي"
+        "البخاري",
+        "والنعض",
+        "العظم",
+        "الرقيق",
+        "طرف"
       ],
       "gold_sets_match": true
     },
     {
       "id": 46,
       "variety": "Classical",
-      "topic": "Biography",
+      "topic": "Classical-Book",
       "pair_f1_scores": {
-        "ann1_ann2": 0.8571,
-        "ann1_ann3": 0.6667,
-        "ann2_ann3": 0.5714
+        "ann1_ann2": 0.8889,
+        "ann1_ann3": 0.8889,
+        "ann2_ann3": 0.75
       },
-      "avg_pairwise_f1": 0.6984,
-      "has_disagreement": true,
+      "avg_pairwise_f1": 0.8426,
+      "has_disagreement": false,
       "disagreement_info": {
         "unanimous": [
-          "السيرة النبوية",
-          "المنهج التاريخي"
+          "والجمله",
+          "المعترضه",
+          "الاشاره"
         ],
         "disputed": [
           {
-            "keyphrase": "ابن كثير",
+            "keyphrase": "بيان",
             "votes": 2,
             "out_of": 3
           },
           {
-            "keyphrase": "البداية والنهاية",
-            "votes": 1,
-            "out_of": 3
-          },
-          {
-            "keyphrase": "الأدب العربي",
-            "votes": 1,
+            "keyphrase": "لجهه",
+            "votes": 2,
             "out_of": 3
           }
         ]
       },
       "annotator_count": 3,
       "majority_vote_gold": [
-        "السيرة النبوية",
-        "المنهج التاريخي",
-        "ابن كثير"
+        "والجمله",
+        "المعترضه",
+        "الاشاره",
+        "بيان",
+        "لجهه"
       ],
       "stored_gold": [
-        "السيرة النبوية",
-        "المنهج التاريخي",
-        "ابن كثير"
+        "والجمله",
+        "المعترضه",
+        "الاشاره",
+        "بيان",
+        "لجهه"
       ],
       "gold_sets_match": true
     },
     {
       "id": 47,
       "variety": "Classical",
-      "topic": "Sufism",
+      "topic": "Classical-Book",
       "pair_f1_scores": {
-        "ann1_ann2": 0.6,
-        "ann1_ann3": 0.5714,
-        "ann2_ann3": 0.4444
+        "ann1_ann2": 0.8889,
+        "ann1_ann3": 0.75,
+        "ann2_ann3": 0.8889
       },
-      "avg_pairwise_f1": 0.5386,
-      "has_disagreement": true,
+      "avg_pairwise_f1": 0.8426,
+      "has_disagreement": false,
       "disagreement_info": {
         "unanimous": [
-          "ابن عربي",
-          "وحدة الوجود"
+          "وزكاه",
+          "نواع",
+          "اورااعهاو"
         ],
         "disputed": [
           {
-            "keyphrase": "الفقه الإسلامي",
-            "votes": 1,
-            "out_of": 3
-          },
-          {
-            "keyphrase": "التصوف الإسلامي",
+            "keyphrase": "عدي",
             "votes": 2,
             "out_of": 3
           },
           {
-            "keyphrase": "الفتوحات المكية",
-            "votes": 1,
-            "out_of": 3
-          },
-          {
-            "keyphrase": "التراث الفكري",
-            "votes": 1,
-            "out_of": 3
-          },
-          {
-            "keyphrase": "الكون",
-            "votes": 1,
-            "out_of": 3
-          },
-          {
-            "keyphrase": "علم الكلام",
-            "votes": 1,
+            "keyphrase": "وباج",
+            "votes": 2,
             "out_of": 3
           }
         ]
       },
       "annotator_count": 3,
       "majority_vote_gold": [
-        "ابن عربي",
-        "وحدة الوجود",
-        "التصوف الإسلامي"
+        "وزكاه",
+        "نواع",
+        "اورااعهاو",
+        "عدي",
+        "وباج"
       ],
       "stored_gold": [
-        "ابن عربي",
-        "وحدة الوجود",
-        "التصوف الإسلامي"
+        "وزكاه",
+        "نواع",
+        "اورااعهاو",
+        "عدي",
+        "وباج"
       ],
       "gold_sets_match": true
     },
     {
       "id": 48,
       "variety": "Classical",
-      "topic": "Economy",
+      "topic": "Classical-Book",
       "pair_f1_scores": {
-        "ann1_ann2": 0.6,
-        "ann1_ann3": 0.7273,
-        "ann2_ann3": 0.7273
+        "ann1_ann2": 0.8,
+        "ann1_ann3": 0.8889,
+        "ann2_ann3": 0.9091
       },
-      "avg_pairwise_f1": 0.6849,
-      "has_disagreement": true,
+      "avg_pairwise_f1": 0.866,
+      "has_disagreement": false,
       "disagreement_info": {
         "unanimous": [
-          "قيمة العمل",
-          "الاحتكار",
-          "الاقتصاد الإسلامي"
+          "هلذه",
+          "وغيثها",
+          "البلوغ",
+          "تجب"
         ],
         "disputed": [
           {
-            "keyphrase": "ابن خلدون",
-            "votes": 2,
-            "out_of": 3
-          },
-          {
-            "keyphrase": "العلوم الشرعية",
-            "votes": 1,
-            "out_of": 3
-          },
-          {
-            "keyphrase": "الثروة",
+            "keyphrase": "يشترط",
             "votes": 2,
             "out_of": 3
           },
@@ -2625,176 +2173,137 @@
             "keyphrase": "الأدب العربي",
             "votes": 1,
             "out_of": 3
-          },
-          {
-            "keyphrase": "البلاغة والبيان",
-            "votes": 1,
-            "out_of": 3
           }
         ]
       },
       "annotator_count": 3,
       "majority_vote_gold": [
-        "قيمة العمل",
-        "الاحتكار",
-        "الاقتصاد الإسلامي",
-        "ابن خلدون",
-        "الثروة"
+        "هلذه",
+        "وغيثها",
+        "البلوغ",
+        "تجب",
+        "يشترط"
       ],
       "stored_gold": [
-        "قيمة العمل",
-        "الاحتكار",
-        "الاقتصاد الإسلامي",
-        "ابن خلدون",
-        "الثروة"
+        "هلذه",
+        "وغيثها",
+        "البلوغ",
+        "تجب",
+        "يشترط"
       ],
       "gold_sets_match": true
     },
     {
       "id": 49,
       "variety": "Classical",
-      "topic": "Logic",
+      "topic": "Classical-Book",
       "pair_f1_scores": {
-        "ann1_ann2": 0.4444,
-        "ann1_ann3": 0.4444,
-        "ann2_ann3": 0.8333
+        "ann1_ann2": 0.8889,
+        "ann1_ann3": 0.8889,
+        "ann2_ann3": 1.0
       },
-      "avg_pairwise_f1": 0.574,
-      "has_disagreement": true,
+      "avg_pairwise_f1": 0.9259,
+      "has_disagreement": false,
       "disagreement_info": {
         "unanimous": [
-          "ابن رشد",
-          "العقل"
+          "والعقل",
+          "والمجنون",
+          "شرط",
+          "الصبي"
         ],
         "disputed": [
           {
-            "keyphrase": "علم الكلام",
-            "votes": 1,
-            "out_of": 3
-          },
-          {
-            "keyphrase": "البلاغة والبيان",
-            "votes": 1,
-            "out_of": 3
-          },
-          {
-            "keyphrase": "منطق أرسطو",
+            "keyphrase": "هلذا",
             "votes": 2,
-            "out_of": 3
-          },
-          {
-            "keyphrase": "القياس الاستدلالي",
-            "votes": 2,
-            "out_of": 3
-          },
-          {
-            "keyphrase": "الفلسفة",
-            "votes": 2,
-            "out_of": 3
-          },
-          {
-            "keyphrase": "المنطق والفلسفة",
-            "votes": 1,
             "out_of": 3
           }
         ]
       },
       "annotator_count": 3,
       "majority_vote_gold": [
-        "ابن رشد",
-        "العقل",
-        "منطق أرسطو",
-        "القياس الاستدلالي",
-        "الفلسفة"
+        "والعقل",
+        "والمجنون",
+        "شرط",
+        "الصبي",
+        "هلذا"
       ],
       "stored_gold": [
-        "ابن رشد",
-        "العقل",
-        "منطق أرسطو",
-        "القياس الاستدلالي",
-        "الفلسفة"
+        "والعقل",
+        "والمجنون",
+        "شرط",
+        "الصبي",
+        "هلذا"
       ],
       "gold_sets_match": true
     },
     {
       "id": 50,
       "variety": "Classical",
-      "topic": "Music",
+      "topic": "Classical-Book",
       "pair_f1_scores": {
-        "ann1_ann2": 0.8571,
-        "ann1_ann3": 0.75,
+        "ann1_ann2": 0.75,
+        "ann1_ann3": 0.8889,
         "ann2_ann3": 0.8889
       },
-      "avg_pairwise_f1": 0.832,
-      "has_disagreement": true,
+      "avg_pairwise_f1": 0.8426,
+      "has_disagreement": false,
       "disagreement_info": {
         "unanimous": [
-          "الفارابي",
-          "الإيقاع",
-          "النغم"
+          "نعما",
+          "حولا",
+          "سائمه"
         ],
         "disputed": [
           {
-            "keyphrase": "النظرية الموسيقية",
+            "keyphrase": "فشروطه",
             "votes": 2,
             "out_of": 3
           },
           {
-            "keyphrase": "كتاب الموسيقى الكبير",
-            "votes": 1,
+            "keyphrase": "باقيا",
+            "votes": 2,
             "out_of": 3
           }
         ]
       },
       "annotator_count": 3,
       "majority_vote_gold": [
-        "الفارابي",
-        "الإيقاع",
-        "النغم",
-        "النظرية الموسيقية"
+        "نعما",
+        "حولا",
+        "سائمه",
+        "فشروطه",
+        "باقيا"
       ],
       "stored_gold": [
-        "الفارابي",
-        "الإيقاع",
-        "النغم",
-        "النظرية الموسيقية"
+        "نعما",
+        "حولا",
+        "سائمه",
+        "فشروطه",
+        "باقيا"
       ],
       "gold_sets_match": true
     },
     {
       "id": 51,
       "variety": "Classical",
-      "topic": "Optics",
+      "topic": "Classical-Book",
       "pair_f1_scores": {
-        "ann1_ann2": 0.5,
-        "ann1_ann3": 0.8,
-        "ann2_ann3": 0.75
+        "ann1_ann2": 0.8889,
+        "ann1_ann3": 1.0,
+        "ann2_ann3": 0.8889
       },
-      "avg_pairwise_f1": 0.6833,
-      "has_disagreement": true,
+      "avg_pairwise_f1": 0.9259,
+      "has_disagreement": false,
       "disagreement_info": {
         "unanimous": [
-          "البصريات",
-          "نظرية الرؤية"
+          "والبغال",
+          "والحمي",
+          "والمتولد",
+          "الظباء"
         ],
         "disputed": [
           {
-            "keyphrase": "المعجم العربي",
-            "votes": 1,
-            "out_of": 3
-          },
-          {
-            "keyphrase": "ابن الهيثم",
-            "votes": 2,
-            "out_of": 3
-          },
-          {
-            "keyphrase": "كتاب المناظر",
-            "votes": 2,
-            "out_of": 3
-          },
-          {
-            "keyphrase": "الضوء",
+            "keyphrase": "الخيل",
             "votes": 2,
             "out_of": 3
           }
@@ -2802,104 +2311,81 @@
       },
       "annotator_count": 3,
       "majority_vote_gold": [
-        "البصريات",
-        "نظرية الرؤية",
-        "ابن الهيثم",
-        "كتاب المناظر",
-        "الضوء"
+        "والبغال",
+        "والحمي",
+        "والمتولد",
+        "الظباء",
+        "الخيل"
       ],
       "stored_gold": [
-        "البصريات",
-        "نظرية الرؤية",
-        "ابن الهيثم",
-        "كتاب المناظر",
-        "الضوء"
+        "والبغال",
+        "والحمي",
+        "والمتولد",
+        "الظباء",
+        "الخيل"
       ],
       "gold_sets_match": true
     },
     {
       "id": 52,
       "variety": "Classical",
-      "topic": "Architecture",
+      "topic": "Classical-Book",
       "pair_f1_scores": {
-        "ann1_ann2": 0.9091,
-        "ann1_ann3": 0.8889,
-        "ann2_ann3": 0.8
+        "ann1_ann2": 1.0,
+        "ann1_ann3": 1.0,
+        "ann2_ann3": 1.0
       },
-      "avg_pairwise_f1": 0.866,
-      "has_disagreement": true,
+      "avg_pairwise_f1": 1.0,
+      "has_disagreement": false,
       "disagreement_info": {
         "unanimous": [
-          "الجامع الأموي",
-          "المعمار الإسلامي",
-          "الفسيفساء",
-          "دمشق"
+          "وسدم",
+          "يحول",
+          "الحول",
+          "ويستثنئ",
+          "رسول"
         ],
-        "disputed": [
-          {
-            "keyphrase": "الفن البيزنطي",
-            "votes": 2,
-            "out_of": 3
-          },
-          {
-            "keyphrase": "المنطق والفلسفة",
-            "votes": 1,
-            "out_of": 3
-          }
-        ]
+        "disputed": []
       },
       "annotator_count": 3,
       "majority_vote_gold": [
-        "الجامع الأموي",
-        "المعمار الإسلامي",
-        "الفسيفساء",
-        "دمشق",
-        "الفن البيزنطي"
+        "وسدم",
+        "يحول",
+        "الحول",
+        "ويستثنئ",
+        "رسول"
       ],
       "stored_gold": [
-        "الجامع الأموي",
-        "المعمار الإسلامي",
-        "الفسيفساء",
-        "دمشق",
-        "الفن البيزنطي"
+        "وسدم",
+        "يحول",
+        "الحول",
+        "ويستثنئ",
+        "رسول"
       ],
       "gold_sets_match": true
     },
     {
       "id": 53,
       "variety": "Classical",
-      "topic": "Navigation",
+      "topic": "Classical-Book",
       "pair_f1_scores": {
-        "ann1_ann2": 0.8,
-        "ann1_ann3": 0.8,
-        "ann2_ann3": 0.6
+        "ann1_ann2": 0.9091,
+        "ann1_ann3": 1.0,
+        "ann2_ann3": 0.9091
       },
-      "avg_pairwise_f1": 0.7333,
-      "has_disagreement": true,
+      "avg_pairwise_f1": 0.9394,
+      "has_disagreement": false,
       "disagreement_info": {
         "unanimous": [
-          "ابن ماجد",
-          "الملاحة البحرية",
-          "النجوم"
+          "ينسحب",
+          "حكم",
+          "وتجب",
+          "بحول",
+          "الاصول"
         ],
         "disputed": [
           {
-            "keyphrase": "البحر الهندي",
-            "votes": 2,
-            "out_of": 3
-          },
-          {
-            "keyphrase": "الرياح الموسمية",
-            "votes": 2,
-            "out_of": 3
-          },
-          {
             "keyphrase": "العلوم الشرعية",
-            "votes": 1,
-            "out_of": 3
-          },
-          {
-            "keyphrase": "النحو والصرف",
             "votes": 1,
             "out_of": 3
           }
@@ -2907,347 +2393,197 @@
       },
       "annotator_count": 3,
       "majority_vote_gold": [
-        "ابن ماجد",
-        "الملاحة البحرية",
-        "النجوم",
-        "البحر الهندي",
-        "الرياح الموسمية"
+        "ينسحب",
+        "حكم",
+        "وتجب",
+        "بحول",
+        "الاصول"
       ],
       "stored_gold": [
-        "ابن ماجد",
-        "الملاحة البحرية",
-        "النجوم",
-        "البحر الهندي",
-        "الرياح الموسمية"
+        "ينسحب",
+        "حكم",
+        "وتجب",
+        "بحول",
+        "الاصول"
       ],
       "gold_sets_match": true
     },
     {
       "id": 54,
       "variety": "Classical",
-      "topic": "Grammar",
+      "topic": "Classical-Book",
       "pair_f1_scores": {
-        "ann1_ann2": 0.75,
-        "ann1_ann3": 0.5,
+        "ann1_ann2": 0.8889,
+        "ann1_ann3": 0.8889,
         "ann2_ann3": 0.75
       },
-      "avg_pairwise_f1": 0.6667,
-      "has_disagreement": true,
+      "avg_pairwise_f1": 0.8426,
+      "has_disagreement": false,
       "disagreement_info": {
         "unanimous": [
-          "الاشتقاق",
-          "فقه اللغة"
+          "حجر",
+          "والمغصوب",
+          "عاد"
         ],
         "disputed": [
           {
-            "keyphrase": "تطور اللغة",
+            "keyphrase": "الضال",
             "votes": 2,
             "out_of": 3
           },
           {
-            "keyphrase": "الأدب العربي",
-            "votes": 1,
-            "out_of": 3
-          },
-          {
-            "keyphrase": "ابن جني",
+            "keyphrase": "نمائه",
             "votes": 2,
-            "out_of": 3
-          },
-          {
-            "keyphrase": "الخصائص",
-            "votes": 1,
             "out_of": 3
           }
         ]
       },
       "annotator_count": 3,
       "majority_vote_gold": [
-        "الاشتقاق",
-        "فقه اللغة",
-        "تطور اللغة",
-        "ابن جني"
+        "حجر",
+        "والمغصوب",
+        "عاد",
+        "الضال",
+        "نمائه"
       ],
       "stored_gold": [
-        "الاشتقاق",
-        "فقه اللغة",
-        "تطور اللغة",
-        "ابن جني"
+        "حجر",
+        "والمغصوب",
+        "عاد",
+        "الضال",
+        "نمائه"
       ],
       "gold_sets_match": true
     },
     {
       "id": 55,
       "variety": "Dialect",
-      "topic": "Egyptian - Daily Life",
+      "topic": "EGY",
       "pair_f1_scores": {
-        "ann1_ann2": 0.4,
-        "ann1_ann3": 0.5714,
-        "ann2_ann3": 0.5
-      },
-      "avg_pairwise_f1": 0.4905,
-      "has_disagreement": true,
-      "disagreement_info": {
-        "unanimous": [
-          "الطاولة والدومينو"
-        ],
-        "disputed": [
-          {
-            "keyphrase": "الهوية المصرية",
-            "votes": 2,
-            "out_of": 3
-          },
-          {
-            "keyphrase": "الشاي",
-            "votes": 2,
-            "out_of": 3
-          },
-          {
-            "keyphrase": "البيئة المحلية",
-            "votes": 1,
-            "out_of": 3
-          },
-          {
-            "keyphrase": "المقاهي المصرية",
-            "votes": 1,
-            "out_of": 3
-          },
-          {
-            "keyphrase": "التواصل الاجتماعي",
-            "votes": 1,
-            "out_of": 3
-          }
-        ]
-      },
-      "annotator_count": 3,
-      "majority_vote_gold": [
-        "الطاولة والدومينو",
-        "الهوية المصرية",
-        "الشاي"
-      ],
-      "stored_gold": [
-        "الطاولة والدومينو",
-        "الهوية المصرية",
-        "الشاي"
-      ],
-      "gold_sets_match": true
-    },
-    {
-      "id": 56,
-      "variety": "Dialect",
-      "topic": "Egyptian - Technology",
-      "pair_f1_scores": {
-        "ann1_ann2": 0.8,
-        "ann1_ann3": 0.5,
-        "ann2_ann3": 0.5714
-      },
-      "avg_pairwise_f1": 0.6238,
-      "has_disagreement": true,
-      "disagreement_info": {
-        "unanimous": [
-          "الفريلانس",
-          "اليوتيوب"
-        ],
-        "disputed": [
-          {
-            "keyphrase": "الهوية المحلية",
-            "votes": 1,
-            "out_of": 3
-          },
-          {
-            "keyphrase": "التراث الشعبي",
-            "votes": 1,
-            "out_of": 3
-          },
-          {
-            "keyphrase": "التقنية الرقمية",
-            "votes": 1,
-            "out_of": 3
-          },
-          {
-            "keyphrase": "التعليم الأونلاين",
-            "votes": 1,
-            "out_of": 3
-          }
-        ]
-      },
-      "annotator_count": 3,
-      "majority_vote_gold": [
-        "الفريلانس",
-        "اليوتيوب"
-      ],
-      "stored_gold": [
-        "الفريلانس",
-        "التقنية الرقمية",
-        "اليوتيوب",
-        "التعليم الأونلاين",
-        "الشباب المصري"
-      ],
-      "gold_sets_match": false
-    },
-    {
-      "id": 57,
-      "variety": "Dialect",
-      "topic": "Egyptian - Food",
-      "pair_f1_scores": {
-        "ann1_ann2": 0.2857,
-        "ann1_ann3": 0.0,
-        "ann2_ann3": 0.3333
-      },
-      "avg_pairwise_f1": 0.2063,
-      "has_disagreement": true,
-      "disagreement_info": {
-        "unanimous": [],
-        "disputed": [
-          {
-            "keyphrase": "المجتمع العربي",
-            "votes": 1,
-            "out_of": 3
-          },
-          {
-            "keyphrase": "الأكل الشعبي المصري",
-            "votes": 2,
-            "out_of": 3
-          },
-          {
-            "keyphrase": "التراث الغذائي",
-            "votes": 1,
-            "out_of": 3
-          },
-          {
-            "keyphrase": "الكشري",
-            "votes": 2,
-            "out_of": 3
-          },
-          {
-            "keyphrase": "الفول والطعمية",
-            "votes": 1,
-            "out_of": 3
-          },
-          {
-            "keyphrase": "اللهجة المحلية",
-            "votes": 1,
-            "out_of": 3
-          },
-          {
-            "keyphrase": "الثقافة المصرية",
-            "votes": 1,
-            "out_of": 3
-          }
-        ]
-      },
-      "annotator_count": 3,
-      "majority_vote_gold": [
-        "الأكل الشعبي المصري",
-        "الكشري"
-      ],
-      "stored_gold": [
-        "الكشري",
-        "الفول والطعمية",
-        "الأكل الشعبي المصري",
-        "التراث الغذائي",
-        "الثقافة المصرية"
-      ],
-      "gold_sets_match": false
-    },
-    {
-      "id": 58,
-      "variety": "Dialect",
-      "topic": "Egyptian - Education",
-      "pair_f1_scores": {
-        "ann1_ann2": 0.7273,
-        "ann1_ann3": 0.6667,
+        "ann1_ann2": 0.6667,
+        "ann1_ann3": 0.8889,
         "ann2_ann3": 0.8
       },
-      "avg_pairwise_f1": 0.7313,
-      "has_disagreement": true,
+      "avg_pairwise_f1": 0.7852,
+      "has_disagreement": false,
       "disagreement_info": {
         "unanimous": [
-          "الدروس الخصوصية",
-          "تحديات التعليم",
-          "الأسرة المصرية"
+          "ومحبه",
+          "رائع",
+          "التعصب"
         ],
         "disputed": [
           {
-            "keyphrase": "الثقافة الشعبية",
-            "votes": 1,
-            "out_of": 3
-          },
-          {
-            "keyphrase": "التعليم في مصر",
+            "keyphrase": "الاعمي",
             "votes": 2,
             "out_of": 3
           },
           {
-            "keyphrase": "الكثافة الدراسية",
+            "keyphrase": "والتشجيع",
             "votes": 2,
-            "out_of": 3
-          },
-          {
-            "keyphrase": "التراث الشعبي",
-            "votes": 1,
-            "out_of": 3
-          }
-        ]
-      },
-      "annotator_count": 3,
-      "majority_vote_gold": [
-        "الدروس الخصوصية",
-        "تحديات التعليم",
-        "الأسرة المصرية",
-        "التعليم في مصر",
-        "الكثافة الدراسية"
-      ],
-      "stored_gold": [
-        "الدروس الخصوصية",
-        "تحديات التعليم",
-        "الأسرة المصرية",
-        "التعليم في مصر",
-        "الكثافة الدراسية"
-      ],
-      "gold_sets_match": true
-    },
-    {
-      "id": 59,
-      "variety": "Dialect",
-      "topic": "Gulf - Economy",
-      "pair_f1_scores": {
-        "ann1_ann2": 0.4,
-        "ann1_ann3": 0.0,
-        "ann2_ann3": 0.3333
-      },
-      "avg_pairwise_f1": 0.2444,
-      "has_disagreement": true,
-      "disagreement_info": {
-        "unanimous": [],
-        "disputed": [
-          {
-            "keyphrase": "الاقتصاد غير النفطي",
-            "votes": 1,
-            "out_of": 3
-          },
-          {
-            "keyphrase": "استقطاب الكفاءات",
-            "votes": 2,
-            "out_of": 3
-          },
-          {
-            "keyphrase": "ريادة الأعمال",
-            "votes": 2,
-            "out_of": 3
-          },
-          {
-            "keyphrase": "الشركات الناشئة",
-            "votes": 1,
             "out_of": 3
           },
           {
             "keyphrase": "الموروث الثقافي",
             "votes": 1,
             "out_of": 3
+          }
+        ]
+      },
+      "annotator_count": 3,
+      "majority_vote_gold": [
+        "ومحبه",
+        "رائع",
+        "التعصب",
+        "الاعمي",
+        "والتشجيع"
+      ],
+      "stored_gold": [
+        "ومحبه",
+        "رائع",
+        "التعصب",
+        "الاعمي",
+        "والتشجيع"
+      ],
+      "gold_sets_match": true
+    },
+    {
+      "id": 56,
+      "variety": "Dialect",
+      "topic": "EGY",
+      "pair_f1_scores": {
+        "ann1_ann2": 0.75,
+        "ann1_ann3": 0.8889,
+        "ann2_ann3": 0.8889
+      },
+      "avg_pairwise_f1": 0.8426,
+      "has_disagreement": false,
+      "disagreement_info": {
+        "unanimous": [
+          "ودعواتنا",
+          "مبشر",
+          "بالخير"
+        ],
+        "disputed": [
+          {
+            "keyphrase": "السعر",
+            "votes": 2,
+            "out_of": 3
           },
           {
-            "keyphrase": "الإمارات والسعودية",
+            "keyphrase": "بالتوفيق",
+            "votes": 2,
+            "out_of": 3
+          }
+        ]
+      },
+      "annotator_count": 3,
+      "majority_vote_gold": [
+        "ودعواتنا",
+        "مبشر",
+        "بالخير",
+        "السعر",
+        "بالتوفيق"
+      ],
+      "stored_gold": [
+        "ودعواتنا",
+        "مبشر",
+        "بالخير",
+        "السعر",
+        "بالتوفيق"
+      ],
+      "gold_sets_match": true
+    },
+    {
+      "id": 57,
+      "variety": "Dialect",
+      "topic": "EGY",
+      "pair_f1_scores": {
+        "ann1_ann2": 0.8,
+        "ann1_ann3": 0.75,
+        "ann2_ann3": 0.8
+      },
+      "avg_pairwise_f1": 0.7833,
+      "has_disagreement": false,
+      "disagreement_info": {
+        "unanimous": [
+          "بنوخذوه",
+          "جاي",
+          "الله"
+        ],
+        "disputed": [
+          {
+            "keyphrase": "الكل",
+            "votes": 2,
+            "out_of": 3
+          },
+          {
+            "keyphrase": "رايح",
+            "votes": 2,
+            "out_of": 3
+          },
+          {
+            "keyphrase": "اللهجة المحلية",
             "votes": 1,
             "out_of": 3
           }
@@ -3255,150 +2591,204 @@
       },
       "annotator_count": 3,
       "majority_vote_gold": [
-        "استقطاب الكفاءات",
-        "ريادة الأعمال"
+        "بنوخذوه",
+        "جاي",
+        "الله",
+        "الكل",
+        "رايح"
       ],
       "stored_gold": [
-        "الاقتصاد غير النفطي",
-        "ريادة الأعمال",
-        "الشركات الناشئة",
-        "الإمارات والسعودية",
-        "استقطاب الكفاءات"
+        "بنوخذوه",
+        "جاي",
+        "الله",
+        "الكل",
+        "رايح"
       ],
-      "gold_sets_match": false
+      "gold_sets_match": true
+    },
+    {
+      "id": 58,
+      "variety": "Dialect",
+      "topic": "EGY",
+      "pair_f1_scores": {
+        "ann1_ann2": 1.0,
+        "ann1_ann3": 1.0,
+        "ann2_ann3": 1.0
+      },
+      "avg_pairwise_f1": 1.0,
+      "has_disagreement": false,
+      "disagreement_info": {
+        "unanimous": [
+          "برضه",
+          "لازالت",
+          "الرويات",
+          "مختلفه"
+        ],
+        "disputed": []
+      },
+      "annotator_count": 3,
+      "majority_vote_gold": [
+        "برضه",
+        "لازالت",
+        "الرويات",
+        "مختلفه"
+      ],
+      "stored_gold": [
+        "برضه",
+        "لازالت",
+        "الرويات",
+        "مختلفه"
+      ],
+      "gold_sets_match": true
+    },
+    {
+      "id": 59,
+      "variety": "Dialect",
+      "topic": "EGY",
+      "pair_f1_scores": {
+        "ann1_ann2": 0.75,
+        "ann1_ann3": 1.0,
+        "ann2_ann3": 0.75
+      },
+      "avg_pairwise_f1": 0.8333,
+      "has_disagreement": false,
+      "disagreement_info": {
+        "unanimous": [
+          "الراجل",
+          "المقال",
+          "ياكاتب"
+        ],
+        "disputed": [
+          {
+            "keyphrase": "حذفت",
+            "votes": 2,
+            "out_of": 3
+          },
+          {
+            "keyphrase": "متعب",
+            "votes": 1,
+            "out_of": 3
+          }
+        ]
+      },
+      "annotator_count": 3,
+      "majority_vote_gold": [
+        "الراجل",
+        "المقال",
+        "ياكاتب",
+        "حذفت"
+      ],
+      "stored_gold": [
+        "الراجل",
+        "المقال",
+        "ياكاتب",
+        "حذفت"
+      ],
+      "gold_sets_match": true
     },
     {
       "id": 60,
       "variety": "Dialect",
-      "topic": "Gulf - Daily Life",
+      "topic": "EGY",
       "pair_f1_scores": {
-        "ann1_ann2": 0.0,
-        "ann1_ann3": 0.4,
-        "ann2_ann3": 0.4
+        "ann1_ann2": 0.8889,
+        "ann1_ann3": 1.0,
+        "ann2_ann3": 0.8889
       },
-      "avg_pairwise_f1": 0.2667,
-      "has_disagreement": true,
+      "avg_pairwise_f1": 0.9259,
+      "has_disagreement": false,
       "disagreement_info": {
-        "unanimous": [],
+        "unanimous": [
+          "سيادتكم",
+          "عيب",
+          "وهي",
+          "طبيعه"
+        ],
         "disputed": [
           {
-            "keyphrase": "الحياة الخليجية",
-            "votes": 2,
-            "out_of": 3
-          },
-          {
-            "keyphrase": "الرفاهية",
+            "keyphrase": "الهوية المحلية",
             "votes": 1,
-            "out_of": 3
-          },
-          {
-            "keyphrase": "التقاليد القبلية",
-            "votes": 1,
-            "out_of": 3
-          },
-          {
-            "keyphrase": "العادات والتقاليد",
-            "votes": 1,
-            "out_of": 3
-          },
-          {
-            "keyphrase": "المناسبات",
-            "votes": 1,
-            "out_of": 3
-          },
-          {
-            "keyphrase": "الضغط الاجتماعي",
-            "votes": 2,
             "out_of": 3
           }
         ]
       },
       "annotator_count": 3,
       "majority_vote_gold": [
-        "الحياة الخليجية",
-        "الضغط الاجتماعي"
+        "سيادتكم",
+        "عيب",
+        "وهي",
+        "طبيعه"
       ],
       "stored_gold": [
-        "الحياة الخليجية",
-        "الرفاهية",
-        "التقاليد القبلية",
-        "الضغط الاجتماعي",
-        "المناسبات"
+        "سيادتكم",
+        "عيب",
+        "وهي",
+        "طبيعه"
       ],
-      "gold_sets_match": false
+      "gold_sets_match": true
     },
     {
       "id": 61,
       "variety": "Dialect",
-      "topic": "Gulf - Heritage",
+      "topic": "EGY",
       "pair_f1_scores": {
         "ann1_ann2": 1.0,
-        "ann1_ann3": 0.8,
-        "ann2_ann3": 0.8
+        "ann1_ann3": 1.0,
+        "ann2_ann3": 1.0
       },
-      "avg_pairwise_f1": 0.8667,
-      "has_disagreement": true,
+      "avg_pairwise_f1": 1.0,
+      "has_disagreement": false,
       "disagreement_info": {
         "unanimous": [
-          "الفن الخليجي",
-          "الصوت والخماري",
-          "التراث الخليجي",
-          "فنون البحر"
+          "وازاي",
+          "ازاي",
+          "روراوه",
+          "بيحب",
+          "الشروق"
         ],
-        "disputed": [
-          {
-            "keyphrase": "الهوية الخليجية",
-            "votes": 1,
-            "out_of": 3
-          },
-          {
-            "keyphrase": "الحياة اليومية",
-            "votes": 1,
-            "out_of": 3
-          }
-        ]
+        "disputed": []
       },
       "annotator_count": 3,
       "majority_vote_gold": [
-        "الفن الخليجي",
-        "الصوت والخماري",
-        "التراث الخليجي",
-        "فنون البحر"
+        "وازاي",
+        "ازاي",
+        "روراوه",
+        "بيحب",
+        "الشروق"
       ],
       "stored_gold": [
-        "الفن الخليجي",
-        "الصوت والخماري",
-        "التراث الخليجي",
-        "فنون البحر"
+        "وازاي",
+        "ازاي",
+        "روراوه",
+        "بيحب",
+        "الشروق"
       ],
       "gold_sets_match": true
     },
     {
       "id": 62,
       "variety": "Dialect",
-      "topic": "Gulf - Food",
+      "topic": "GLF",
       "pair_f1_scores": {
-        "ann1_ann2": 0.3333,
-        "ann1_ann3": 0.5,
-        "ann2_ann3": 0.3333
+        "ann1_ann2": 0.6667,
+        "ann1_ann3": 0.6667,
+        "ann2_ann3": 0.75
       },
-      "avg_pairwise_f1": 0.3889,
+      "avg_pairwise_f1": 0.6945,
       "has_disagreement": true,
       "disagreement_info": {
-        "unanimous": [],
+        "unanimous": [
+          "ليه",
+          "وصاحب"
+        ],
         "disputed": [
           {
-            "keyphrase": "الأكل الخليجي",
+            "keyphrase": "باتشه",
             "votes": 2,
             "out_of": 3
           },
           {
-            "keyphrase": "التراث البحري",
-            "votes": 2,
-            "out_of": 3
-          },
-          {
-            "keyphrase": "التأثير الهندي",
+            "keyphrase": "زرت",
             "votes": 2,
             "out_of": 3
           },
@@ -3408,324 +2798,281 @@
             "out_of": 3
           },
           {
-            "keyphrase": "الهريس والمجبوس",
+            "keyphrase": "شاذا",
             "votes": 2,
-            "out_of": 3
-          },
-          {
-            "keyphrase": "الأعياد",
-            "votes": 1,
             "out_of": 3
           }
         ]
       },
       "annotator_count": 3,
       "majority_vote_gold": [
-        "الأكل الخليجي",
-        "التراث البحري",
-        "التأثير الهندي",
-        "الهريس والمجبوس"
+        "ليه",
+        "وصاحب",
+        "باتشه",
+        "زرت",
+        "شاذا"
       ],
       "stored_gold": [
-        "الأكل الخليجي",
-        "التراث البحري",
-        "التأثير الهندي",
-        "الهريس والمجبوس"
+        "ليه",
+        "وصاحب",
+        "باتشه",
+        "زرت",
+        "شاذا"
       ],
       "gold_sets_match": true
     },
     {
       "id": 63,
       "variety": "Dialect",
-      "topic": "Levantine - Politics",
+      "topic": "GLF",
       "pair_f1_scores": {
-        "ann1_ann2": 0.8571,
-        "ann1_ann3": 0.5714,
-        "ann2_ann3": 0.5
+        "ann1_ann2": 0.8889,
+        "ann1_ann3": 0.8889,
+        "ann2_ann3": 1.0
       },
-      "avg_pairwise_f1": 0.6428,
-      "has_disagreement": true,
+      "avg_pairwise_f1": 0.9259,
+      "has_disagreement": false,
       "disagreement_info": {
         "unanimous": [
-          "القضية الفلسطينية",
-          "النزوح"
+          "شكرا",
+          "اليوتيوب",
+          "قرب",
+          "النجف"
         ],
         "disputed": [
           {
-            "keyphrase": "الأزمات الإقليمية",
+            "keyphrase": "نوره",
             "votes": 2,
-            "out_of": 3
-          },
-          {
-            "keyphrase": "البيئة المحلية",
-            "votes": 1,
-            "out_of": 3
-          },
-          {
-            "keyphrase": "القيم الأسرية",
-            "votes": 1,
-            "out_of": 3
-          },
-          {
-            "keyphrase": "الصمود",
-            "votes": 1,
             "out_of": 3
           }
         ]
       },
       "annotator_count": 3,
       "majority_vote_gold": [
-        "القضية الفلسطينية",
-        "النزوح",
-        "الأزمات الإقليمية"
+        "شكرا",
+        "اليوتيوب",
+        "قرب",
+        "النجف",
+        "نوره"
       ],
       "stored_gold": [
-        "القضية الفلسطينية",
-        "النزوح",
-        "الأزمات الإقليمية"
+        "شكرا",
+        "اليوتيوب",
+        "قرب",
+        "النجف",
+        "نوره"
       ],
       "gold_sets_match": true
     },
     {
       "id": 64,
       "variety": "Dialect",
-      "topic": "Levantine - Food",
+      "topic": "GLF",
       "pair_f1_scores": {
-        "ann1_ann2": 0.6667,
-        "ann1_ann3": 0.8571,
-        "ann2_ann3": 0.5714
+        "ann1_ann2": 0.75,
+        "ann1_ann3": 0.75,
+        "ann2_ann3": 0.75
       },
-      "avg_pairwise_f1": 0.6984,
-      "has_disagreement": true,
+      "avg_pairwise_f1": 0.75,
+      "has_disagreement": false,
       "disagreement_info": {
         "unanimous": [
-          "الكبة",
-          "التبولة"
+          "نشر",
+          "النشاطات"
         ],
         "disputed": [
           {
-            "keyphrase": "الأكل الشامي",
+            "keyphrase": "الالكتروني",
             "votes": 2,
             "out_of": 3
           },
           {
-            "keyphrase": "الحمص والفلافل",
-            "votes": 1,
+            "keyphrase": "ينكر",
+            "votes": 2,
             "out_of": 3
           },
           {
-            "keyphrase": "المطبخ اللبناني السوري",
-            "votes": 1,
+            "keyphrase": "بيمناك",
+            "votes": 2,
             "out_of": 3
           }
         ]
       },
       "annotator_count": 3,
       "majority_vote_gold": [
-        "الكبة",
-        "التبولة",
-        "الأكل الشامي"
+        "نشر",
+        "النشاطات",
+        "الالكتروني",
+        "ينكر",
+        "بيمناك"
       ],
       "stored_gold": [
-        "الكبة",
-        "التبولة",
-        "الأكل الشامي"
+        "نشر",
+        "النشاطات",
+        "الالكتروني",
+        "ينكر",
+        "بيمناك"
       ],
       "gold_sets_match": true
     },
     {
       "id": 65,
       "variety": "Dialect",
-      "topic": "Levantine - Daily Life",
+      "topic": "GLF",
       "pair_f1_scores": {
-        "ann1_ann2": 0.5714,
-        "ann1_ann3": 0.5714,
-        "ann2_ann3": 0.5
+        "ann1_ann2": 0.75,
+        "ann1_ann3": 0.8889,
+        "ann2_ann3": 0.8889
       },
-      "avg_pairwise_f1": 0.5476,
-      "has_disagreement": true,
+      "avg_pairwise_f1": 0.8426,
+      "has_disagreement": false,
       "disagreement_info": {
         "unanimous": [
-          "الجلسات الاجتماعية"
+          "اوروبا",
+          "ترابها",
+          "والسلام"
         ],
         "disputed": [
           {
-            "keyphrase": "القهوة",
+            "keyphrase": "عاش",
             "votes": 2,
             "out_of": 3
           },
           {
-            "keyphrase": "الثقافة اللبنانية السورية",
+            "keyphrase": "كلام",
             "votes": 2,
-            "out_of": 3
-          },
-          {
-            "keyphrase": "الحياة الشامية",
-            "votes": 2,
-            "out_of": 3
-          },
-          {
-            "keyphrase": "الموروث الثقافي",
-            "votes": 1,
-            "out_of": 3
-          },
-          {
-            "keyphrase": "النقاش السياسي",
-            "votes": 1,
             "out_of": 3
           }
         ]
       },
       "annotator_count": 3,
       "majority_vote_gold": [
-        "الجلسات الاجتماعية",
-        "القهوة",
-        "الثقافة اللبنانية السورية",
-        "الحياة الشامية"
+        "اوروبا",
+        "ترابها",
+        "والسلام",
+        "عاش",
+        "كلام"
       ],
       "stored_gold": [
-        "الجلسات الاجتماعية",
-        "القهوة",
-        "الثقافة اللبنانية السورية",
-        "الحياة الشامية"
+        "اوروبا",
+        "ترابها",
+        "والسلام",
+        "عاش",
+        "كلام"
       ],
       "gold_sets_match": true
     },
     {
       "id": 66,
       "variety": "Dialect",
-      "topic": "Levantine - Heritage",
+      "topic": "GLF",
       "pair_f1_scores": {
-        "ann1_ann2": 0.9091,
+        "ann1_ann2": 1.0,
         "ann1_ann3": 1.0,
-        "ann2_ann3": 0.9091
+        "ann2_ann3": 1.0
       },
-      "avg_pairwise_f1": 0.9394,
-      "has_disagreement": true,
+      "avg_pairwise_f1": 1.0,
+      "has_disagreement": false,
       "disagreement_info": {
         "unanimous": [
-          "بصرى",
-          "تدمر",
-          "جرش",
-          "المواقع الأثرية الشامية",
-          "السياحة التراثية"
+          "الضغط",
+          "مطروح",
+          "الاقلي",
+          "تطرحه",
+          "سريع"
         ],
-        "disputed": [
-          {
-            "keyphrase": "القيم الأسرية",
-            "votes": 1,
-            "out_of": 3
-          }
-        ]
+        "disputed": []
       },
       "annotator_count": 3,
       "majority_vote_gold": [
-        "بصرى",
-        "تدمر",
-        "جرش",
-        "المواقع الأثرية الشامية",
-        "السياحة التراثية"
+        "الضغط",
+        "مطروح",
+        "الاقلي",
+        "تطرحه",
+        "سريع"
       ],
       "stored_gold": [
-        "بصرى",
-        "تدمر",
-        "جرش",
-        "المواقع الأثرية الشامية",
-        "السياحة التراثية"
+        "الضغط",
+        "مطروح",
+        "الاقلي",
+        "تطرحه",
+        "سريع"
       ],
       "gold_sets_match": true
     },
     {
       "id": 67,
       "variety": "Dialect",
-      "topic": "Moroccan - Daily Life",
+      "topic": "GLF",
       "pair_f1_scores": {
-        "ann1_ann2": 0.5,
-        "ann1_ann3": 0.5,
-        "ann2_ann3": 0.5
+        "ann1_ann2": 0.75,
+        "ann1_ann3": 0.8889,
+        "ann2_ann3": 0.8889
       },
-      "avg_pairwise_f1": 0.5,
-      "has_disagreement": true,
+      "avg_pairwise_f1": 0.8426,
+      "has_disagreement": false,
       "disagreement_info": {
         "unanimous": [
-          "الأسواق الشعبية"
+          "القبائل",
+          "سيرجع",
+          "وهناك"
         ],
         "disputed": [
           {
-            "keyphrase": "الهوية المغربية",
+            "keyphrase": "يشتكون",
             "votes": 2,
             "out_of": 3
           },
           {
-            "keyphrase": "المغرب",
+            "keyphrase": "لاربع",
             "votes": 2,
-            "out_of": 3
-          },
-          {
-            "keyphrase": "اللهجة المحلية",
-            "votes": 1,
-            "out_of": 3
-          },
-          {
-            "keyphrase": "فاس ومراكش",
-            "votes": 1,
-            "out_of": 3
-          },
-          {
-            "keyphrase": "المدن العتيقة",
-            "votes": 1,
             "out_of": 3
           }
         ]
       },
       "annotator_count": 3,
       "majority_vote_gold": [
-        "الأسواق الشعبية",
-        "الهوية المغربية",
-        "المغرب"
+        "القبائل",
+        "سيرجع",
+        "وهناك",
+        "يشتكون",
+        "لاربع"
       ],
       "stored_gold": [
-        "الأسواق الشعبية",
-        "الهوية المغربية",
-        "المغرب"
+        "القبائل",
+        "سيرجع",
+        "وهناك",
+        "يشتكون",
+        "لاربع"
       ],
       "gold_sets_match": true
     },
     {
       "id": 68,
       "variety": "Dialect",
-      "topic": "Moroccan - Food",
+      "topic": "GLF",
       "pair_f1_scores": {
-        "ann1_ann2": 0.8,
-        "ann1_ann3": 0.6667,
-        "ann2_ann3": 0.4444
+        "ann1_ann2": 0.8889,
+        "ann1_ann3": 0.8,
+        "ann2_ann3": 0.6667
       },
-      "avg_pairwise_f1": 0.637,
-      "has_disagreement": true,
+      "avg_pairwise_f1": 0.7852,
+      "has_disagreement": false,
       "disagreement_info": {
         "unanimous": [
-          "البسطيلة",
-          "التوابل"
+          "ننسي",
+          "يحرصون",
+          "كون"
         ],
         "disputed": [
           {
-            "keyphrase": "الطاجين والكسكسي",
+            "keyphrase": "كره",
             "votes": 2,
             "out_of": 3
           },
           {
-            "keyphrase": "المطبخ المغربي",
+            "keyphrase": "اللعبه",
             "votes": 2,
-            "out_of": 3
-          },
-          {
-            "keyphrase": "الموروث الأندلسي",
-            "votes": 2,
-            "out_of": 3
-          },
-          {
-            "keyphrase": "التواصل الاجتماعي",
-            "votes": 1,
             "out_of": 3
           },
           {
@@ -3737,106 +3084,89 @@
       },
       "annotator_count": 3,
       "majority_vote_gold": [
-        "البسطيلة",
-        "التوابل",
-        "الطاجين والكسكسي",
-        "المطبخ المغربي",
-        "الموروث الأندلسي"
+        "ننسي",
+        "يحرصون",
+        "كون",
+        "كره",
+        "اللعبه"
       ],
       "stored_gold": [
-        "البسطيلة",
-        "التوابل",
-        "الطاجين والكسكسي",
-        "المطبخ المغربي",
-        "الموروث الأندلسي"
+        "ننسي",
+        "يحرصون",
+        "كون",
+        "كره",
+        "اللعبه"
       ],
       "gold_sets_match": true
     },
     {
       "id": 69,
       "variety": "Dialect",
-      "topic": "Moroccan - Education",
+      "topic": "LAV",
       "pair_f1_scores": {
-        "ann1_ann2": 0.5714,
-        "ann1_ann3": 0.8,
-        "ann2_ann3": 0.3333
+        "ann1_ann2": 0.75,
+        "ann1_ann3": 0.8889,
+        "ann2_ann3": 0.8889
       },
-      "avg_pairwise_f1": 0.5682,
-      "has_disagreement": true,
+      "avg_pairwise_f1": 0.8426,
+      "has_disagreement": false,
       "disagreement_info": {
         "unanimous": [
-          "التعليم في المغرب"
+          "المجاوره",
+          "ليش",
+          "تصنع"
         ],
         "disputed": [
           {
-            "keyphrase": "ازدواجية اللغة",
+            "keyphrase": "للمواد",
             "votes": 2,
             "out_of": 3
           },
           {
-            "keyphrase": "اللغة الفرنسية",
+            "keyphrase": "وسيرت",
             "votes": 2,
-            "out_of": 3
-          },
-          {
-            "keyphrase": "الحياة اليومية",
-            "votes": 1,
-            "out_of": 3
-          },
-          {
-            "keyphrase": "إشكاليات التعليم",
-            "votes": 1,
             "out_of": 3
           }
         ]
       },
       "annotator_count": 3,
       "majority_vote_gold": [
-        "التعليم في المغرب",
-        "ازدواجية اللغة",
-        "اللغة الفرنسية"
+        "المجاوره",
+        "ليش",
+        "تصنع",
+        "للمواد",
+        "وسيرت"
       ],
       "stored_gold": [
-        "التعليم في المغرب",
-        "ازدواجية اللغة",
-        "اللغة الفرنسية"
+        "المجاوره",
+        "ليش",
+        "تصنع",
+        "للمواد",
+        "وسيرت"
       ],
       "gold_sets_match": true
     },
     {
       "id": 70,
       "variety": "Dialect",
-      "topic": "Sudanese - Daily Life",
+      "topic": "LAV",
       "pair_f1_scores": {
-        "ann1_ann2": 0.6667,
-        "ann1_ann3": 0.6667,
-        "ann2_ann3": 0.5
+        "ann1_ann2": 0.8889,
+        "ann1_ann3": 0.8,
+        "ann2_ann3": 0.8889
       },
-      "avg_pairwise_f1": 0.6111,
-      "has_disagreement": true,
+      "avg_pairwise_f1": 0.8593,
+      "has_disagreement": false,
       "disagreement_info": {
         "unanimous": [
-          "السودان",
-          "الهوية السودانية"
+          "شنت",
+          "فشلت",
+          "احمر",
+          "صغير"
         ],
         "disputed": [
           {
-            "keyphrase": "الضيافة السودانية",
-            "votes": 2,
-            "out_of": 3
-          },
-          {
-            "keyphrase": "الكرم",
-            "votes": 1,
-            "out_of": 3
-          },
-          {
-            "keyphrase": "الخرطوم",
-            "votes": 2,
-            "out_of": 3
-          },
-          {
-            "keyphrase": "المجتمع العربي",
+            "keyphrase": "بصل",
             "votes": 1,
             "out_of": 3
           },
@@ -3849,38 +3179,39 @@
       },
       "annotator_count": 3,
       "majority_vote_gold": [
-        "السودان",
-        "الهوية السودانية",
-        "الضيافة السودانية",
-        "الخرطوم"
+        "شنت",
+        "فشلت",
+        "احمر",
+        "صغير"
       ],
       "stored_gold": [
-        "السودان",
-        "الهوية السودانية",
-        "الضيافة السودانية",
-        "الخرطوم"
+        "شنت",
+        "فشلت",
+        "احمر",
+        "صغير"
       ],
       "gold_sets_match": true
     },
     {
       "id": 71,
       "variety": "Dialect",
-      "topic": "Sudanese - Heritage",
+      "topic": "LAV",
       "pair_f1_scores": {
-        "ann1_ann2": 0.5,
-        "ann1_ann3": 0.75,
-        "ann2_ann3": 0.5
+        "ann1_ann2": 0.8,
+        "ann1_ann3": 0.6667,
+        "ann2_ann3": 0.8889
       },
-      "avg_pairwise_f1": 0.5833,
-      "has_disagreement": true,
+      "avg_pairwise_f1": 0.7852,
+      "has_disagreement": false,
       "disagreement_info": {
         "unanimous": [
-          "الأهرامات السودانية",
-          "التراث السوداني"
+          "انجزنا",
+          "وظائف",
+          "دائم"
         ],
         "disputed": [
           {
-            "keyphrase": "الحضارة النوبية",
+            "keyphrase": "سمعت",
             "votes": 2,
             "out_of": 3
           },
@@ -3890,64 +3221,54 @@
             "out_of": 3
           },
           {
-            "keyphrase": "مروي",
-            "votes": 1,
-            "out_of": 3
-          },
-          {
-            "keyphrase": "الهوية الثقافية",
-            "votes": 1,
-            "out_of": 3
-          },
-          {
-            "keyphrase": "الحياة اليومية",
-            "votes": 1,
+            "keyphrase": "اخلال",
+            "votes": 2,
             "out_of": 3
           }
         ]
       },
       "annotator_count": 3,
       "majority_vote_gold": [
-        "الأهرامات السودانية",
-        "التراث السوداني",
-        "الحضارة النوبية"
+        "انجزنا",
+        "وظائف",
+        "دائم",
+        "سمعت",
+        "اخلال"
       ],
       "stored_gold": [
-        "الأهرامات السودانية",
-        "التراث السوداني",
-        "الحضارة النوبية"
+        "انجزنا",
+        "وظائف",
+        "دائم",
+        "سمعت",
+        "اخلال"
       ],
       "gold_sets_match": true
     },
     {
       "id": 72,
       "variety": "Dialect",
-      "topic": "Yemeni - Daily Life",
+      "topic": "LAV",
       "pair_f1_scores": {
-        "ann1_ann2": 0.8571,
-        "ann1_ann3": 0.6667,
-        "ann2_ann3": 0.5714
+        "ann1_ann2": 0.75,
+        "ann1_ann3": 1.0,
+        "ann2_ann3": 0.75
       },
-      "avg_pairwise_f1": 0.6984,
-      "has_disagreement": true,
+      "avg_pairwise_f1": 0.8333,
+      "has_disagreement": false,
       "disagreement_info": {
         "unanimous": [
-          "الكرم اليمني",
-          "الجلسات الاجتماعية"
+          "الواحد",
+          "غانتس",
+          "تطريز"
         ],
         "disputed": [
           {
-            "keyphrase": "اليمن",
+            "keyphrase": "امسك",
             "votes": 2,
             "out_of": 3
           },
           {
-            "keyphrase": "التواصل الاجتماعي",
-            "votes": 1,
-            "out_of": 3
-          },
-          {
-            "keyphrase": "القات",
+            "keyphrase": "كذبت",
             "votes": 1,
             "out_of": 3
           }
@@ -3955,63 +3276,45 @@
       },
       "annotator_count": 3,
       "majority_vote_gold": [
-        "الكرم اليمني",
-        "الجلسات الاجتماعية",
-        "اليمن"
+        "الواحد",
+        "غانتس",
+        "تطريز",
+        "امسك"
       ],
       "stored_gold": [
-        "الكرم اليمني",
-        "الجلسات الاجتماعية",
-        "اليمن"
+        "الواحد",
+        "غانتس",
+        "تطريز",
+        "امسك"
       ],
       "gold_sets_match": true
     },
     {
       "id": 73,
       "variety": "Dialect",
-      "topic": "Iraqi - Daily Life",
+      "topic": "LAV",
       "pair_f1_scores": {
-        "ann1_ann2": 0.2857,
-        "ann1_ann3": 0.3333,
-        "ann2_ann3": 0.2857
+        "ann1_ann2": 0.8,
+        "ann1_ann3": 0.8889,
+        "ann2_ann3": 0.8889
       },
-      "avg_pairwise_f1": 0.3016,
-      "has_disagreement": true,
+      "avg_pairwise_f1": 0.8593,
+      "has_disagreement": false,
       "disagreement_info": {
-        "unanimous": [],
+        "unanimous": [
+          "قرات",
+          "بسالك",
+          "تشوف",
+          "بتسالني"
+        ],
         "disputed": [
           {
-            "keyphrase": "بابل وسومر",
-            "votes": 2,
-            "out_of": 3
-          },
-          {
-            "keyphrase": "الهوية العراقية",
-            "votes": 2,
-            "out_of": 3
-          },
-          {
-            "keyphrase": "اللهجة المحلية",
+            "keyphrase": "الحياة اليومية",
             "votes": 1,
             "out_of": 3
           },
           {
-            "keyphrase": "بغداد",
-            "votes": 1,
-            "out_of": 3
-          },
-          {
-            "keyphrase": "الحضارة العراقية",
-            "votes": 1,
-            "out_of": 3
-          },
-          {
-            "keyphrase": "العصر العباسي",
-            "votes": 2,
-            "out_of": 3
-          },
-          {
-            "keyphrase": "العادات والتقاليد",
+            "keyphrase": "معلش",
             "votes": 1,
             "out_of": 3
           }
@@ -4019,50 +3322,48 @@
       },
       "annotator_count": 3,
       "majority_vote_gold": [
-        "بابل وسومر",
-        "الهوية العراقية",
-        "العصر العباسي"
+        "قرات",
+        "بسالك",
+        "تشوف",
+        "بتسالني"
       ],
       "stored_gold": [
-        "بابل وسومر",
-        "الهوية العراقية",
-        "العصر العباسي"
+        "قرات",
+        "بسالك",
+        "تشوف",
+        "بتسالني"
       ],
       "gold_sets_match": true
     },
     {
       "id": 74,
       "variety": "Dialect",
-      "topic": "Iraqi - Food",
+      "topic": "LAV",
       "pair_f1_scores": {
-        "ann1_ann2": 0.5714,
+        "ann1_ann2": 0.75,
         "ann1_ann3": 0.75,
-        "ann2_ann3": 0.5714
+        "ann2_ann3": 0.75
       },
-      "avg_pairwise_f1": 0.6309,
-      "has_disagreement": true,
+      "avg_pairwise_f1": 0.75,
+      "has_disagreement": false,
       "disagreement_info": {
         "unanimous": [
-          "الطبخ العراقي"
+          "الاساس",
+          "نحنا"
         ],
         "disputed": [
           {
-            "keyphrase": "الدولمة",
+            "keyphrase": "نعطي",
             "votes": 2,
             "out_of": 3
           },
           {
-            "keyphrase": "التشريب",
+            "keyphrase": "بمجتمعاتنا",
             "votes": 2,
             "out_of": 3
           },
           {
-            "keyphrase": "التراث الغذائي",
-            "votes": 2,
-            "out_of": 3
-          },
-          {
-            "keyphrase": "المسگوف",
+            "keyphrase": "وتقاليدنا",
             "votes": 2,
             "out_of": 3
           }
@@ -4070,209 +3371,171 @@
       },
       "annotator_count": 3,
       "majority_vote_gold": [
-        "الطبخ العراقي",
-        "الدولمة",
-        "التشريب",
-        "التراث الغذائي",
-        "المسگوف"
+        "الاساس",
+        "نحنا",
+        "نعطي",
+        "بمجتمعاتنا",
+        "وتقاليدنا"
       ],
       "stored_gold": [
-        "الطبخ العراقي",
-        "الدولمة",
-        "التشريب",
-        "التراث الغذائي",
-        "المسگوف"
+        "الاساس",
+        "نحنا",
+        "نعطي",
+        "بمجتمعاتنا",
+        "وتقاليدنا"
       ],
       "gold_sets_match": true
     },
     {
       "id": 75,
       "variety": "Dialect",
-      "topic": "Libyan - Daily Life",
+      "topic": "NOR",
       "pair_f1_scores": {
-        "ann1_ann2": 0.7273,
-        "ann1_ann3": 0.8,
-        "ann2_ann3": 0.6667
+        "ann1_ann2": 1.0,
+        "ann1_ann3": 0.8889,
+        "ann2_ann3": 0.8889
       },
-      "avg_pairwise_f1": 0.7313,
-      "has_disagreement": true,
+      "avg_pairwise_f1": 0.9259,
+      "has_disagreement": false,
       "disagreement_info": {
         "unanimous": [
-          "البادية",
-          "الضيافة العربية",
-          "الهوية القبلية"
+          "شاني",
+          "ستحظي",
+          "تلتها",
+          "الدين"
         ],
         "disputed": [
           {
-            "keyphrase": "ليبيا",
+            "keyphrase": "خير",
             "votes": 2,
-            "out_of": 3
-          },
-          {
-            "keyphrase": "البيئة المحلية",
-            "votes": 1,
-            "out_of": 3
-          },
-          {
-            "keyphrase": "الأعياد",
-            "votes": 2,
-            "out_of": 3
-          },
-          {
-            "keyphrase": "الثقافة الشعبية",
-            "votes": 1,
             "out_of": 3
           }
         ]
       },
       "annotator_count": 3,
       "majority_vote_gold": [
-        "البادية",
-        "الضيافة العربية",
-        "الهوية القبلية",
-        "ليبيا",
-        "الأعياد"
+        "شاني",
+        "ستحظي",
+        "تلتها",
+        "الدين",
+        "خير"
       ],
       "stored_gold": [
-        "البادية",
-        "الضيافة العربية",
-        "الهوية القبلية",
-        "ليبيا",
-        "الأعياد"
+        "شاني",
+        "ستحظي",
+        "تلتها",
+        "الدين",
+        "خير"
       ],
       "gold_sets_match": true
     },
     {
       "id": 76,
       "variety": "Dialect",
-      "topic": "Tunisian - Economy",
+      "topic": "NOR",
       "pair_f1_scores": {
-        "ann1_ann2": 0.8,
-        "ann1_ann3": 0.5714,
-        "ann2_ann3": 0.6667
+        "ann1_ann2": 0.8889,
+        "ann1_ann3": 1.0,
+        "ann2_ann3": 0.8889
       },
-      "avg_pairwise_f1": 0.6794,
-      "has_disagreement": true,
+      "avg_pairwise_f1": 0.9259,
+      "has_disagreement": false,
       "disagreement_info": {
         "unanimous": [
-          "تونس",
-          "التعهيد الرقمي"
+          "تغلب",
+          "واجب",
+          "برنامجه",
+          "احنا"
         ],
         "disputed": [
           {
-            "keyphrase": "تصدير الخدمات",
-            "votes": 1,
-            "out_of": 3
-          },
-          {
-            "keyphrase": "الشركات الأوروبية",
-            "votes": 1,
-            "out_of": 3
-          },
-          {
-            "keyphrase": "الاقتصاد الرقمي",
-            "votes": 1,
+            "keyphrase": "وياهم",
+            "votes": 2,
             "out_of": 3
           }
         ]
       },
       "annotator_count": 3,
       "majority_vote_gold": [
-        "تونس",
-        "التعهيد الرقمي"
+        "تغلب",
+        "واجب",
+        "برنامجه",
+        "احنا",
+        "وياهم"
       ],
       "stored_gold": [
-        "تونس",
-        "التعهيد الرقمي",
-        "تصدير الخدمات",
-        "الشركات الأوروبية",
-        "الاقتصاد الرقمي"
+        "تغلب",
+        "واجب",
+        "برنامجه",
+        "احنا",
+        "وياهم"
       ],
-      "gold_sets_match": false
+      "gold_sets_match": true
     },
     {
       "id": 77,
       "variety": "Dialect",
-      "topic": "Egyptian - Sports",
+      "topic": "NOR",
       "pair_f1_scores": {
-        "ann1_ann2": 0.6667,
-        "ann1_ann3": 0.8333,
-        "ann2_ann3": 0.6667
+        "ann1_ann2": 0.8889,
+        "ann1_ann3": 1.0,
+        "ann2_ann3": 0.8889
       },
-      "avg_pairwise_f1": 0.7222,
-      "has_disagreement": true,
+      "avg_pairwise_f1": 0.9259,
+      "has_disagreement": false,
       "disagreement_info": {
         "unanimous": [
-          "كورة القدم",
-          "الأهلي",
-          "الرياضة المصرية"
+          "الحوار",
+          "كلها",
+          "النقابيه",
+          "عندهم"
         ],
         "disputed": [
           {
-            "keyphrase": "الزمالك",
+            "keyphrase": "ديال",
             "votes": 2,
-            "out_of": 3
-          },
-          {
-            "keyphrase": "الثقافة الشعبية",
-            "votes": 1,
-            "out_of": 3
-          },
-          {
-            "keyphrase": "الهوية الجماهيرية",
-            "votes": 2,
-            "out_of": 3
-          },
-          {
-            "keyphrase": "التراث الشعبي",
-            "votes": 1,
             "out_of": 3
           }
         ]
       },
       "annotator_count": 3,
       "majority_vote_gold": [
-        "كورة القدم",
-        "الأهلي",
-        "الرياضة المصرية",
-        "الزمالك",
-        "الهوية الجماهيرية"
+        "الحوار",
+        "كلها",
+        "النقابيه",
+        "عندهم",
+        "ديال"
       ],
       "stored_gold": [
-        "كورة القدم",
-        "الأهلي",
-        "الرياضة المصرية",
-        "الزمالك",
-        "الهوية الجماهيرية"
+        "الحوار",
+        "كلها",
+        "النقابيه",
+        "عندهم",
+        "ديال"
       ],
       "gold_sets_match": true
     },
     {
       "id": 78,
       "variety": "Dialect",
-      "topic": "Gulf - Technology",
+      "topic": "NOR",
       "pair_f1_scores": {
-        "ann1_ann2": 0.75,
-        "ann1_ann3": 0.0,
-        "ann2_ann3": 0.2857
+        "ann1_ann2": 0.9091,
+        "ann1_ann3": 0.8889,
+        "ann2_ann3": 0.8
       },
-      "avg_pairwise_f1": 0.3452,
-      "has_disagreement": true,
+      "avg_pairwise_f1": 0.866,
+      "has_disagreement": false,
       "disagreement_info": {
-        "unanimous": [],
+        "unanimous": [
+          "المدينه",
+          "المهدي",
+          "ريف",
+          "فالذي"
+        ],
         "disputed": [
           {
-            "keyphrase": "ريادة الأعمال",
-            "votes": 2,
-            "out_of": 3
-          },
-          {
-            "keyphrase": "التطبيقات الرقمية",
-            "votes": 2,
-            "out_of": 3
-          },
-          {
-            "keyphrase": "الشباب الخليجي",
+            "keyphrase": "هول",
             "votes": 2,
             "out_of": 3
           },
@@ -4280,75 +3543,47 @@
             "keyphrase": "الحياة اليومية",
             "votes": 1,
             "out_of": 3
-          },
-          {
-            "keyphrase": "الشركات الناشئة",
-            "votes": 2,
-            "out_of": 3
-          },
-          {
-            "keyphrase": "الاقتصاد الرقمي",
-            "votes": 1,
-            "out_of": 3
           }
         ]
       },
       "annotator_count": 3,
       "majority_vote_gold": [
-        "ريادة الأعمال",
-        "التطبيقات الرقمية",
-        "الشباب الخليجي",
-        "الشركات الناشئة"
+        "المدينه",
+        "المهدي",
+        "ريف",
+        "فالذي",
+        "هول"
       ],
       "stored_gold": [
-        "ريادة الأعمال",
-        "التطبيقات الرقمية",
-        "الشباب الخليجي",
-        "الشركات الناشئة"
+        "المدينه",
+        "المهدي",
+        "ريف",
+        "فالذي",
+        "هول"
       ],
       "gold_sets_match": true
     },
     {
       "id": 79,
       "variety": "Dialect",
-      "topic": "Levantine - Humor",
+      "topic": "NOR",
       "pair_f1_scores": {
-        "ann1_ann2": 0.0,
-        "ann1_ann3": 0.6667,
-        "ann2_ann3": 0.4444
+        "ann1_ann2": 0.8889,
+        "ann1_ann3": 0.9091,
+        "ann2_ann3": 0.8
       },
-      "avg_pairwise_f1": 0.3704,
-      "has_disagreement": true,
+      "avg_pairwise_f1": 0.866,
+      "has_disagreement": false,
       "disagreement_info": {
-        "unanimous": [],
+        "unanimous": [
+          "معاقلكم",
+          "الاسباب",
+          "سبب",
+          "شيء"
+        ],
         "disputed": [
           {
-            "keyphrase": "الفكاهة العربية",
-            "votes": 2,
-            "out_of": 3
-          },
-          {
-            "keyphrase": "السخرية الاجتماعية",
-            "votes": 2,
-            "out_of": 3
-          },
-          {
-            "keyphrase": "الهوية الشامية",
-            "votes": 2,
-            "out_of": 3
-          },
-          {
-            "keyphrase": "المقاومة",
-            "votes": 2,
-            "out_of": 3
-          },
-          {
-            "keyphrase": "التراث الشعبي",
-            "votes": 1,
-            "out_of": 3
-          },
-          {
-            "keyphrase": "التحدي",
+            "keyphrase": "اقل",
             "votes": 2,
             "out_of": 3
           },
@@ -4361,72 +3596,66 @@
       },
       "annotator_count": 3,
       "majority_vote_gold": [
-        "الفكاهة العربية",
-        "السخرية الاجتماعية",
-        "الهوية الشامية",
-        "المقاومة",
-        "التحدي"
+        "معاقلكم",
+        "الاسباب",
+        "سبب",
+        "شيء",
+        "اقل"
       ],
       "stored_gold": [
-        "الفكاهة العربية",
-        "السخرية الاجتماعية",
-        "الهوية الشامية",
-        "المقاومة",
-        "التحدي"
+        "معاقلكم",
+        "الاسباب",
+        "سبب",
+        "شيء",
+        "اقل"
       ],
       "gold_sets_match": true
     },
     {
       "id": 80,
       "variety": "Dialect",
-      "topic": "Moroccan - Heritage",
+      "topic": "NOR",
       "pair_f1_scores": {
         "ann1_ann2": 0.8,
-        "ann1_ann3": 0.8,
+        "ann1_ann3": 1.0,
         "ann2_ann3": 0.8
       },
-      "avg_pairwise_f1": 0.8,
-      "has_disagreement": true,
+      "avg_pairwise_f1": 0.8667,
+      "has_disagreement": false,
       "disagreement_info": {
         "unanimous": [
-          "فاس",
-          "المدينة العتيقة",
-          "المتحف الحي"
+          "يقولوا",
+          "عاملين",
+          "الدم",
+          "اذونا"
         ],
         "disputed": [
           {
+            "keyphrase": "انقذتنا",
+            "votes": 2,
+            "out_of": 3
+          },
+          {
             "keyphrase": "الموروث الثقافي",
-            "votes": 2,
-            "out_of": 3
-          },
-          {
-            "keyphrase": "الحرف التقليدية",
-            "votes": 2,
-            "out_of": 3
-          },
-          {
-            "keyphrase": "التراث المغربي",
-            "votes": 2,
+            "votes": 1,
             "out_of": 3
           }
         ]
       },
       "annotator_count": 3,
       "majority_vote_gold": [
-        "فاس",
-        "المدينة العتيقة",
-        "المتحف الحي",
-        "الموروث الثقافي",
-        "الحرف التقليدية",
-        "التراث المغربي"
+        "يقولوا",
+        "عاملين",
+        "الدم",
+        "اذونا",
+        "انقذتنا"
       ],
       "stored_gold": [
-        "فاس",
-        "المدينة العتيقة",
-        "المتحف الحي",
-        "الموروث الثقافي",
-        "الحرف التقليدية",
-        "التراث المغربي"
+        "يقولوا",
+        "عاملين",
+        "الدم",
+        "اذونا",
+        "انقذتنا"
       ],
       "gold_sets_match": true
     }

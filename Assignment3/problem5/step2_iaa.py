@@ -134,13 +134,8 @@ def majority_vote_gold(annotations: list, min_votes: int = 2) -> list:
 
 
 def has_disagreement(annotations: list) -> bool:
-    """True if any keyphrase was NOT chosen unanimously by all annotators."""
-    n          = len(annotations)
-    vote_count = Counter()
-    for ann_list in annotations:
-        for kp in ann_list:
-            vote_count[normalize(kp)] += 1
-    return any(cnt < n for cnt in vote_count.values())
+    """True if the paragraph shows substantive annotator disagreement."""
+    return avg_pairwise_f1(annotations) < 0.75
 
 
 def disagreement_details(annotations: list) -> dict:

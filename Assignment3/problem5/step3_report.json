@@ -1,0 +1,2023 @@
+{
+  "task": "Task 10 — Keyphrase Extraction",
+  "step": "Step 3 — Precision@5 Baseline Evaluation",
+  "dataset_size": 80,
+  "k": 5,
+  "metrics": {
+    "macro_precision": 0.8475,
+    "macro_recall": 0.8637,
+    "macro_f1": 0.8547,
+    "hit_rate": 1.0
+  },
+  "by_type": {
+    "MSA": {
+      "count": 27,
+      "avg_precision": 0.7037,
+      "avg_recall": 0.7074,
+      "avg_f1": 0.7053
+    },
+    "Classical": {
+      "count": 27,
+      "avg_precision": 0.9333,
+      "avg_recall": 0.9481,
+      "avg_f1": 0.9399
+    },
+    "Dialect": {
+      "count": 26,
+      "avg_precision": 0.9077,
+      "avg_recall": 0.9385,
+      "avg_f1": 0.9214
+    }
+  },
+  "per_item": [
+    {
+      "id": 1,
+      "type": "MSA",
+      "topic": "culture",
+      "source": "KALIMAT",
+      "source_detail": "culturecapr1.txt",
+      "predicted_keyphrases": [
+        "برنامج",
+        "يذاع",
+        "الساعه",
+        "ويوم",
+        "البرامج"
+      ],
+      "gold_keyphrases": [
+        "يذاع",
+        "ويوم",
+        "الساعه",
+        "البرامج",
+        "برنامج"
+      ],
+      "precision": 1.0,
+      "recall": 1.0,
+      "f1": 1.0,
+      "hits": 5
+    },
+    {
+      "id": 2,
+      "type": "MSA",
+      "topic": "culture",
+      "source": "KALIMAT",
+      "source_detail": "culturecapr1005.txt",
+      "predicted_keyphrases": [
+        "التراث",
+        "الاثريه",
+        "المادي",
+        "العماني",
+        "الوزاره"
+      ],
+      "gold_keyphrases": [
+        "المادي",
+        "الاثريه",
+        "الوزاره",
+        "المواقع",
+        "التراث"
+      ],
+      "precision": 0.8,
+      "recall": 0.8,
+      "f1": 0.8,
+      "hits": 4
+    },
+    {
+      "id": 3,
+      "type": "MSA",
+      "topic": "culture",
+      "source": "KALIMAT",
+      "source_detail": "culturecapr1006.txt",
+      "predicted_keyphrases": [
+        "المشكاك",
+        "بهوان",
+        "العرض",
+        "سالم",
+        "مسرحيه"
+      ],
+      "gold_keyphrases": [
+        "المشكاك",
+        "بهوان",
+        "عروضها",
+        "العرض",
+        "ناجحه"
+      ],
+      "precision": 0.6,
+      "recall": 0.6,
+      "f1": 0.6,
+      "hits": 3
+    },
+    {
+      "id": 4,
+      "type": "MSA",
+      "topic": "culture",
+      "source": "KALIMAT",
+      "source_detail": "culturecapr1007.txt",
+      "predicted_keyphrases": [
+        "الثقافه",
+        "العربيه",
+        "الي",
+        "علي",
+        "الثقافيه"
+      ],
+      "gold_keyphrases": [
+        "الثقافه",
+        "الجماعه",
+        "المدني",
+        "تاثير",
+        "الاجتماعي"
+      ],
+      "precision": 0.2,
+      "recall": 0.2,
+      "f1": 0.2,
+      "hits": 1
+    },
+    {
+      "id": 5,
+      "type": "MSA",
+      "topic": "culture",
+      "source": "KALIMAT",
+      "source_detail": "culturecapr1008.txt",
+      "predicted_keyphrases": [
+        "الشيخ",
+        "الدكتور",
+        "الفنان",
+        "يحيي",
+        "اعمال"
+      ],
+      "gold_keyphrases": [
+        "يحيي",
+        "المجموعه",
+        "الشيخ",
+        "اعمال",
+        "الفنان"
+      ],
+      "precision": 0.8,
+      "recall": 0.8,
+      "f1": 0.8,
+      "hits": 4
+    },
+    {
+      "id": 6,
+      "type": "MSA",
+      "topic": "culture",
+      "source": "KALIMAT",
+      "source_detail": "culturecapr1009.txt",
+      "predicted_keyphrases": [
+        "الملتقي",
+        "الكليه",
+        "الشريعه",
+        "والقانون",
+        "بعدها"
+      ],
+      "gold_keyphrases": [
+        "الكليه",
+        "الملتقي",
+        "والقانون",
+        "قدم",
+        "الشريعه"
+      ],
+      "precision": 0.8,
+      "recall": 0.8,
+      "f1": 0.8,
+      "hits": 4
+    },
+    {
+      "id": 7,
+      "type": "MSA",
+      "topic": "culture",
+      "source": "KALIMAT",
+      "source_detail": "culturecapr1010.txt",
+      "predicted_keyphrases": [
+        "الموسيقي",
+        "مساء",
+        "السابعه",
+        "ويقدمها",
+        "بالجامعه"
+      ],
+      "gold_keyphrases": [
+        "السابعه",
+        "ويقدمها",
+        "بالجامعه",
+        "للموسيقي",
+        "اقامه"
+      ],
+      "precision": 0.6,
+      "recall": 0.6,
+      "f1": 0.6,
+      "hits": 3
+    },
+    {
+      "id": 8,
+      "type": "MSA",
+      "topic": "culture",
+      "source": "KALIMAT",
+      "source_detail": "culturecapr1011.txt",
+      "predicted_keyphrases": [
+        "اكتشافها",
+        "الاثريه",
+        "العمانيه",
+        "المعرض",
+        "المكتشفات"
+      ],
+      "gold_keyphrases": [
+        "اكتشافها",
+        "الاثريه",
+        "المكتشفات",
+        "العملات",
+        "الفترات"
+      ],
+      "precision": 0.6,
+      "recall": 0.6,
+      "f1": 0.6,
+      "hits": 3
+    },
+    {
+      "id": 9,
+      "type": "MSA",
+      "topic": "culture",
+      "source": "KALIMAT",
+      "source_detail": "culturecapr1012.txt",
+      "predicted_keyphrases": [
+        "عليك",
+        "العقل",
+        "وان",
+        "عقلك",
+        "تذكر"
+      ],
+      "gold_keyphrases": [
+        "عليك",
+        "العقل",
+        "عقلك",
+        "حياتك",
+        "تذكر"
+      ],
+      "precision": 0.8,
+      "recall": 0.8,
+      "f1": 0.8,
+      "hits": 4
+    },
+    {
+      "id": 10,
+      "type": "MSA",
+      "topic": "culture",
+      "source": "KALIMAT",
+      "source_detail": "culturecapr1013.txt",
+      "predicted_keyphrases": [
+        "الباحث",
+        "الي",
+        "الندوه",
+        "المؤرخ",
+        "الشاعر"
+      ],
+      "gold_keyphrases": [
+        "الباحث",
+        "المؤرخ",
+        "محور",
+        "وقفه"
+      ],
+      "precision": 0.4,
+      "recall": 0.5,
+      "f1": 0.4444,
+      "hits": 2
+    },
+    {
+      "id": 11,
+      "type": "MSA",
+      "topic": "culture",
+      "source": "KALIMAT",
+      "source_detail": "culturecapr1071.txt",
+      "predicted_keyphrases": [
+        "فعاليات",
+        "صلاله",
+        "حمران",
+        "رياض",
+        "نعسان"
+      ],
+      "gold_keyphrases": [
+        "صلاله",
+        "حمران",
+        "نعسان",
+        "اغا",
+        "رياض"
+      ],
+      "precision": 0.8,
+      "recall": 0.8,
+      "f1": 0.8,
+      "hits": 4
+    },
+    {
+      "id": 12,
+      "type": "MSA",
+      "topic": "culture",
+      "source": "KALIMAT",
+      "source_detail": "culturecapr1072.txt",
+      "predicted_keyphrases": [
+        "الكليه",
+        "الشريعه",
+        "كليه",
+        "والقانون",
+        "المسابقه"
+      ],
+      "gold_keyphrases": [
+        "الشريعه",
+        "كليه",
+        "الحلول",
+        "الكليه",
+        "الفرق"
+      ],
+      "precision": 0.6,
+      "recall": 0.6,
+      "f1": 0.6,
+      "hits": 3
+    },
+    {
+      "id": 13,
+      "type": "MSA",
+      "topic": "culture",
+      "source": "KALIMAT",
+      "source_detail": "culturecapr1073.txt",
+      "predicted_keyphrases": [
+        "ومعرض",
+        "عام",
+        "التشكيليه",
+        "والمعرض",
+        "المعرض"
+      ],
+      "gold_keyphrases": [
+        "ومعرض",
+        "والمعرض",
+        "التشكيليه",
+        "عام",
+        "وشاركت"
+      ],
+      "precision": 0.8,
+      "recall": 0.8,
+      "f1": 0.8,
+      "hits": 4
+    },
+    {
+      "id": 14,
+      "type": "MSA",
+      "topic": "culture",
+      "source": "KALIMAT",
+      "source_detail": "culturecapr1074.txt",
+      "predicted_keyphrases": [
+        "القصيده",
+        "دوله",
+        "العربيه",
+        "الشعريه",
+        "الخليج"
+      ],
+      "gold_keyphrases": [
+        "القصيده",
+        "دوله",
+        "الشعريه",
+        "قصيده",
+        "الشعري"
+      ],
+      "precision": 0.6,
+      "recall": 0.6,
+      "f1": 0.6,
+      "hits": 3
+    },
+    {
+      "id": 15,
+      "type": "MSA",
+      "topic": "culture",
+      "source": "KALIMAT",
+      "source_detail": "culturecapr112.txt",
+      "predicted_keyphrases": [
+        "حليم",
+        "العندليب",
+        "انتاج",
+        "عبدالحليم",
+        "زكي"
+      ],
+      "gold_keyphrases": [
+        "العندليب",
+        "انتاج",
+        "عبدالحليم",
+        "زكي",
+        "حليم"
+      ],
+      "precision": 1.0,
+      "recall": 1.0,
+      "f1": 1.0,
+      "hits": 5
+    },
+    {
+      "id": 16,
+      "type": "MSA",
+      "topic": "culture",
+      "source": "KALIMAT",
+      "source_detail": "culturecapr113.txt",
+      "predicted_keyphrases": [
+        "ماجده",
+        "الفيلم",
+        "السينما",
+        "شوكت",
+        "العمل"
+      ],
+      "gold_keyphrases": [
+        "ماجده",
+        "شوكت",
+        "عملها",
+        "غاده",
+        "الفيلم"
+      ],
+      "precision": 0.6,
+      "recall": 0.6,
+      "f1": 0.6,
+      "hits": 3
+    },
+    {
+      "id": 17,
+      "type": "MSA",
+      "topic": "culture",
+      "source": "KALIMAT",
+      "source_detail": "culturecapr114.txt",
+      "predicted_keyphrases": [
+        "ويا",
+        "شيخ",
+        "ترثيك",
+        "الي",
+        "بلا"
+      ],
+      "gold_keyphrases": [
+        "ويا",
+        "ترثيك",
+        "شيخ",
+        "عمي",
+        "البوادر"
+      ],
+      "precision": 0.6,
+      "recall": 0.6,
+      "f1": 0.6,
+      "hits": 3
+    },
+    {
+      "id": 18,
+      "type": "MSA",
+      "topic": "culture",
+      "source": "KALIMAT",
+      "source_detail": "culturecapr164.txt",
+      "predicted_keyphrases": [
+        "قصه",
+        "كمنهج",
+        "لاخراج",
+        "لنجيب",
+        "الايهام"
+      ],
+      "gold_keyphrases": [
+        "كمنهج",
+        "لنجيب",
+        "الايهام",
+        "مدكور",
+        "لاخراج"
+      ],
+      "precision": 0.8,
+      "recall": 0.8,
+      "f1": 0.8,
+      "hits": 4
+    },
+    {
+      "id": 19,
+      "type": "MSA",
+      "topic": "culture",
+      "source": "KALIMAT",
+      "source_detail": "culturecapr165.txt",
+      "predicted_keyphrases": [
+        "الايهام",
+        "المخرج",
+        "الفيلم",
+        "كسر",
+        "السينمائي"
+      ],
+      "gold_keyphrases": [
+        "الايهام",
+        "المخرج",
+        "الفيلم",
+        "السينمائي",
+        "صوت"
+      ],
+      "precision": 0.8,
+      "recall": 0.8,
+      "f1": 0.8,
+      "hits": 4
+    },
+    {
+      "id": 20,
+      "type": "MSA",
+      "topic": "culture",
+      "source": "KALIMAT",
+      "source_detail": "culturecapr166.txt",
+      "predicted_keyphrases": [
+        "السهره",
+        "ويوم",
+        "حيث",
+        "ستكون",
+        "الي"
+      ],
+      "gold_keyphrases": [
+        "ويوم",
+        "التليفزيون",
+        "يونيو",
+        "ريتشارد",
+        "السهره"
+      ],
+      "precision": 0.4,
+      "recall": 0.4,
+      "f1": 0.4,
+      "hits": 2
+    },
+    {
+      "id": 21,
+      "type": "MSA",
+      "topic": "culture",
+      "source": "KALIMAT",
+      "source_detail": "culturecapr167.txt",
+      "predicted_keyphrases": [
+        "الناس",
+        "الانترنت",
+        "كويلو",
+        "الكتب",
+        "علي"
+      ],
+      "gold_keyphrases": [
+        "الانترنت",
+        "الروائي",
+        "لكنني",
+        "الكتب",
+        "كويلو"
+      ],
+      "precision": 0.6,
+      "recall": 0.6,
+      "f1": 0.6,
+      "hits": 3
+    },
+    {
+      "id": 22,
+      "type": "MSA",
+      "topic": "culture",
+      "source": "KALIMAT",
+      "source_detail": "culturecapr168.txt",
+      "predicted_keyphrases": [
+        "الملكيه",
+        "الفكريه",
+        "الثقافه",
+        "اليمن",
+        "تستعد"
+      ],
+      "gold_keyphrases": [
+        "الملكيه",
+        "تستعد",
+        "الفكريه",
+        "الثقافه",
+        "اليمن"
+      ],
+      "precision": 1.0,
+      "recall": 1.0,
+      "f1": 1.0,
+      "hits": 5
+    },
+    {
+      "id": 23,
+      "type": "MSA",
+      "topic": "culture",
+      "source": "KALIMAT",
+      "source_detail": "culturecapr169.txt",
+      "predicted_keyphrases": [
+        "الاجوبه",
+        "علي",
+        "القرن",
+        "قرن",
+        "الاسئله"
+      ],
+      "gold_keyphrases": [
+        "الاجوبه",
+        "قرن",
+        "التساؤل",
+        "حياتنا",
+        "ضوء"
+      ],
+      "precision": 0.4,
+      "recall": 0.4,
+      "f1": 0.4,
+      "hits": 2
+    },
+    {
+      "id": 24,
+      "type": "MSA",
+      "topic": "culture",
+      "source": "KALIMAT",
+      "source_detail": "culturecapr170.txt",
+      "predicted_keyphrases": [
+        "ذوو",
+        "الخوذتين",
+        "الرجلان",
+        "النداء",
+        "تفوه"
+      ],
+      "gold_keyphrases": [
+        "الخوذتين",
+        "الرجلان",
+        "تفوه",
+        "ذوو",
+        "النداء"
+      ],
+      "precision": 1.0,
+      "recall": 1.0,
+      "f1": 1.0,
+      "hits": 5
+    },
+    {
+      "id": 25,
+      "type": "MSA",
+      "topic": "culture",
+      "source": "KALIMAT",
+      "source_detail": "culturecapr171.txt",
+      "predicted_keyphrases": [
+        "خليفه",
+        "مارسيل",
+        "العلي",
+        "وطنه",
+        "ناجي"
+      ],
+      "gold_keyphrases": [
+        "مارسيل",
+        "خليفه",
+        "العلي",
+        "وطنه",
+        "ناجي"
+      ],
+      "precision": 1.0,
+      "recall": 1.0,
+      "f1": 1.0,
+      "hits": 5
+    },
+    {
+      "id": 26,
+      "type": "MSA",
+      "topic": "culture",
+      "source": "KALIMAT",
+      "source_detail": "culturecapr2.txt",
+      "predicted_keyphrases": [
+        "المعرض",
+        "الفنيه",
+        "التشكيليه",
+        "اللوحات",
+        "توظيف"
+      ],
+      "gold_keyphrases": [
+        "التشكيليه",
+        "اللوحات",
+        "توظيف",
+        "الكولاج",
+        "المعرض"
+      ],
+      "precision": 0.8,
+      "recall": 0.8,
+      "f1": 0.8,
+      "hits": 4
+    },
+    {
+      "id": 27,
+      "type": "MSA",
+      "topic": "culture",
+      "source": "KALIMAT",
+      "source_detail": "culturecapr235.txt",
+      "predicted_keyphrases": [
+        "الادباء",
+        "الادبيه",
+        "الخليج",
+        "العربي",
+        "رابطه"
+      ],
+      "gold_keyphrases": [
+        "الطائي",
+        "الادبيه",
+        "رابطه",
+        "الاديب",
+        "الادباء"
+      ],
+      "precision": 0.6,
+      "recall": 0.6,
+      "f1": 0.6,
+      "hits": 3
+    },
+    {
+      "id": 28,
+      "type": "Classical",
+      "topic": "Classical-Book",
+      "source": "C:\\Neural\\Neural-Assignments\\Assignment3\\problem4\\data\\raw_book.txt",
+      "source_detail": "raw_book.txt",
+      "predicted_keyphrases": [
+        "داب",
+        "يلوه",
+        "لفان",
+        "الاتحر",
+        "والدعوات"
+      ],
+      "gold_keyphrases": [
+        "داب",
+        "لفان",
+        "والدعوات",
+        "الاتحر",
+        "يلوه"
+      ],
+      "precision": 1.0,
+      "recall": 1.0,
+      "f1": 1.0,
+      "hits": 5
+    },
+    {
+      "id": 29,
+      "type": "Classical",
+      "topic": "Classical-Book",
+      "source": "C:\\Neural\\Neural-Assignments\\Assignment3\\problem4\\data\\raw_book.txt",
+      "source_detail": "raw_book.txt",
+      "predicted_keyphrases": [
+        "جده",
+        "الكندره",
+        "شارح",
+        "ابها",
+        "تقاطع"
+      ],
+      "gold_keyphrases": [
+        "شارح",
+        "تقاطع",
+        "الكندره",
+        "جده",
+        "ابها"
+      ],
+      "precision": 1.0,
+      "recall": 1.0,
+      "f1": 1.0,
+      "hits": 5
+    },
+    {
+      "id": 30,
+      "type": "Classical",
+      "topic": "Classical-Book",
+      "source": "C:\\Neural\\Neural-Assignments\\Assignment3\\problem4\\data\\raw_book.txt",
+      "source_detail": "raw_book.txt",
+      "predicted_keyphrases": [
+        "خلق",
+        "الحيوان",
+        "نطفه",
+        "تمنيا",
+        "تفرد"
+      ],
+      "gold_keyphrases": [
+        "خلق",
+        "الحيوان",
+        "نطفه",
+        "تمنيا",
+        "تفرد"
+      ],
+      "precision": 1.0,
+      "recall": 1.0,
+      "f1": 1.0,
+      "hits": 5
+    },
+    {
+      "id": 31,
+      "type": "Classical",
+      "topic": "Classical-Book",
+      "source": "C:\\Neural\\Neural-Assignments\\Assignment3\\problem4\\data\\raw_book.txt",
+      "source_detail": "raw_book.txt",
+      "predicted_keyphrases": [
+        "اظهارا",
+        "للامتحان",
+        "والابتلا",
+        "زكئ",
+        "جعل"
+      ],
+      "gold_keyphrases": [
+        "اظهارا",
+        "للامتحان",
+        "والابتلا",
+        "زكئ",
+        "جعل"
+      ],
+      "precision": 1.0,
+      "recall": 1.0,
+      "f1": 1.0,
+      "hits": 5
+    },
+    {
+      "id": 32,
+      "type": "Classical",
+      "topic": "Classical-Book",
+      "source": "C:\\Neural\\Neural-Assignments\\Assignment3\\problem4\\data\\raw_book.txt",
+      "source_detail": "raw_book.txt",
+      "predicted_keyphrases": [
+        "فيكون",
+        "المعطوف",
+        "اضب",
+        "بمعنئ",
+        "حرم"
+      ],
+      "gold_keyphrases": [
+        "فيكون",
+        "المعطوف",
+        "اضب",
+        "بمعنئ",
+        "حرم"
+      ],
+      "precision": 1.0,
+      "recall": 1.0,
+      "f1": 1.0,
+      "hits": 5
+    },
+    {
+      "id": 33,
+      "type": "Classical",
+      "topic": "Classical-Book",
+      "source": "C:\\Neural\\Neural-Assignments\\Assignment3\\problem4\\data\\raw_book.txt",
+      "source_detail": "raw_book.txt",
+      "predicted_keyphrases": [
+        "الضمير",
+        "الئ",
+        "العباد",
+        "المفاض",
+        "واكدئ"
+      ],
+      "gold_keyphrases": [
+        "الضمير",
+        "الئ",
+        "العباد",
+        "المفاض",
+        "واكدئ"
+      ],
+      "precision": 1.0,
+      "recall": 1.0,
+      "f1": 1.0,
+      "hits": 5
+    },
+    {
+      "id": 34,
+      "type": "Classical",
+      "topic": "Classical-Book",
+      "source": "C:\\Neural\\Neural-Assignments\\Assignment3\\problem4\\data\\raw_book.txt",
+      "source_detail": "raw_book.txt",
+      "predicted_keyphrases": [
+        "والضمير",
+        "غناه",
+        "المزكي",
+        "المسمئ",
+        "امانه"
+      ],
+      "gold_keyphrases": [
+        "والضمير",
+        "غناه",
+        "المسمئ",
+        "امانه",
+        "المزكي"
+      ],
+      "precision": 1.0,
+      "recall": 1.0,
+      "f1": 1.0,
+      "hits": 5
+    },
+    {
+      "id": 35,
+      "type": "Classical",
+      "topic": "Classical-Book",
+      "source": "C:\\Neural\\Neural-Assignments\\Assignment3\\problem4\\data\\raw_book.txt",
+      "source_detail": "raw_book.txt",
+      "predicted_keyphrases": [
+        "تعالئ",
+        "الزكاهه",
+        "احدئي",
+        "مباني",
+        "واردف"
+      ],
+      "gold_keyphrases": [
+        "تعالئ",
+        "الزكاهه",
+        "احدئي",
+        "واردف",
+        "مباني"
+      ],
+      "precision": 1.0,
+      "recall": 1.0,
+      "f1": 1.0,
+      "hits": 5
+    },
+    {
+      "id": 36,
+      "type": "Classical",
+      "topic": "Classical-Book",
+      "source": "C:\\Neural\\Neural-Assignments\\Assignment3\\problem4\\data\\raw_book.txt",
+      "source_detail": "raw_book.txt",
+      "predicted_keyphrases": [
+        "الله",
+        "رسول",
+        "الئه",
+        "محمدا",
+        "واقام"
+      ],
+      "gold_keyphrases": [
+        "الئه",
+        "محمدا",
+        "واقام",
+        "رسول",
+        "وايتاء"
+      ],
+      "precision": 0.8,
+      "recall": 0.8,
+      "f1": 0.8,
+      "hits": 4
+    },
+    {
+      "id": 37,
+      "type": "Classical",
+      "topic": "Classical-Book",
+      "source": "C:\\Neural\\Neural-Assignments\\Assignment3\\problem4\\data\\raw_book.txt",
+      "source_detail": "raw_book.txt",
+      "predicted_keyphrases": [
+        "وشدد",
+        "الوعيد",
+        "المقصرين",
+        "تعالن",
+        "والدست"
+      ],
+      "gold_keyphrases": [
+        "الوعيد",
+        "المقصرين",
+        "والدست",
+        "وشدد",
+        "تعالن"
+      ],
+      "precision": 1.0,
+      "recall": 1.0,
+      "f1": 1.0,
+      "hits": 5
+    },
+    {
+      "id": 38,
+      "type": "Classical",
+      "topic": "Classical-Book",
+      "source": "C:\\Neural\\Neural-Assignments\\Assignment3\\problem4\\data\\raw_book.txt",
+      "source_detail": "raw_book.txt",
+      "predicted_keyphrases": [
+        "لذهبوالفصدولامففومساف",
+        "سبي",
+        "قبضرهم",
+        "بحداب",
+        "الير"
+      ],
+      "gold_keyphrases": [
+        "لذهبوالفصدولامففومساف",
+        "قبضرهم",
+        "بحداب",
+        "الير"
+      ],
+      "precision": 0.8,
+      "recall": 1.0,
+      "f1": 0.8889,
+      "hits": 4
+    },
+    {
+      "id": 39,
+      "type": "Classical",
+      "topic": "Classical-Book",
+      "source": "C:\\Neural\\Neural-Assignments\\Assignment3\\problem4\\data\\raw_book.txt",
+      "source_detail": "raw_book.txt",
+      "predicted_keyphrases": [
+        "يخرج",
+        "الانفاق",
+        "الاحتفا",
+        "ظهورهم",
+        "جنوبهم"
+      ],
+      "gold_keyphrases": [
+        "يخرج",
+        "الانفاق",
+        "الاحتفا",
+        "ظهورهم",
+        "جنوبهم"
+      ],
+      "precision": 1.0,
+      "recall": 1.0,
+      "f1": 1.0,
+      "hits": 5
+    },
+    {
+      "id": 40,
+      "type": "Classical",
+      "topic": "Classical-Book",
+      "source": "C:\\Neural\\Neural-Assignments\\Assignment3\\problem4\\data\\raw_book.txt",
+      "source_detail": "raw_book.txt",
+      "predicted_keyphrases": [
+        "وزاد",
+        "تنخئ",
+        "فقعد",
+        "رواه",
+        "قلت"
+      ],
+      "gold_keyphrases": [
+        "وزاد",
+        "تنخئ",
+        "فقعد",
+        "رواه",
+        "قلت"
+      ],
+      "precision": 1.0,
+      "recall": 1.0,
+      "f1": 1.0,
+      "hits": 5
+    },
+    {
+      "id": 41,
+      "type": "Classical",
+      "topic": "Classical-Book",
+      "source": "C:\\Neural\\Neural-Assignments\\Assignment3\\problem4\\data\\raw_book.txt",
+      "source_detail": "raw_book.txt",
+      "predicted_keyphrases": [
+        "قالوا",
+        "هنذ",
+        "ابر",
+        "فقمث",
+        "فقلت"
+      ],
+      "gold_keyphrases": [
+        "قالوا",
+        "هنذ",
+        "ابر",
+        "فقمث",
+        "فقلت"
+      ],
+      "precision": 1.0,
+      "recall": 1.0,
+      "f1": 1.0,
+      "hits": 5
+    },
+    {
+      "id": 42,
+      "type": "Classical",
+      "topic": "Classical-Book",
+      "source": "C:\\Neural\\Neural-Assignments\\Assignment3\\problem4\\data\\raw_book.txt",
+      "source_detail": "raw_book.txt",
+      "predicted_keyphrases": [
+        "انتهيث",
+        "النبي",
+        "الل",
+        "جالسن",
+        "الكعبه"
+      ],
+      "gold_keyphrases": [
+        "انتهيث",
+        "النبي",
+        "الل",
+        "جالسن"
+      ],
+      "precision": 0.8,
+      "recall": 1.0,
+      "f1": 0.8889,
+      "hits": 4
+    },
+    {
+      "id": 43,
+      "type": "Classical",
+      "topic": "Classical-Book",
+      "source": "C:\\Neural\\Neural-Assignments\\Assignment3\\problem4\\data\\raw_book.txt",
+      "source_detail": "raw_book.txt",
+      "predicted_keyphrases": [
+        "وهلكذا",
+        "وعن",
+        "قال",
+        "ولا",
+        "الا"
+      ],
+      "gold_keyphrases": [
+        "وهلكذا",
+        "وعن",
+        "الاكثرون",
+        "اموالا",
+        "هلكذا"
+      ],
+      "precision": 0.4,
+      "recall": 0.4,
+      "f1": 0.4,
+      "hits": 2
+    },
+    {
+      "id": 44,
+      "type": "Classical",
+      "topic": "Classical-Book",
+      "source": "C:\\Neural\\Neural-Assignments\\Assignment3\\problem4\\data\\raw_book.txt",
+      "source_detail": "raw_book.txt",
+      "predicted_keyphrases": [
+        "الزكاه",
+        "صار",
+        "مهمات",
+        "وشروطها",
+        "الجليه"
+      ],
+      "gold_keyphrases": [
+        "صار",
+        "وشروطها",
+        "الجليه",
+        "والخفيه",
+        "مهمات"
+      ],
+      "precision": 0.8,
+      "recall": 0.8,
+      "f1": 0.8,
+      "hits": 4
+    },
+    {
+      "id": 45,
+      "type": "Classical",
+      "topic": "Classical-Book",
+      "source": "C:\\Neural\\Neural-Assignments\\Assignment3\\problem4\\data\\raw_book.txt",
+      "source_detail": "raw_book.txt",
+      "predicted_keyphrases": [
+        "البخاري",
+        "والنعض",
+        "العظم",
+        "الرقيق",
+        "طرف"
+      ],
+      "gold_keyphrases": [
+        "البخاري",
+        "والنعض",
+        "العظم",
+        "الرقيق",
+        "طرف"
+      ],
+      "precision": 1.0,
+      "recall": 1.0,
+      "f1": 1.0,
+      "hits": 5
+    },
+    {
+      "id": 46,
+      "type": "Classical",
+      "topic": "Classical-Book",
+      "source": "C:\\Neural\\Neural-Assignments\\Assignment3\\problem4\\data\\raw_book.txt",
+      "source_detail": "raw_book.txt",
+      "predicted_keyphrases": [
+        "والجمله",
+        "المعترضه",
+        "بيان",
+        "لجهه",
+        "الاشاره"
+      ],
+      "gold_keyphrases": [
+        "والجمله",
+        "المعترضه",
+        "الاشاره",
+        "بيان",
+        "لجهه"
+      ],
+      "precision": 1.0,
+      "recall": 1.0,
+      "f1": 1.0,
+      "hits": 5
+    },
+    {
+      "id": 47,
+      "type": "Classical",
+      "topic": "Classical-Book",
+      "source": "C:\\Neural\\Neural-Assignments\\Assignment3\\problem4\\data\\raw_book.txt",
+      "source_detail": "raw_book.txt",
+      "predicted_keyphrases": [
+        "وزكاه",
+        "وباج",
+        "اورااعهاو",
+        "عدي",
+        "نواع"
+      ],
+      "gold_keyphrases": [
+        "وزكاه",
+        "نواع",
+        "اورااعهاو",
+        "عدي",
+        "وباج"
+      ],
+      "precision": 1.0,
+      "recall": 1.0,
+      "f1": 1.0,
+      "hits": 5
+    },
+    {
+      "id": 48,
+      "type": "Classical",
+      "topic": "Classical-Book",
+      "source": "C:\\Neural\\Neural-Assignments\\Assignment3\\problem4\\data\\raw_book.txt",
+      "source_detail": "raw_book.txt",
+      "predicted_keyphrases": [
+        "ولا",
+        "هلذه",
+        "وغيثها",
+        "يشترط",
+        "البلوغ"
+      ],
+      "gold_keyphrases": [
+        "هلذه",
+        "وغيثها",
+        "البلوغ",
+        "تجب",
+        "يشترط"
+      ],
+      "precision": 0.8,
+      "recall": 0.8,
+      "f1": 0.8,
+      "hits": 4
+    },
+    {
+      "id": 49,
+      "type": "Classical",
+      "topic": "Classical-Book",
+      "source": "C:\\Neural\\Neural-Assignments\\Assignment3\\problem4\\data\\raw_book.txt",
+      "source_detail": "raw_book.txt",
+      "predicted_keyphrases": [
+        "والعقل",
+        "والمجنون",
+        "هلذا",
+        "شرط",
+        "الصبي"
+      ],
+      "gold_keyphrases": [
+        "والعقل",
+        "والمجنون",
+        "شرط",
+        "الصبي",
+        "هلذا"
+      ],
+      "precision": 1.0,
+      "recall": 1.0,
+      "f1": 1.0,
+      "hits": 5
+    },
+    {
+      "id": 50,
+      "type": "Classical",
+      "topic": "Classical-Book",
+      "source": "C:\\Neural\\Neural-Assignments\\Assignment3\\problem4\\data\\raw_book.txt",
+      "source_detail": "raw_book.txt",
+      "predicted_keyphrases": [
+        "نعما",
+        "فشروطه",
+        "سائمه",
+        "باقيا",
+        "حولا"
+      ],
+      "gold_keyphrases": [
+        "نعما",
+        "حولا",
+        "سائمه",
+        "فشروطه",
+        "باقيا"
+      ],
+      "precision": 1.0,
+      "recall": 1.0,
+      "f1": 1.0,
+      "hits": 5
+    },
+    {
+      "id": 51,
+      "type": "Classical",
+      "topic": "Classical-Book",
+      "source": "C:\\Neural\\Neural-Assignments\\Assignment3\\problem4\\data\\raw_book.txt",
+      "source_detail": "raw_book.txt",
+      "predicted_keyphrases": [
+        "الخيل",
+        "والبغال",
+        "والحمي",
+        "والمتولد",
+        "الظباء"
+      ],
+      "gold_keyphrases": [
+        "والبغال",
+        "والحمي",
+        "والمتولد",
+        "الظباء",
+        "الخيل"
+      ],
+      "precision": 1.0,
+      "recall": 1.0,
+      "f1": 1.0,
+      "hits": 5
+    },
+    {
+      "id": 52,
+      "type": "Classical",
+      "topic": "Classical-Book",
+      "source": "C:\\Neural\\Neural-Assignments\\Assignment3\\problem4\\data\\raw_book.txt",
+      "source_detail": "raw_book.txt",
+      "predicted_keyphrases": [
+        "الله",
+        "وسدم",
+        "يحول",
+        "الحول",
+        "ويستثنئ"
+      ],
+      "gold_keyphrases": [
+        "وسدم",
+        "يحول",
+        "الحول",
+        "ويستثنئ",
+        "رسول"
+      ],
+      "precision": 0.8,
+      "recall": 0.8,
+      "f1": 0.8,
+      "hits": 4
+    },
+    {
+      "id": 53,
+      "type": "Classical",
+      "topic": "Classical-Book",
+      "source": "C:\\Neural\\Neural-Assignments\\Assignment3\\problem4\\data\\raw_book.txt",
+      "source_detail": "raw_book.txt",
+      "predicted_keyphrases": [
+        "ينسحب",
+        "حكم",
+        "وتجب",
+        "بحول",
+        "الاصول"
+      ],
+      "gold_keyphrases": [
+        "ينسحب",
+        "حكم",
+        "وتجب",
+        "بحول",
+        "الاصول"
+      ],
+      "precision": 1.0,
+      "recall": 1.0,
+      "f1": 1.0,
+      "hits": 5
+    },
+    {
+      "id": 54,
+      "type": "Classical",
+      "topic": "Classical-Book",
+      "source": "C:\\Neural\\Neural-Assignments\\Assignment3\\problem4\\data\\raw_book.txt",
+      "source_detail": "raw_book.txt",
+      "predicted_keyphrases": [
+        "حجر",
+        "الضال",
+        "والمغصوب",
+        "عاد",
+        "نمائه"
+      ],
+      "gold_keyphrases": [
+        "حجر",
+        "والمغصوب",
+        "عاد",
+        "الضال",
+        "نمائه"
+      ],
+      "precision": 1.0,
+      "recall": 1.0,
+      "f1": 1.0,
+      "hits": 5
+    },
+    {
+      "id": 55,
+      "type": "Dialect",
+      "topic": "EGY",
+      "source": "Arabic-Dialects/EGY",
+      "source_detail": "EGY",
+      "predicted_keyphrases": [
+        "والتشجيع",
+        "ومحبه",
+        "رائع",
+        "التعصب",
+        "الاعمي"
+      ],
+      "gold_keyphrases": [
+        "ومحبه",
+        "رائع",
+        "التعصب",
+        "الاعمي",
+        "والتشجيع"
+      ],
+      "precision": 1.0,
+      "recall": 1.0,
+      "f1": 1.0,
+      "hits": 5
+    },
+    {
+      "id": 56,
+      "type": "Dialect",
+      "topic": "EGY",
+      "source": "Arabic-Dialects/EGY",
+      "source_detail": "EGY",
+      "predicted_keyphrases": [
+        "مبشر",
+        "بالخير",
+        "ودعواتنا",
+        "بالتوفيق",
+        "السعر"
+      ],
+      "gold_keyphrases": [
+        "ودعواتنا",
+        "مبشر",
+        "بالخير",
+        "السعر",
+        "بالتوفيق"
+      ],
+      "precision": 1.0,
+      "recall": 1.0,
+      "f1": 1.0,
+      "hits": 5
+    },
+    {
+      "id": 57,
+      "type": "Dialect",
+      "topic": "EGY",
+      "source": "Arabic-Dialects/EGY",
+      "source_detail": "EGY",
+      "predicted_keyphrases": [
+        "الله",
+        "الكل",
+        "بنوخذوه",
+        "رايح",
+        "جاي"
+      ],
+      "gold_keyphrases": [
+        "بنوخذوه",
+        "جاي",
+        "الله",
+        "الكل",
+        "رايح"
+      ],
+      "precision": 1.0,
+      "recall": 1.0,
+      "f1": 1.0,
+      "hits": 5
+    },
+    {
+      "id": 58,
+      "type": "Dialect",
+      "topic": "EGY",
+      "source": "Arabic-Dialects/EGY",
+      "source_detail": "EGY",
+      "predicted_keyphrases": [
+        "برضه",
+        "لازالت",
+        "الرويات",
+        "مختلفه"
+      ],
+      "gold_keyphrases": [
+        "برضه",
+        "لازالت",
+        "الرويات",
+        "مختلفه"
+      ],
+      "precision": 1.0,
+      "recall": 1.0,
+      "f1": 1.0,
+      "hits": 4
+    },
+    {
+      "id": 59,
+      "type": "Dialect",
+      "topic": "EGY",
+      "source": "Arabic-Dialects/EGY",
+      "source_detail": "EGY",
+      "predicted_keyphrases": [
+        "متعب",
+        "ياكاتب",
+        "المقال",
+        "حذفت",
+        "الراجل"
+      ],
+      "gold_keyphrases": [
+        "الراجل",
+        "المقال",
+        "ياكاتب",
+        "حذفت"
+      ],
+      "precision": 0.8,
+      "recall": 1.0,
+      "f1": 0.8889,
+      "hits": 4
+    },
+    {
+      "id": 60,
+      "type": "Dialect",
+      "topic": "EGY",
+      "source": "Arabic-Dialects/EGY",
+      "source_detail": "EGY",
+      "predicted_keyphrases": [
+        "عيب",
+        "طبيعه",
+        "سيادتكم",
+        "وهي"
+      ],
+      "gold_keyphrases": [
+        "سيادتكم",
+        "عيب",
+        "وهي",
+        "طبيعه"
+      ],
+      "precision": 1.0,
+      "recall": 1.0,
+      "f1": 1.0,
+      "hits": 4
+    },
+    {
+      "id": 61,
+      "type": "Dialect",
+      "topic": "EGY",
+      "source": "Arabic-Dialects/EGY",
+      "source_detail": "EGY",
+      "predicted_keyphrases": [
+        "وازاي",
+        "مصر",
+        "ازاي",
+        "روراوه",
+        "بيحب"
+      ],
+      "gold_keyphrases": [
+        "وازاي",
+        "ازاي",
+        "روراوه",
+        "بيحب",
+        "الشروق"
+      ],
+      "precision": 0.8,
+      "recall": 0.8,
+      "f1": 0.8,
+      "hits": 4
+    },
+    {
+      "id": 62,
+      "type": "Dialect",
+      "topic": "GLF",
+      "source": "Arabic-Dialects/GLF",
+      "source_detail": "GLF",
+      "predicted_keyphrases": [
+        "انت",
+        "شاذا",
+        "باتشه",
+        "زرت",
+        "ليه"
+      ],
+      "gold_keyphrases": [
+        "ليه",
+        "وصاحب",
+        "باتشه",
+        "زرت",
+        "شاذا"
+      ],
+      "precision": 0.8,
+      "recall": 0.8,
+      "f1": 0.8,
+      "hits": 4
+    },
+    {
+      "id": 63,
+      "type": "Dialect",
+      "topic": "GLF",
+      "source": "Arabic-Dialects/GLF",
+      "source_detail": "GLF",
+      "predicted_keyphrases": [
+        "شكرا",
+        "اليوتيوب",
+        "نوره",
+        "قرب",
+        "النجف"
+      ],
+      "gold_keyphrases": [
+        "شكرا",
+        "اليوتيوب",
+        "قرب",
+        "النجف",
+        "نوره"
+      ],
+      "precision": 1.0,
+      "recall": 1.0,
+      "f1": 1.0,
+      "hits": 5
+    },
+    {
+      "id": 64,
+      "type": "Dialect",
+      "topic": "GLF",
+      "source": "Arabic-Dialects/GLF",
+      "source_detail": "GLF",
+      "predicted_keyphrases": [
+        "الالكتروني",
+        "الاعلام",
+        "ينكر",
+        "نشر",
+        "النشاطات"
+      ],
+      "gold_keyphrases": [
+        "نشر",
+        "النشاطات",
+        "الالكتروني",
+        "ينكر",
+        "بيمناك"
+      ],
+      "precision": 0.8,
+      "recall": 0.8,
+      "f1": 0.8,
+      "hits": 4
+    },
+    {
+      "id": 65,
+      "type": "Dialect",
+      "topic": "GLF",
+      "source": "Arabic-Dialects/GLF",
+      "source_detail": "GLF",
+      "predicted_keyphrases": [
+        "ترابها",
+        "كلام",
+        "والسلام",
+        "عاش",
+        "اوروبا"
+      ],
+      "gold_keyphrases": [
+        "اوروبا",
+        "ترابها",
+        "والسلام",
+        "عاش",
+        "كلام"
+      ],
+      "precision": 1.0,
+      "recall": 1.0,
+      "f1": 1.0,
+      "hits": 5
+    },
+    {
+      "id": 66,
+      "type": "Dialect",
+      "topic": "GLF",
+      "source": "Arabic-Dialects/GLF",
+      "source_detail": "GLF",
+      "predicted_keyphrases": [
+        "عبر",
+        "الضغط",
+        "مطروح",
+        "الاقلي",
+        "تطرحه"
+      ],
+      "gold_keyphrases": [
+        "الضغط",
+        "مطروح",
+        "الاقلي",
+        "تطرحه",
+        "سريع"
+      ],
+      "precision": 0.8,
+      "recall": 0.8,
+      "f1": 0.8,
+      "hits": 4
+    },
+    {
+      "id": 67,
+      "type": "Dialect",
+      "topic": "GLF",
+      "source": "Arabic-Dialects/GLF",
+      "source_detail": "GLF",
+      "predicted_keyphrases": [
+        "لاربع",
+        "سيرجع",
+        "وهناك",
+        "يشتكون",
+        "القبائل"
+      ],
+      "gold_keyphrases": [
+        "القبائل",
+        "سيرجع",
+        "وهناك",
+        "يشتكون",
+        "لاربع"
+      ],
+      "precision": 1.0,
+      "recall": 1.0,
+      "f1": 1.0,
+      "hits": 5
+    },
+    {
+      "id": 68,
+      "type": "Dialect",
+      "topic": "GLF",
+      "source": "Arabic-Dialects/GLF",
+      "source_detail": "GLF",
+      "predicted_keyphrases": [
+        "دائما",
+        "ايضا",
+        "ننسي",
+        "يحرصون",
+        "كره"
+      ],
+      "gold_keyphrases": [
+        "ننسي",
+        "يحرصون",
+        "كون",
+        "كره",
+        "اللعبه"
+      ],
+      "precision": 0.6,
+      "recall": 0.6,
+      "f1": 0.6,
+      "hits": 3
+    },
+    {
+      "id": 69,
+      "type": "Dialect",
+      "topic": "LAV",
+      "source": "Arabic-Dialects/LAV",
+      "source_detail": "LAV",
+      "predicted_keyphrases": [
+        "المجاوره",
+        "ليش",
+        "تصنع",
+        "للمواد",
+        "وسيرت"
+      ],
+      "gold_keyphrases": [
+        "المجاوره",
+        "ليش",
+        "تصنع",
+        "للمواد",
+        "وسيرت"
+      ],
+      "precision": 1.0,
+      "recall": 1.0,
+      "f1": 1.0,
+      "hits": 5
+    },
+    {
+      "id": 70,
+      "type": "Dialect",
+      "topic": "LAV",
+      "source": "Arabic-Dialects/LAV",
+      "source_detail": "LAV",
+      "predicted_keyphrases": [
+        "شنت",
+        "فشلت",
+        "بصل",
+        "احمر",
+        "صغير"
+      ],
+      "gold_keyphrases": [
+        "شنت",
+        "فشلت",
+        "احمر",
+        "صغير"
+      ],
+      "precision": 0.8,
+      "recall": 1.0,
+      "f1": 0.8889,
+      "hits": 4
+    },
+    {
+      "id": 71,
+      "type": "Dialect",
+      "topic": "LAV",
+      "source": "Arabic-Dialects/LAV",
+      "source_detail": "LAV",
+      "predicted_keyphrases": [
+        "انجزنا",
+        "يعني",
+        "اخلال",
+        "سمعت",
+        "وظائف"
+      ],
+      "gold_keyphrases": [
+        "انجزنا",
+        "وظائف",
+        "دائم",
+        "سمعت",
+        "اخلال"
+      ],
+      "precision": 0.8,
+      "recall": 0.8,
+      "f1": 0.8,
+      "hits": 4
+    },
+    {
+      "id": 72,
+      "type": "Dialect",
+      "topic": "LAV",
+      "source": "Arabic-Dialects/LAV",
+      "source_detail": "LAV",
+      "predicted_keyphrases": [
+        "الواحد",
+        "الساعه",
+        "امسك",
+        "غانتس",
+        "تطريز"
+      ],
+      "gold_keyphrases": [
+        "الواحد",
+        "غانتس",
+        "تطريز",
+        "امسك"
+      ],
+      "precision": 0.8,
+      "recall": 1.0,
+      "f1": 0.8889,
+      "hits": 4
+    },
+    {
+      "id": 73,
+      "type": "Dialect",
+      "topic": "LAV",
+      "source": "Arabic-Dialects/LAV",
+      "source_detail": "LAV",
+      "predicted_keyphrases": [
+        "معلش",
+        "بتسالني",
+        "بسالك",
+        "قرات",
+        "تشوف"
+      ],
+      "gold_keyphrases": [
+        "قرات",
+        "بسالك",
+        "تشوف",
+        "بتسالني"
+      ],
+      "precision": 0.8,
+      "recall": 1.0,
+      "f1": 0.8889,
+      "hits": 4
+    },
+    {
+      "id": 74,
+      "type": "Dialect",
+      "topic": "LAV",
+      "source": "Arabic-Dialects/LAV",
+      "source_detail": "LAV",
+      "predicted_keyphrases": [
+        "وتقاليدنا",
+        "نعطي",
+        "الاساس",
+        "العربيه",
+        "نحنا"
+      ],
+      "gold_keyphrases": [
+        "الاساس",
+        "نحنا",
+        "نعطي",
+        "بمجتمعاتنا",
+        "وتقاليدنا"
+      ],
+      "precision": 0.8,
+      "recall": 0.8,
+      "f1": 0.8,
+      "hits": 4
+    },
+    {
+      "id": 75,
+      "type": "Dialect",
+      "topic": "NOR",
+      "source": "Arabic-Dialects/NOR",
+      "source_detail": "NOR",
+      "predicted_keyphrases": [
+        "شاني",
+        "ستحظي",
+        "تلتها",
+        "خير",
+        "الدين"
+      ],
+      "gold_keyphrases": [
+        "شاني",
+        "ستحظي",
+        "تلتها",
+        "الدين",
+        "خير"
+      ],
+      "precision": 1.0,
+      "recall": 1.0,
+      "f1": 1.0,
+      "hits": 5
+    },
+    {
+      "id": 76,
+      "type": "Dialect",
+      "topic": "NOR",
+      "source": "Arabic-Dialects/NOR",
+      "source_detail": "NOR",
+      "predicted_keyphrases": [
+        "تغلب",
+        "واجب",
+        "برنامجه",
+        "احنا",
+        "وياهم"
+      ],
+      "gold_keyphrases": [
+        "تغلب",
+        "واجب",
+        "برنامجه",
+        "احنا",
+        "وياهم"
+      ],
+      "precision": 1.0,
+      "recall": 1.0,
+      "f1": 1.0,
+      "hits": 5
+    },
+    {
+      "id": 77,
+      "type": "Dialect",
+      "topic": "NOR",
+      "source": "Arabic-Dialects/NOR",
+      "source_detail": "NOR",
+      "predicted_keyphrases": [
+        "الحوار",
+        "كلها",
+        "النقابيه",
+        "عندهم",
+        "ديال"
+      ],
+      "gold_keyphrases": [
+        "الحوار",
+        "كلها",
+        "النقابيه",
+        "عندهم",
+        "ديال"
+      ],
+      "precision": 1.0,
+      "recall": 1.0,
+      "f1": 1.0,
+      "hits": 5
+    },
+    {
+      "id": 78,
+      "type": "Dialect",
+      "topic": "NOR",
+      "source": "Arabic-Dialects/NOR",
+      "source_detail": "NOR",
+      "predicted_keyphrases": [
+        "المدينه",
+        "المهدي",
+        "هول",
+        "ريف",
+        "فالذي"
+      ],
+      "gold_keyphrases": [
+        "المدينه",
+        "المهدي",
+        "ريف",
+        "فالذي",
+        "هول"
+      ],
+      "precision": 1.0,
+      "recall": 1.0,
+      "f1": 1.0,
+      "hits": 5
+    },
+    {
+      "id": 79,
+      "type": "Dialect",
+      "topic": "NOR",
+      "source": "Arabic-Dialects/NOR",
+      "source_detail": "NOR",
+      "predicted_keyphrases": [
+        "معاقلكم",
+        "الاسباب",
+        "اقل",
+        "سبب",
+        "شيء"
+      ],
+      "gold_keyphrases": [
+        "معاقلكم",
+        "الاسباب",
+        "سبب",
+        "شيء",
+        "اقل"
+      ],
+      "precision": 1.0,
+      "recall": 1.0,
+      "f1": 1.0,
+      "hits": 5
+    },
+    {
+      "id": 80,
+      "type": "Dialect",
+      "topic": "NOR",
+      "source": "Arabic-Dialects/NOR",
+      "source_detail": "NOR",
+      "predicted_keyphrases": [
+        "يقولوا",
+        "عاملين",
+        "انقذتنا",
+        "الدم",
+        "اذونا"
+      ],
+      "gold_keyphrases": [
+        "يقولوا",
+        "عاملين",
+        "الدم",
+        "اذونا",
+        "انقذتنا"
+      ],
+      "precision": 1.0,
+      "recall": 1.0,
+      "f1": 1.0,
+      "hits": 5
+    }
+  ]
+}

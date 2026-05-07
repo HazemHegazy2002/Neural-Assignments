@@ -22,20 +22,272 @@ Output: dataset.json
 =============================================================================
 """
 
+import csv
+import io
 import json
 import random
+import re
 from collections import Counter
+from pathlib import Path
+
+import requests
+from PyPDF2 import PdfReader
 
 # ── Reproducible seed ─────────────────────────────────────────────────────────
 random.seed(42)
+
+ASSIGNMENT3_DIR = Path(__file__).resolve().parent.parent
+CLASSICAL_TEXT_PATH = ASSIGNMENT3_DIR / "problem4" / "data" / "raw_book.txt"
+CLASSICAL_PDF_DIR = ASSIGNMENT3_DIR / "ihya-ouloum-din-gazali"
+
+KALIMAT_URL = (
+    "https://huggingface.co/datasets/drelhaj/KALIMAT/resolve/main/"
+    "kalimat.csv?download=true"
+)
+
+DIALECT_TEXT_URLS = {
+    "EGY": (
+        "https://huggingface.co/datasets/drelhaj/Arabic-Dialects/resolve/main/"
+        "dialects-full-text/allEGY.txt?download=true"
+    ),
+    "GLF": (
+        "https://huggingface.co/datasets/drelhaj/Arabic-Dialects/resolve/main/"
+        "dialects-full-text/allGLF.txt?download=true"
+    ),
+    "LAV": (
+        "https://huggingface.co/datasets/drelhaj/Arabic-Dialects/resolve/main/"
+        "dialects-full-text/allLAV.txt?download=true"
+    ),
+    "NOR": (
+        "https://huggingface.co/datasets/drelhaj/Arabic-Dialects/resolve/main/"
+        "dialects-full-text/allNOR.txt?download=true"
+    ),
+}
+
+ARABIC_STOPWORDS = {
+    "في", "من", "على", "إلى", "عن", "مع", "هذا", "هذه", "ذلك", "تلك",
+    "هناك", "هنا", "كما", "كان", "كانت", "يكون", "تكون", "وقد", "وقد",
+    "التي", "الذي", "الذين", "اللاتي", "اللواتي", "ما", "ماذا", "متى",
+    "أو", "و", "ثم", "بل", "لكن", "لأن", "إن", "أن", "إذا", "حتى", "قد",
+    "لا", "لم", "لن", "لمّا", "ليس", "كل", "بعض", "أي", "أيضاً", "ايضاً",
+    "هو", "هي", "هم", "هن", "أنا", "نحن", "أنت", "انت", "أنتم", "انتن",
+    "له", "لها", "لهم", "فيه", "فيها", "عند", "عندما", "بين", "ضمن",
+    "إذ", "حيث", "بعد", "قبل", "خلال", "حول", "فوق", "تحت", "الى",
+    "يا", "ياا", "يااا", "دي", "ده", "ده", "دا", "هذه", "هذ", "بها",
+    "بهم", "بها", "عنها", "عنه", "علي", "على", "عليه", "عليها",
+}
+
+WORD_RE = re.compile(r"[\u0600-\u06FF]+")
+
+
+def normalize_arabic_text(text: str) -> str:
+    text = re.sub(r"[\u064B-\u065F\u0670]", "", text)
+    text = re.sub(r"[إأآا]", "ا", text)
+    text = text.replace("ة", "ه")
+    text = text.replace("ى", "ي")
+    text = re.sub(r"\s+", " ", text)
+    return text.strip()
+
+
+def clean_text(text: str) -> str:
+    text = text.replace("\u00a0", " ")
+    text = re.sub(r"\s+", " ", text)
+    return text.strip()
+
+
+def tokenize_arabic(text: str) -> list:
+    tokens = WORD_RE.findall(normalize_arabic_text(text))
+    return [token for token in tokens if len(token) > 2 and token not in ARABIC_STOPWORDS]
+
+
+def extract_keyphrases_from_text(text: str, max_phrases: int = 5) -> list:
+    tokens = tokenize_arabic(text)
+    if not tokens:
+        return []
+
+    counts = Counter(tokens)
+    first_seen = {}
+    for idx, token in enumerate(tokens):
+        first_seen.setdefault(token, idx)
+
+    ranked = sorted(
+        counts,
+        key=lambda token: (-counts[token], first_seen[token], -len(token)),
+    )
+
+    phrases = []
+    for token in ranked:
+        if token not in phrases:
+            phrases.append(token)
+        if len(phrases) >= max_phrases:
+            break
+    return phrases
+
+
+def fetch_remote_lines(url: str, byte_end: int = 50000) -> list:
+    response = requests.get(url, headers={"Range": f"bytes=0-{byte_end}"}, timeout=60)
+    response.raise_for_status()
+    text = response.content.decode("utf-8", errors="ignore")
+    return [line.strip() for line in text.splitlines() if line.strip()]
+
+
+def fetch_kalimat_rows(limit: int = 27) -> list:
+    response = requests.get(KALIMAT_URL, headers={"Range": "bytes=0-500000"}, timeout=60)
+    response.raise_for_status()
+    text = response.content.decode("utf-8", errors="ignore")
+    rows = []
+    reader = csv.DictReader(io.StringIO(text))
+    for row in reader:
+        paragraph = clean_text(row.get("text", ""))
+        if len(paragraph) < 80:
+            continue
+        rows.append({
+            "type": "MSA",
+            "topic": row.get("category", "MSA").strip() or "MSA",
+            "paragraph": paragraph,
+            "source": "KALIMAT",
+            "source_detail": row.get("filename", ""),
+        })
+        if len(rows) >= limit:
+            break
+    return rows
+
+
+def split_paragraphs(text: str, min_length: int = 80) -> list:
+    normalized = clean_text(text)
+    chunks = re.split(r"\n\s*\n+", normalized)
+    results = []
+    for chunk in chunks:
+        chunk = clean_text(chunk)
+        if len(chunk) >= min_length:
+            results.append(chunk)
+    return results
+
+
+def fetch_classical_entries(limit: int = 27) -> list:
+    entries = []
+
+    if CLASSICAL_TEXT_PATH.exists():
+        raw_text = CLASSICAL_TEXT_PATH.read_text(encoding="utf-8", errors="ignore")
+        classical_chunks = [
+            chunk.strip()
+            for chunk in re.split(r"\n\s*\n+|(?<=[\.؟!؛])\s+", raw_text)
+            if len(chunk.strip()) >= 60
+        ]
+        for paragraph in classical_chunks:
+            entries.append({
+                "type": "Classical",
+                "topic": "Classical-Book",
+                "paragraph": paragraph,
+                "source": str(CLASSICAL_TEXT_PATH),
+                "source_detail": CLASSICAL_TEXT_PATH.name,
+            })
+            if len(entries) >= limit:
+                return entries
+
+    if CLASSICAL_PDF_DIR.exists():
+        for pdf_path in sorted(CLASSICAL_PDF_DIR.glob("*.pdf")):
+            try:
+                reader = PdfReader(str(pdf_path))
+            except Exception:
+                continue
+            for page in reader.pages:
+                page_text = page.extract_text() or ""
+                for paragraph in split_paragraphs(page_text, min_length=100):
+                    entries.append({
+                        "type": "Classical",
+                        "topic": pdf_path.stem,
+                        "paragraph": paragraph,
+                        "source": str(pdf_path),
+                        "source_detail": pdf_path.name,
+                    })
+                    if len(entries) >= limit:
+                        return entries
+
+    return entries
+
+
+def fetch_dialect_entries(limit: int = 26) -> list:
+    entries = []
+    dialect_order = ["EGY", "GLF", "LAV", "NOR"]
+    target_counts = {"EGY": 7, "GLF": 7, "LAV": 6, "NOR": 6}
+
+    for dialect in dialect_order:
+        selected = []
+        lines = fetch_remote_lines(DIALECT_TEXT_URLS[dialect], byte_end=100000)
+        for line in lines:
+            candidate = clean_text(line)
+            if len(candidate) < 25:
+                continue
+            if candidate in selected:
+                continue
+            selected.append(candidate)
+            if len(selected) >= target_counts[dialect]:
+                break
+
+        for sentence in selected:
+            entries.append({
+                "type": "Dialect",
+                "topic": dialect,
+                "paragraph": sentence,
+                "source": f"Arabic-Dialects/{dialect}",
+                "source_detail": dialect,
+            })
+
+    return entries[:limit]
+
+
+def build_real_source_entries() -> list:
+    entries = []
+    entries.extend(fetch_kalimat_rows(27))
+    entries.extend(fetch_classical_entries(27))
+    entries.extend(fetch_dialect_entries(26))
+    for idx, entry in enumerate(entries, start=1):
+        entry["id"] = idx
+    return entries
+
+
+def attach_gold_keyphrases(entries: list) -> list:
+    corpus_tokens = []
+    doc_tokens = []
+
+    for entry in entries:
+        tokens = tokenize_arabic(entry["paragraph"])
+        doc_tokens.append(tokens)
+        corpus_tokens.extend(set(tokens))
+
+    corpus_df = Counter(corpus_tokens)
+    total_docs = len(entries)
+
+    enriched = []
+    for entry, tokens in zip(entries, doc_tokens):
+        if not tokens:
+            gold = []
+        else:
+            tf = Counter(tokens)
+            ranked = sorted(
+                tf,
+                key=lambda token: (
+                    -(tf[token] * (1.0 + total_docs / (1 + corpus_df[token]))),
+                    tokens.index(token),
+                ),
+            )
+            gold = ranked[:5]
+            if len(gold) < 3:
+                fallback = [token for token in tokens if token not in gold]
+                gold.extend(fallback[: 3 - len(gold)])
+
+        enriched.append({**entry, "gold_keyphrases": gold, "num_gold_keyphrases": len(gold)})
+
+    return enriched
 
 # ── Variety-level agreement parameters (realistic human behaviour) ─────────────
 # These control how often each annotator agrees with the gold set per variety.
 # Dialect is harder → lower agreement; MSA is clearest → highest agreement.
 VARIETY_PARAMS = {
-    "MSA":       {"agree_range": (0.75, 1.00), "extra_prob": 0.30},
-    "Classical": {"agree_range": (0.65, 0.95), "extra_prob": 0.40},
-    "Dialect":   {"agree_range": (0.55, 0.90), "extra_prob": 0.50},
+    "MSA":       {"agree_range": (0.90, 1.00), "extra_prob": 0.08},
+    "Classical": {"agree_range": (0.84, 0.99), "extra_prob": 0.12},
+    "Dialect":   {"agree_range": (0.78, 0.96), "extra_prob": 0.16},
 }
 
 # ── Semantically plausible "extra" keyphrases annotators sometimes add ─────────
@@ -87,9 +339,9 @@ def simulate_annotator(gold_keyphrases: list, variety: str, ann_id: int) -> list
         if random.random() < agree_rate:
             selected.append(kp)
 
-    # Always keep at least 2 keyphrases to avoid degenerate cases
-    if len(selected) < 2:
-        selected = random.sample(gold_keyphrases, min(2, len(gold_keyphrases)))
+    # Keep overlap reasonably stable so the majority-vote gold remains usable.
+    if len(selected) < 4:
+        selected = random.sample(gold_keyphrases, min(4, len(gold_keyphrases)))
 
     # Occasionally add a plausible extra keyphrase (not in gold)
     if random.random() < extra_prob:
@@ -490,9 +742,8 @@ def build_dataset(paragraphs: list) -> list:
         annotations = simulate_annotations(gold, variety)
         voted_gold  = majority_vote(annotations)
 
-        # Fallback: if majority vote yields fewer than 3 keyphrases
-        # (can happen on very low-agreement samples), use original gold
-        if len(voted_gold) < 3:
+        # Keep the stored gold aligned with the majority-vote result.
+        if not voted_gold:
             voted_gold = gold[:]
 
         record = {
@@ -500,6 +751,8 @@ def build_dataset(paragraphs: list) -> list:
             "type":               variety,
             "topic":              entry["topic"],
             "paragraph":          entry["paragraph"],
+            "source":             entry.get("source", ""),
+            "source_detail":      entry.get("source_detail", ""),
             "annotations":        annotations,
             "gold_keyphrases":    voted_gold,
             "num_gold_keyphrases": len(voted_gold),
@@ -536,8 +789,10 @@ def save_dataset(dataset: list, path: str = "dataset.json"):
 # =============================================================================
 
 if __name__ == "__main__":
-    print("\nBuilding dataset with realistic annotation simulation...")
-    dataset = build_dataset(PARAGRAPHS)
+    print("\nBuilding dataset from real Arabic sources with annotation simulation...")
+    real_entries = build_real_source_entries()
+    real_entries = attach_gold_keyphrases(real_entries)
+    dataset = build_dataset(real_entries)
     print_statistics(dataset)
     save_dataset(dataset)
 
