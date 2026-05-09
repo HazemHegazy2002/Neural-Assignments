@@ -44,7 +44,7 @@ print(f"  CUDA        : {torch.version.cuda}")
 DATA_ROOT      = "/kaggle/input/datasets/mohamedgamal07/reduced-mnist/Reduced MNIST Data"
 TRAIN_DIR      = os.path.join(DATA_ROOT, "Reduced Trainging data")
 NUM_CLASSES    = 10
-IMG_SIZE       = 32
+IMG_SIZE       = 28
 CHANNELS       = 1
 LATENT_DIM     = 128        # cVAE latent dimension (larger than GAN z helps quality)
 EMBED_DIM      = 50         # class embedding size

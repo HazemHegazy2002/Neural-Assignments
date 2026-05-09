@@ -23,7 +23,7 @@ DATA_ROOT   = "/kaggle/input/datasets/mohamedgamal07/reduced-mnist/Reduced MNIST
 TRAIN_DIR   = os.path.join(DATA_ROOT, "Reduced Trainging data")
 TEST_DIR    = os.path.join(DATA_ROOT, "Reduced Testing data")
 NUM_CLASSES = 10
-IMG_SIZE    = 32          # cDCGAN standard (will resize from 28×28)
+IMG_SIZE    = 28          # cVAE standard (original MNIST size)
 AUGMENT_FACTOR = 15       # multiply each real image by this many augmented copies
 SEED        = 42
 np.random.seed(SEED)
