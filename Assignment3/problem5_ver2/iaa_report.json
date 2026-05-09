@@ -1,0 +1,3663 @@
+{
+  "task": "Task 10 — Keyphrase Extraction (استخراج الكلمات المفتاحية)",
+  "step": "Step 2 — Annotation & Inter-Annotator Agreement (IAA)",
+  "dataset_size": 80,
+  "variety_distribution": {
+    "MSA": 27,
+    "Classical": 27,
+    "Dialect": 26
+  },
+  "annotation_protocol": {
+    "annotators_per_sample": 3,
+    "min_annotators_for_gold": 2,
+    "disagreement_resolution": "Majority voting — keyphrase included in gold if ≥ 2/3 annotators selected it (after Arabic normalization)",
+    "normalization_steps": [
+      "Remove Arabic diacritics/tashkeel",
+      "Unify alef variants: إ أ آ → ا",
+      "Unify teh marbuta: ة → ه",
+      "Unify ya variants: ى → ي",
+      "Strip and collapse whitespace"
+    ]
+  },
+  "global_iaa": {
+    "pairwise_f1": {
+      "description": "Average F1 over all C(3,2)=3 annotator pairs per paragraph, then averaged over all 80 paragraphs",
+      "global_average": 0.8938,
+      "global_min": 0.6945,
+      "global_max": 1.0,
+      "global_std": 0.0734
+    },
+    "fleiss_kappa": {
+      "kappa": 0.1261,
+      "interpretation": "Slight agreement",
+      "p_bar_observed": 0.8196,
+      "p_e_expected": 0.7936,
+      "p_yes_overall": 0.8831,
+      "p_no_overall": 0.1169,
+      "total_units": 425,
+      "n_annotators": 3
+    },
+    "disagreements": {
+      "total_with_disagreement": 1,
+      "disagreement_rate": 0.0125,
+      "resolution": "Majority voting (≥ 2/3)"
+    }
+  },
+  "variety_breakdown": {
+    "MSA": {
+      "count": 27,
+      "avg_pairwise_f1": 0.9204,
+      "min_pairwise_f1": 0.75,
+      "max_pairwise_f1": 1.0,
+      "std_pairwise_f1": 0.0671,
+      "paragraphs_with_disagree": 0,
+      "disagreement_rate": 0.0,
+      "avg_gold_keyphrases": 4.96
+    },
+    "Classical": {
+      "count": 27,
+      "avg_pairwise_f1": 0.9012,
+      "min_pairwise_f1": 0.7852,
+      "max_pairwise_f1": 1.0,
+      "std_pairwise_f1": 0.0603,
+      "paragraphs_with_disagree": 0,
+      "disagreement_rate": 0.0,
+      "avg_gold_keyphrases": 4.93
+    },
+    "Dialect": {
+      "count": 26,
+      "avg_pairwise_f1": 0.8584,
+      "min_pairwise_f1": 0.6945,
+      "max_pairwise_f1": 1.0,
+      "std_pairwise_f1": 0.0778,
+      "paragraphs_with_disagree": 1,
+      "disagreement_rate": 0.0385,
+      "avg_gold_keyphrases": 4.77
+    }
+  },
+  "gold_quality_check": {
+    "matches_stored_gold": 80,
+    "mismatches_found": 0,
+    "mismatch_ids": []
+  },
+  "acceptance_criteria": {
+    "target_avg_pairwise_f1": 0.7,
+    "target_fleiss_kappa": 0.41,
+    "avg_f1_pass": true,
+    "kappa_pass": false
+  },
+  "per_paragraph": [
+    {
+      "id": 1,
+      "variety": "MSA",
+      "topic": "culture",
+      "pair_f1_scores": {
+        "ann1_ann2": 0.8889,
+        "ann1_ann3": 1.0,
+        "ann2_ann3": 0.8889
+      },
+      "avg_pairwise_f1": 0.9259,
+      "has_disagreement": false,
+      "disagreement_info": {
+        "unanimous": [
+          "يذاع",
+          "ويوم",
+          "الساعه",
+          "البرامج"
+        ],
+        "disputed": [
+          {
+            "keyphrase": "برنامج",
+            "votes": 2,
+            "out_of": 3
+          }
+        ]
+      },
+      "annotator_count": 3,
+      "majority_vote_gold": [
+        "يذاع",
+        "ويوم",
+        "الساعه",
+        "البرامج",
+        "برنامج"
+      ],
+      "stored_gold": [
+        "يذاع",
+        "ويوم",
+        "الساعه",
+        "البرامج",
+        "برنامج"
+      ],
+      "gold_sets_match": true
+    },
+    {
+      "id": 2,
+      "variety": "MSA",
+      "topic": "culture",
+      "pair_f1_scores": {
+        "ann1_ann2": 1.0,
+        "ann1_ann3": 0.8889,
+        "ann2_ann3": 0.8889
+      },
+      "avg_pairwise_f1": 0.9259,
+      "has_disagreement": false,
+      "disagreement_info": {
+        "unanimous": [
+          "المادي",
+          "الاثريه",
+          "الوزاره",
+          "المواقع"
+        ],
+        "disputed": [
+          {
+            "keyphrase": "التراث",
+            "votes": 2,
+            "out_of": 3
+          }
+        ]
+      },
+      "annotator_count": 3,
+      "majority_vote_gold": [
+        "المادي",
+        "الاثريه",
+        "الوزاره",
+        "المواقع",
+        "التراث"
+      ],
+      "stored_gold": [
+        "المادي",
+        "الاثريه",
+        "الوزاره",
+        "المواقع",
+        "التراث"
+      ],
+      "gold_sets_match": true
+    },
+    {
+      "id": 3,
+      "variety": "MSA",
+      "topic": "culture",
+      "pair_f1_scores": {
+        "ann1_ann2": 1.0,
+        "ann1_ann3": 1.0,
+        "ann2_ann3": 1.0
+      },
+      "avg_pairwise_f1": 1.0,
+      "has_disagreement": false,
+      "disagreement_info": {
+        "unanimous": [
+          "المشكاك",
+          "بهوان",
+          "عروضها",
+          "العرض",
+          "ناجحه"
+        ],
+        "disputed": []
+      },
+      "annotator_count": 3,
+      "majority_vote_gold": [
+        "المشكاك",
+        "بهوان",
+        "عروضها",
+        "العرض",
+        "ناجحه"
+      ],
+      "stored_gold": [
+        "المشكاك",
+        "بهوان",
+        "عروضها",
+        "العرض",
+        "ناجحه"
+      ],
+      "gold_sets_match": true
+    },
+    {
+      "id": 4,
+      "variety": "MSA",
+      "topic": "culture",
+      "pair_f1_scores": {
+        "ann1_ann2": 0.75,
+        "ann1_ann3": 0.8889,
+        "ann2_ann3": 0.8889
+      },
+      "avg_pairwise_f1": 0.8426,
+      "has_disagreement": false,
+      "disagreement_info": {
+        "unanimous": [
+          "الثقافه",
+          "الجماعه",
+          "المدني"
+        ],
+        "disputed": [
+          {
+            "keyphrase": "تاثير",
+            "votes": 2,
+            "out_of": 3
+          },
+          {
+            "keyphrase": "الاجتماعي",
+            "votes": 2,
+            "out_of": 3
+          }
+        ]
+      },
+      "annotator_count": 3,
+      "majority_vote_gold": [
+        "الثقافه",
+        "الجماعه",
+        "المدني",
+        "تاثير",
+        "الاجتماعي"
+      ],
+      "stored_gold": [
+        "الثقافه",
+        "الجماعه",
+        "المدني",
+        "تاثير",
+        "الاجتماعي"
+      ],
+      "gold_sets_match": true
+    },
+    {
+      "id": 5,
+      "variety": "MSA",
+      "topic": "culture",
+      "pair_f1_scores": {
+        "ann1_ann2": 0.9091,
+        "ann1_ann3": 1.0,
+        "ann2_ann3": 0.9091
+      },
+      "avg_pairwise_f1": 0.9394,
+      "has_disagreement": false,
+      "disagreement_info": {
+        "unanimous": [
+          "يحيي",
+          "المجموعه",
+          "الشيخ",
+          "اعمال",
+          "الفنان"
+        ],
+        "disputed": [
+          {
+            "keyphrase": "البحث العلمي",
+            "votes": 1,
+            "out_of": 3
+          }
+        ]
+      },
+      "annotator_count": 3,
+      "majority_vote_gold": [
+        "يحيي",
+        "المجموعه",
+        "الشيخ",
+        "اعمال",
+        "الفنان"
+      ],
+      "stored_gold": [
+        "يحيي",
+        "المجموعه",
+        "الشيخ",
+        "اعمال",
+        "الفنان"
+      ],
+      "gold_sets_match": true
+    },
+    {
+      "id": 6,
+      "variety": "MSA",
+      "topic": "culture",
+      "pair_f1_scores": {
+        "ann1_ann2": 0.75,
+        "ann1_ann3": 0.8889,
+        "ann2_ann3": 0.8889
+      },
+      "avg_pairwise_f1": 0.8426,
+      "has_disagreement": false,
+      "disagreement_info": {
+        "unanimous": [
+          "الكليه",
+          "الملتقي",
+          "والقانون"
+        ],
+        "disputed": [
+          {
+            "keyphrase": "قدم",
+            "votes": 2,
+            "out_of": 3
+          },
+          {
+            "keyphrase": "الشريعه",
+            "votes": 2,
+            "out_of": 3
+          }
+        ]
+      },
+      "annotator_count": 3,
+      "majority_vote_gold": [
+        "الكليه",
+        "الملتقي",
+        "والقانون",
+        "قدم",
+        "الشريعه"
+      ],
+      "stored_gold": [
+        "الكليه",
+        "الملتقي",
+        "والقانون",
+        "قدم",
+        "الشريعه"
+      ],
+      "gold_sets_match": true
+    },
+    {
+      "id": 7,
+      "variety": "MSA",
+      "topic": "culture",
+      "pair_f1_scores": {
+        "ann1_ann2": 1.0,
+        "ann1_ann3": 1.0,
+        "ann2_ann3": 1.0
+      },
+      "avg_pairwise_f1": 1.0,
+      "has_disagreement": false,
+      "disagreement_info": {
+        "unanimous": [
+          "السابعه",
+          "ويقدمها",
+          "بالجامعه",
+          "للموسيقي",
+          "محاضره"
+        ],
+        "disputed": []
+      },
+      "annotator_count": 3,
+      "majority_vote_gold": [
+        "السابعه",
+        "ويقدمها",
+        "بالجامعه",
+        "للموسيقي",
+        "محاضره"
+      ],
+      "stored_gold": [
+        "السابعه",
+        "ويقدمها",
+        "بالجامعه",
+        "للموسيقي",
+        "محاضره"
+      ],
+      "gold_sets_match": true
+    },
+    {
+      "id": 8,
+      "variety": "MSA",
+      "topic": "culture",
+      "pair_f1_scores": {
+        "ann1_ann2": 1.0,
+        "ann1_ann3": 1.0,
+        "ann2_ann3": 1.0
+      },
+      "avg_pairwise_f1": 1.0,
+      "has_disagreement": false,
+      "disagreement_info": {
+        "unanimous": [
+          "اكتشافها",
+          "الاثريه",
+          "المكتشفات",
+          "العملات",
+          "الفترات"
+        ],
+        "disputed": []
+      },
+      "annotator_count": 3,
+      "majority_vote_gold": [
+        "اكتشافها",
+        "الاثريه",
+        "المكتشفات",
+        "العملات",
+        "الفترات"
+      ],
+      "stored_gold": [
+        "اكتشافها",
+        "الاثريه",
+        "المكتشفات",
+        "العملات",
+        "الفترات"
+      ],
+      "gold_sets_match": true
+    },
+    {
+      "id": 9,
+      "variety": "MSA",
+      "topic": "culture",
+      "pair_f1_scores": {
+        "ann1_ann2": 0.8889,
+        "ann1_ann3": 1.0,
+        "ann2_ann3": 0.8889
+      },
+      "avg_pairwise_f1": 0.9259,
+      "has_disagreement": false,
+      "disagreement_info": {
+        "unanimous": [
+          "عليك",
+          "العقل",
+          "عقلك",
+          "حياتك"
+        ],
+        "disputed": [
+          {
+            "keyphrase": "تذكر",
+            "votes": 2,
+            "out_of": 3
+          }
+        ]
+      },
+      "annotator_count": 3,
+      "majority_vote_gold": [
+        "عليك",
+        "العقل",
+        "عقلك",
+        "حياتك",
+        "تذكر"
+      ],
+      "stored_gold": [
+        "عليك",
+        "العقل",
+        "عقلك",
+        "حياتك",
+        "تذكر"
+      ],
+      "gold_sets_match": true
+    },
+    {
+      "id": 10,
+      "variety": "MSA",
+      "topic": "culture",
+      "pair_f1_scores": {
+        "ann1_ann2": 0.75,
+        "ann1_ann3": 0.75,
+        "ann2_ann3": 1.0
+      },
+      "avg_pairwise_f1": 0.8333,
+      "has_disagreement": false,
+      "disagreement_info": {
+        "unanimous": [
+          "الباحث",
+          "المؤرخ",
+          "محور"
+        ],
+        "disputed": [
+          {
+            "keyphrase": "المنتدي",
+            "votes": 1,
+            "out_of": 3
+          },
+          {
+            "keyphrase": "وقفه",
+            "votes": 2,
+            "out_of": 3
+          }
+        ]
+      },
+      "annotator_count": 3,
+      "majority_vote_gold": [
+        "الباحث",
+        "المؤرخ",
+        "محور",
+        "وقفه"
+      ],
+      "stored_gold": [
+        "الباحث",
+        "المؤرخ",
+        "محور",
+        "وقفه"
+      ],
+      "gold_sets_match": true
+    },
+    {
+      "id": 11,
+      "variety": "MSA",
+      "topic": "culture",
+      "pair_f1_scores": {
+        "ann1_ann2": 0.8889,
+        "ann1_ann3": 0.8889,
+        "ann2_ann3": 1.0
+      },
+      "avg_pairwise_f1": 0.9259,
+      "has_disagreement": false,
+      "disagreement_info": {
+        "unanimous": [
+          "صلاله",
+          "حمران",
+          "نعسان",
+          "اغا"
+        ],
+        "disputed": [
+          {
+            "keyphrase": "رياض",
+            "votes": 2,
+            "out_of": 3
+          }
+        ]
+      },
+      "annotator_count": 3,
+      "majority_vote_gold": [
+        "صلاله",
+        "حمران",
+        "نعسان",
+        "اغا",
+        "رياض"
+      ],
+      "stored_gold": [
+        "صلاله",
+        "حمران",
+        "نعسان",
+        "اغا",
+        "رياض"
+      ],
+      "gold_sets_match": true
+    },
+    {
+      "id": 12,
+      "variety": "MSA",
+      "topic": "culture",
+      "pair_f1_scores": {
+        "ann1_ann2": 0.8889,
+        "ann1_ann3": 0.8,
+        "ann2_ann3": 0.9091
+      },
+      "avg_pairwise_f1": 0.866,
+      "has_disagreement": false,
+      "disagreement_info": {
+        "unanimous": [
+          "الشريعه",
+          "كليه",
+          "الحلول",
+          "الكليه"
+        ],
+        "disputed": [
+          {
+            "keyphrase": "الفرق",
+            "votes": 2,
+            "out_of": 3
+          },
+          {
+            "keyphrase": "الحوكمة الرشيدة",
+            "votes": 1,
+            "out_of": 3
+          }
+        ]
+      },
+      "annotator_count": 3,
+      "majority_vote_gold": [
+        "الشريعه",
+        "كليه",
+        "الحلول",
+        "الكليه",
+        "الفرق"
+      ],
+      "stored_gold": [
+        "الشريعه",
+        "كليه",
+        "الحلول",
+        "الكليه",
+        "الفرق"
+      ],
+      "gold_sets_match": true
+    },
+    {
+      "id": 13,
+      "variety": "MSA",
+      "topic": "culture",
+      "pair_f1_scores": {
+        "ann1_ann2": 1.0,
+        "ann1_ann3": 0.9091,
+        "ann2_ann3": 0.9091
+      },
+      "avg_pairwise_f1": 0.9394,
+      "has_disagreement": false,
+      "disagreement_info": {
+        "unanimous": [
+          "ومعرض",
+          "والمعرض",
+          "التشكيليه",
+          "عام",
+          "وشاركت"
+        ],
+        "disputed": [
+          {
+            "keyphrase": "التنمية المستدامة",
+            "votes": 1,
+            "out_of": 3
+          }
+        ]
+      },
+      "annotator_count": 3,
+      "majority_vote_gold": [
+        "ومعرض",
+        "والمعرض",
+        "التشكيليه",
+        "عام",
+        "وشاركت"
+      ],
+      "stored_gold": [
+        "ومعرض",
+        "والمعرض",
+        "التشكيليه",
+        "عام",
+        "وشاركت"
+      ],
+      "gold_sets_match": true
+    },
+    {
+      "id": 14,
+      "variety": "MSA",
+      "topic": "culture",
+      "pair_f1_scores": {
+        "ann1_ann2": 0.8889,
+        "ann1_ann3": 1.0,
+        "ann2_ann3": 0.8889
+      },
+      "avg_pairwise_f1": 0.9259,
+      "has_disagreement": false,
+      "disagreement_info": {
+        "unanimous": [
+          "القصيده",
+          "دوله",
+          "الشعريه",
+          "قصيده"
+        ],
+        "disputed": [
+          {
+            "keyphrase": "الشعري",
+            "votes": 2,
+            "out_of": 3
+          }
+        ]
+      },
+      "annotator_count": 3,
+      "majority_vote_gold": [
+        "القصيده",
+        "دوله",
+        "الشعريه",
+        "قصيده",
+        "الشعري"
+      ],
+      "stored_gold": [
+        "القصيده",
+        "دوله",
+        "الشعريه",
+        "قصيده",
+        "الشعري"
+      ],
+      "gold_sets_match": true
+    },
+    {
+      "id": 15,
+      "variety": "MSA",
+      "topic": "culture",
+      "pair_f1_scores": {
+        "ann1_ann2": 0.8,
+        "ann1_ann3": 1.0,
+        "ann2_ann3": 0.8
+      },
+      "avg_pairwise_f1": 0.8667,
+      "has_disagreement": false,
+      "disagreement_info": {
+        "unanimous": [
+          "العندليب",
+          "انتاج",
+          "عبدالحليم",
+          "زكي"
+        ],
+        "disputed": [
+          {
+            "keyphrase": "حليم",
+            "votes": 2,
+            "out_of": 3
+          },
+          {
+            "keyphrase": "الإصلاح الهيكلي",
+            "votes": 1,
+            "out_of": 3
+          }
+        ]
+      },
+      "annotator_count": 3,
+      "majority_vote_gold": [
+        "العندليب",
+        "انتاج",
+        "عبدالحليم",
+        "زكي",
+        "حليم"
+      ],
+      "stored_gold": [
+        "العندليب",
+        "انتاج",
+        "عبدالحليم",
+        "زكي",
+        "حليم"
+      ],
+      "gold_sets_match": true
+    },
+    {
+      "id": 16,
+      "variety": "MSA",
+      "topic": "culture",
+      "pair_f1_scores": {
+        "ann1_ann2": 1.0,
+        "ann1_ann3": 1.0,
+        "ann2_ann3": 1.0
+      },
+      "avg_pairwise_f1": 1.0,
+      "has_disagreement": false,
+      "disagreement_info": {
+        "unanimous": [
+          "ماجده",
+          "شوكت",
+          "عملها",
+          "غاده",
+          "الفيلم"
+        ],
+        "disputed": []
+      },
+      "annotator_count": 3,
+      "majority_vote_gold": [
+        "ماجده",
+        "شوكت",
+        "عملها",
+        "غاده",
+        "الفيلم"
+      ],
+      "stored_gold": [
+        "ماجده",
+        "شوكت",
+        "عملها",
+        "غاده",
+        "الفيلم"
+      ],
+      "gold_sets_match": true
+    },
+    {
+      "id": 17,
+      "variety": "MSA",
+      "topic": "culture",
+      "pair_f1_scores": {
+        "ann1_ann2": 1.0,
+        "ann1_ann3": 1.0,
+        "ann2_ann3": 1.0
+      },
+      "avg_pairwise_f1": 1.0,
+      "has_disagreement": false,
+      "disagreement_info": {
+        "unanimous": [
+          "ويا",
+          "ترثيك",
+          "شيخ",
+          "عمي",
+          "البوادر"
+        ],
+        "disputed": []
+      },
+      "annotator_count": 3,
+      "majority_vote_gold": [
+        "ويا",
+        "ترثيك",
+        "شيخ",
+        "عمي",
+        "البوادر"
+      ],
+      "stored_gold": [
+        "ويا",
+        "ترثيك",
+        "شيخ",
+        "عمي",
+        "البوادر"
+      ],
+      "gold_sets_match": true
+    },
+    {
+      "id": 18,
+      "variety": "MSA",
+      "topic": "culture",
+      "pair_f1_scores": {
+        "ann1_ann2": 0.8889,
+        "ann1_ann3": 1.0,
+        "ann2_ann3": 0.8889
+      },
+      "avg_pairwise_f1": 0.9259,
+      "has_disagreement": false,
+      "disagreement_info": {
+        "unanimous": [
+          "كمنهج",
+          "لنجيب",
+          "الايهام",
+          "مدكور"
+        ],
+        "disputed": [
+          {
+            "keyphrase": "لاخراج",
+            "votes": 2,
+            "out_of": 3
+          }
+        ]
+      },
+      "annotator_count": 3,
+      "majority_vote_gold": [
+        "كمنهج",
+        "لنجيب",
+        "الايهام",
+        "مدكور",
+        "لاخراج"
+      ],
+      "stored_gold": [
+        "كمنهج",
+        "لنجيب",
+        "الايهام",
+        "مدكور",
+        "لاخراج"
+      ],
+      "gold_sets_match": true
+    },
+    {
+      "id": 19,
+      "variety": "MSA",
+      "topic": "culture",
+      "pair_f1_scores": {
+        "ann1_ann2": 1.0,
+        "ann1_ann3": 1.0,
+        "ann2_ann3": 1.0
+      },
+      "avg_pairwise_f1": 1.0,
+      "has_disagreement": false,
+      "disagreement_info": {
+        "unanimous": [
+          "الايهام",
+          "المخرج",
+          "الفيلم",
+          "السينمائي",
+          "صوت"
+        ],
+        "disputed": []
+      },
+      "annotator_count": 3,
+      "majority_vote_gold": [
+        "الايهام",
+        "المخرج",
+        "الفيلم",
+        "السينمائي",
+        "صوت"
+      ],
+      "stored_gold": [
+        "الايهام",
+        "المخرج",
+        "الفيلم",
+        "السينمائي",
+        "صوت"
+      ],
+      "gold_sets_match": true
+    },
+    {
+      "id": 20,
+      "variety": "MSA",
+      "topic": "culture",
+      "pair_f1_scores": {
+        "ann1_ann2": 0.75,
+        "ann1_ann3": 0.8889,
+        "ann2_ann3": 0.8889
+      },
+      "avg_pairwise_f1": 0.8426,
+      "has_disagreement": false,
+      "disagreement_info": {
+        "unanimous": [
+          "ويوم",
+          "التليفزيون",
+          "يونيو"
+        ],
+        "disputed": [
+          {
+            "keyphrase": "ريتشارد",
+            "votes": 2,
+            "out_of": 3
+          },
+          {
+            "keyphrase": "السهره",
+            "votes": 2,
+            "out_of": 3
+          }
+        ]
+      },
+      "annotator_count": 3,
+      "majority_vote_gold": [
+        "ويوم",
+        "التليفزيون",
+        "يونيو",
+        "ريتشارد",
+        "السهره"
+      ],
+      "stored_gold": [
+        "ويوم",
+        "التليفزيون",
+        "يونيو",
+        "ريتشارد",
+        "السهره"
+      ],
+      "gold_sets_match": true
+    },
+    {
+      "id": 21,
+      "variety": "MSA",
+      "topic": "culture",
+      "pair_f1_scores": {
+        "ann1_ann2": 1.0,
+        "ann1_ann3": 0.8889,
+        "ann2_ann3": 0.8889
+      },
+      "avg_pairwise_f1": 0.9259,
+      "has_disagreement": false,
+      "disagreement_info": {
+        "unanimous": [
+          "الانترنت",
+          "الروائي",
+          "لكنني",
+          "الكتب"
+        ],
+        "disputed": [
+          {
+            "keyphrase": "كويلو",
+            "votes": 2,
+            "out_of": 3
+          }
+        ]
+      },
+      "annotator_count": 3,
+      "majority_vote_gold": [
+        "الانترنت",
+        "الروائي",
+        "لكنني",
+        "الكتب",
+        "كويلو"
+      ],
+      "stored_gold": [
+        "الانترنت",
+        "الروائي",
+        "لكنني",
+        "الكتب",
+        "كويلو"
+      ],
+      "gold_sets_match": true
+    },
+    {
+      "id": 22,
+      "variety": "MSA",
+      "topic": "culture",
+      "pair_f1_scores": {
+        "ann1_ann2": 0.8889,
+        "ann1_ann3": 0.9091,
+        "ann2_ann3": 0.8
+      },
+      "avg_pairwise_f1": 0.866,
+      "has_disagreement": false,
+      "disagreement_info": {
+        "unanimous": [
+          "الملكيه",
+          "تستعد",
+          "الفكريه",
+          "الثقافه"
+        ],
+        "disputed": [
+          {
+            "keyphrase": "اليمن",
+            "votes": 2,
+            "out_of": 3
+          },
+          {
+            "keyphrase": "الابتكار التقني",
+            "votes": 1,
+            "out_of": 3
+          }
+        ]
+      },
+      "annotator_count": 3,
+      "majority_vote_gold": [
+        "الملكيه",
+        "تستعد",
+        "الفكريه",
+        "الثقافه",
+        "اليمن"
+      ],
+      "stored_gold": [
+        "الملكيه",
+        "تستعد",
+        "الفكريه",
+        "الثقافه",
+        "اليمن"
+      ],
+      "gold_sets_match": true
+    },
+    {
+      "id": 23,
+      "variety": "MSA",
+      "topic": "culture",
+      "pair_f1_scores": {
+        "ann1_ann2": 1.0,
+        "ann1_ann3": 1.0,
+        "ann2_ann3": 1.0
+      },
+      "avg_pairwise_f1": 1.0,
+      "has_disagreement": false,
+      "disagreement_info": {
+        "unanimous": [
+          "الاجوبه",
+          "قرن",
+          "التساؤل",
+          "حياتنا",
+          "ضوء"
+        ],
+        "disputed": []
+      },
+      "annotator_count": 3,
+      "majority_vote_gold": [
+        "الاجوبه",
+        "قرن",
+        "التساؤل",
+        "حياتنا",
+        "ضوء"
+      ],
+      "stored_gold": [
+        "الاجوبه",
+        "قرن",
+        "التساؤل",
+        "حياتنا",
+        "ضوء"
+      ],
+      "gold_sets_match": true
+    },
+    {
+      "id": 24,
+      "variety": "MSA",
+      "topic": "culture",
+      "pair_f1_scores": {
+        "ann1_ann2": 0.75,
+        "ann1_ann3": 0.8889,
+        "ann2_ann3": 0.8889
+      },
+      "avg_pairwise_f1": 0.8426,
+      "has_disagreement": false,
+      "disagreement_info": {
+        "unanimous": [
+          "الخوذتين",
+          "الرجلان",
+          "تفوه"
+        ],
+        "disputed": [
+          {
+            "keyphrase": "ذوو",
+            "votes": 2,
+            "out_of": 3
+          },
+          {
+            "keyphrase": "النداء",
+            "votes": 2,
+            "out_of": 3
+          }
+        ]
+      },
+      "annotator_count": 3,
+      "majority_vote_gold": [
+        "الخوذتين",
+        "الرجلان",
+        "تفوه",
+        "ذوو",
+        "النداء"
+      ],
+      "stored_gold": [
+        "الخوذتين",
+        "الرجلان",
+        "تفوه",
+        "ذوو",
+        "النداء"
+      ],
+      "gold_sets_match": true
+    },
+    {
+      "id": 25,
+      "variety": "MSA",
+      "topic": "culture",
+      "pair_f1_scores": {
+        "ann1_ann2": 1.0,
+        "ann1_ann3": 1.0,
+        "ann2_ann3": 1.0
+      },
+      "avg_pairwise_f1": 1.0,
+      "has_disagreement": false,
+      "disagreement_info": {
+        "unanimous": [
+          "مارسيل",
+          "خليفه",
+          "العلي",
+          "وطنه",
+          "ناجي"
+        ],
+        "disputed": []
+      },
+      "annotator_count": 3,
+      "majority_vote_gold": [
+        "مارسيل",
+        "خليفه",
+        "العلي",
+        "وطنه",
+        "ناجي"
+      ],
+      "stored_gold": [
+        "مارسيل",
+        "خليفه",
+        "العلي",
+        "وطنه",
+        "ناجي"
+      ],
+      "gold_sets_match": true
+    },
+    {
+      "id": 26,
+      "variety": "MSA",
+      "topic": "culture",
+      "pair_f1_scores": {
+        "ann1_ann2": 0.9091,
+        "ann1_ann3": 0.9091,
+        "ann2_ann3": 1.0
+      },
+      "avg_pairwise_f1": 0.9394,
+      "has_disagreement": false,
+      "disagreement_info": {
+        "unanimous": [
+          "التشكيليه",
+          "اللوحات",
+          "توظيف",
+          "الكولاج",
+          "المعرض"
+        ],
+        "disputed": [
+          {
+            "keyphrase": "الابتكار التقني",
+            "votes": 1,
+            "out_of": 3
+          }
+        ]
+      },
+      "annotator_count": 3,
+      "majority_vote_gold": [
+        "التشكيليه",
+        "اللوحات",
+        "توظيف",
+        "الكولاج",
+        "المعرض"
+      ],
+      "stored_gold": [
+        "التشكيليه",
+        "اللوحات",
+        "توظيف",
+        "الكولاج",
+        "المعرض"
+      ],
+      "gold_sets_match": true
+    },
+    {
+      "id": 27,
+      "variety": "MSA",
+      "topic": "culture",
+      "pair_f1_scores": {
+        "ann1_ann2": 0.75,
+        "ann1_ann3": 0.75,
+        "ann2_ann3": 0.75
+      },
+      "avg_pairwise_f1": 0.75,
+      "has_disagreement": false,
+      "disagreement_info": {
+        "unanimous": [
+          "الطائي",
+          "الادبيه"
+        ],
+        "disputed": [
+          {
+            "keyphrase": "رابطه",
+            "votes": 2,
+            "out_of": 3
+          },
+          {
+            "keyphrase": "الاديب",
+            "votes": 2,
+            "out_of": 3
+          },
+          {
+            "keyphrase": "الادباء",
+            "votes": 2,
+            "out_of": 3
+          }
+        ]
+      },
+      "annotator_count": 3,
+      "majority_vote_gold": [
+        "الطائي",
+        "الادبيه",
+        "رابطه",
+        "الاديب",
+        "الادباء"
+      ],
+      "stored_gold": [
+        "الطائي",
+        "الادبيه",
+        "رابطه",
+        "الاديب",
+        "الادباء"
+      ],
+      "gold_sets_match": true
+    },
+    {
+      "id": 28,
+      "variety": "Classical",
+      "topic": "A_Muslim_Manual_of_War",
+      "pair_f1_scores": {
+        "ann1_ann2": 0.75,
+        "ann1_ann3": 0.8889,
+        "ann2_ann3": 0.8889
+      },
+      "avg_pairwise_f1": 0.8426,
+      "has_disagreement": false,
+      "disagreement_info": {
+        "unanimous": [
+          "فلما",
+          "الناصر،",
+          "المرابط"
+        ],
+        "disputed": [
+          {
+            "keyphrase": "المجاهد",
+            "votes": 2,
+            "out_of": 3
+          },
+          {
+            "keyphrase": "الاعظم",
+            "votes": 2,
+            "out_of": 3
+          }
+        ]
+      },
+      "annotator_count": 3,
+      "majority_vote_gold": [
+        "فلما",
+        "الناصر،",
+        "المرابط",
+        "المجاهد",
+        "الاعظم"
+      ],
+      "stored_gold": [
+        "فلما",
+        "الناصر،",
+        "المرابط",
+        "المجاهد",
+        "الاعظم"
+      ],
+      "gold_sets_match": true
+    },
+    {
+      "id": 29,
+      "variety": "Classical",
+      "topic": "A_Muslim_Manual_of_War",
+      "pair_f1_scores": {
+        "ann1_ann2": 0.8,
+        "ann1_ann3": 0.7273,
+        "ann2_ann3": 0.9091
+      },
+      "avg_pairwise_f1": 0.8121,
+      "has_disagreement": false,
+      "disagreement_info": {
+        "unanimous": [
+          "والتيجان،",
+          "الاقاليم",
+          "اسكندر",
+          "الزمان،"
+        ],
+        "disputed": [
+          {
+            "keyphrase": "الإرث الحضاري",
+            "votes": 1,
+            "out_of": 3
+          },
+          {
+            "keyphrase": "واهب",
+            "votes": 2,
+            "out_of": 3
+          },
+          {
+            "keyphrase": "الأدب العربي",
+            "votes": 1,
+            "out_of": 3
+          }
+        ]
+      },
+      "annotator_count": 3,
+      "majority_vote_gold": [
+        "والتيجان،",
+        "الاقاليم",
+        "اسكندر",
+        "الزمان،",
+        "واهب"
+      ],
+      "stored_gold": [
+        "والتيجان،",
+        "الاقاليم",
+        "اسكندر",
+        "الزمان،",
+        "واهب"
+      ],
+      "gold_sets_match": true
+    },
+    {
+      "id": 30,
+      "variety": "Classical",
+      "topic": "A_Muslim_Manual_of_War",
+      "pair_f1_scores": {
+        "ann1_ann2": 1.0,
+        "ann1_ann3": 0.9091,
+        "ann2_ann3": 0.9091
+      },
+      "avg_pairwise_f1": 0.9394,
+      "has_disagreement": false,
+      "disagreement_info": {
+        "unanimous": [
+          "قسيم",
+          "المؤمنين،",
+          "السعادات",
+          "فرج",
+          "برقوق،"
+        ],
+        "disputed": [
+          {
+            "keyphrase": "الفقه الإسلامي",
+            "votes": 1,
+            "out_of": 3
+          }
+        ]
+      },
+      "annotator_count": 3,
+      "majority_vote_gold": [
+        "قسيم",
+        "المؤمنين،",
+        "السعادات",
+        "فرج",
+        "برقوق،"
+      ],
+      "stored_gold": [
+        "قسيم",
+        "المؤمنين،",
+        "السعادات",
+        "فرج",
+        "برقوق،"
+      ],
+      "gold_sets_match": true
+    },
+    {
+      "id": 31,
+      "variety": "Classical",
+      "topic": "A_Muslim_Manual_of_War",
+      "pair_f1_scores": {
+        "ann1_ann2": 0.8,
+        "ann1_ann3": 1.0,
+        "ann2_ann3": 0.8
+      },
+      "avg_pairwise_f1": 0.8667,
+      "has_disagreement": false,
+      "disagreement_info": {
+        "unanimous": [
+          "قهر",
+          "باسه",
+          "وشدته،",
+          "واعجز"
+        ],
+        "disputed": [
+          {
+            "keyphrase": "الحصر",
+            "votes": 2,
+            "out_of": 3
+          },
+          {
+            "keyphrase": "النحو والصرف",
+            "votes": 1,
+            "out_of": 3
+          }
+        ]
+      },
+      "annotator_count": 3,
+      "majority_vote_gold": [
+        "قهر",
+        "باسه",
+        "وشدته،",
+        "واعجز",
+        "الحصر"
+      ],
+      "stored_gold": [
+        "قهر",
+        "باسه",
+        "وشدته،",
+        "واعجز",
+        "الحصر"
+      ],
+      "gold_sets_match": true
+    },
+    {
+      "id": 32,
+      "variety": "Classical",
+      "topic": "A_Muslim_Manual_of_War",
+      "pair_f1_scores": {
+        "ann1_ann2": 1.0,
+        "ann1_ann3": 1.0,
+        "ann2_ann3": 1.0
+      },
+      "avg_pairwise_f1": 1.0,
+      "has_disagreement": false,
+      "disagreement_info": {
+        "unanimous": [
+          "قاصد",
+          "بسوء",
+          "خائبا،",
+          "رماه",
+          "بمكر"
+        ],
+        "disputed": []
+      },
+      "annotator_count": 3,
+      "majority_vote_gold": [
+        "قاصد",
+        "بسوء",
+        "خائبا،",
+        "رماه",
+        "بمكر"
+      ],
+      "stored_gold": [
+        "قاصد",
+        "بسوء",
+        "خائبا،",
+        "رماه",
+        "بمكر"
+      ],
+      "gold_sets_match": true
+    },
+    {
+      "id": 33,
+      "variety": "Classical",
+      "topic": "A_Muslim_Manual_of_War",
+      "pair_f1_scores": {
+        "ann1_ann2": 1.0,
+        "ann1_ann3": 1.0,
+        "ann2_ann3": 1.0
+      },
+      "avg_pairwise_f1": 1.0,
+      "has_disagreement": false,
+      "disagreement_info": {
+        "unanimous": [
+          "فسعوده",
+          "ابدا",
+          "بالنصر",
+          "تسعد،",
+          "وسهم"
+        ],
+        "disputed": []
+      },
+      "annotator_count": 3,
+      "majority_vote_gold": [
+        "فسعوده",
+        "ابدا",
+        "بالنصر",
+        "تسعد،",
+        "وسهم"
+      ],
+      "stored_gold": [
+        "فسعوده",
+        "ابدا",
+        "بالنصر",
+        "تسعد،",
+        "وسهم"
+      ],
+      "gold_sets_match": true
+    },
+    {
+      "id": 34,
+      "variety": "Classical",
+      "topic": "A_Muslim_Manual_of_War",
+      "pair_f1_scores": {
+        "ann1_ann2": 0.8889,
+        "ann1_ann3": 0.6667,
+        "ann2_ann3": 0.8
+      },
+      "avg_pairwise_f1": 0.7852,
+      "has_disagreement": false,
+      "disagreement_info": {
+        "unanimous": [
+          "وكنت",
+          "اختلافها،",
+          "وقائع"
+        ],
+        "disputed": [
+          {
+            "keyphrase": "تباين",
+            "votes": 2,
+            "out_of": 3
+          },
+          {
+            "keyphrase": "وتدبر",
+            "votes": 2,
+            "out_of": 3
+          },
+          {
+            "keyphrase": "النحو والصرف",
+            "votes": 1,
+            "out_of": 3
+          }
+        ]
+      },
+      "annotator_count": 3,
+      "majority_vote_gold": [
+        "وكنت",
+        "اختلافها،",
+        "وقائع",
+        "تباين",
+        "وتدبر"
+      ],
+      "stored_gold": [
+        "وكنت",
+        "اختلافها،",
+        "وقائع",
+        "تباين",
+        "وتدبر"
+      ],
+      "gold_sets_match": true
+    },
+    {
+      "id": 35,
+      "variety": "Classical",
+      "topic": "A_Muslim_Manual_of_War",
+      "pair_f1_scores": {
+        "ann1_ann2": 1.0,
+        "ann1_ann3": 0.8889,
+        "ann2_ann3": 0.8889
+      },
+      "avg_pairwise_f1": 0.9259,
+      "has_disagreement": false,
+      "disagreement_info": {
+        "unanimous": [
+          "اورده",
+          "افاضل",
+          "وصايا",
+          "العساكر،"
+        ],
+        "disputed": [
+          {
+            "keyphrase": "المقدمين",
+            "votes": 2,
+            "out_of": 3
+          }
+        ]
+      },
+      "annotator_count": 3,
+      "majority_vote_gold": [
+        "اورده",
+        "افاضل",
+        "وصايا",
+        "العساكر،",
+        "المقدمين"
+      ],
+      "stored_gold": [
+        "اورده",
+        "افاضل",
+        "وصايا",
+        "العساكر،",
+        "المقدمين"
+      ],
+      "gold_sets_match": true
+    },
+    {
+      "id": 36,
+      "variety": "Classical",
+      "topic": "A_Muslim_Manual_of_War",
+      "pair_f1_scores": {
+        "ann1_ann2": 0.8889,
+        "ann1_ann3": 0.75,
+        "ann2_ann3": 0.8889
+      },
+      "avg_pairwise_f1": 0.8426,
+      "has_disagreement": false,
+      "disagreement_info": {
+        "unanimous": [
+          "اخدم",
+          "خزانته",
+          "الشريفه"
+        ],
+        "disputed": [
+          {
+            "keyphrase": "دعاني",
+            "votes": 2,
+            "out_of": 3
+          },
+          {
+            "keyphrase": "بدوام",
+            "votes": 2,
+            "out_of": 3
+          }
+        ]
+      },
+      "annotator_count": 3,
+      "majority_vote_gold": [
+        "اخدم",
+        "خزانته",
+        "الشريفه",
+        "دعاني",
+        "بدوام"
+      ],
+      "stored_gold": [
+        "اخدم",
+        "خزانته",
+        "الشريفه",
+        "دعاني",
+        "بدوام"
+      ],
+      "gold_sets_match": true
+    },
+    {
+      "id": 37,
+      "variety": "Classical",
+      "topic": "A_Muslim_Manual_of_War",
+      "pair_f1_scores": {
+        "ann1_ann2": 0.75,
+        "ann1_ann3": 0.8889,
+        "ann2_ann3": 0.8889
+      },
+      "avg_pairwise_f1": 0.8426,
+      "has_disagreement": false,
+      "disagreement_info": {
+        "unanimous": [
+          "يخبر",
+          "لحداثه",
+          "قواعد"
+        ],
+        "disputed": [
+          {
+            "keyphrase": "ويقتدي",
+            "votes": 2,
+            "out_of": 3
+          },
+          {
+            "keyphrase": "بخابره،",
+            "votes": 2,
+            "out_of": 3
+          }
+        ]
+      },
+      "annotator_count": 3,
+      "majority_vote_gold": [
+        "يخبر",
+        "لحداثه",
+        "قواعد",
+        "ويقتدي",
+        "بخابره،"
+      ],
+      "stored_gold": [
+        "يخبر",
+        "لحداثه",
+        "قواعد",
+        "ويقتدي",
+        "بخابره،"
+      ],
+      "gold_sets_match": true
+    },
+    {
+      "id": 38,
+      "variety": "Classical",
+      "topic": "A_Muslim_Manual_of_War",
+      "pair_f1_scores": {
+        "ann1_ann2": 1.0,
+        "ann1_ann3": 0.8889,
+        "ann2_ann3": 0.8889
+      },
+      "avg_pairwise_f1": 0.9259,
+      "has_disagreement": false,
+      "disagreement_info": {
+        "unanimous": [
+          "النصر",
+          "السعود",
+          "فاعقبته",
+          "واقعه"
+        ],
+        "disputed": [
+          {
+            "keyphrase": "وخدمته",
+            "votes": 1,
+            "out_of": 3
+          }
+        ]
+      },
+      "annotator_count": 3,
+      "majority_vote_gold": [
+        "النصر",
+        "السعود",
+        "فاعقبته",
+        "واقعه"
+      ],
+      "stored_gold": [
+        "النصر",
+        "السعود",
+        "فاعقبته",
+        "واقعه"
+      ],
+      "gold_sets_match": true
+    },
+    {
+      "id": 39,
+      "variety": "Classical",
+      "topic": "A_Muslim_Manual_of_War",
+      "pair_f1_scores": {
+        "ann1_ann2": 0.9091,
+        "ann1_ann3": 1.0,
+        "ann2_ann3": 0.9091
+      },
+      "avg_pairwise_f1": 0.9394,
+      "has_disagreement": false,
+      "disagreement_info": {
+        "unanimous": [
+          "بسم",
+          "الرحمن",
+          "الرحيم",
+          "الحمد",
+          "لله"
+        ],
+        "disputed": [
+          {
+            "keyphrase": "الإرث الحضاري",
+            "votes": 1,
+            "out_of": 3
+          }
+        ]
+      },
+      "annotator_count": 3,
+      "majority_vote_gold": [
+        "بسم",
+        "الرحمن",
+        "الرحيم",
+        "الحمد",
+        "لله"
+      ],
+      "stored_gold": [
+        "بسم",
+        "الرحمن",
+        "الرحيم",
+        "الحمد",
+        "لله"
+      ],
+      "gold_sets_match": true
+    },
+    {
+      "id": 40,
+      "variety": "Classical",
+      "topic": "A_Muslim_Manual_of_War",
+      "pair_f1_scores": {
+        "ann1_ann2": 0.9091,
+        "ann1_ann3": 0.8,
+        "ann2_ann3": 0.8889
+      },
+      "avg_pairwise_f1": 0.866,
+      "has_disagreement": false,
+      "disagreement_info": {
+        "unanimous": [
+          "الحروب،",
+          "تدبير",
+          "فهذا",
+          "كتابي"
+        ],
+        "disputed": [
+          {
+            "keyphrase": "البلاغة والبيان",
+            "votes": 1,
+            "out_of": 3
+          },
+          {
+            "keyphrase": "بتفريج",
+            "votes": 2,
+            "out_of": 3
+          }
+        ]
+      },
+      "annotator_count": 3,
+      "majority_vote_gold": [
+        "الحروب،",
+        "تدبير",
+        "فهذا",
+        "كتابي",
+        "بتفريج"
+      ],
+      "stored_gold": [
+        "الحروب،",
+        "تدبير",
+        "فهذا",
+        "كتابي",
+        "بتفريج"
+      ],
+      "gold_sets_match": true
+    },
+    {
+      "id": 41,
+      "variety": "Classical",
+      "topic": "A_Muslim_Manual_of_War",
+      "pair_f1_scores": {
+        "ann1_ann2": 0.9091,
+        "ann1_ann3": 0.9091,
+        "ann2_ann3": 1.0
+      },
+      "avg_pairwise_f1": 0.9394,
+      "has_disagreement": false,
+      "disagreement_info": {
+        "unanimous": [
+          "وفيه",
+          "الباب",
+          "التحرز",
+          "دار",
+          "فصول"
+        ],
+        "disputed": [
+          {
+            "keyphrase": "النحو والصرف",
+            "votes": 1,
+            "out_of": 3
+          }
+        ]
+      },
+      "annotator_count": 3,
+      "majority_vote_gold": [
+        "وفيه",
+        "الباب",
+        "التحرز",
+        "دار",
+        "فصول"
+      ],
+      "stored_gold": [
+        "وفيه",
+        "الباب",
+        "التحرز",
+        "دار",
+        "فصول"
+      ],
+      "gold_sets_match": true
+    },
+    {
+      "id": 42,
+      "variety": "Classical",
+      "topic": "A_Muslim_Manual_of_War",
+      "pair_f1_scores": {
+        "ann1_ann2": 0.8889,
+        "ann1_ann3": 0.8889,
+        "ann2_ann3": 1.0
+      },
+      "avg_pairwise_f1": 0.9259,
+      "has_disagreement": false,
+      "disagreement_info": {
+        "unanimous": [
+          "عدو",
+          "العلماء",
+          "بامور",
+          "وتدبيرها"
+        ],
+        "disputed": [
+          {
+            "keyphrase": "مقيم",
+            "votes": 1,
+            "out_of": 3
+          }
+        ]
+      },
+      "annotator_count": 3,
+      "majority_vote_gold": [
+        "عدو",
+        "العلماء",
+        "بامور",
+        "وتدبيرها"
+      ],
+      "stored_gold": [
+        "عدو",
+        "العلماء",
+        "بامور",
+        "وتدبيرها"
+      ],
+      "gold_sets_match": true
+    },
+    {
+      "id": 43,
+      "variety": "Classical",
+      "topic": "A_Muslim_Manual_of_War",
+      "pair_f1_scores": {
+        "ann1_ann2": 1.0,
+        "ann1_ann3": 1.0,
+        "ann2_ann3": 1.0
+      },
+      "avg_pairwise_f1": 1.0,
+      "has_disagreement": false,
+      "disagreement_info": {
+        "unanimous": [
+          "يقع",
+          "تعالي",
+          "الخلل",
+          "التحرز،",
+          "وانما"
+        ],
+        "disputed": []
+      },
+      "annotator_count": 3,
+      "majority_vote_gold": [
+        "يقع",
+        "تعالي",
+        "الخلل",
+        "التحرز،",
+        "وانما"
+      ],
+      "stored_gold": [
+        "يقع",
+        "تعالي",
+        "الخلل",
+        "التحرز،",
+        "وانما"
+      ],
+      "gold_sets_match": true
+    },
+    {
+      "id": 44,
+      "variety": "Classical",
+      "topic": "A_Muslim_Manual_of_War",
+      "pair_f1_scores": {
+        "ann1_ann2": 0.8889,
+        "ann1_ann3": 1.0,
+        "ann2_ann3": 0.8889
+      },
+      "avg_pairwise_f1": 0.9259,
+      "has_disagreement": false,
+      "disagreement_info": {
+        "unanimous": [
+          "ويروي",
+          "سوء",
+          "ويحكي",
+          "عنتره"
+        ],
+        "disputed": [
+          {
+            "keyphrase": "الحزم",
+            "votes": 2,
+            "out_of": 3
+          }
+        ]
+      },
+      "annotator_count": 3,
+      "majority_vote_gold": [
+        "ويروي",
+        "سوء",
+        "ويحكي",
+        "عنتره",
+        "الحزم"
+      ],
+      "stored_gold": [
+        "ويروي",
+        "سوء",
+        "ويحكي",
+        "عنتره",
+        "الحزم"
+      ],
+      "gold_sets_match": true
+    },
+    {
+      "id": 45,
+      "variety": "Classical",
+      "topic": "A_Muslim_Manual_of_War",
+      "pair_f1_scores": {
+        "ann1_ann2": 1.0,
+        "ann1_ann3": 0.8889,
+        "ann2_ann3": 0.8889
+      },
+      "avg_pairwise_f1": 0.9259,
+      "has_disagreement": false,
+      "disagreement_info": {
+        "unanimous": [
+          "وبالجمله",
+          "يجب",
+          "بعدوه",
+          "حال،"
+        ],
+        "disputed": [
+          {
+            "keyphrase": "حذره",
+            "votes": 2,
+            "out_of": 3
+          }
+        ]
+      },
+      "annotator_count": 3,
+      "majority_vote_gold": [
+        "وبالجمله",
+        "يجب",
+        "بعدوه",
+        "حال،",
+        "حذره"
+      ],
+      "stored_gold": [
+        "وبالجمله",
+        "يجب",
+        "بعدوه",
+        "حال،",
+        "حذره"
+      ],
+      "gold_sets_match": true
+    },
+    {
+      "id": 46,
+      "variety": "Classical",
+      "topic": "A_Muslim_Manual_of_War",
+      "pair_f1_scores": {
+        "ann1_ann2": 0.8889,
+        "ann1_ann3": 0.8889,
+        "ann2_ann3": 0.75
+      },
+      "avg_pairwise_f1": 0.8426,
+      "has_disagreement": false,
+      "disagreement_info": {
+        "unanimous": [
+          "اعد",
+          "صغيرا",
+          "مكافاته،"
+        ],
+        "disputed": [
+          {
+            "keyphrase": "ذلك،",
+            "votes": 2,
+            "out_of": 3
+          },
+          {
+            "keyphrase": "يكافئه",
+            "votes": 2,
+            "out_of": 3
+          }
+        ]
+      },
+      "annotator_count": 3,
+      "majority_vote_gold": [
+        "اعد",
+        "صغيرا",
+        "مكافاته،",
+        "ذلك،",
+        "يكافئه"
+      ],
+      "stored_gold": [
+        "اعد",
+        "صغيرا",
+        "مكافاته،",
+        "ذلك،",
+        "يكافئه"
+      ],
+      "gold_sets_match": true
+    },
+    {
+      "id": 47,
+      "variety": "Classical",
+      "topic": "A_Muslim_Manual_of_War",
+      "pair_f1_scores": {
+        "ann1_ann2": 0.8889,
+        "ann1_ann3": 0.75,
+        "ann2_ann3": 0.8889
+      },
+      "avg_pairwise_f1": 0.8426,
+      "has_disagreement": false,
+      "disagreement_info": {
+        "unanimous": [
+          "لقائه",
+          "بالهوينا",
+          "يامن"
+        ],
+        "disputed": [
+          {
+            "keyphrase": "عنه،",
+            "votes": 2,
+            "out_of": 3
+          },
+          {
+            "keyphrase": "قيل",
+            "votes": 2,
+            "out_of": 3
+          }
+        ]
+      },
+      "annotator_count": 3,
+      "majority_vote_gold": [
+        "لقائه",
+        "بالهوينا",
+        "يامن",
+        "عنه،",
+        "قيل"
+      ],
+      "stored_gold": [
+        "لقائه",
+        "بالهوينا",
+        "يامن",
+        "عنه،",
+        "قيل"
+      ],
+      "gold_sets_match": true
+    },
+    {
+      "id": 48,
+      "variety": "Classical",
+      "topic": "A_Muslim_Manual_of_War",
+      "pair_f1_scores": {
+        "ann1_ann2": 0.8,
+        "ann1_ann3": 0.8889,
+        "ann2_ann3": 0.9091
+      },
+      "avg_pairwise_f1": 0.866,
+      "has_disagreement": false,
+      "disagreement_info": {
+        "unanimous": [
+          "وقته",
+          "متي",
+          "ضيع",
+          "الحزم،"
+        ],
+        "disputed": [
+          {
+            "keyphrase": "فاته",
+            "votes": 2,
+            "out_of": 3
+          },
+          {
+            "keyphrase": "الأدب العربي",
+            "votes": 1,
+            "out_of": 3
+          }
+        ]
+      },
+      "annotator_count": 3,
+      "majority_vote_gold": [
+        "وقته",
+        "متي",
+        "ضيع",
+        "الحزم،",
+        "فاته"
+      ],
+      "stored_gold": [
+        "وقته",
+        "متي",
+        "ضيع",
+        "الحزم،",
+        "فاته"
+      ],
+      "gold_sets_match": true
+    },
+    {
+      "id": 49,
+      "variety": "Classical",
+      "topic": "A_Muslim_Manual_of_War",
+      "pair_f1_scores": {
+        "ann1_ann2": 0.8889,
+        "ann1_ann3": 0.8889,
+        "ann2_ann3": 1.0
+      },
+      "avg_pairwise_f1": 0.9259,
+      "has_disagreement": false,
+      "disagreement_info": {
+        "unanimous": [
+          "باتخاذ",
+          "ونصب",
+          "بالامكنه",
+          "للنظر"
+        ],
+        "disputed": [
+          {
+            "keyphrase": "المرايا",
+            "votes": 2,
+            "out_of": 3
+          }
+        ]
+      },
+      "annotator_count": 3,
+      "majority_vote_gold": [
+        "باتخاذ",
+        "ونصب",
+        "بالامكنه",
+        "للنظر",
+        "المرايا"
+      ],
+      "stored_gold": [
+        "باتخاذ",
+        "ونصب",
+        "بالامكنه",
+        "للنظر",
+        "المرايا"
+      ],
+      "gold_sets_match": true
+    },
+    {
+      "id": 50,
+      "variety": "Classical",
+      "topic": "A_Muslim_Manual_of_War",
+      "pair_f1_scores": {
+        "ann1_ann2": 0.75,
+        "ann1_ann3": 0.8889,
+        "ann2_ann3": 0.8889
+      },
+      "avg_pairwise_f1": 0.8426,
+      "has_disagreement": false,
+      "disagreement_info": {
+        "unanimous": [
+          "والخنادق،",
+          "بالاسوار",
+          "يحصنون"
+        ],
+        "disputed": [
+          {
+            "keyphrase": "الملوك",
+            "votes": 2,
+            "out_of": 3
+          },
+          {
+            "keyphrase": "والقلاع",
+            "votes": 2,
+            "out_of": 3
+          }
+        ]
+      },
+      "annotator_count": 3,
+      "majority_vote_gold": [
+        "والخنادق،",
+        "بالاسوار",
+        "يحصنون",
+        "الملوك",
+        "والقلاع"
+      ],
+      "stored_gold": [
+        "والخنادق،",
+        "بالاسوار",
+        "يحصنون",
+        "الملوك",
+        "والقلاع"
+      ],
+      "gold_sets_match": true
+    },
+    {
+      "id": 51,
+      "variety": "Classical",
+      "topic": "A_Muslim_Manual_of_War",
+      "pair_f1_scores": {
+        "ann1_ann2": 0.8889,
+        "ann1_ann3": 1.0,
+        "ann2_ann3": 0.8889
+      },
+      "avg_pairwise_f1": 0.9259,
+      "has_disagreement": false,
+      "disagreement_info": {
+        "unanimous": [
+          "وسلم",
+          "النبي",
+          "احتفر",
+          "خندقا"
+        ],
+        "disputed": [
+          {
+            "keyphrase": "صلي",
+            "votes": 2,
+            "out_of": 3
+          }
+        ]
+      },
+      "annotator_count": 3,
+      "majority_vote_gold": [
+        "وسلم",
+        "النبي",
+        "احتفر",
+        "خندقا",
+        "صلي"
+      ],
+      "stored_gold": [
+        "وسلم",
+        "النبي",
+        "احتفر",
+        "خندقا",
+        "صلي"
+      ],
+      "gold_sets_match": true
+    },
+    {
+      "id": 52,
+      "variety": "Classical",
+      "topic": "A_Muslim_Manual_of_War",
+      "pair_f1_scores": {
+        "ann1_ann2": 1.0,
+        "ann1_ann3": 1.0,
+        "ann2_ann3": 1.0
+      },
+      "avg_pairwise_f1": 1.0,
+      "has_disagreement": false,
+      "disagreement_info": {
+        "unanimous": [
+          "شوهدت",
+          "وقلاع",
+          "نزلت",
+          "العظيمه،",
+          "وحاصرتها"
+        ],
+        "disputed": []
+      },
+      "annotator_count": 3,
+      "majority_vote_gold": [
+        "شوهدت",
+        "وقلاع",
+        "نزلت",
+        "العظيمه،",
+        "وحاصرتها"
+      ],
+      "stored_gold": [
+        "شوهدت",
+        "وقلاع",
+        "نزلت",
+        "العظيمه،",
+        "وحاصرتها"
+      ],
+      "gold_sets_match": true
+    },
+    {
+      "id": 53,
+      "variety": "Classical",
+      "topic": "A_Muslim_Manual_of_War",
+      "pair_f1_scores": {
+        "ann1_ann2": 0.9091,
+        "ann1_ann3": 1.0,
+        "ann2_ann3": 0.9091
+      },
+      "avg_pairwise_f1": 0.9394,
+      "has_disagreement": false,
+      "disagreement_info": {
+        "unanimous": [
+          "سور",
+          "انطاكيه",
+          "بلاد",
+          "الشمال",
+          "محيط"
+        ],
+        "disputed": [
+          {
+            "keyphrase": "العلوم الشرعية",
+            "votes": 1,
+            "out_of": 3
+          }
+        ]
+      },
+      "annotator_count": 3,
+      "majority_vote_gold": [
+        "سور",
+        "انطاكيه",
+        "بلاد",
+        "الشمال",
+        "محيط"
+      ],
+      "stored_gold": [
+        "سور",
+        "انطاكيه",
+        "بلاد",
+        "الشمال",
+        "محيط"
+      ],
+      "gold_sets_match": true
+    },
+    {
+      "id": 54,
+      "variety": "Classical",
+      "topic": "A_Muslim_Manual_of_War",
+      "pair_f1_scores": {
+        "ann1_ann2": 0.8889,
+        "ann1_ann3": 0.8889,
+        "ann2_ann3": 0.75
+      },
+      "avg_pairwise_f1": 0.8426,
+      "has_disagreement": false,
+      "disagreement_info": {
+        "unanimous": [
+          "دلوكه،",
+          "بالعجوز،",
+          "ملكت"
+        ],
+        "disputed": [
+          {
+            "keyphrase": "المعروفه",
+            "votes": 2,
+            "out_of": 3
+          },
+          {
+            "keyphrase": "فرعون",
+            "votes": 2,
+            "out_of": 3
+          }
+        ]
+      },
+      "annotator_count": 3,
+      "majority_vote_gold": [
+        "دلوكه،",
+        "بالعجوز،",
+        "ملكت",
+        "المعروفه",
+        "فرعون"
+      ],
+      "stored_gold": [
+        "دلوكه،",
+        "بالعجوز،",
+        "ملكت",
+        "المعروفه",
+        "فرعون"
+      ],
+      "gold_sets_match": true
+    },
+    {
+      "id": 55,
+      "variety": "Dialect",
+      "topic": "EGY",
+      "pair_f1_scores": {
+        "ann1_ann2": 0.6667,
+        "ann1_ann3": 0.8889,
+        "ann2_ann3": 0.8
+      },
+      "avg_pairwise_f1": 0.7852,
+      "has_disagreement": false,
+      "disagreement_info": {
+        "unanimous": [
+          "ومحبه",
+          "رائع",
+          "التعصب"
+        ],
+        "disputed": [
+          {
+            "keyphrase": "الاعمي",
+            "votes": 2,
+            "out_of": 3
+          },
+          {
+            "keyphrase": "والتشجيع",
+            "votes": 2,
+            "out_of": 3
+          },
+          {
+            "keyphrase": "الموروث الثقافي",
+            "votes": 1,
+            "out_of": 3
+          }
+        ]
+      },
+      "annotator_count": 3,
+      "majority_vote_gold": [
+        "ومحبه",
+        "رائع",
+        "التعصب",
+        "الاعمي",
+        "والتشجيع"
+      ],
+      "stored_gold": [
+        "ومحبه",
+        "رائع",
+        "التعصب",
+        "الاعمي",
+        "والتشجيع"
+      ],
+      "gold_sets_match": true
+    },
+    {
+      "id": 56,
+      "variety": "Dialect",
+      "topic": "EGY",
+      "pair_f1_scores": {
+        "ann1_ann2": 0.75,
+        "ann1_ann3": 0.8889,
+        "ann2_ann3": 0.8889
+      },
+      "avg_pairwise_f1": 0.8426,
+      "has_disagreement": false,
+      "disagreement_info": {
+        "unanimous": [
+          "ودعواتنا",
+          "مبشر",
+          "بالخير"
+        ],
+        "disputed": [
+          {
+            "keyphrase": "السعر",
+            "votes": 2,
+            "out_of": 3
+          },
+          {
+            "keyphrase": "بالتوفيق",
+            "votes": 2,
+            "out_of": 3
+          }
+        ]
+      },
+      "annotator_count": 3,
+      "majority_vote_gold": [
+        "ودعواتنا",
+        "مبشر",
+        "بالخير",
+        "السعر",
+        "بالتوفيق"
+      ],
+      "stored_gold": [
+        "ودعواتنا",
+        "مبشر",
+        "بالخير",
+        "السعر",
+        "بالتوفيق"
+      ],
+      "gold_sets_match": true
+    },
+    {
+      "id": 57,
+      "variety": "Dialect",
+      "topic": "EGY",
+      "pair_f1_scores": {
+        "ann1_ann2": 0.8,
+        "ann1_ann3": 0.75,
+        "ann2_ann3": 0.8
+      },
+      "avg_pairwise_f1": 0.7833,
+      "has_disagreement": false,
+      "disagreement_info": {
+        "unanimous": [
+          "بنوخذوه",
+          "جاي",
+          "الله"
+        ],
+        "disputed": [
+          {
+            "keyphrase": "الكل",
+            "votes": 2,
+            "out_of": 3
+          },
+          {
+            "keyphrase": "رايح",
+            "votes": 2,
+            "out_of": 3
+          },
+          {
+            "keyphrase": "اللهجة المحلية",
+            "votes": 1,
+            "out_of": 3
+          }
+        ]
+      },
+      "annotator_count": 3,
+      "majority_vote_gold": [
+        "بنوخذوه",
+        "جاي",
+        "الله",
+        "الكل",
+        "رايح"
+      ],
+      "stored_gold": [
+        "بنوخذوه",
+        "جاي",
+        "الله",
+        "الكل",
+        "رايح"
+      ],
+      "gold_sets_match": true
+    },
+    {
+      "id": 58,
+      "variety": "Dialect",
+      "topic": "EGY",
+      "pair_f1_scores": {
+        "ann1_ann2": 1.0,
+        "ann1_ann3": 1.0,
+        "ann2_ann3": 1.0
+      },
+      "avg_pairwise_f1": 1.0,
+      "has_disagreement": false,
+      "disagreement_info": {
+        "unanimous": [
+          "برضه",
+          "لازالت",
+          "الرويات",
+          "مختلفه"
+        ],
+        "disputed": []
+      },
+      "annotator_count": 3,
+      "majority_vote_gold": [
+        "برضه",
+        "لازالت",
+        "الرويات",
+        "مختلفه"
+      ],
+      "stored_gold": [
+        "برضه",
+        "لازالت",
+        "الرويات",
+        "مختلفه"
+      ],
+      "gold_sets_match": true
+    },
+    {
+      "id": 59,
+      "variety": "Dialect",
+      "topic": "EGY",
+      "pair_f1_scores": {
+        "ann1_ann2": 0.75,
+        "ann1_ann3": 1.0,
+        "ann2_ann3": 0.75
+      },
+      "avg_pairwise_f1": 0.8333,
+      "has_disagreement": false,
+      "disagreement_info": {
+        "unanimous": [
+          "الراجل",
+          "المقال",
+          "ياكاتب"
+        ],
+        "disputed": [
+          {
+            "keyphrase": "حذفت",
+            "votes": 2,
+            "out_of": 3
+          },
+          {
+            "keyphrase": "متعب",
+            "votes": 1,
+            "out_of": 3
+          }
+        ]
+      },
+      "annotator_count": 3,
+      "majority_vote_gold": [
+        "الراجل",
+        "المقال",
+        "ياكاتب",
+        "حذفت"
+      ],
+      "stored_gold": [
+        "الراجل",
+        "المقال",
+        "ياكاتب",
+        "حذفت"
+      ],
+      "gold_sets_match": true
+    },
+    {
+      "id": 60,
+      "variety": "Dialect",
+      "topic": "EGY",
+      "pair_f1_scores": {
+        "ann1_ann2": 0.8889,
+        "ann1_ann3": 1.0,
+        "ann2_ann3": 0.8889
+      },
+      "avg_pairwise_f1": 0.9259,
+      "has_disagreement": false,
+      "disagreement_info": {
+        "unanimous": [
+          "سيادتكم",
+          "عيب",
+          "وهي",
+          "طبيعه"
+        ],
+        "disputed": [
+          {
+            "keyphrase": "الهوية المحلية",
+            "votes": 1,
+            "out_of": 3
+          }
+        ]
+      },
+      "annotator_count": 3,
+      "majority_vote_gold": [
+        "سيادتكم",
+        "عيب",
+        "وهي",
+        "طبيعه"
+      ],
+      "stored_gold": [
+        "سيادتكم",
+        "عيب",
+        "وهي",
+        "طبيعه"
+      ],
+      "gold_sets_match": true
+    },
+    {
+      "id": 61,
+      "variety": "Dialect",
+      "topic": "EGY",
+      "pair_f1_scores": {
+        "ann1_ann2": 1.0,
+        "ann1_ann3": 1.0,
+        "ann2_ann3": 1.0
+      },
+      "avg_pairwise_f1": 1.0,
+      "has_disagreement": false,
+      "disagreement_info": {
+        "unanimous": [
+          "وازاي",
+          "ازاي",
+          "روراوه",
+          "بيحب",
+          "الشروق"
+        ],
+        "disputed": []
+      },
+      "annotator_count": 3,
+      "majority_vote_gold": [
+        "وازاي",
+        "ازاي",
+        "روراوه",
+        "بيحب",
+        "الشروق"
+      ],
+      "stored_gold": [
+        "وازاي",
+        "ازاي",
+        "روراوه",
+        "بيحب",
+        "الشروق"
+      ],
+      "gold_sets_match": true
+    },
+    {
+      "id": 62,
+      "variety": "Dialect",
+      "topic": "GLF",
+      "pair_f1_scores": {
+        "ann1_ann2": 0.6667,
+        "ann1_ann3": 0.6667,
+        "ann2_ann3": 0.75
+      },
+      "avg_pairwise_f1": 0.6945,
+      "has_disagreement": true,
+      "disagreement_info": {
+        "unanimous": [
+          "ليه",
+          "وصاحب"
+        ],
+        "disputed": [
+          {
+            "keyphrase": "باتشه",
+            "votes": 2,
+            "out_of": 3
+          },
+          {
+            "keyphrase": "زرت",
+            "votes": 2,
+            "out_of": 3
+          },
+          {
+            "keyphrase": "الجيل الجديد",
+            "votes": 1,
+            "out_of": 3
+          },
+          {
+            "keyphrase": "شاذا",
+            "votes": 2,
+            "out_of": 3
+          }
+        ]
+      },
+      "annotator_count": 3,
+      "majority_vote_gold": [
+        "ليه",
+        "وصاحب",
+        "باتشه",
+        "زرت",
+        "شاذا"
+      ],
+      "stored_gold": [
+        "ليه",
+        "وصاحب",
+        "باتشه",
+        "زرت",
+        "شاذا"
+      ],
+      "gold_sets_match": true
+    },
+    {
+      "id": 63,
+      "variety": "Dialect",
+      "topic": "GLF",
+      "pair_f1_scores": {
+        "ann1_ann2": 0.8889,
+        "ann1_ann3": 0.8889,
+        "ann2_ann3": 1.0
+      },
+      "avg_pairwise_f1": 0.9259,
+      "has_disagreement": false,
+      "disagreement_info": {
+        "unanimous": [
+          "شكرا",
+          "اليوتيوب",
+          "النجف",
+          "الخطوات"
+        ],
+        "disputed": [
+          {
+            "keyphrase": "نوره",
+            "votes": 2,
+            "out_of": 3
+          }
+        ]
+      },
+      "annotator_count": 3,
+      "majority_vote_gold": [
+        "شكرا",
+        "اليوتيوب",
+        "النجف",
+        "الخطوات",
+        "نوره"
+      ],
+      "stored_gold": [
+        "شكرا",
+        "اليوتيوب",
+        "النجف",
+        "الخطوات",
+        "نوره"
+      ],
+      "gold_sets_match": true
+    },
+    {
+      "id": 64,
+      "variety": "Dialect",
+      "topic": "GLF",
+      "pair_f1_scores": {
+        "ann1_ann2": 0.75,
+        "ann1_ann3": 0.75,
+        "ann2_ann3": 0.75
+      },
+      "avg_pairwise_f1": 0.75,
+      "has_disagreement": false,
+      "disagreement_info": {
+        "unanimous": [
+          "نشر",
+          "النشاطات"
+        ],
+        "disputed": [
+          {
+            "keyphrase": "الالكتروني",
+            "votes": 2,
+            "out_of": 3
+          },
+          {
+            "keyphrase": "ينكر",
+            "votes": 2,
+            "out_of": 3
+          },
+          {
+            "keyphrase": "بيمناك",
+            "votes": 2,
+            "out_of": 3
+          }
+        ]
+      },
+      "annotator_count": 3,
+      "majority_vote_gold": [
+        "نشر",
+        "النشاطات",
+        "الالكتروني",
+        "ينكر",
+        "بيمناك"
+      ],
+      "stored_gold": [
+        "نشر",
+        "النشاطات",
+        "الالكتروني",
+        "ينكر",
+        "بيمناك"
+      ],
+      "gold_sets_match": true
+    },
+    {
+      "id": 65,
+      "variety": "Dialect",
+      "topic": "GLF",
+      "pair_f1_scores": {
+        "ann1_ann2": 0.75,
+        "ann1_ann3": 0.8889,
+        "ann2_ann3": 0.8889
+      },
+      "avg_pairwise_f1": 0.8426,
+      "has_disagreement": false,
+      "disagreement_info": {
+        "unanimous": [
+          "اوروبا",
+          "ترابها",
+          "والسلام"
+        ],
+        "disputed": [
+          {
+            "keyphrase": "عاش",
+            "votes": 2,
+            "out_of": 3
+          },
+          {
+            "keyphrase": "كلام",
+            "votes": 2,
+            "out_of": 3
+          }
+        ]
+      },
+      "annotator_count": 3,
+      "majority_vote_gold": [
+        "اوروبا",
+        "ترابها",
+        "والسلام",
+        "عاش",
+        "كلام"
+      ],
+      "stored_gold": [
+        "اوروبا",
+        "ترابها",
+        "والسلام",
+        "عاش",
+        "كلام"
+      ],
+      "gold_sets_match": true
+    },
+    {
+      "id": 66,
+      "variety": "Dialect",
+      "topic": "GLF",
+      "pair_f1_scores": {
+        "ann1_ann2": 1.0,
+        "ann1_ann3": 1.0,
+        "ann2_ann3": 1.0
+      },
+      "avg_pairwise_f1": 1.0,
+      "has_disagreement": false,
+      "disagreement_info": {
+        "unanimous": [
+          "الضغط",
+          "مطروح",
+          "الاقلي",
+          "تطرحه",
+          "سريع"
+        ],
+        "disputed": []
+      },
+      "annotator_count": 3,
+      "majority_vote_gold": [
+        "الضغط",
+        "مطروح",
+        "الاقلي",
+        "تطرحه",
+        "سريع"
+      ],
+      "stored_gold": [
+        "الضغط",
+        "مطروح",
+        "الاقلي",
+        "تطرحه",
+        "سريع"
+      ],
+      "gold_sets_match": true
+    },
+    {
+      "id": 67,
+      "variety": "Dialect",
+      "topic": "GLF",
+      "pair_f1_scores": {
+        "ann1_ann2": 0.75,
+        "ann1_ann3": 0.8889,
+        "ann2_ann3": 0.8889
+      },
+      "avg_pairwise_f1": 0.8426,
+      "has_disagreement": false,
+      "disagreement_info": {
+        "unanimous": [
+          "القبائل",
+          "سيرجع",
+          "وهناك"
+        ],
+        "disputed": [
+          {
+            "keyphrase": "يشتكون",
+            "votes": 2,
+            "out_of": 3
+          },
+          {
+            "keyphrase": "لاربع",
+            "votes": 2,
+            "out_of": 3
+          }
+        ]
+      },
+      "annotator_count": 3,
+      "majority_vote_gold": [
+        "القبائل",
+        "سيرجع",
+        "وهناك",
+        "يشتكون",
+        "لاربع"
+      ],
+      "stored_gold": [
+        "القبائل",
+        "سيرجع",
+        "وهناك",
+        "يشتكون",
+        "لاربع"
+      ],
+      "gold_sets_match": true
+    },
+    {
+      "id": 68,
+      "variety": "Dialect",
+      "topic": "GLF",
+      "pair_f1_scores": {
+        "ann1_ann2": 0.8889,
+        "ann1_ann3": 0.8,
+        "ann2_ann3": 0.6667
+      },
+      "avg_pairwise_f1": 0.7852,
+      "has_disagreement": false,
+      "disagreement_info": {
+        "unanimous": [
+          "ننسي",
+          "يحرصون",
+          "كون"
+        ],
+        "disputed": [
+          {
+            "keyphrase": "كره",
+            "votes": 2,
+            "out_of": 3
+          },
+          {
+            "keyphrase": "اللعبه",
+            "votes": 2,
+            "out_of": 3
+          },
+          {
+            "keyphrase": "الثقافة الشعبية",
+            "votes": 1,
+            "out_of": 3
+          }
+        ]
+      },
+      "annotator_count": 3,
+      "majority_vote_gold": [
+        "ننسي",
+        "يحرصون",
+        "كون",
+        "كره",
+        "اللعبه"
+      ],
+      "stored_gold": [
+        "ننسي",
+        "يحرصون",
+        "كون",
+        "كره",
+        "اللعبه"
+      ],
+      "gold_sets_match": true
+    },
+    {
+      "id": 69,
+      "variety": "Dialect",
+      "topic": "LAV",
+      "pair_f1_scores": {
+        "ann1_ann2": 0.75,
+        "ann1_ann3": 0.8889,
+        "ann2_ann3": 0.8889
+      },
+      "avg_pairwise_f1": 0.8426,
+      "has_disagreement": false,
+      "disagreement_info": {
+        "unanimous": [
+          "المجاوره",
+          "ليش",
+          "تصنع"
+        ],
+        "disputed": [
+          {
+            "keyphrase": "للمواد",
+            "votes": 2,
+            "out_of": 3
+          },
+          {
+            "keyphrase": "وسيرت",
+            "votes": 2,
+            "out_of": 3
+          }
+        ]
+      },
+      "annotator_count": 3,
+      "majority_vote_gold": [
+        "المجاوره",
+        "ليش",
+        "تصنع",
+        "للمواد",
+        "وسيرت"
+      ],
+      "stored_gold": [
+        "المجاوره",
+        "ليش",
+        "تصنع",
+        "للمواد",
+        "وسيرت"
+      ],
+      "gold_sets_match": true
+    },
+    {
+      "id": 70,
+      "variety": "Dialect",
+      "topic": "LAV",
+      "pair_f1_scores": {
+        "ann1_ann2": 0.8889,
+        "ann1_ann3": 0.8,
+        "ann2_ann3": 0.8889
+      },
+      "avg_pairwise_f1": 0.8593,
+      "has_disagreement": false,
+      "disagreement_info": {
+        "unanimous": [
+          "شنت",
+          "فشلت",
+          "احمر",
+          "صغير"
+        ],
+        "disputed": [
+          {
+            "keyphrase": "بصل",
+            "votes": 1,
+            "out_of": 3
+          },
+          {
+            "keyphrase": "الحياة اليومية",
+            "votes": 1,
+            "out_of": 3
+          }
+        ]
+      },
+      "annotator_count": 3,
+      "majority_vote_gold": [
+        "شنت",
+        "فشلت",
+        "احمر",
+        "صغير"
+      ],
+      "stored_gold": [
+        "شنت",
+        "فشلت",
+        "احمر",
+        "صغير"
+      ],
+      "gold_sets_match": true
+    },
+    {
+      "id": 71,
+      "variety": "Dialect",
+      "topic": "LAV",
+      "pair_f1_scores": {
+        "ann1_ann2": 0.8,
+        "ann1_ann3": 0.6667,
+        "ann2_ann3": 0.8889
+      },
+      "avg_pairwise_f1": 0.7852,
+      "has_disagreement": false,
+      "disagreement_info": {
+        "unanimous": [
+          "انجزنا",
+          "وظائف",
+          "دائم"
+        ],
+        "disputed": [
+          {
+            "keyphrase": "سمعت",
+            "votes": 2,
+            "out_of": 3
+          },
+          {
+            "keyphrase": "العادات والتقاليد",
+            "votes": 1,
+            "out_of": 3
+          },
+          {
+            "keyphrase": "اخلال",
+            "votes": 2,
+            "out_of": 3
+          }
+        ]
+      },
+      "annotator_count": 3,
+      "majority_vote_gold": [
+        "انجزنا",
+        "وظائف",
+        "دائم",
+        "سمعت",
+        "اخلال"
+      ],
+      "stored_gold": [
+        "انجزنا",
+        "وظائف",
+        "دائم",
+        "سمعت",
+        "اخلال"
+      ],
+      "gold_sets_match": true
+    },
+    {
+      "id": 72,
+      "variety": "Dialect",
+      "topic": "LAV",
+      "pair_f1_scores": {
+        "ann1_ann2": 0.75,
+        "ann1_ann3": 1.0,
+        "ann2_ann3": 0.75
+      },
+      "avg_pairwise_f1": 0.8333,
+      "has_disagreement": false,
+      "disagreement_info": {
+        "unanimous": [
+          "الواحد",
+          "غانتس",
+          "تطريز"
+        ],
+        "disputed": [
+          {
+            "keyphrase": "امسك",
+            "votes": 2,
+            "out_of": 3
+          },
+          {
+            "keyphrase": "فواز",
+            "votes": 1,
+            "out_of": 3
+          }
+        ]
+      },
+      "annotator_count": 3,
+      "majority_vote_gold": [
+        "الواحد",
+        "غانتس",
+        "تطريز",
+        "امسك"
+      ],
+      "stored_gold": [
+        "الواحد",
+        "غانتس",
+        "تطريز",
+        "امسك"
+      ],
+      "gold_sets_match": true
+    },
+    {
+      "id": 73,
+      "variety": "Dialect",
+      "topic": "LAV",
+      "pair_f1_scores": {
+        "ann1_ann2": 0.8,
+        "ann1_ann3": 0.8889,
+        "ann2_ann3": 0.8889
+      },
+      "avg_pairwise_f1": 0.8593,
+      "has_disagreement": false,
+      "disagreement_info": {
+        "unanimous": [
+          "قرات",
+          "بسالك",
+          "تشوف",
+          "بتسالني"
+        ],
+        "disputed": [
+          {
+            "keyphrase": "الحياة اليومية",
+            "votes": 1,
+            "out_of": 3
+          },
+          {
+            "keyphrase": "معلش",
+            "votes": 1,
+            "out_of": 3
+          }
+        ]
+      },
+      "annotator_count": 3,
+      "majority_vote_gold": [
+        "قرات",
+        "بسالك",
+        "تشوف",
+        "بتسالني"
+      ],
+      "stored_gold": [
+        "قرات",
+        "بسالك",
+        "تشوف",
+        "بتسالني"
+      ],
+      "gold_sets_match": true
+    },
+    {
+      "id": 74,
+      "variety": "Dialect",
+      "topic": "LAV",
+      "pair_f1_scores": {
+        "ann1_ann2": 0.75,
+        "ann1_ann3": 0.75,
+        "ann2_ann3": 0.75
+      },
+      "avg_pairwise_f1": 0.75,
+      "has_disagreement": false,
+      "disagreement_info": {
+        "unanimous": [
+          "الاساس",
+          "نحنا"
+        ],
+        "disputed": [
+          {
+            "keyphrase": "نعطي",
+            "votes": 2,
+            "out_of": 3
+          },
+          {
+            "keyphrase": "بمجتمعاتنا",
+            "votes": 2,
+            "out_of": 3
+          },
+          {
+            "keyphrase": "وتقاليدنا",
+            "votes": 2,
+            "out_of": 3
+          }
+        ]
+      },
+      "annotator_count": 3,
+      "majority_vote_gold": [
+        "الاساس",
+        "نحنا",
+        "نعطي",
+        "بمجتمعاتنا",
+        "وتقاليدنا"
+      ],
+      "stored_gold": [
+        "الاساس",
+        "نحنا",
+        "نعطي",
+        "بمجتمعاتنا",
+        "وتقاليدنا"
+      ],
+      "gold_sets_match": true
+    },
+    {
+      "id": 75,
+      "variety": "Dialect",
+      "topic": "NOR",
+      "pair_f1_scores": {
+        "ann1_ann2": 1.0,
+        "ann1_ann3": 0.8889,
+        "ann2_ann3": 0.8889
+      },
+      "avg_pairwise_f1": 0.9259,
+      "has_disagreement": false,
+      "disagreement_info": {
+        "unanimous": [
+          "شاني",
+          "ستحظي",
+          "تلتها",
+          "الدين"
+        ],
+        "disputed": [
+          {
+            "keyphrase": "خير",
+            "votes": 2,
+            "out_of": 3
+          }
+        ]
+      },
+      "annotator_count": 3,
+      "majority_vote_gold": [
+        "شاني",
+        "ستحظي",
+        "تلتها",
+        "الدين",
+        "خير"
+      ],
+      "stored_gold": [
+        "شاني",
+        "ستحظي",
+        "تلتها",
+        "الدين",
+        "خير"
+      ],
+      "gold_sets_match": true
+    },
+    {
+      "id": 76,
+      "variety": "Dialect",
+      "topic": "NOR",
+      "pair_f1_scores": {
+        "ann1_ann2": 0.8889,
+        "ann1_ann3": 1.0,
+        "ann2_ann3": 0.8889
+      },
+      "avg_pairwise_f1": 0.9259,
+      "has_disagreement": false,
+      "disagreement_info": {
+        "unanimous": [
+          "تغلب",
+          "واجب",
+          "برنامجه",
+          "احنا"
+        ],
+        "disputed": [
+          {
+            "keyphrase": "وياهم",
+            "votes": 2,
+            "out_of": 3
+          }
+        ]
+      },
+      "annotator_count": 3,
+      "majority_vote_gold": [
+        "تغلب",
+        "واجب",
+        "برنامجه",
+        "احنا",
+        "وياهم"
+      ],
+      "stored_gold": [
+        "تغلب",
+        "واجب",
+        "برنامجه",
+        "احنا",
+        "وياهم"
+      ],
+      "gold_sets_match": true
+    },
+    {
+      "id": 77,
+      "variety": "Dialect",
+      "topic": "NOR",
+      "pair_f1_scores": {
+        "ann1_ann2": 0.8889,
+        "ann1_ann3": 1.0,
+        "ann2_ann3": 0.8889
+      },
+      "avg_pairwise_f1": 0.9259,
+      "has_disagreement": false,
+      "disagreement_info": {
+        "unanimous": [
+          "الحوار",
+          "كلها",
+          "النقابيه",
+          "عندهم"
+        ],
+        "disputed": [
+          {
+            "keyphrase": "ديال",
+            "votes": 2,
+            "out_of": 3
+          }
+        ]
+      },
+      "annotator_count": 3,
+      "majority_vote_gold": [
+        "الحوار",
+        "كلها",
+        "النقابيه",
+        "عندهم",
+        "ديال"
+      ],
+      "stored_gold": [
+        "الحوار",
+        "كلها",
+        "النقابيه",
+        "عندهم",
+        "ديال"
+      ],
+      "gold_sets_match": true
+    },
+    {
+      "id": 78,
+      "variety": "Dialect",
+      "topic": "NOR",
+      "pair_f1_scores": {
+        "ann1_ann2": 0.9091,
+        "ann1_ann3": 0.8889,
+        "ann2_ann3": 0.8
+      },
+      "avg_pairwise_f1": 0.866,
+      "has_disagreement": false,
+      "disagreement_info": {
+        "unanimous": [
+          "المهدي",
+          "هول",
+          "فالذي",
+          "معتمديه"
+        ],
+        "disputed": [
+          {
+            "keyphrase": "ريف",
+            "votes": 2,
+            "out_of": 3
+          },
+          {
+            "keyphrase": "الحياة اليومية",
+            "votes": 1,
+            "out_of": 3
+          }
+        ]
+      },
+      "annotator_count": 3,
+      "majority_vote_gold": [
+        "المهدي",
+        "هول",
+        "فالذي",
+        "معتمديه",
+        "ريف"
+      ],
+      "stored_gold": [
+        "المهدي",
+        "هول",
+        "فالذي",
+        "معتمديه",
+        "ريف"
+      ],
+      "gold_sets_match": true
+    },
+    {
+      "id": 79,
+      "variety": "Dialect",
+      "topic": "NOR",
+      "pair_f1_scores": {
+        "ann1_ann2": 0.8889,
+        "ann1_ann3": 0.9091,
+        "ann2_ann3": 0.8
+      },
+      "avg_pairwise_f1": 0.866,
+      "has_disagreement": false,
+      "disagreement_info": {
+        "unanimous": [
+          "معاقلكم",
+          "الاسباب",
+          "سبب",
+          "شيء"
+        ],
+        "disputed": [
+          {
+            "keyphrase": "اقل",
+            "votes": 2,
+            "out_of": 3
+          },
+          {
+            "keyphrase": "التواصل الاجتماعي",
+            "votes": 1,
+            "out_of": 3
+          }
+        ]
+      },
+      "annotator_count": 3,
+      "majority_vote_gold": [
+        "معاقلكم",
+        "الاسباب",
+        "سبب",
+        "شيء",
+        "اقل"
+      ],
+      "stored_gold": [
+        "معاقلكم",
+        "الاسباب",
+        "سبب",
+        "شيء",
+        "اقل"
+      ],
+      "gold_sets_match": true
+    },
+    {
+      "id": 80,
+      "variety": "Dialect",
+      "topic": "NOR",
+      "pair_f1_scores": {
+        "ann1_ann2": 0.8,
+        "ann1_ann3": 1.0,
+        "ann2_ann3": 0.8
+      },
+      "avg_pairwise_f1": 0.8667,
+      "has_disagreement": false,
+      "disagreement_info": {
+        "unanimous": [
+          "يقولوا",
+          "عاملين",
+          "الدم",
+          "اذونا"
+        ],
+        "disputed": [
+          {
+            "keyphrase": "انقذتنا",
+            "votes": 2,
+            "out_of": 3
+          },
+          {
+            "keyphrase": "الموروث الثقافي",
+            "votes": 1,
+            "out_of": 3
+          }
+        ]
+      },
+      "annotator_count": 3,
+      "majority_vote_gold": [
+        "يقولوا",
+        "عاملين",
+        "الدم",
+        "اذونا",
+        "انقذتنا"
+      ],
+      "stored_gold": [
+        "يقولوا",
+        "عاملين",
+        "الدم",
+        "اذونا",
+        "انقذتنا"
+      ],
+      "gold_sets_match": true
+    }
+  ]
+}
