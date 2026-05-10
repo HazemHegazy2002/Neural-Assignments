@@ -1,0 +1,1051 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>MLP — Multi-Layer Perceptron | Team10</title>
+<style>
+*{box-sizing:border-box;margin:0;padding:0}
+:root{
+  --bg:#f5f4f0;
+  --bg2:#ffffff;
+  --bg3:#eceae4;
+  --border:#dddbd3;
+  --border2:#c8c6be;
+  --text:#1a1a18;
+  --muted:#6b6a63;
+  --teal:#0f7a5a;
+  --teal-bg:#e4f5ee;
+  --purple:#5b52c7;
+  --purple-bg:#eeedfc;
+  --coral:#b8411e;
+  --coral-bg:#faeae4;
+  --amber:#8a5a08;
+  --red:#c0302f;
+  --radius:10px;
+  --radius-lg:16px;
+}
+html{scroll-behavior:smooth}
+body{font-family:'Segoe UI',system-ui,sans-serif;background:var(--bg);color:var(--text);line-height:1.6;font-size:15px}
+
+/* HEADER */
+header{position:sticky;top:0;z-index:100;background:rgba(245,244,240,0.96);backdrop-filter:blur(12px);border-bottom:1px solid var(--border);padding:0 24px}
+.header-inner{max-width:1100px;margin:0 auto;display:flex;align-items:center;justify-content:space-between;height:56px;gap:12px}
+.logo{display:flex;align-items:center;gap:10px;flex-shrink:0}
+.logo-badge{background:var(--purple);color:#fff;font-size:12px;font-weight:700;padding:3px 10px;border-radius:20px;letter-spacing:.04em}
+.logo-title{font-size:14px;color:var(--muted)}
+nav{display:flex;gap:2px;flex-wrap:wrap}
+nav a{color:var(--muted);text-decoration:none;padding:5px 9px;border-radius:6px;font-size:13px;transition:all .2s;white-space:nowrap}
+nav a:hover{color:var(--text);background:var(--bg3)}
+
+/* HERO */
+#hero{min-height:88vh;display:flex;align-items:center;padding:80px 32px;max-width:1100px;margin:0 auto;gap:60px}
+.hero-inner{flex:1;min-width:0}
+.hero-tag{display:inline-block;background:var(--purple-bg);color:var(--purple);font-size:12px;font-weight:600;padding:4px 12px;border-radius:20px;margin-bottom:20px;letter-spacing:.06em}
+h1{font-size:clamp(2rem,5vw,3.4rem);font-weight:700;line-height:1.15;margin-bottom:20px;color:var(--text)}
+.hero-sub{font-size:17px;color:var(--muted);max-width:480px;margin-bottom:32px;line-height:1.7}
+.hero-btns{display:flex;gap:12px;flex-wrap:wrap}
+.btn-primary{background:var(--purple);color:#fff;border:none;padding:11px 24px;border-radius:var(--radius);font-size:14px;font-weight:600;cursor:pointer;text-decoration:none;display:inline-block;transition:all .2s}
+.btn-primary:hover{background:#4840a8;transform:translateY(-1px)}
+.btn-outline{background:#fff;color:var(--text);border:1px solid var(--border2);padding:11px 24px;border-radius:var(--radius);font-size:14px;font-weight:500;cursor:pointer;text-decoration:none;display:inline-block;transition:all .2s}
+.btn-outline:hover{background:var(--bg3);border-color:var(--purple)}
+.btn-danger{background:var(--red);color:#fff;border:none;padding:11px 24px;border-radius:var(--radius);font-size:14px;font-weight:600;cursor:pointer;transition:all .2s}
+.btn-danger:hover{background:#a02828}
+.hero-visual{flex:1;min-width:280px;max-width:480px}
+#heroCanvas{width:100%;height:320px}
+
+/* SECTIONS */
+section{padding:80px 32px}
+section:nth-child(even){background:var(--bg2)}
+.container{max-width:1100px;margin:0 auto}
+.section-label{font-size:12px;font-weight:600;color:var(--purple);text-transform:uppercase;letter-spacing:.1em;margin-bottom:12px}
+h2{font-size:clamp(1.6rem,3vw,2.3rem);font-weight:700;margin-bottom:14px;color:var(--text)}
+.section-sub{font-size:16px;color:var(--muted);max-width:640px;margin-bottom:40px;line-height:1.7}
+
+/* ARCH CARDS */
+.arch-cards{display:flex;align-items:center;gap:16px;flex-wrap:wrap;margin-bottom:40px}
+.arch-card{flex:1;min-width:180px;background:#fff;border:1px solid var(--border);border-radius:var(--radius-lg);padding:24px}
+.arch-card.teal{border-top:3px solid var(--teal)}
+.arch-card.purple{border-top:3px solid var(--purple)}
+.arch-card.coral{border-top:3px solid var(--coral)}
+.arch-card-icon{font-size:26px;font-weight:700;margin-bottom:8px}
+.arch-card.teal .arch-card-icon{color:var(--teal)}
+.arch-card.purple .arch-card-icon{color:var(--purple)}
+.arch-card.coral .arch-card-icon{color:var(--coral)}
+.arch-card-title{font-weight:600;margin-bottom:6px;color:var(--text)}
+.arch-card-desc{font-size:13px;color:var(--muted);line-height:1.6}
+.arch-arrow{font-size:24px;color:var(--border2);flex-shrink:0}
+
+/* FORMULA */
+.formula-section{background:var(--bg3);border:1px solid var(--border);border-radius:var(--radius-lg);padding:28px}
+.formula-title{font-size:13px;font-weight:600;color:var(--muted);margin-bottom:14px;text-transform:uppercase;letter-spacing:.05em}
+.formula-box{font-family:'Courier New',monospace;font-size:16px;color:var(--text);margin-bottom:16px;line-height:1.8}
+.f-out{color:var(--teal);font-weight:700}
+.f-w{color:var(--purple);font-weight:700}
+.f-b{color:var(--coral);font-weight:700}
+.formula-legend{display:flex;gap:20px;flex-wrap:wrap}
+.formula-legend span{font-size:13px;color:var(--muted);display:flex;align-items:center;gap:6px}
+.dot{width:10px;height:10px;border-radius:50%;display:inline-block;flex-shrink:0}
+.dot.teal{background:var(--teal)}
+.dot.purple{background:var(--purple)}
+.dot.coral{background:var(--coral)}
+
+/* PANEL */
+.panel{background:#fff;border:1px solid var(--border);border-radius:var(--radius-lg);padding:20px}
+.panel-title{font-size:12px;font-weight:600;color:var(--muted);text-transform:uppercase;letter-spacing:.05em;margin-bottom:14px}
+
+/* TABS */
+.tabs{display:flex;gap:6px;flex-wrap:wrap;margin-bottom:14px}
+.tab{padding:5px 14px;border-radius:var(--radius);border:1px solid var(--border);font-size:13px;cursor:pointer;background:#fff;color:var(--muted);transition:all .2s}
+.tab:hover{border-color:var(--purple);color:var(--text)}
+.tab.active{background:var(--purple);color:#fff;border-color:var(--purple)}
+
+/* SLIDERS */
+.slider-row{display:flex;align-items:center;gap:10px;margin-bottom:10px}
+.slider-row label{font-size:13px;color:var(--muted);min-width:32px}
+.slider-row input[type=range]{flex:1;accent-color:var(--purple)}
+.slider-row span{font-size:13px;font-weight:600;min-width:36px;text-align:right;color:var(--text)}
+
+/* DEMO GRID */
+.demo-grid{display:grid;grid-template-columns:1fr 1fr;gap:16px}
+@media(max-width:700px){.demo-grid{grid-template-columns:1fr}}
+
+/* FORMULA LIVE */
+.formula-live{font-family:'Courier New',monospace;font-size:13px;line-height:1.9;color:var(--text);white-space:pre-wrap;background:var(--bg3);padding:14px;border-radius:var(--radius)}
+.formula-live .hl{color:var(--purple);font-weight:700}
+.formula-live .pos{color:var(--teal);font-weight:700}
+.formula-live .neg{color:var(--red);font-weight:700}
+.formula-live .dim{color:var(--muted)}
+
+/* STATS */
+.stats-row{display:grid;grid-template-columns:repeat(auto-fit,minmax(120px,1fr));gap:12px;margin-bottom:20px}
+.stat-card{background:#fff;border:1px solid var(--border);border-radius:var(--radius);padding:16px}
+.stat-label{font-size:12px;color:var(--muted);margin-bottom:4px}
+.stat-val{font-size:22px;font-weight:700;color:var(--text)}
+
+/* LOSS BAR */
+.loss-bar-wrap{height:8px;background:var(--bg3);border-radius:4px;overflow:hidden}
+.loss-bar{height:100%;border-radius:4px;background:var(--purple);transition:width .3s,background .5s}
+
+/* BTN ROW */
+.btn-row{display:flex;gap:8px;flex-wrap:wrap}
+
+/* CHARTS */
+.charts-grid{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-top:16px}
+@media(max-width:700px){.charts-grid{grid-template-columns:1fr}}
+canvas{display:block;width:100%}
+
+/* TRUTH TABLE */
+.truth-table{width:100%;border-collapse:collapse;font-size:14px}
+.truth-table th{text-align:left;padding:8px 12px;color:var(--muted);font-size:12px;font-weight:600;border-bottom:1px solid var(--border)}
+.truth-table td{padding:8px 12px;border-bottom:1px solid var(--border);color:var(--text)}
+.truth-table .correct{color:var(--teal);font-weight:600}
+.truth-table .wrong{color:var(--red);font-weight:600}
+
+/* LIMITATIONS */
+#limitations{background:var(--bg3)}
+.limit-cards{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:16px}
+.limit-card{background:#fff;border:1px solid var(--border);border-radius:var(--radius-lg);padding:24px}
+.limit-icon{font-size:28px;margin-bottom:10px}
+.limit-title{font-weight:600;margin-bottom:8px;color:var(--text)}
+.limit-desc{font-size:13px;color:var(--muted);line-height:1.6;margin-bottom:12px}
+.limit-tag{font-size:12px;color:var(--coral);font-weight:600}
+
+/* TF PLAYGROUND */
+#playground{background:var(--bg)}
+.playground-controls{display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:16px;margin-bottom:20px}
+.pg-preset-label{font-size:12px;font-weight:600;color:var(--muted);text-transform:uppercase;letter-spacing:.05em;margin-bottom:8px}
+.preset-btns{display:flex;gap:8px;flex-wrap:wrap}
+.preset-btns button{padding:6px 14px;font-size:13px}
+.preset-btns button.tab-active{background:var(--purple);color:#fff;border-color:var(--purple)}
+.playground-tips{display:grid;grid-template-columns:repeat(auto-fit,minmax(180px,1fr));gap:10px;margin-bottom:20px}
+.tip-card{background:#fff;border:1px solid var(--border);border-radius:var(--radius);padding:14px 16px;display:flex;align-items:flex-start;gap:12px}
+.tip-icon{width:26px;height:26px;min-width:26px;border-radius:50%;background:var(--purple);color:#fff;font-size:13px;font-weight:700;display:flex;align-items:center;justify-content:center}
+.tip-text{font-size:13px;color:var(--muted);line-height:1.5}
+.tip-text b{color:var(--text);font-weight:600}
+.playground-frame-wrap{border:1px solid var(--border);border-radius:var(--radius-lg);overflow:hidden;margin-bottom:12px}
+#tf-playground{width:100%;height:560px;display:block;background:var(--bg3)}
+.playground-note{padding:10px 16px;font-size:12px;color:var(--muted);background:var(--bg3);border-top:1px solid var(--border);display:flex;align-items:center;gap:8px}
+.note-badge{background:var(--amber);color:#fff;font-size:11px;font-weight:700;padding:2px 8px;border-radius:10px}
+.pg-explain{margin-top:24px}
+.pg-explain-title{font-size:15px;font-weight:600;margin-bottom:14px;color:var(--text)}
+.pg-explain-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:12px}
+.pg-explain-card{background:#fff;border:1px solid var(--border);border-radius:var(--radius);padding:16px}
+.pg-explain-term{font-weight:600;color:var(--purple);font-size:13px;margin-bottom:6px}
+.pg-explain-desc{font-size:13px;color:var(--muted);line-height:1.5}
+
+/* MNIST SECTION */
+#mnist{background:var(--bg2)}
+.mnist-grid{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-bottom:16px}
+@media(max-width:680px){.mnist-grid{grid-template-columns:1fr}}
+.canvas-wrap{background:#111;border-radius:var(--radius);overflow:hidden;margin-bottom:12px;display:flex;justify-content:center;padding:8px}
+#mnistCanvas{cursor:crosshair;display:block;touch-action:none;border-radius:6px}
+.mnist-btn-row{display:flex;gap:8px;margin-bottom:8px}
+.mnist-btn-row button{flex:1}
+.mnist-hint{font-size:12px;color:var(--muted);text-align:center;line-height:1.5}
+.mnist-pred-box{text-align:center;background:var(--purple-bg);border-radius:var(--radius);padding:20px 12px;margin-bottom:16px}
+.mnist-big-digit{font-size:88px;font-weight:700;line-height:1;color:var(--purple);transition:all .25s}
+.mnist-conf-label{font-size:14px;color:var(--muted);margin-top:6px}
+.mnist-bar-row{display:flex;align-items:center;gap:8px;margin-bottom:6px}
+.mnist-bar-num{font-size:12px;font-weight:600;width:14px;text-align:right;color:var(--muted)}
+.mnist-bar-track{flex:1;height:12px;background:var(--bg3);border-radius:6px;overflow:hidden}
+.mnist-bar-fill{height:100%;border-radius:6px;background:var(--purple);transition:width .25s}
+.mnist-bar-fill.top{background:var(--teal)}
+.mnist-bar-pct{font-size:11px;color:var(--muted);width:34px;text-align:right}
+.mnist-net-info{font-size:12px;color:var(--muted);margin-bottom:8px}
+.mnist-legend{display:flex;gap:20px;flex-wrap:wrap;margin-top:10px}
+.mnist-legend span{font-size:12px;color:var(--muted);display:flex;align-items:center;gap:6px}
+.leg-dot{width:10px;height:10px;border-radius:2px;display:inline-block}
+.leg-dot.purple{background:var(--purple)}
+.leg-dot.teal{background:var(--teal)}
+.leg-dot.gray{background:var(--border2);border:1px solid var(--border)}
+.mnist-arch-note{margin-top:20px;background:var(--bg3);border:1px solid var(--border);border-radius:var(--radius-lg);padding:20px}
+.mnist-arch-title{font-size:13px;font-weight:600;color:var(--muted);text-transform:uppercase;letter-spacing:.05em;margin-bottom:14px}
+.mnist-arch-flow{display:flex;align-items:center;gap:10px;flex-wrap:wrap}
+.arch-node{flex:1;min-width:110px;padding:12px;border-radius:var(--radius);text-align:center;font-size:13px;font-weight:600;line-height:1.4}
+.arch-node span{font-size:11px;font-weight:400;display:block;margin-top:2px}
+.arch-node.input-node{background:var(--teal-bg);color:var(--teal)}
+.arch-node.hidden-node{background:var(--purple-bg);color:var(--purple)}
+.arch-node.output-node{background:var(--coral-bg);color:var(--coral)}
+.arch-arrow-sm{font-size:20px;color:var(--border2);flex-shrink:0}
+
+/* QUIZ */
+.quiz-q{background:#fff;border:1px solid var(--border);border-radius:var(--radius-lg);padding:20px;margin-bottom:14px}
+.quiz-q-text{font-weight:600;margin-bottom:14px;line-height:1.5;color:var(--text)}
+.quiz-q-num{font-size:12px;color:var(--purple);font-weight:700;margin-bottom:6px}
+.quiz-options{display:flex;flex-direction:column;gap:8px}
+.quiz-option{display:flex;align-items:flex-start;gap:10px;padding:10px 14px;border:1px solid var(--border);border-radius:var(--radius);cursor:pointer;transition:all .2s;font-size:14px;color:var(--text);background:#fff}
+.quiz-option:hover{border-color:var(--purple);background:var(--purple-bg)}
+.quiz-option input{margin-top:2px;accent-color:var(--purple)}
+.quiz-option.correct{border-color:var(--teal);background:var(--teal-bg)}
+.quiz-option.wrong{border-color:var(--red);background:#fef0f0}
+.quiz-result{background:#fff;border:1px solid var(--border);border-radius:var(--radius-lg);padding:32px;text-align:center}
+.quiz-score{font-size:52px;font-weight:700;color:var(--purple);margin-bottom:8px}
+.quiz-msg{font-size:16px;color:var(--muted)}
+
+/* FOOTER */
+footer{background:var(--text);color:#fff;padding:40px 32px}
+.footer-inner{max-width:1100px;margin:0 auto;text-align:center}
+.footer-team{font-weight:700;font-size:18px;margin-bottom:4px;color:#fff}
+.footer-sub{font-size:13px;color:rgba(255,255,255,0.55)}
+</style>
+</head>
+<body>
+
+<header>
+  <div class="header-inner">
+    <div class="logo">
+      <span class="logo-badge">Team10</span>
+      <span class="logo-title">ANN Course Project</span>
+    </div>
+    <nav>
+      <a href="#hero">Home</a>
+      <a href="#architecture">Architecture</a>
+      <a href="#demo">Demo</a>
+      <a href="#training">Training</a>
+      <a href="#playground">TF Playground</a>
+      <a href="#mcq">Quiz</a>
+    </nav>
+  </div>
+</header>
+
+<section id="hero">
+  <div class="hero-inner">
+    <div class="hero-tag">Multi-Layer Perceptron</div>
+    <h1>How does an MLP<br>actually learn?</h1>
+    <p class="hero-sub">An interactive explanation of the foundational neural network — from a single neuron to a fully trained classifier. Built by Team10.</p>
+    <div class="hero-btns">
+      <a href="#demo" class="btn-primary">Try the Demo</a>
+      <a href="#architecture" class="btn-outline">Explore Architecture</a>
+    </div>
+  </div>
+  <div class="hero-visual">
+    <canvas id="heroCanvas"></canvas>
+  </div>
+</section>
+
+<section id="architecture">
+  <div class="container">
+    <div class="section-label">Architecture</div>
+    <h2>Inside an MLP</h2>
+    <p class="section-sub">A Multi-Layer Perceptron stacks layers of neurons. Each neuron computes a weighted sum of its inputs, adds a bias, then passes the result through an activation function.</p>
+    <div class="arch-cards">
+      <div class="arch-card teal">
+        <div class="arch-card-icon">x</div>
+        <div class="arch-card-title">Input layer</div>
+        <div class="arch-card-desc">Receives raw features — pixel values, sensor readings, numbers. One neuron per feature.</div>
+      </div>
+      <div class="arch-arrow">→</div>
+      <div class="arch-card purple">
+        <div class="arch-card-icon">h</div>
+        <div class="arch-card-title">Hidden layer(s)</div>
+        <div class="arch-card-desc">Learns patterns by combining inputs with learned weights. More layers = more complex patterns.</div>
+      </div>
+      <div class="arch-arrow">→</div>
+      <div class="arch-card coral">
+        <div class="arch-card-icon">y</div>
+        <div class="arch-card-title">Output layer</div>
+        <div class="arch-card-desc">Produces the final prediction — a class label, a probability, or a continuous value.</div>
+      </div>
+    </div>
+    <div class="formula-section">
+      <div class="formula-title">The core computation at every neuron</div>
+      <div class="formula-box">
+        <span class="f-out">output</span> = activation( <span class="f-w">w₁</span>·x₁ + <span class="f-w">w₂</span>·x₂ + … + <span class="f-w">wₙ</span>·xₙ + <span class="f-b">b</span> )
+      </div>
+      <div class="formula-legend">
+        <span><span class="dot teal"></span> x = inputs</span>
+        <span><span class="dot purple"></span> w = weights (learned)</span>
+        <span><span class="dot coral"></span> b = bias (learned)</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="demo">
+  <div class="container">
+    <div class="section-label">Interactive Demo</div>
+    <h2>Build &amp; run your own MLP</h2>
+    <p class="section-sub">Adjust the architecture, change inputs, and switch activation functions. Watch the forward pass compute in real time.</p>
+    <div class="demo-grid">
+      <div class="panel">
+        <div class="panel-title">Network architecture</div>
+        <div class="tabs" id="arch-tabs">
+          <button class="tab active" onclick="setArch(2,2,1,this)">2-2-1</button>
+          <button class="tab" onclick="setArch(2,3,1,this)">2-3-1</button>
+          <button class="tab" onclick="setArch(2,4,1,this)">2-4-1</button>
+          <button class="tab" onclick="setArch(3,3,1,this)">3-3-1</button>
+          <button class="tab" onclick="setArch(3,4,2,this)">3-4-2</button>
+        </div>
+        <canvas id="netCanvas" height="220"></canvas>
+      </div>
+      <div class="panel">
+        <div class="panel-title">Inputs</div>
+        <div id="input-sliders"></div>
+        <div class="panel-title" style="margin-top:20px">Activation function</div>
+        <div class="tabs" id="act-tabs">
+          <button class="tab active" onclick="setAct('sigmoid',this)">Sigmoid</button>
+          <button class="tab" onclick="setAct('relu',this)">ReLU</button>
+          <button class="tab" onclick="setAct('tanh',this)">Tanh</button>
+          <button class="tab" onclick="setAct('leaky',this)">Leaky ReLU</button>
+        </div>
+        <canvas id="actCanvas" height="120"></canvas>
+      </div>
+    </div>
+    <div class="panel" style="margin-top:16px">
+      <div class="panel-title">Forward pass — live computation</div>
+      <div id="formula-box" class="formula-live"></div>
+    </div>
+  </div>
+</section>
+
+<section id="training">
+  <div class="container">
+    <div class="section-label">Training</div>
+    <h2>Watch the MLP learn XOR</h2>
+    <p class="section-sub">The XOR problem cannot be solved by a single perceptron — but an MLP can learn it. Watch the loss drop and the decision boundary form as training progresses.</p>
+    <div class="stats-row">
+      <div class="stat-card"><div class="stat-label">Epoch</div><div class="stat-val" id="s-epoch">0</div></div>
+      <div class="stat-card"><div class="stat-label">Loss</div><div class="stat-val" id="s-loss">—</div></div>
+      <div class="stat-card"><div class="stat-label">Accuracy</div><div class="stat-val" id="s-acc">—</div></div>
+      <div class="stat-card"><div class="stat-label">Learning rate</div><div class="stat-val" id="s-lr">0.100</div></div>
+    </div>
+    <div class="panel">
+      <div class="loss-bar-wrap"><div class="loss-bar" id="loss-bar" style="width:100%"></div></div>
+      <div class="slider-row" style="margin-top:16px">
+        <label>Learning rate</label>
+        <input type="range" min="-5" max="1" step="0.1" value="-1" id="lr-slider" oninput="updateLR(this.value)">
+        <span id="lr-val">0.1</span>
+      </div>
+      <div class="btn-row" style="margin-top:16px">
+        <button class="btn-primary" id="train-btn" onclick="toggleTrain()">▶ Train</button>
+        <button class="btn-outline" onclick="trainStep()">Step ×10</button>
+        <button class="btn-danger" onclick="resetNet()">↺ Reset</button>
+      </div>
+    </div>
+    <div class="charts-grid">
+      <div class="panel">
+        <div class="panel-title">Loss curve</div>
+        <canvas id="lossCanvas" height="180"></canvas>
+      </div>
+      <div class="panel">
+        <div class="panel-title">Decision boundary (XOR)</div>
+        <canvas id="decisionCanvas" height="180"></canvas>
+      </div>
+    </div>
+    <div class="panel" style="margin-top:16px">
+      <div class="panel-title">XOR truth table</div>
+      <table class="truth-table">
+        <thead><tr><th>x₁</th><th>x₂</th><th>Expected</th><th>Predicted</th><th>Correct?</th></tr></thead>
+        <tbody id="xor-table"></tbody>
+      </table>
+    </div>
+  </div>
+</section>
+
+<section id="limitations">
+  <div class="container">
+    <div class="section-label">Limitations</div>
+    <h2>When MLP struggles</h2>
+    <div class="limit-cards">
+      <div class="limit-card">
+        <div class="limit-icon">🖼</div>
+        <div class="limit-title">Images &amp; spatial data</div>
+        <div class="limit-desc">MLP ignores spatial structure. CNNs use local filters and are far better for images.</div>
+        <div class="limit-tag">→ Use CNN instead</div>
+      </div>
+      <div class="limit-card">
+        <div class="limit-icon">📝</div>
+        <div class="limit-title">Sequences &amp; text</div>
+        <div class="limit-desc">MLP has no memory of previous inputs. RNNs and Transformers handle sequential data.</div>
+        <div class="limit-tag">→ Use RNN/LSTM instead</div>
+      </div>
+      <div class="limit-card">
+        <div class="limit-icon">📊</div>
+        <div class="limit-title">Small datasets</div>
+        <div class="limit-desc">Many parameters mean MLP overfits easily when data is scarce. Regularization helps but only partially.</div>
+        <div class="limit-tag">→ Use simpler model</div>
+      </div>
+      <div class="limit-card">
+        <div class="limit-icon">🔢</div>
+        <div class="limit-title">Very high dimensions</div>
+        <div class="limit-desc">Fully connected layers explode in parameter count with high-dimensional input (e.g. 1080p image).</div>
+        <div class="limit-tag">→ Use feature extraction first</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="playground">
+  <div class="container">
+    <div class="section-label">TF Playground</div>
+    <h2>Experiment with TensorFlow Playground</h2>
+    <p class="section-sub">Build and train neural networks visually. Change layers, neurons, activation functions, and datasets — watch the decision boundary form in real time.</p>
+    <div class="playground-controls">
+      <div class="pg-presets">
+        <div class="pg-preset-label">Quick presets</div>
+        <div class="preset-btns">
+          <button class="btn-outline" onclick="loadPreset('xor')">XOR problem</button>
+          <button class="btn-outline" onclick="loadPreset('circle')">Circle</button>
+          <button class="btn-outline" onclick="loadPreset('spiral')">Spiral (hard)</button>
+          <button class="btn-outline" onclick="loadPreset('regression')">Regression</button>
+        </div>
+      </div>
+      <a id="pg-open-btn" href="https://playground.tensorflow.org" target="_blank" class="btn-primary">Open full screen ↗</a>
+    </div>
+    <div class="playground-tips">
+      <div class="tip-card"><div class="tip-icon">1</div><div class="tip-text">Pick a <b>dataset</b> (top left) — start with Circle or XOR</div></div>
+      <div class="tip-card"><div class="tip-icon">2</div><div class="tip-text">Add <b>hidden layers</b> with the + button and adjust neuron count</div></div>
+      <div class="tip-card"><div class="tip-icon">3</div><div class="tip-text">Press <b>▶ Play</b> and watch the decision boundary form live</div></div>
+      <div class="tip-card"><div class="tip-icon">4</div><div class="tip-text">Change the <b>activation function</b> — compare ReLU vs Tanh</div></div>
+    </div>
+    <div class="playground-frame-wrap">
+      <iframe id="tf-playground"
+        src="https://playground.tensorflow.org/#activation=tanh&batchSize=10&dataset=xor&regDataset=reg-plane&learningRate=0.03&regularizationRate=0&noise=0&networkShape=4,2&seed=0.50112&showTestData=false&discretize=false&percTrainData=50&x=true&y=true&xTimesY=false&xSquared=false&ySquared=false&cosX=false&sinX=false&cosY=false&sinY=false&collectStats=false&problem=classification&initZero=false&hideText=false"
+        frameborder="0" allowfullscreen></iframe>
+      <div class="playground-note"><span class="note-badge">Note</span> Requires internet. If it does not load, click "Open full screen" above.</div>
+    </div>
+    <div class="pg-explain">
+      <div class="pg-explain-title">Connecting TF Playground to what you learned</div>
+      <div class="pg-explain-grid">
+        <div class="pg-explain-card"><div class="pg-explain-term">Neurons per layer</div><div class="pg-explain-desc">Each circle = one neuron. More neurons = more capacity to learn complex patterns.</div></div>
+        <div class="pg-explain-card"><div class="pg-explain-term">Hidden layers</div><div class="pg-explain-desc">Deeper networks separate more complex patterns — try the Spiral dataset with 1 vs 4 layers.</div></div>
+        <div class="pg-explain-card"><div class="pg-explain-term">Blue / orange regions</div><div class="pg-explain-desc">This is the decision boundary — identical concept to the boundary in our Training section above.</div></div>
+        <div class="pg-explain-card"><div class="pg-explain-term">Test loss</div><div class="pg-explain-desc">Loss on unseen data. Train loss low but test loss high means the network is overfitting.</div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="mcq">
+  <div class="container">
+    <div class="section-label">Quiz</div>
+    <h2>Test your understanding</h2>
+    <p class="section-sub">15 multiple-choice questions covering the key aspects of MLP.</p>
+    <div id="quiz-container"></div>
+    <div id="quiz-result" style="display:none" class="quiz-result"></div>
+    <button class="btn-primary" id="quiz-submit" onclick="submitQuiz()" style="margin-top:20px">Submit answers</button>
+    <button class="btn-outline" id="quiz-reset" onclick="resetQuiz()" style="margin-top:20px;display:none">Try again</button>
+  </div>
+</section>
+
+<footer>
+  <div class="footer-inner">
+    <div class="footer-team">Team10 · ANN Course Project</div>
+    <div class="footer-sub">Multi-Layer Perceptron — Interactive Demonstration</div>
+  </div>
+</footer>
+
+<script>
+// ---- MLP State ----
+let nIn=2,nHid=2,nOut=1;
+let actFn='sigmoid';
+let inputs=[];
+let W1=[],b1=[],W2=[],b2=[];
+let epoch=0,lossHistory=[],training=false,trainInterval=null;
+let lr=0.1;
+
+// ---- Activation functions ----
+function sigmoid(x){return 1/(1+Math.exp(-x))}
+function relu(x){return Math.max(0,x)}
+function tanh_(x){return Math.tanh(x)}
+function leaky(x){return x>0?x:0.01*x}
+function activate(x){
+  if(actFn==='sigmoid')return sigmoid(x);
+  if(actFn==='relu')return relu(x);
+  if(actFn==='tanh')return tanh_(x);
+  return leaky(x);
+}
+function activateDeriv(a){
+  if(actFn==='sigmoid')return a*(1-a);
+  if(actFn==='relu')return a>0?1:0;
+  if(actFn==='tanh')return 1-a*a;
+  return a>0?1:0.01;
+}
+
+// ---- Network init ----
+function randW(){return(Math.random()-0.5)*2}
+function initNet(){
+  W1=[];b1=[];W2=[];b2=[];
+  for(let i=0;i<nHid;i++){
+    W1.push([]);
+    for(let j=0;j<nIn;j++)W1[i].push(randW());
+    b1.push(randW());
+  }
+  for(let i=0;i<nOut;i++){
+    W2.push([]);
+    for(let j=0;j<nHid;j++)W2[i].push(randW());
+    b2.push(randW());
+  }
+  epoch=0;lossHistory=[];
+  updateStats(0,null,null);
+  drawLoss();drawDecision();updateXORTable();
+}
+
+// ---- Forward pass ----
+function forward(inp){
+  let h=[];
+  for(let i=0;i<nHid;i++){
+    let z=b1[i];
+    for(let j=0;j<nIn;j++)z+=W1[i][j]*inp[j];
+    h.push(activate(z));
+  }
+  let o=[];
+  for(let i=0;i<nOut;i++){
+    let z=b2[i];
+    for(let j=0;j<nHid;j++)z+=W2[i][j]*h[j];
+    o.push(sigmoid(z));
+  }
+  return{h,o};
+}
+
+function forwardRaw(inp){
+  let hz=[];
+  for(let i=0;i<nHid;i++){
+    let z=b1[i];
+    for(let j=0;j<nIn;j++)z+=W1[i][j]*inp[j];
+    hz.push(z);
+  }
+  let h=hz.map(activate);
+  let oz=[];
+  for(let i=0;i<nOut;i++){
+    let z=b2[i];
+    for(let j=0;j<nHid;j++)z+=W2[i][j]*h[j];
+    oz.push(z);
+  }
+  let o=oz.map(sigmoid);
+  return{hz,h,oz,o};
+}
+
+// ---- XOR dataset ----
+const xorData=[[[0,0],[0]],[[0,1],[1]],[[1,0],[1]],[[1,1],[0]]];
+
+// ---- Training ----
+function trainOnce(){
+  let totalLoss=0;
+  for(let[inp,tgt]of xorData){
+    let{hz,h,oz,o}=forwardRaw(inp);
+    let dO=[];
+    for(let i=0;i<nOut;i++){
+      let e=o[i]-tgt[i];
+      totalLoss+=e*e;
+      dO.push(e*o[i]*(1-o[i]));
+    }
+    let dH=Array(nHid).fill(0);
+    for(let i=0;i<nOut;i++)
+      for(let j=0;j<nHid;j++)
+        dH[j]+=dO[i]*W2[i][j];
+    let dHz=dH.map((d,j)=>d*activateDeriv(h[j]));
+    for(let i=0;i<nOut;i++){
+      for(let j=0;j<nHid;j++)W2[i][j]-=lr*dO[i]*h[j];
+      b2[i]-=lr*dO[i];
+    }
+    for(let i=0;i<nHid;i++){
+      for(let j=0;j<nIn;j++)W1[i][j]-=lr*dHz[i]*inp[j];
+      b1[i]-=lr*dHz[i];
+    }
+  }
+  return totalLoss/xorData.length;
+}
+
+function computeAcc(){
+  let c=0;
+  for(let[inp,tgt]of xorData){
+    let{o}=forward(inp);
+    if(Math.round(o[0])===tgt[0])c++;
+  }
+  return Math.round(c/xorData.length*100);
+}
+
+function trainStep(){
+  for(let i=0;i<10;i++){
+    let l=trainOnce();epoch++;
+    if(epoch%2===0)lossHistory.push(l);
+  }
+  let loss=lossHistory[lossHistory.length-1]||0;
+  let acc=computeAcc();
+  updateStats(epoch,loss,acc);
+  drawLoss();drawDecision();drawNet();updateFormula();updateXORTable();
+}
+
+function toggleTrain(){
+  training=!training;
+  let btn=document.getElementById('train-btn');
+  if(training){
+    btn.textContent='⏸ Pause';
+    trainInterval=setInterval(()=>{
+      for(let i=0;i<8;i++){let l=trainOnce();epoch++;if(epoch%3===0)lossHistory.push(l);}
+      let loss=lossHistory[lossHistory.length-1]||0;
+      let acc=computeAcc();
+      updateStats(epoch,loss,acc);
+      drawLoss();drawDecision();drawNet();updateFormula();updateXORTable();
+    },80);
+  }else{
+    btn.textContent='▶ Train';
+    clearInterval(trainInterval);
+  }
+}
+
+function resetNet(){
+  if(training)toggleTrain();
+  initNet();
+  setupInputSliders();
+  drawNet();drawActFn();updateFormula();
+}
+
+function updateStats(ep,loss,acc){
+  document.getElementById('s-epoch').textContent=ep;
+  document.getElementById('s-loss').textContent=loss!=null?loss.toFixed(4):'—';
+  document.getElementById('s-acc').textContent=acc!=null?acc+'%':'—';
+  if(loss!=null){
+    let pct=Math.max(0,Math.min(100,(1-loss)*100));
+    let bar=document.getElementById('loss-bar');
+    bar.style.width=pct+'%';
+    bar.style.background=acc===100?'#1D9E75':'#7F77DD';
+  }
+}
+
+function updateLR(v){
+  lr=Math.pow(10,parseFloat(v));
+  let display=lr<0.001?lr.toExponential(0):lr<0.01?lr.toFixed(5):lr<0.1?lr.toFixed(4):lr<1?lr.toFixed(3):lr.toFixed(2);
+  document.getElementById('lr-val').textContent=display;
+  document.getElementById('s-lr').textContent=display;
+}
+
+// ---- Architecture / Activation switches ----
+function setArch(ni,nh,no,el){
+  nIn=ni;nHid=nh;nOut=no;
+  document.querySelectorAll('#arch-tabs .tab').forEach(t=>t.classList.remove('active'));
+  el.classList.add('active');
+  initNet();setupInputSliders();drawNet();drawActFn();updateFormula();drawLoss();drawDecision();
+}
+
+function setAct(fn,el){
+  actFn=fn;
+  document.querySelectorAll('#act-tabs .tab').forEach(t=>t.classList.remove('active'));
+  el.classList.add('active');
+  drawActFn();updateFormula();drawNet();
+}
+
+// ---- Input sliders ----
+function setupInputSliders(){
+  inputs=Array(nIn).fill(0).map((_,i)=>typeof inputs[i]==='number'?inputs[i]:0.5);
+  let c=document.getElementById('input-sliders');
+  c.innerHTML='';
+  for(let i=0;i<nIn;i++){
+    (function(idx){
+      let d=document.createElement('div');
+      d.className='slider-row';
+      d.innerHTML=`<label>x${idx+1}</label><input type="range" min="-2" max="2" step="0.1" value="${inputs[idx]}"><span>${parseFloat(inputs[idx]).toFixed(1)}</span>`;
+      let sl=d.querySelector('input');
+      let sp=d.querySelector('span');
+      sl.addEventListener('input',function(){
+        inputs[idx]=parseFloat(this.value);
+        sp.textContent=parseFloat(this.value).toFixed(1);
+        drawNet();updateFormula();
+      });
+      c.appendChild(d);
+    })(i);
+  }
+}
+
+// ---- Canvas helper ----
+function getCtx(id,h){
+  let c=document.getElementById(id);
+  if(!c)return null;
+  let dpr=window.devicePixelRatio||1;
+  let w=c.parentElement.clientWidth-40;
+  c.style.width=w+'px';
+  c.style.height=h+'px';
+  c.width=w*dpr;
+  c.height=h*dpr;
+  let ctx=c.getContext('2d');
+  ctx.scale(dpr,dpr);
+  return{ctx,w,h};
+}
+
+// ---- Draw network ----
+function drawNet(){
+  let r=getCtx('netCanvas',220);
+  if(!r)return;
+  let{ctx,w,h}=r;
+  ctx.clearRect(0,0,w,h);
+  let layerSizes=[nIn,nHid,nOut];
+  let nL=3;
+  let colW=w/nL;
+  let{h:fh,o}=forward(inputs);
+  let vals=[inputs,[...fh],[...o]];
+  let colors=['#1D9E75','#7F77DD','#D85A30'];
+
+  function neuronY(l,i){
+    let n=layerSizes[l];
+    let spacing=Math.min(44,(h-48)/Math.max(n-1,1));
+    let totalH=(n-1)*spacing;
+    return h/2-totalH/2+i*spacing;
+  }
+
+  for(let l=0;l<2;l++){
+    for(let i=0;i<layerSizes[l];i++){
+      for(let j=0;j<layerSizes[l+1];j++){
+        let x1=colW*(l+0.5),y1=neuronY(l,i);
+        let x2=colW*(l+1.5),y2=neuronY(l+1,j);
+        let wt=l===0?W1[j][i]:W2[j<nOut?j:0][i];
+        let alpha=Math.min(0.9,Math.abs(wt)*0.5+0.12);
+        ctx.strokeStyle=wt>0?`rgba(29,158,117,${alpha})`:`rgba(226,75,74,${alpha})`;
+        ctx.lineWidth=Math.min(2.5,Math.abs(wt)*1.2+0.3);
+        ctx.beginPath();ctx.moveTo(x1,y1);ctx.lineTo(x2,y2);ctx.stroke();
+      }
+    }
+  }
+
+  let labels=['Input','Hidden','Output'];
+  for(let l=0;l<3;l++){
+    ctx.fillStyle='#6b6a63';
+    ctx.font='11px sans-serif';
+    ctx.textAlign='center';ctx.textBaseline='top';
+    ctx.fillText(labels[l],colW*(l+0.5),4);
+    for(let i=0;i<layerSizes[l];i++){
+      let x=colW*(l+0.5),y=neuronY(l,i);
+      let val=vals[l][i]||0;
+      let r=18;
+      ctx.beginPath();ctx.arc(x,y,r,0,Math.PI*2);
+      ctx.fillStyle=colors[l]+'22';ctx.fill();
+      ctx.strokeStyle=colors[l];ctx.lineWidth=2;ctx.stroke();
+      ctx.fillStyle=colors[l];
+      ctx.font='bold 11px sans-serif';
+      ctx.textAlign='center';ctx.textBaseline='middle';
+      ctx.fillText(val.toFixed(2),x,y);
+    }
+  }
+}
+
+// ---- Draw activation function ----
+function drawActFn(){
+  let r=getCtx('actCanvas',120);
+  if(!r)return;
+  let{ctx,w,h}=r;
+  ctx.clearRect(0,0,w,h);
+  let pad=24;
+  let gw=w-2*pad,gh=h-2*pad;
+  ctx.strokeStyle='#dddbd3';ctx.lineWidth=0.8;
+  ctx.beginPath();ctx.moveTo(pad,pad+gh/2);ctx.lineTo(pad+gw,pad+gh/2);ctx.stroke();
+  ctx.beginPath();ctx.moveTo(pad+gw/2,pad);ctx.lineTo(pad+gw/2,pad+gh);ctx.stroke();
+  ctx.strokeStyle='#7F77DD';ctx.lineWidth=2.5;ctx.beginPath();
+  for(let px=0;px<gw;px++){
+    let x=(px/gw)*6-3;
+    let y=activate(x);
+    let sy=pad+gh-(y+1.5)/3*gh;
+    px===0?ctx.moveTo(pad+px,sy):ctx.lineTo(pad+px,sy);
+  }
+  ctx.stroke();
+  let labels={sigmoid:'σ(x) = 1/(1+e⁻ˣ)',relu:'f(x) = max(0, x)',tanh:'f(x) = tanh(x)',leaky:'f(x) = x>0 ? x : 0.01x'};
+  ctx.fillStyle='#6b6a63';ctx.font='11px sans-serif';ctx.textAlign='left';ctx.textBaseline='top';
+  ctx.fillText(labels[actFn],pad+4,pad+2);
+}
+
+// ---- Update forward pass formula ----
+function updateFormula(){
+  let{hz,h,oz,o}=forwardRaw(inputs);
+  let lines=[];
+  lines.push('<span class="dim">Step 1 — hidden layer (z = Wx + b, then activate):</span>');
+  for(let i=0;i<Math.min(nHid,2);i++){
+    let terms=inputs.map((v,j)=>`<span class="hl">${W1[i][j].toFixed(2)}</span>×${v.toFixed(1)}`).join(' + ');
+    lines.push(`  h${i+1}: z = ${terms} + ${b1[i].toFixed(2)} = <span class="hl">${hz[i].toFixed(3)}</span> → ${actFn}(z) = <span class="hl">${h[i].toFixed(3)}</span>`);
+  }
+  if(nHid>2)lines.push(`  <span class="dim">... (${nHid-2} more hidden neurons)</span>`);
+  lines.push('');
+  lines.push('<span class="dim">Step 2 — output layer (sigmoid):</span>');
+  for(let i=0;i<nOut;i++){
+    let terms=h.map((v,j)=>`<span class="hl">${W2[i][j].toFixed(2)}</span>×${v.toFixed(3)}`).join(' + ');
+    let cls=o[i]>0.5?'pos':'neg';
+    lines.push(`  y${i+1}: σ(${terms} + ${b2[i].toFixed(2)}) = <span class="${cls}">${o[i].toFixed(4)}</span>  →  prediction: <span class="${cls}">${o[i]>0.5?'1  ✓':'0  ✗'}</span>`);
+  }
+  document.getElementById('formula-box').innerHTML=lines.join('\n');
+}
+
+// ---- Loss curve ----
+function drawLoss(){
+  let r=getCtx('lossCanvas',180);
+  if(!r)return;
+  let{ctx,w,h}=r;
+  ctx.clearRect(0,0,w,h);
+  if(lossHistory.length<2)return;
+  let pad=32;let gw=w-pad-8;let gh=h-pad-8;
+  let maxL=Math.max(...lossHistory,0.01);
+  ctx.strokeStyle='#dddbd3';ctx.lineWidth=0.8;
+  ctx.beginPath();ctx.moveTo(pad,8);ctx.lineTo(pad,8+gh);ctx.lineTo(pad+gw,8+gh);ctx.stroke();
+  ctx.strokeStyle='#7F77DD';ctx.lineWidth=2;ctx.beginPath();
+  lossHistory.forEach((l,i)=>{
+    let x=pad+i/Math.max(lossHistory.length-1,1)*gw;
+    let y=8+gh-(l/maxL)*gh;
+    i===0?ctx.moveTo(x,y):ctx.lineTo(x,y);
+  });
+  ctx.stroke();
+  ctx.fillStyle='#6b6a63';ctx.font='11px sans-serif';
+  ctx.textAlign='left';ctx.textBaseline='top';ctx.fillText('Loss',pad+4,10);
+  ctx.textAlign='right';ctx.fillText(maxL.toFixed(3),pad-2,8);
+  ctx.fillText('0',pad-2,8+gh-8);
+  ctx.textAlign='center';ctx.fillText('Epochs →',pad+gw/2,8+gh+10);
+}
+
+// ---- Decision boundary ----
+function drawDecision(){
+  let r=getCtx('decisionCanvas',180);
+  if(!r)return;
+  let{ctx,w,h}=r;
+  ctx.clearRect(0,0,w,h);
+  if(nIn!==2)return;
+  let pad=20;let gw=w-2*pad;let gh=h-2*pad;
+  let res=35;
+  for(let gx=0;gx<res;gx++){
+    for(let gy=0;gy<res;gy++){
+      let ix=(gx/res)*2-1;
+      let iy=(gy/res)*2-1;
+      let{o}=forward([ix,iy]);
+      let v=o[0];
+      ctx.fillStyle=v>0.5?`rgba(29,158,117,${0.12+v*0.28})`:`rgba(226,75,74,${0.12+(1-v)*0.28})`;
+      ctx.fillRect(pad+gx/res*gw,pad+gy/res*gh,gw/res+1,gh/res+1);
+    }
+  }
+  xorData.forEach(([inp,tgt])=>{
+    let px=pad+(inp[0]+1)/2*gw;
+    let py=pad+(inp[1]+1)/2*gh;
+    ctx.beginPath();ctx.arc(px,py,7,0,Math.PI*2);
+    ctx.fillStyle=tgt[0]===1?'#1D9E75':'#E24B4A';
+    ctx.fill();
+    ctx.strokeStyle='#fff';ctx.lineWidth=2;ctx.stroke();
+  });
+  ctx.fillStyle='#6b6a63';ctx.font='11px sans-serif';
+  ctx.textAlign='center';ctx.textBaseline='top';
+  ctx.fillText('XOR decision boundary',pad+gw/2,2);
+}
+
+// ---- XOR table ----
+function updateXORTable(){
+  let tb=document.getElementById('xor-table');
+  if(!tb)return;
+  tb.innerHTML='';
+  xorData.forEach(([inp,tgt])=>{
+    let{o}=forward(inp);
+    let pred=Math.round(o[0]);
+    let ok=pred===tgt[0];
+    let tr=document.createElement('tr');
+    tr.innerHTML=`<td>${inp[0]}</td><td>${inp[1]}</td><td>${tgt[0]}</td><td class="${ok?'correct':'wrong'}">${pred}</td><td>${ok?'✓':'✗'}</td>`;
+    tb.appendChild(tr);
+  });
+}
+
+// ---- Init ----
+window.addEventListener('load',()=>{
+  initNet();
+  setupInputSliders();
+  setTimeout(()=>{
+    drawNet();drawActFn();updateFormula();drawLoss();drawDecision();updateXORTable();
+  },60);
+});
+window.addEventListener('resize',()=>{
+  drawNet();drawActFn();drawLoss();drawDecision();
+});
+</script>
+<script>
+const questions=[
+  {q:"What does MLP stand for?",opts:["Multi-Layer Perceptron","Multiple Learning Parameters","Machine Learning Pipeline","Multi-Level Processing"],ans:0},
+  {q:"What is the minimum number of layers an MLP must have?",opts:["1 layer","2 layers","3 layers","4 layers"],ans:2},
+  {q:"Why do we apply an activation function in an MLP?",opts:["To speed up computation","To add nonlinearity so the network can learn complex patterns","To reduce the number of weights","To normalize the input data"],ans:1},
+  {q:"What problem can an MLP solve that a single perceptron cannot?",opts:["Linear classification","AND gate","XOR gate","OR gate"],ans:2},
+  {q:"What does the bias term (b) do in a neuron?",opts:["It multiplies the input","It shifts the activation function, allowing the neuron to activate even when inputs are zero","It reduces overfitting","It controls the learning rate"],ans:1},
+  {q:"Which of the following is NOT an activation function?",opts:["ReLU","Sigmoid","Softmax","Gradient"],ans:3},
+  {q:"What is backpropagation used for?",opts:["Computing the forward pass output","Generating training data","Computing gradients to update weights","Initializing the network"],ans:2},
+  {q:"What happens if the learning rate is too large?",opts:["The network learns too slowly","The network may overshoot and fail to converge","The network ignores the bias","The loss becomes zero immediately"],ans:1},
+  {q:"What is one epoch in neural network training?",opts:["One weight update","One forward pass on a single sample","One complete pass through the entire training dataset","One layer of computation"],ans:2},
+  {q:"What is overfitting in an MLP?",opts:["When the model performs well on training data but poorly on new data","When the model has too few neurons","When the learning rate is too small","When the activation function is ReLU"],ans:0},
+  {q:"Which activation function outputs values in the range (0, 1)?",opts:["ReLU","Tanh","Sigmoid","Leaky ReLU"],ans:2},
+  {q:"What does the loss function measure?",opts:["The number of layers in the network","The speed of training","How far the network's predictions are from the true labels","The learning rate"],ans:2},
+  {q:"For image classification, which architecture is generally preferred over MLP?",opts:["RNN","CNN","Decision Tree","Logistic Regression"],ans:1},
+  {q:"What is gradient descent?",opts:["A technique to initialize weights randomly","An optimization algorithm that updates weights in the direction that reduces loss","A method to normalize inputs","A way to add more layers"],ans:1},
+  {q:"Which technique helps prevent overfitting in an MLP?",opts:["Using more neurons in every layer","Increasing the learning rate","Dropout — randomly disabling neurons during training","Removing the bias term"],ans:2},
+];
+
+function buildQuiz(){
+  let c=document.getElementById('quiz-container');
+  c.innerHTML='';
+  questions.forEach((q,i)=>{
+    let div=document.createElement('div');
+    div.className='quiz-q';
+    div.id='q'+i;
+    let optsHTML=q.opts.map((o,j)=>`
+      <label class="quiz-option" id="opt${i}_${j}">
+        <input type="radio" name="q${i}" value="${j}">
+        <span>${o}</span>
+      </label>`).join('');
+    div.innerHTML=`<div class="quiz-q-num">Question ${i+1} of ${questions.length}</div>
+      <div class="quiz-q-text">${q.q}</div>
+      <div class="quiz-options">${optsHTML}</div>`;
+    c.appendChild(div);
+  });
+}
+
+function submitQuiz(){
+  let score=0;
+  questions.forEach((q,i)=>{
+    let sel=document.querySelector(`input[name="q${i}"]:checked`);
+    let chosen=sel?parseInt(sel.value):-1;
+    q.opts.forEach((_,j)=>{
+      let lbl=document.getElementById(`opt${i}_${j}`);
+      if(lbl){
+        if(j===q.ans)lbl.classList.add('correct');
+        else if(j===chosen)lbl.classList.add('wrong');
+        let inp=lbl.querySelector('input');
+        if(inp)inp.disabled=true;
+      }
+    });
+    if(chosen===q.ans)score++;
+  });
+  let pct=Math.round(score/questions.length*100);
+  let msg=pct===100?'Perfect score! Excellent understanding of MLP.':pct>=80?'Great job! You have a solid grasp of MLP.':pct>=60?'Good effort. Review the sections you missed.':'Keep studying — re-read the sections above and try again.';
+  let res=document.getElementById('quiz-result');
+  res.style.display='block';
+  res.innerHTML=`<div class="quiz-score">${score}/${questions.length}</div><div class="quiz-msg">${pct}% — ${msg}</div>`;
+  document.getElementById('quiz-submit').style.display='none';
+  document.getElementById('quiz-reset').style.display='inline-block';
+  res.scrollIntoView({behavior:'smooth',block:'center'});
+}
+
+function resetQuiz(){
+  document.querySelectorAll('.quiz-option').forEach(l=>{l.classList.remove('correct','wrong')});
+  document.querySelectorAll('.quiz-options input').forEach(i=>{i.checked=false;i.disabled=false});
+  document.getElementById('quiz-result').style.display='none';
+  document.getElementById('quiz-submit').style.display='inline-block';
+  document.getElementById('quiz-reset').style.display='none';
+  document.getElementById('quiz-container').scrollIntoView({behavior:'smooth'});
+}
+
+buildQuiz();
+</script>
+<script>
+(function(){
+  const canvas=document.getElementById('heroCanvas');
+  if(!canvas)return;
+  const ctx=canvas.getContext('2d');
+  let W,H,nodes=[],edges=[],t=0;
+
+  function resize(){
+    let dpr=window.devicePixelRatio||1;
+    W=canvas.parentElement.clientWidth;H=320;
+    canvas.style.width=W+'px';canvas.style.height=H+'px';
+    canvas.width=W*dpr;canvas.height=H*dpr;
+    ctx.scale(dpr,dpr);build();
+  }
+
+  function build(){
+    nodes=[];edges=[];
+    let layers=[3,4,4,2];
+    let colW=W/(layers.length+1);
+    layers.forEach((n,l)=>{
+      for(let i=0;i<n;i++){
+        let spacing=H/(n+1);
+        nodes.push({x:colW*(l+1),y:spacing*(i+1),phase:Math.random()*Math.PI*2,layer:l,
+          color:l===0?'#0f7a5a':l===layers.length-1?'#b8411e':'#5b52c7'});
+      }
+    });
+    for(let a=0;a<nodes.length;a++)
+      for(let b=0;b<nodes.length;b++)
+        if(nodes[b].layer===nodes[a].layer+1)
+          edges.push({a,b,w:(Math.random()-0.5)*2});
+  }
+
+  function draw(){
+    ctx.clearRect(0,0,W,H);
+    t+=0.016;
+
+    edges.forEach(e=>{
+      let na=nodes[e.a],nb=nodes[e.b];
+      let alpha=Math.min(0.45,Math.abs(e.w)*0.35+0.06);
+      ctx.strokeStyle=e.w>0?`rgba(15,122,90,${alpha})`:`rgba(184,65,30,${alpha})`;
+      ctx.lineWidth=Math.abs(e.w)*1.1+0.3;
+      ctx.beginPath();ctx.moveTo(na.x,na.y);ctx.lineTo(nb.x,nb.y);ctx.stroke();
+    });
+
+    edges.forEach((e,i)=>{
+      let pct=((t*1.1+i*0.19)%1.5)/1.5;
+      if(pct>1)return;
+      let na=nodes[e.a],nb=nodes[e.b];
+      let px=na.x+(nb.x-na.x)*pct,py=na.y+(nb.y-na.y)*pct;
+      ctx.beginPath();ctx.arc(px,py,3.5,0,Math.PI*2);
+      ctx.fillStyle=e.w>0?'rgba(15,122,90,0.8)':'rgba(184,65,30,0.8)';
+      ctx.fill();
+    });
+
+    nodes.forEach(n=>{
+      let pulse=Math.sin(t*1.3+n.phase)*0.15+0.85;
+      let r=13*pulse;
+      ctx.beginPath();ctx.arc(n.x,n.y,r,0,Math.PI*2);
+      ctx.fillStyle=n.color+'22';ctx.fill();
+      ctx.strokeStyle=n.color;ctx.lineWidth=2;ctx.stroke();
+    });
+
+    requestAnimationFrame(draw);
+  }
+
+  window.addEventListener('resize',resize);
+  resize();draw();
+})();
+</script>
+<script>
+const presets={
+  xor:{url:"https://playground.tensorflow.org/#activation=tanh&batchSize=10&dataset=xor&regDataset=reg-plane&learningRate=0.03&regularizationRate=0&noise=0&networkShape=4,2&seed=0.50112&showTestData=false&discretize=false&percTrainData=50&x=true&y=true&xTimesY=false&xSquared=false&ySquared=false&cosX=false&sinX=false&cosY=false&sinY=false&collectStats=false&problem=classification&initZero=false&hideText=false",label:"XOR problem"},
+  circle:{url:"https://playground.tensorflow.org/#activation=tanh&batchSize=10&dataset=circle&regDataset=reg-plane&learningRate=0.03&regularizationRate=0&noise=0&networkShape=4,2&seed=0.80116&showTestData=false&discretize=false&percTrainData=50&x=true&y=true&xTimesY=false&xSquared=false&ySquared=false&cosX=false&sinX=false&cosY=false&sinY=false&collectStats=false&problem=classification&initZero=false&hideText=false",label:"Circle dataset"},
+  spiral:{url:"https://playground.tensorflow.org/#activation=relu&batchSize=10&dataset=spiral&regDataset=reg-plane&learningRate=0.03&regularizationRate=0&noise=0&networkShape=8,8,4,2&seed=0.23456&showTestData=false&discretize=false&percTrainData=50&x=true&y=true&xTimesY=true&xSquared=true&ySquared=true&cosX=false&sinX=true&cosY=false&sinY=true&collectStats=false&problem=classification&initZero=false&hideText=false",label:"Spiral (hard)"},
+  regression:{url:"https://playground.tensorflow.org/#activation=tanh&batchSize=10&dataset=circle&regDataset=reg-plane&learningRate=0.03&regularizationRate=0&noise=0&networkShape=4,2&seed=0.11111&showTestData=false&discretize=false&percTrainData=50&x=true&y=true&xTimesY=false&xSquared=false&ySquared=false&cosX=false&sinX=false&cosY=false&sinY=false&collectStats=false&problem=regression&initZero=false&hideText=false",label:"Regression"}
+};
+function loadPreset(key){
+  let p=presets[key];if(!p)return;
+  document.getElementById('tf-playground').src=p.url;
+  document.getElementById('pg-open-btn').href=p.url;
+  document.querySelectorAll('.preset-btns button').forEach(b=>{
+    b.classList.toggle('tab-active',b.getAttribute('onclick').includes("'"+key+"'"));
+  });
+}
+</script>
+</body>
+</html>
